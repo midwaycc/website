@@ -1,14 +1,14 @@
 import React from 'react'
-import Content from './Content'
 import styled from 'styled-components'
+import Content from '~/layout/Content'
 
 export default () => (
-  <Footer>
+  <Container>
     <FooterContent>footer</FooterContent>
-  </Footer>
+  </Container>
 )
 
-const Footer = styled.footer`
+const Container = styled.footer`
   background-color: #4a5a6a;
 `
 

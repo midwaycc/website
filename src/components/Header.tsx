@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import Content from './Content'
+import Content from '~/layout/Content'
 
 export default () => (
   <Container>
-    <MenuContainer>
+    <HeaderContent>
       <div>menu</div>
       <div style={{ textAlign: 'right' }}>menu</div>
-    </MenuContainer>
+    </HeaderContent>
   </Container>
 )
 
@@ -15,6 +15,6 @@ const Container = styled.header`
   background-color: orange;
 `
 
-const MenuContainer = styled(Content)`
+const HeaderContent = styled(Content)`
   background-color: pink;
 `
