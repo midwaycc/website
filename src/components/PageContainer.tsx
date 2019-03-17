@@ -1,5 +1,6 @@
-import React from 'react'
+import styled from 'styled-components'
 
-export default (props: { children: React.ReactNode }) => (
-  <div>{props.children}</div>
-)
+export default styled.div`
+  width: 100%;
+  background-color: gray;
+`
