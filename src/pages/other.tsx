@@ -4,8 +4,8 @@ import { Link } from 'gatsby'
 
 export default () => (
   <>
-    <ColoredText>Home page content</ColoredText>
-    <Link to="/other">Go to other</Link>
+    <p>other content</p>
+    <Link to="/">Go home</Link>
   </>
 )
 
