@@ -1,5 +1,9 @@
 import React from 'react'
+import Head from './Head'
 
 export default ({ children }) => (
-  <div style={{ color: 'rebeccapurple' }}>{children}</div>
+  <>
+    <Head />
+    <div style={{ color: 'rebeccapurple' }}>{children}</div>
+  </>
 )
