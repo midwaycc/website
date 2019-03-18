@@ -11,7 +11,3 @@ export default () => (
     </Content>
   </>
 )
-
-const ColoredText = styled.p`
-  color: ${props => props.theme.color};
-`
