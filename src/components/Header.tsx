@@ -1,20 +1,62 @@
 import React from 'react'
 import styled from 'styled-components'
 import Content from '~/layout/Content'
+import media from '~/utils/media'
 
 export default () => (
   <Container>
     <HeaderContent>
-      <div>menu</div>
-      <div style={{ textAlign: 'right' }}>menu</div>
+      <Logo src="/MCC_logo_3.jpg" />
+      <NavigationMenu>
+        <NavItem>One</NavItem>
+        <NavItem>Two</NavItem>
+        <NavItem>Three</NavItem>
+        <NavItem>Four</NavItem>
+        <NavItem>Five</NavItem>
+      </NavigationMenu>
     </HeaderContent>
   </Container>
 )
 
 const Container = styled.header`
-  background-color: orange;
+  background-color: ${props => props.theme.header.background};
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 2;
 `
 
 const HeaderContent = styled(Content)`
-  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+const Logo = styled.img`
+  height: 60px;
+  width: auto;
+  margin: 0.5em;
+  transition: margin-left 200ms ease;
+
+  ${media.xl.plus('0.5em')} {
+    margin-left: 0;
+  }
+`
+
+const NavigationMenu = styled.ul`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 1em;
+  transition: margin-right 200ms ease;
+
+  ${media.xl.plus('1em')} {
+    margin-right: 0;
+  }
+`
+
+const NavItem = styled.li`
+  list-style: none;
+
+  & + & {
+    margin-left: 2em;
+  }
 `

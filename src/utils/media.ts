@@ -1,20 +1,30 @@
-type MediaQueryWithWidth = String & {
+type StringCompatibleQuery = MediaQueryWithWidth & string
+
+class MediaQueryWithWidth {
   width: string
+  rule: string
+
+  constructor(width: string, rule: string = 'min-width') {
+    this.width = width
+    this.rule = rule
+  }
+
+  toString() {
+    return `@media (${this.rule}: ${this.width})`
+  }
+
+  plus(amount: string) {
+    const width = `calc(${this.width} + ${amount})`
+    return new MediaQueryWithWidth(width) as StringCompatibleQuery
+  }
 }
 
-const minWidth = (width: string) => {
-  const query: Partial<MediaQueryWithWidth> = new String(
-    `@media (min-width: ${width})`
-  )
-  query.width = width
-
-  return query as MediaQueryWithWidth
-}
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export default {
-  xs: minWidth('30em'),
-  sm: minWidth('35.5em'),
-  md: minWidth('48em'),
-  lg: minWidth('60em'),
-  xl: minWidth('75em')
-}
+  xs: new MediaQueryWithWidth('30em'),
+  sm: new MediaQueryWithWidth('35.5em'),
+  md: new MediaQueryWithWidth('48em'),
+  lg: new MediaQueryWithWidth('60em'),
+  xl: new MediaQueryWithWidth('75em')
+} as Record<Size, StringCompatibleQuery>
