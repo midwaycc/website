@@ -1,27 +1,40 @@
 import React from 'react'
 import styled from 'styled-components'
-import media from '~/utils/media'
-import NavigationItem from './NavigationItem'
+import NavigationItem, { Props as NavProps } from './NavigationItem'
+
+const navigation: NavProps[] = [
+  { text: 'New Here?', link: '/new' },
+  { text: 'About', link: '/about' },
+  { text: 'Events', link: '/events' },
+  {
+    text: 'Ministries',
+    link: '/ministries',
+    items: [
+      { text: 'One', link: '/one' },
+      { text: 'Two', link: '/two' },
+      { text: 'Three', link: '/three' }
+    ]
+  },
+  { text: 'Giving', link: '/giving' }
+]
 
 export default () => (
   <Container>
-    <NavigationItem>New Here?</NavigationItem>
-    <NavigationItem>About</NavigationItem>
-    <NavigationItem>Events</NavigationItem>
-    <NavigationItem>Ministries</NavigationItem>
-    <NavigationItem>Giving</NavigationItem>
+    {navigation.map((nav, i) => (
+      <NavigationItem key={i} {...nav} />
+    ))}
   </Container>
 )
 
 const Container = styled.ul`
   display: flex;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 
   flex-direction: row;
   align-items: center;
-  transform: translateX(-1em);
-  transition: transform 200ms ease;
-
-  ${media.xl.plusEm(1)} {
-    transform: translateX(0);
-  }
+  justify-content: space-around;
+  position: relative;
+  z-index: 3;
 `

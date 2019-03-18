@@ -16,6 +16,7 @@ export default () => (
 const Container = styled.header`
   background-color: ${props => props.theme.header.background};
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  height: calc(60px + 1em);
   z-index: 2;
 `
 
@@ -23,4 +24,6 @@ const HeaderContent = styled(Content)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
 `
