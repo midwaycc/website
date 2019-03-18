@@ -1,15 +1,63 @@
 import React from 'react'
+import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-
 import Content from '~/layout/Content'
 
 export default () => (
   <>
-    <Content>
-      <Link to="/other">Go to other</Link>
-      {Array.from(new Array(100)).map((_, i) => (
-        <p key={i}>content</p>
-      ))}
-    </Content>
+    <div style={{ backgroundColor: '#70843f' }}>
+      <Slideshow>
+        <Welcome />
+        <Subtitle>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Subtitle>
+        <Arrow left>{'<'}</Arrow>
+        <Arrow right>{'>'}</Arrow>
+      </Slideshow>
+    </div>
   </>
 )
+
+const Slideshow = styled(Content)`
+  width: 100%;
+  height: 500px;
+  background-color: #70843f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Avenir';
+  position: relative;
+`
+
+const Welcome = styled.h1.attrs({ children: 'Welcome.' })`
+  margin: 0;
+  color: white;
+  font-size: 5em;
+`
+
+const Subtitle = styled.p`
+  margin: 2em 0;
+  color: white;
+  font-size: 1.5em;
+  max-width: 30em;
+  text-align: center;
+`
+
+const Arrow = styled.span`
+  border: 2px solid #c2c1a4;
+  color: #c2c1a4;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  ${props => (props.left ? 'left' : 'right')}: 1em};
+  text-align: center;
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 1.5em;
+  user-select: none;
+  cursor: default;
+`

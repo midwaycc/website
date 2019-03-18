@@ -36,5 +36,5 @@ const Container = styled.ul`
   align-items: center;
   justify-content: space-around;
   position: relative;
-  z-index: 3;
+  z-index: 1000;
 `
