@@ -7,18 +7,10 @@ import Content from '~/layout/Content'
 export default () => (
   <>
     <Content>
-      <ColoredText>Home page content</ColoredText>
-      <ColoredText style={{ textAlign: 'right' }}>
-        Right-aligned content
-      </ColoredText>
+      <Link to="/other">Go to other</Link>
       {Array.from(new Array(100)).map((_, i) => (
         <p key={i}>content</p>
       ))}
-      <Link to="/other">Go to other</Link>
     </Content>
   </>
 )
-
-const ColoredText = styled.p`
-  color: ${props => props.theme.color};
-`
