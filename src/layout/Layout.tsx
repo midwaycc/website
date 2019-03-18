@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import Head from '~/components/Head'
 import GlobalStyles from './GlobalStyles'
 import PageContainer from './PageContainer'
-import Header from '~/components/Header'
+import Header from '~/components/header/Header'
 import Footer from '~/components/Footer'
 import theme from '~/theme'
 
