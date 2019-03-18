@@ -27,6 +27,5 @@ export default ({ children }: Props) => (
 )
 
 const Main = styled.main`
-  margin-top: -1em;
   z-index: 1;
 `

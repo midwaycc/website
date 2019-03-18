@@ -33,11 +33,12 @@ const HeaderContent = styled(Content)`
 const Logo = styled.img`
   height: 60px;
   width: auto;
-  margin: 0.5em;
-  transition: margin-left 200ms ease;
+  margin: 0.5em 0;
+  transform: translateX(0.5em);
+  transition: transform 200ms ease;
 
-  ${media.xl.plus('0.5em')} {
-    margin-left: 0;
+  ${media.xl.plusEm(0.5)} {
+    transform: translateX(0);
   }
 `
 
@@ -45,11 +46,11 @@ const NavigationMenu = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 1em;
-  transition: margin-right 200ms ease;
+  transform: translateX(-1em);
+  transition: transform 200ms ease;
 
-  ${media.xl.plus('1em')} {
-    margin-right: 0;
+  ${media.xl.plusEm(1)} {
+    transform: translateX(0);
   }
 `
 
