@@ -5,7 +5,7 @@ import Content from '~/layout/Content'
 
 export default () => (
   <>
-    <div style={{ backgroundColor: '#70843f' }}>
+    <div style={{ backgroundColor: '#7ba088' }}>
       <Slideshow>
         <Welcome />
         <Subtitle>
@@ -22,7 +22,7 @@ export default () => (
 const Slideshow = styled(Content)`
   width: 100%;
   height: 500px;
-  background-color: #70843f;
+  background-color: #7ba088;
   display: flex;
   flex-direction: column;
   align-items: center;
