@@ -13,7 +13,7 @@ export default () => (
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Subtitle>
         <Arrow left>{'<'}</Arrow>
-        <Arrow right>{'>'}</Arrow>
+        <Arrow>{'>'}</Arrow>
       </Slideshow>
     </div>
   </>
@@ -45,7 +45,7 @@ const Subtitle = styled.p`
   text-align: center;
 `
 
-const Arrow = styled.span`
+const Arrow = styled.span<{ left?: boolean }>`
   border: 2px solid #c2c1a4;
   color: #c2c1a4;
   border-radius: 50%;
