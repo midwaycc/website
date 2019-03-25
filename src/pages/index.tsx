@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from '~/theme/styled-components'
 import { Link } from 'gatsby'
 import Content from '~/layout/Content'
 

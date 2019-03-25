@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '~/theme/styled-components'
 import Content from '~/layout/Content'
 
 export default () => null

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '~/theme/styled-components'
 import media from '~/utils/media'
 
 export default styled.div`

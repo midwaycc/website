@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '~/theme/styled-components'
 import NavigationItem, { Props as NavProps } from './NavigationItem'
 
 const navigation: NavProps[] = [
