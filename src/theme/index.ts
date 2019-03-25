@@ -1,6 +1,7 @@
 export default {
   color: 'darkgreen', // TODO: remove
   header: {
-    background: 'white'
+    background: 'white',
+    height: 90
   }
 }

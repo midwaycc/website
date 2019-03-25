@@ -4,7 +4,7 @@ import media from '~/utils/media'
 const src = '/MCC_logo_3.jpg'
 
 export default styled.img.attrs({ src })`
-  height: 60px;
+  height: calc(${props => props.theme.header.height}px - 1em);
   width: auto;
   margin: 0.5em 0;
   transform: translateX(0.5em);
