@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from '~/theme/styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 import Content from '~/layout/Content'
 
@@ -39,7 +39,6 @@ const Welcome = styled.h1.attrs({ children: 'Welcome.' })`
 
 const Subtitle = styled.p`
   margin: 2em 0;
-  color: white;
   font-size: 1.5em;
   max-width: 30em;
   text-align: center;

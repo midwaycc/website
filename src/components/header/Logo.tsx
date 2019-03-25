@@ -1,4 +1,4 @@
-import styled from '~/theme/styled-components'
+import styled from 'styled-components'
 import media from '~/utils/media'
 
 const src = '/MCC_logo_3.jpg'
