@@ -11,10 +11,10 @@ const data = {
 export default () => (
   <>
     <Slideshow color="#7ba088">
-      <Welcome>{data.title}</Welcome>
+      <Title>{data.title}</Title>
       <Subtitle>{data.subtitle}</Subtitle>
-      <Arrow left>{'<'}</Arrow>
-      <Arrow>{'>'}</Arrow>
+      <Arrow css="left: 1em">{'<'}</Arrow>
+      <Arrow css="right: 1em">{'>'}</Arrow>
     </Slideshow>
   </>
 )
@@ -31,7 +31,7 @@ const Slideshow = styled(Section)`
   position: relative;
 `
 
-const Welcome = styled.h1.attrs({ children: 'Welcome.' })`
+const Title = styled.h1`
   margin: 0;
   color: white;
   font-size: 5em;
@@ -45,7 +45,7 @@ const Subtitle = styled.p`
   text-align: center;
 `
 
-const Arrow = styled.span<{ left?: boolean }>`
+const Arrow = styled.span`
   border: 2px solid #c2c1a4;
   color: #c2c1a4;
   border-radius: 50%;
@@ -53,7 +53,6 @@ const Arrow = styled.span<{ left?: boolean }>`
   height: 30px;
   position: absolute;
   top: calc(50% - 15px);
-  ${props => (props.left ? 'left' : 'right')}: 1em};
   text-align: center;
   line-height: 25px;
   font-weight: bold;
