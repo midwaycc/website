@@ -2,11 +2,12 @@ import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 import Head from '~/components/Head'
-import GlobalStyles from './GlobalStyles'
 import PageContainer from './PageContainer'
 import Header from '~/components/header/Header'
 import Footer from '~/components/Footer'
 import theme from '~/theme'
+
+import './index.css'
 
 type Props = {
   children: React.ReactNode
@@ -15,7 +16,6 @@ type Props = {
 export default ({ children }: Props) => (
   <>
     <Head />
-    <GlobalStyles />
     <ThemeProvider theme={theme}>
       <PageContainer>
         <Header />
