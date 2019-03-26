@@ -27,6 +27,5 @@ export default ({ children }: Props) => (
 )
 
 const Main = styled.main`
-  z-index: 1;
   position: relative;
 `
