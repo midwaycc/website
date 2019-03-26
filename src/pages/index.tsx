@@ -2,14 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import Section from '~/layout/Section'
 
+const data = {
+  title: 'Welcome.',
+  subtitle:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+}
+
 export default () => (
   <>
     <Slideshow color="#7ba088">
-      <Welcome />
-      <Subtitle>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </Subtitle>
+      <Welcome>{data.title}</Welcome>
+      <Subtitle>{data.subtitle}</Subtitle>
       <Arrow left>{'<'}</Arrow>
       <Arrow>{'>'}</Arrow>
     </Slideshow>
