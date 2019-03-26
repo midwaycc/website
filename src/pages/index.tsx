@@ -2,24 +2,23 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 import Content from '~/layout/Content'
+import Section from '~/layout/Section'
 
 export default () => (
   <>
-    <div style={{ backgroundColor: '#7ba088' }}>
-      <Slideshow>
-        <Welcome />
-        <Subtitle>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Subtitle>
-        <Arrow left>{'<'}</Arrow>
-        <Arrow>{'>'}</Arrow>
-      </Slideshow>
-    </div>
+    <Slideshow color="#7ba088">
+      <Welcome />
+      <Subtitle>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Subtitle>
+      <Arrow left>{'<'}</Arrow>
+      <Arrow>{'>'}</Arrow>
+    </Slideshow>
   </>
 )
 
-const Slideshow = styled(Content)`
+const Slideshow = styled(Section)`
   width: 100%;
   height: 500px;
   background-color: #7ba088;
