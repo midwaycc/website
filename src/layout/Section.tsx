@@ -6,7 +6,7 @@ import { CssProp } from '~/types/styled-components'
 
 type Props = {
   // Anything that goes in the content area
-  children: React.ReactNode
+  children?: React.ReactNode
   // A styled(Section) applies its styles to the content
   className?: string
   // The background color for the section
