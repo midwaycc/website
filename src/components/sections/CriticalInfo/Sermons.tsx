@@ -1,6 +1,7 @@
 import React from 'react'
 import InfoWidget from './InfoWidget'
 import styled from 'styled-components'
+import { lighten } from 'polished'
 
 export default () => (
   <InfoWidget title="Sermons">
@@ -21,12 +22,11 @@ const Action = styled.button`
 
   :hover {
     box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
-    transform: translate(-1px, -2px);
+    background-color: ${lighten(0.05, '#dd9b6b')};
   }
 
   :active {
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
-    transform: translate(1px, 2px);
   }
 
   & + & {
