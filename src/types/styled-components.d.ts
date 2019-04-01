@@ -1,4 +1,5 @@
 /// <reference types="styled-components/cssprop" />
+
 import {
   FlattenInterpolation,
   ThemeProps,
