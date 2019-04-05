@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Content from '~/layout/Content'
 import Logo from './Logo'
@@ -7,7 +8,9 @@ import Navigation from './Navigation'
 export default () => (
   <Container>
     <HeaderContent>
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
       <Navigation />
     </HeaderContent>
   </Container>
