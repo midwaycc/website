@@ -4,31 +4,37 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 
 export default () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          googleMapsEmbedSrc
-        }
-      }
-    }
-  `)
+  const data = useStaticQuery(query)
+  const [addressLine1, addressLine2] = data.site.siteMetadata.church.address
 
   return (
     <InfoWidget title="Location">
       <Address>
-        3365 Francis Road
+        {addressLine1}
         <br />
-        Alpharetta, Georgia 30004
+        {addressLine2}
       </Address>
       <Map
-        src={data.site.siteMetadata.googleMapsEmbedSrc}
+        src={data.site.siteMetadata.church.googleMapsEmbedSrc}
         width={250}
         height={250}
       />
     </InfoWidget>
   )
 }
+
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        church {
+          address
+          googleMapsEmbedSrc
+        }
+      }
+    }
+  }
+`
 
 const Map = styled.iframe`
   border: 0;
