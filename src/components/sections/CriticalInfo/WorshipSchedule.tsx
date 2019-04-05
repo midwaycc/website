@@ -15,9 +15,12 @@ const WeeklyEvent = (props: { name: string; time: string }) => (
       width: 14em;
       display: flex;
       justify-content: space-between;
+      & + & {
+        margin-top: 0.25em;
+      }
     `}
   >
-    <div css="font-weight: bold">{props.name}</div>
-    <div css="opacity: 0.85">{props.time}</div>
+    <span css="font-weight: bold">{props.name}</span>
+    <span css="opacity: 0.85">{props.time}</span>
   </div>
 )

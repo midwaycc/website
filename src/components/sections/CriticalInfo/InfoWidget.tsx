@@ -7,18 +7,18 @@ type Props = {
 }
 
 export default ({ title, children }: Props) => (
-  <Container columns={children.length}>
+  <Container>
     <Title>{title}</Title>
     {children}
   </Container>
 )
 
-const Container = styled.div<{ columns: number }>`
+const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: top;
-  width: ${props => 100 / props.columns}%;
 `
 
 const Title = styled.h2`
