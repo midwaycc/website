@@ -1,30 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
 import NavigationItem, { Props as NavProps } from './NavigationItem'
+import { useStaticQuery, graphql } from 'gatsby'
 
-const navigation: NavProps[] = [
-  { text: 'New Here?', link: '/new' },
-  { text: 'About', link: '/about' },
-  { text: 'Events', link: '/events' },
-  {
-    text: 'Ministries',
-    link: '/ministries',
-    items: [
-      { text: 'One', link: '/one' },
-      { text: 'Two', link: '/two' },
-      { text: 'Three', link: '/three' }
-    ]
-  },
-  { text: 'Giving', link: '/giving' }
-]
+export default () => {
+  const data = useStaticQuery(query)
 
-export default () => (
-  <Container>
-    {navigation.map((nav, i) => (
-      <NavigationItem key={i} {...nav} />
-    ))}
-  </Container>
-)
+  return (
+    <Container>
+      {data.site.siteMetadata.navigation.map((nav: NavProps, i: number) => (
+        <NavigationItem key={i} {...nav} />
+      ))}
+    </Container>
+  )
+}
+
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        navigation {
+          text
+          link
+          items {
+            text
+            link
+          }
+        }
+      }
+    }
+  }
+`
 
 const Container = styled.ul`
   font-family: ${props => props.theme.header.font};

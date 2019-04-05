@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
+import { navigate, Link } from 'gatsby'
 import { darken } from 'polished'
 
 export type Props = {
@@ -10,19 +10,27 @@ export type Props = {
 }
 
 export default ({ text, link, items }: Props) => (
-  <Container onClick={() => (link ? navigate(link) : undefined)}>
-    {text}
+  <Container>
+    {link ? <FullLink to={link}>{text}</FullLink> : text}
     {items && (
       <SubMenu>
         {items.map((item, i) => (
-          <SubItem key={i} onClick={() => navigate(item.link)}>
-            {item.text}
+          <SubItem key={i}>
+            <FullLink to={item.link}>{item.text}</FullLink>
           </SubItem>
         ))}
       </SubMenu>
     )}
   </Container>
 )
+
+const FullLink = styled(Link)`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: default;
+`
 
 const SubMenu = styled.ul`
   margin: 0;
@@ -54,6 +62,11 @@ const Container = styled.li`
     ${SubMenu} {
       display: block;
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.header.color};
   }
 `
 
