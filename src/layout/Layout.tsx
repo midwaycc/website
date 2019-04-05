@@ -5,6 +5,7 @@ import Head from '~/components/Head'
 import PageContainer from './PageContainer'
 import Header from '~/components/header/Header'
 import Footer from '~/components/Footer'
+import MediaIndicator from './MediaIndicator'
 import theme from '~/theme'
 
 import 'typeface-nunito'
@@ -26,6 +27,7 @@ export default ({ children }: Props) => (
         <Footer />
       </PageContainer>
     </ThemeProvider>
+    {/* <MediaIndicator /> */}
   </>
 )
 
