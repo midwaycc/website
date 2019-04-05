@@ -19,7 +19,7 @@ const Action = styled.button`
   font-size: 1.2em;
   border: none;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 150ms ease, transform 150ms ease;
+  transition: box-shadow 150ms ease;
 
   :hover {
     box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
