@@ -31,4 +31,6 @@ export default ({ children }: Props) => (
 
 const Main = styled.main`
   position: relative;
+  min-height: 100vh;
+  background-color: ${props => props.theme.page.background};
 `

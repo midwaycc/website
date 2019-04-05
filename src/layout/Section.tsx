@@ -13,18 +13,15 @@ type Props = {
   color?: string
   // CSS to apply to the inner content
   innerCss?: CssProp
-  // CSS to apply to the outer container
-  outerCss?: CssProp
 }
 
 export default ({
   children,
   className,
   color = theme.page.background,
-  innerCss,
-  outerCss
+  innerCss
 }: Props) => (
-  <Container css={outerCss} color={color}>
+  <Container color={color}>
     <Content className={className} css={innerCss}>
       {children}
     </Content>

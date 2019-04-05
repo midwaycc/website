@@ -3,8 +3,6 @@ import Section from '~/layout/Section'
 
 export default () => (
   <>
-    <Section css="height: 100vh; padding-top: 2em">
-      <div>Ministries page</div>
-    </Section>
+    <Section css="padding-top: 2em">Ministries page</Section>
   </>
 )
