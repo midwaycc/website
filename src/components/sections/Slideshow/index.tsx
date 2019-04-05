@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section from '~/layout/Section'
-import { Colors } from '~/theme/theme'
+import theme from '~/theme'
 
 type Props = React.ComponentProps<typeof Container> & {
   title: string
@@ -9,18 +9,13 @@ type Props = React.ComponentProps<typeof Container> & {
 }
 
 export default ({ title, subtitle, ...sectionProps }: Props) => (
-  <Container color={colors.background} {...sectionProps}>
+  <Container color={theme.slideshow.background} {...sectionProps}>
     <Title>{title}</Title>
     <Subtitle>{subtitle}</Subtitle>
     <Arrow css="left: 1em">{'<'}</Arrow>
     <Arrow css="right: 1em">{'>'}</Arrow>
   </Container>
 )
-
-const colors: Colors = {
-  background: '#7ba088',
-  color: 'white'
-}
 
 const Container = styled(Section)`
   width: 100%;
@@ -30,7 +25,7 @@ const Container = styled(Section)`
   align-items: center;
   justify-content: center;
   position: relative;
-  color: ${colors.color};
+  color: ${props => props.theme.slideshow.color};
 `
 
 const Title = styled.h1`
@@ -47,7 +42,7 @@ const Subtitle = styled.p`
 `
 
 const Arrow = styled.span`
-  border: 2px solid ${colors.color};
+  border: 2px solid ${props => props.theme.slideshow.color};
   border-radius: 50%;
   width: 30px;
   height: 30px;

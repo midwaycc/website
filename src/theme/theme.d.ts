@@ -18,6 +18,8 @@ declare module 'styled-components' {
       height: number
       font: FontStack
     }
+    slideshow: Colors & {}
+    criticalInfo: Colors & {}
     footer: Colors & {}
     buttons: Colors & {}
   }

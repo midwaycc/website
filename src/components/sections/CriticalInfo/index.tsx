@@ -1,23 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section from '~/layout/Section'
-import { Colors } from '~/theme/theme'
+import theme from '~/theme'
 import Sermons from './Sermons'
 import WorshipSchedule from './WorshipSchedule'
 import Location from './Location'
 
 export default () => (
-  <Container color={colors.background}>
+  <Container color={theme.criticalInfo.background}>
     <Sermons />
     <WorshipSchedule />
     <Location />
   </Container>
 )
-
-const colors: Colors = {
-  background: '#524637',
-  color: 'white'
-}
 
 const Container = styled(Section)`
   display: flex;
@@ -25,7 +20,7 @@ const Container = styled(Section)`
   justify-content: space-around;
   align-items: stretch;
 
-  color: ${colors.color};
+  color: ${props => props.theme.criticalInfo.color};
   padding-top: 3em;
   padding-bottom: 5em;
 `
