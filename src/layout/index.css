@@ -11,3 +11,7 @@ html {
 * {
   box-sizing: border-box;
 }
+
+noscript {
+  display: none;
+}
