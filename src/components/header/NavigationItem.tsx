@@ -30,6 +30,7 @@ const FullLink = styled(Link)`
   display: flex;
   align-items: center;
   cursor: default;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `
 
 const SubMenu = styled.ul`
