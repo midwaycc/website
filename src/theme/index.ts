@@ -2,16 +2,24 @@ import { DefaultTheme } from 'styled-components'
 
 const theme: DefaultTheme = {
   page: {
-    background: 'white'
+    background: 'white',
+    color: '#333',
+    headerFont: "'Montserrat', 'Avenir', 'Lucida Grande', Arial, sans-serif",
+    bodyFont: "'Open Sans', 'Avenir', 'Lucida Grande', Arial, sans-serif"
   },
   header: {
     background: 'white',
+    color: '#524637',
+    font: "'Nunito', 'Avenir', 'Lucida Grande', Arial, sans-serif",
     height: 90
   },
-  fonts: {
-    navigation: "'Nunito', 'Avenir', 'Lucida Grande', Arial, sans-serif",
-    headers: "'Montserrat', 'Avenir', 'Lucida Grande', Arial, sans-serif",
-    body: "'Open Sans', 'Avenir', 'Lucida Grande', Arial, sans-serif"
+  footer: {
+    background: 'deeppink',
+    color: 'white'
+  },
+  buttons: {
+    background: '#dd9b6b',
+    color: '#524637'
   }
 }
 

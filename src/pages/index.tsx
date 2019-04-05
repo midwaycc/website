@@ -12,7 +12,7 @@ export default ({ data }: Props) => {
 
   return (
     <>
-      <Slideshow color="#7ba088" title={title} subtitle={subtitle} />
+      <Slideshow title={title} subtitle={subtitle} />
       <CriticalInfo />
     </>
   )

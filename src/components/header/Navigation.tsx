@@ -27,7 +27,9 @@ export default () => (
 )
 
 const Container = styled.ul`
-  font-family: ${props => props.theme.fonts.navigation};
+  font-family: ${props => props.theme.header.font};
+  font-size: 1.05em;
+  color: ${props => props.theme.header.color};
   display: flex;
   height: 100%;
   padding: 0;

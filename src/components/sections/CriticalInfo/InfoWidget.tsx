@@ -22,6 +22,6 @@ const Container = styled.div`
 `
 
 const Title = styled.h2`
-  font-family: ${props => props.theme.fonts.headers};
+  font-family: ${props => props.theme.page.headerFont};
   font-size: 1.8em;
 `

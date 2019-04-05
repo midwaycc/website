@@ -11,10 +11,10 @@ export default () => (
 )
 
 const Action = styled.button`
-  font-family: ${props => props.theme.fonts.navigation};
+  font-family: ${props => props.theme.header.font};
   width: 14em;
-  background-color: #dd9b6b;
-  color: #524637;
+  background-color: ${props => props.theme.buttons.background};
+  color: ${props => props.theme.buttons.color};
   padding: 1em;
   font-size: 1.2em;
   border: none;
@@ -23,7 +23,7 @@ const Action = styled.button`
 
   :hover {
     box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
-    background-color: ${lighten(0.05, '#dd9b6b')};
+    background-color: ${props => lighten(0.05, props.theme.buttons.background)};
     transform: scale(1.02);
   }
 

@@ -1,21 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section from '~/layout/Section'
+import { Colors } from '~/theme/theme'
 
 type Props = React.ComponentProps<typeof Container> & {
-  color: string
   title: string
   subtitle: string
 }
 
 export default ({ title, subtitle, ...sectionProps }: Props) => (
-  <Container {...sectionProps}>
+  <Container color={colors.background} {...sectionProps}>
     <Title>{title}</Title>
     <Subtitle>{subtitle}</Subtitle>
     <Arrow css="left: 1em">{'<'}</Arrow>
     <Arrow css="right: 1em">{'>'}</Arrow>
   </Container>
 )
+
+const colors: Colors = {
+  background: '#7ba088',
+  color: 'white'
+}
 
 const Container = styled(Section)`
   width: 100%;
@@ -25,26 +30,24 @@ const Container = styled(Section)`
   align-items: center;
   justify-content: center;
   position: relative;
+  color: ${colors.color};
 `
 
 const Title = styled.h1`
-  font-family: ${props => props.theme.fonts.headers};
+  font-family: ${props => props.theme.page.headerFont};
   margin: 0;
-  color: white;
   font-size: 5em;
 `
 
 const Subtitle = styled.p`
   margin: 2em 0;
-  color: white;
   font-size: 1.5em;
   max-width: 30em;
   text-align: center;
 `
 
 const Arrow = styled.span`
-  border: 2px solid #c2c1a4;
-  color: #c2c1a4;
+  border: 2px solid ${colors.color};
   border-radius: 50%;
   width: 30px;
   height: 30px;

@@ -1,18 +1,24 @@
 import 'styled-components'
 
+type Color = string
+type FontStack = string
+
+export type Colors = {
+  background: Color
+  color: Color
+}
+
 declare module 'styled-components' {
   export interface DefaultTheme {
-    page: {
-      background: string
+    page: Colors & {
+      headerFont: FontStack
+      bodyFont: FontStack
     }
-    header: {
-      background: string
+    header: Colors & {
       height: number
+      font: FontStack
     }
-    fonts: {
-      navigation: string
-      headers: string
-      body: string
-    }
+    footer: Colors & {}
+    buttons: Colors & {}
   }
 }

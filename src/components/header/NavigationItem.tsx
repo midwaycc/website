@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
+import { darken } from 'polished'
 
 export type Props = {
   text: string
@@ -31,14 +32,13 @@ const SubMenu = styled.ul`
   top: 100%;
   left: 0;
   min-width: 100%;
-  background-color: white;
+  background-color: ${props => props.theme.header.background};
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   z-index: -1;
 `
 
 const Container = styled.li`
   list-style: none;
-  color: #524637;
   padding: 0 1.5em;
   height: 100%;
   display: flex;
@@ -46,11 +46,10 @@ const Container = styled.li`
   justify-content: center;
   cursor: default;
   user-select: none;
-  background-color: #fff;
   position: relative;
 
   :hover {
-    background-color: #eee;
+    background-color: ${props => darken(0.07, props.theme.header.background)};
 
     ${SubMenu} {
       display: block;
@@ -67,6 +66,6 @@ const SubItem = styled.li`
   min-width: 100%;
 
   :hover {
-    background-color: #eee;
+    background-color: ${props => darken(0.07, props.theme.header.background)};
   }
 `
