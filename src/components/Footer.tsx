@@ -4,7 +4,7 @@ import Content from '~/layout/Content'
 
 export default () => (
   <Container>
-    <FooterContent>footer</FooterContent>
+    <FooterContent>the footer isn't done yet</FooterContent>
   </Container>
 )
 
@@ -17,4 +17,5 @@ const FooterContent = styled(Content)`
   text-align: center;
   padding-top: 2em;
   height: 16em;
+  font-size: 1.5em;
 `
