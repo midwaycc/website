@@ -11,6 +11,7 @@ export default () => (
 )
 
 const Action = styled.button`
+  font-family: ${props => props.theme.fonts.navigation};
   width: 14em;
   background-color: #dd9b6b;
   color: #524637;

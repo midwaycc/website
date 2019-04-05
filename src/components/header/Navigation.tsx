@@ -27,6 +27,7 @@ export default () => (
 )
 
 const Container = styled.ul`
+  font-family: ${props => props.theme.fonts.navigation};
   display: flex;
   height: 100%;
   padding: 0;

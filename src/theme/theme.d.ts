@@ -9,5 +9,10 @@ declare module 'styled-components' {
       background: string
       height: number
     }
+    fonts: {
+      navigation: string
+      headers: string
+      body: string
+    }
   }
 }

@@ -7,6 +7,9 @@ import Header from '~/components/header/Header'
 import Footer from '~/components/Footer'
 import theme from '~/theme'
 
+import 'typeface-nunito'
+import 'typeface-montserrat'
+import 'typeface-open-sans'
 import './index.css'
 
 type Props = {

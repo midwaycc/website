@@ -24,11 +24,11 @@ const Container = styled(Section)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Avenir';
   position: relative;
 `
 
 const Title = styled.h1`
+  font-family: ${props => props.theme.fonts.headers};
   margin: 0;
   color: white;
   font-size: 5em;

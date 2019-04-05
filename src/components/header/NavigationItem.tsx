@@ -39,7 +39,6 @@ const SubMenu = styled.ul`
 const Container = styled.li`
   list-style: none;
   color: #524637;
-  font-family: 'Avenir', 'Lucida Grande', Arial, sans-serif;
   padding: 0 1.5em;
   height: 100%;
   display: flex;
