@@ -5,7 +5,7 @@ const theme: DefaultTheme = {
     background: 'white',
     color: '#333',
     headerFont: "'Montserrat', 'Avenir', 'Lucida Grande', Arial, sans-serif",
-    bodyFont: "'Open Sans', 'Avenir', 'Lucida Grande', Arial, sans-serif"
+    bodyFont: "'Nunito', 'Avenir', 'Lucida Grande', Arial, sans-serif"
   },
   header: {
     background: 'white',
