@@ -5,12 +5,15 @@ import Content from '~/layout/Content'
 import Logo from './Logo'
 import Navigation from './Navigation'
 
+import 'typeface-short-stack'
+
 export default () => (
   <Container>
     <HeaderContent>
       <Link to="/">
         <Logo />
       </Link>
+      <TemporaryChurchName>Midway Community Church</TemporaryChurchName>
       <Navigation />
     </HeaderContent>
   </Container>
@@ -30,4 +33,15 @@ const HeaderContent = styled(Content)`
   justify-content: space-between;
   align-items: stretch;
   height: 100%;
+`
+
+const TemporaryChurchName = styled.div`
+  color: ${props => props.theme.header.color};
+  flex-grow: 1;
+  padding-left: 0.5em;
+  display: flex;
+  align-items: center;
+  font-family: 'Short Stack';
+  font-size: 1.3em;
+  letter-spacing: -0.08em;
 `

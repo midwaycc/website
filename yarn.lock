@@ -8881,6 +8881,11 @@ typeface-open-sans@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.54.tgz#20f5b5ea5c7f95d89dc1f8b2d2b1457680129cee"
   integrity sha512-w6wOd6EicZdZKf0jSU/K3EzEi3zFgvWQSN7NOpRIQI5KeMWmC5Pg/lqtBVJHB0pRChYRmLdhf4h8ROur0A3JZQ==
 
+typeface-short-stack@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-short-stack/-/typeface-short-stack-0.0.72.tgz#24a0485b3717cf7c3e56862de8ac1d41c5e3f3b3"
+  integrity sha512-qXFdPcTihTPoX88VckZjh2ztDEYJii452/boG/CF2VwzntvsQqQAoPQ3efV9yXv6Wgi50k7UZHQQn4t9p6jl/g==
+
 typescript@^3.3.3333:
   version "3.3.3333"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"

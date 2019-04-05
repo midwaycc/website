@@ -30,7 +30,8 @@
     "styled-components": "^4.1.3",
     "typeface-montserrat": "^0.0.54",
     "typeface-nunito": "^0.0.72",
-    "typeface-open-sans": "^0.0.54"
+    "typeface-open-sans": "^0.0.54",
+    "typeface-short-stack": "^0.0.72"
   },
   "devDependencies": {
     "@types/react-helmet": "^5.0.8",
