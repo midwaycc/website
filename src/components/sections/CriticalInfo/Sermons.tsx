@@ -23,10 +23,12 @@ const Action = styled.button`
   :hover {
     box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
     background-color: ${lighten(0.05, '#dd9b6b')};
+    transform: scale(1.02);
   }
 
   :active {
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1);
   }
 
   & + & {

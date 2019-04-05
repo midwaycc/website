@@ -21,5 +21,5 @@ const Container = styled(Section)`
 
   color: white;
   padding-top: 3em;
-  padding-bottom: 6em;
+  padding-bottom: 5em;
 `
