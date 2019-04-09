@@ -17,9 +17,9 @@ module.exports = {
       text: 'Ministries',
       link: '/ministries',
       items: [
-        { text: 'One', link: '/one' },
-        { text: 'Two', link: '/two' },
-        { text: 'Three', link: '/three' }
+        { text: 'One', link: '/about' },
+        { text: 'Two', link: '/about' },
+        { text: 'Three', link: '/about' }
       ]
     },
     { text: 'Giving', link: '/giving' }
