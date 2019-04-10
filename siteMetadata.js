@@ -14,14 +14,21 @@ module.exports = {
     { text: 'About', link: '/about' },
     { text: 'Events', link: '/events' },
     {
-      text: 'Ministries',
-      link: '/ministries',
+      text: 'Giving',
+      link: '/giving',
       items: [
         { text: 'One', link: '/about' },
         { text: 'Two', link: '/about' },
         { text: 'Three', link: '/about' }
       ]
     },
-    { text: 'Giving', link: '/giving' }
+    {
+      text: 'Ministries',
+      items: [
+        { text: 'One', link: '/about' },
+        { text: 'Two', link: '/about' },
+        { text: 'Three', link: '/about' }
+      ]
+    }
   ]
 }
