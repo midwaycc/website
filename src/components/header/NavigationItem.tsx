@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState, useRef, useEffect } from 'react'
+import styled, { css } from 'styled-components'
 import { navigate, Link } from 'gatsby'
 import { darken } from 'polished'
 
@@ -9,25 +9,42 @@ export type Props = {
   items?: Array<{ text: string; link: string }>
 }
 
-export default ({ text, link, items }: Props) => (
-  <Container>
-    {link ? <FullLink to={link}>{text}</FullLink> : text}
-    {items && (
-      <SubMenu>
-        {items.map((item, i) => (
-          <SubItem key={i}>
-            <FullLink to={item.link}>{item.text}</FullLink>
-          </SubItem>
-        ))}
-      </SubMenu>
-    )}
-  </Container>
-)
+export default ({ text, link, items }: Props) => {
+  const [containerKey, setContainerKey] = useState(0)
+
+  const resetContainer = (e: React.MouseEvent) => {
+    setContainerKey(k => k + 1)
+  }
+
+  const swallowClick = (e: React.MouseEvent) => {
+    if (!link) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+  }
+
+  return (
+    <Container key={containerKey}>
+      <FullLink to={link || '#'} onClick={swallowClick}>
+        {text}
+      </FullLink>
+      {items && (
+        <SubMenu>
+          {items.map((item, i) => (
+            <SubItem key={i} onClick={resetContainer}>
+              <FullLink to={item.link}>{item.text}</FullLink>
+            </SubItem>
+          ))}
+        </SubMenu>
+      )}
+    </Container>
+  )
+}
 
 const FullLink = styled(Link)`
-  width: 100%;
-  height: 100%;
+  flex: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
   cursor: default;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -46,16 +63,20 @@ const SubMenu = styled.ul`
   z-index: -1;
 `
 
-const Container = styled.li`
+const Container = styled.li<{ link?: string }>`
   list-style: none;
-  padding: 0 1.5em;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   justify-content: center;
   cursor: default;
   user-select: none;
   position: relative;
+
+  ${FullLink} {
+    padding: 0 1.5em;
+  }
 
   :hover {
     background-color: ${props => darken(0.07, props.theme.header.background)};
@@ -74,10 +95,14 @@ const Container = styled.li`
 const SubItem = styled.li`
   margin: 0;
   list-style: none;
-  padding: 0.5em 1em;
   user-select: none;
   cursor: default;
   min-width: 100%;
+
+  ${FullLink} {
+    padding: 0.5em 1em;
+    justify-content: flex-start;
+  }
 
   :hover {
     background-color: ${props => darken(0.07, props.theme.header.background)};
