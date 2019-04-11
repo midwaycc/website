@@ -19,6 +19,11 @@ export default () => {
         width={250}
         height={250}
       />
+      <noscript css="display: block; margin-top: calc(-250px)">
+        <a href="https://goo.gl/maps/8BQDcF1DBxq" target="_blank">
+          <img src="/fallback-map.jpg" width={250} />
+        </a>
+      </noscript>
     </InfoWidget>
   )
 }
