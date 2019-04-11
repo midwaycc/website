@@ -1,15 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
-import styled, { css } from 'styled-components'
-import { navigate, Link } from 'gatsby'
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { darken } from 'polished'
+import { NavItem } from '../types'
 
-export type Props = {
-  text: string
-  link?: string
-  items?: Array<{ text: string; link: string }>
-}
-
-export default ({ text, link, items }: Props) => {
+export default ({ text, link, items }: NavItem) => {
   const [containerKey, setContainerKey] = useState(0)
 
   const resetContainer = (e: React.MouseEvent) => {
