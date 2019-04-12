@@ -55,6 +55,9 @@ const Hamburger = styled.div`
   align-items: center;
 `
 
+const X_TRANSITION = '0.35s ease'
+const CENTER_TRANSITION = '0.2s ease'
+
 const HamburgerLine = styled.span`
   display: block;
   width: 2em;
@@ -66,33 +69,26 @@ const HamburgerLine = styled.span`
 
   transform-origin: 0.3em 0;
 
-  transition: transform 0.5s ease, background 0.5s ease, opacity 0.55s ease,
-    width 0.5s ease;
+  transition: all ${X_TRANSITION};
 
   & + & {
     margin-top: 0.3em;
   }
 
-  &:first-child {
-    transform-origin: 0% 0%;
-  }
-
-  &:nth-last-child(2) {
-    transform-origin: 0% 100%;
-  }
-
   ${Toggle}:checked ~ & {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    width: 2.28em;
+    width: 2.25em;
   }
 
-  ${Toggle}:checked ~ &:nth-last-child(2) {
+  ${Toggle}:checked ~ &:first-of-type {
+    transform: rotate(45deg) translate(0.05em, -0.1em);
+  }
+
+  ${Toggle}:checked ~ &:nth-of-type(2) {
     opacity: 0;
-    transform: unset;
+    transition: opacity ${CENTER_TRANSITION};
   }
 
-  ${Toggle}:checked ~ &:last-child {
-    transform: rotate(-45deg) translate(-2px, -1px);
+  ${Toggle}:checked ~ &:last-of-type {
+    transform: rotate(-45deg) translate(-0.05em, 0.1em);
   }
 `
