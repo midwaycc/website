@@ -75,7 +75,7 @@ const HamburgerLine = styled.span`
     margin-top: 0.3em;
   }
 
-  ${Toggle}:checked ~ & {
+  ${Toggle}:checked ~ &:not(:nth-of-type(2)) {
     width: 2.25em;
   }
 
@@ -85,7 +85,6 @@ const HamburgerLine = styled.span`
 
   ${Toggle}:checked ~ &:nth-of-type(2) {
     opacity: 0;
-    transform: unset;
     transition: opacity ${CENTER_TRANSITION};
   }
 
