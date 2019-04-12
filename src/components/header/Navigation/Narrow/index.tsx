@@ -85,6 +85,7 @@ const HamburgerLine = styled.span`
 
   ${Toggle}:checked ~ &:nth-of-type(2) {
     opacity: 0;
+    transform: unset;
     transition: opacity ${CENTER_TRANSITION};
   }
 
