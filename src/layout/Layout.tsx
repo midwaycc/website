@@ -27,7 +27,7 @@ export default ({ children }: Props) => (
         <Footer />
       </PageContainer>
     </ThemeProvider>
-    <MediaIndicator />
+    {/* <MediaIndicator /> */}
   </>
 )
 
