@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { darken } from 'polished'
+import FullLink from '../../FullLink'
 import { NavItem } from '../types'
 
 export default ({ text, link, items }: NavItem) => {
@@ -35,15 +35,6 @@ export default ({ text, link, items }: NavItem) => {
     </Container>
   )
 }
-
-const FullLink = styled(Link)`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: default;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-`
 
 const SubMenu = styled.ul`
   margin: 0;
@@ -79,11 +70,6 @@ const Container = styled.li<{ link?: string }>`
     ${SubMenu} {
       display: block;
     }
-  }
-
-  a {
-    text-decoration: none;
-    color: ${props => props.theme.header.color};
   }
 `
 

@@ -8,10 +8,11 @@ import media from '~/utils/media'
 type Props = {
   children?: React.ReactNode
   className?: string
+  onClick?: (e: React.MouseEvent) => void
 }
 
-export default ({ children, className }: Props) => (
-  <Container className={className}>
+export default ({ children, className, onClick }: Props) => (
+  <Container className={className} onClick={onClick}>
     <HeaderContent>
       <Link to="/">
         <Logo />

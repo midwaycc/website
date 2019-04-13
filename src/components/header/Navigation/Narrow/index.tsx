@@ -1,29 +1,34 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
 import media from '~/utils/media'
 import { NavItem } from '../types'
 import HeaderWithoutNav, { HEADER_SHADOW } from '../../HeaderWithoutNav'
+import NavigationItem from './NavigationItem'
 
 type Props = {
   navigationItems: any
 }
 
 export default ({ navigationItems }: Props) => {
+  const [open, setOpen] = useState(true)
+
   return (
     <NarrowNavContainer>
-      <Hamburger>
-        <Toggle />
+      <Hamburger onClick={() => setOpen(o => !o)}>
+        <Toggle checked={open} />
 
         <HamburgerLine />
         <HamburgerLine />
         <HamburgerLine />
 
-        <DuplicateHeader />
+        <DuplicateHeader
+          onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        />
 
         <MenuContainer>
           <NavList>
             {navigationItems.map((nav: NavItem, i: number) => (
-              <MenuItem key={i} {...nav} />
+              <NavigationItem key={i} {...nav} />
             ))}
           </NavList>
         </MenuContainer>
@@ -46,6 +51,11 @@ const NarrowNavContainer = styled.div`
   position: relative;
 `
 
+const NO_TAP_HIGHLIGHT = css`
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+`
+
 const Toggle = styled.input.attrs({ type: 'checkbox' })`
   display: block;
   position: absolute;
@@ -59,8 +69,7 @@ const Toggle = styled.input.attrs({ type: 'checkbox' })`
   opacity: 0;
   z-index: 4;
 
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  ${NO_TAP_HIGHLIGHT};
 `
 
 const Hamburger = styled.div`
@@ -73,6 +82,7 @@ const Hamburger = styled.div`
   padding: 0;
   margin: 0;
   position: relative;
+  ${NO_TAP_HIGHLIGHT};
 `
 
 const HamburgerLine = styled.span`
@@ -126,6 +136,20 @@ const DuplicateHeader = styled(HeaderWithoutNav)`
   }
 `
 
+const NavList = styled.ul`
+  margin: 0;
+  padding-top: calc(0em + ${props => props.theme.header.height}px);
+  padding-right: 1em;
+  font-size: 1.5em;
+  position: absolute;
+  top: ${props => props.theme.header.height / 2}px;
+  right: ${props => props.theme.header.height / 2}px;
+  width: 100vw;
+  text-align: right;
+  transition: all ${MENU_TRANSITION};
+  transition-duration: 0.2s;
+`
+
 const MenuContainer = styled.div`
   position: absolute;
   top: -${props => props.theme.header.height / 2}px;
@@ -139,7 +163,6 @@ const MenuContainer = styled.div`
   transition: all ${MENU_TRANSITION};
   transition-duration: 0.2s;
   border-radius: 50%;
-
   background-color: white;
 
   ${Toggle}:checked ~ & {
@@ -150,13 +173,12 @@ const MenuContainer = styled.div`
     opacity: 1;
     transition: all ${MENU_TRANSITION};
     transition-duration: 0.4s;
+
+    ${NavList} {
+      opacity: 1;
+      top: 150vh;
+      right: 150vh;
+      transition-duration: 0.4s;
+    }
   }
-`
-
-const NavList = styled.ul`
-  margin: 0;
-`
-
-const MenuItem = styled.li`
-  list-style: none;
 `
