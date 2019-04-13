@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Content from '~/layout/Content'
 import Logo from './Logo'
+import media from '~/utils/media'
 
 type Props = {
   children?: React.ReactNode
@@ -15,7 +16,7 @@ export default ({ children, className }: Props) => (
       <Link to="/">
         <Logo />
       </Link>
-      <TemporaryChurchName>MCC</TemporaryChurchName>
+      <TemporaryChurchName />
       {children}
     </HeaderContent>
   </Container>
@@ -48,4 +49,12 @@ const TemporaryChurchName = styled.div`
   font-family: 'Short Stack';
   font-size: 1.3em;
   letter-spacing: -0.08em;
+
+  :after {
+    content: 'Midway';
+
+    ${media.sm} {
+      content: 'Midway Community Church';
+    }
+  }
 `
