@@ -11,7 +11,7 @@ type Props = {
 }
 
 export default ({ navigationItems }: Props) => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   return (
     <NarrowNavContainer>

@@ -25,7 +25,7 @@ export default ({ text, link, items }: NavItem) => {
         )}
       </Container>
       {items && (
-        <SubMenu>
+        <SubMenu open={open} numItems={items.length}>
           {items.map((item, i) => (
             <SubItem key={i}>
               <FullLink to={item.link}>{item.text}</FullLink>
@@ -78,12 +78,16 @@ const Toggle = styled(BaseToggle)`
   left: unset;
   height: ${ROW_HEIGHT};
   width: ${ROW_HEIGHT};
-  /* opacity: 0.5; */
   z-index: 3;
 `
 
-const SubMenu = styled.ul`
+const SubMenu = styled.ul<{ open: boolean; numItems: number }>`
   margin: 0;
+  overflow: hidden;
+
+  height: auto;
+  max-height: ${props => (props.open ? `calc(1.5em * ${props.numItems})` : 0)};
+  transition: max-height 0.4s ease;
 
   ${FullLink} {
     justify-content: flex-start;
