@@ -147,7 +147,7 @@ const NavList = styled.ul`
   width: 100vw;
   text-align: right;
   transition: all ${MENU_TRANSITION};
-  transition-duration: 0.2s;
+  transition-duration: 0.4s;
 `
 
 const MenuContainer = styled.div`
@@ -161,7 +161,7 @@ const MenuContainer = styled.div`
   height: ${props => props.theme.header.height}px;
   width: ${props => props.theme.header.height}px;
   transition: all ${MENU_TRANSITION};
-  transition-duration: 0.2s;
+  transition-duration: 0.4s;
   border-radius: 50%;
   background-color: white;
 
