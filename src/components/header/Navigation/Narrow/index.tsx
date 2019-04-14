@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import media from '~/utils/media'
 import { NavItem } from '../types'
 import HeaderWithoutNav, { HEADER_SHADOW } from '../../HeaderWithoutNav'
 import NavigationItem from './NavigationItem'
+import BaseToggle from '~/components/BaseToggle'
 
 type Props = {
   navigationItems: any
 }
 
 export default ({ navigationItems }: Props) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   return (
     <NarrowNavContainer>
@@ -51,25 +52,10 @@ const NarrowNavContainer = styled.div`
   position: relative;
 `
 
-const NO_TAP_HIGHLIGHT = css`
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-touch-callout: none;
-`
-
-const Toggle = styled.input.attrs({ type: 'checkbox' })`
-  display: block;
-  position: absolute;
-  top: -3px;
-  left: -2px;
+const Toggle = styled(BaseToggle)`
   width: ${props => props.theme.header.height}px;
   height: ${props => props.theme.header.height}px;
-
-  cursor: pointer;
-
-  opacity: 0;
   z-index: 4;
-
-  ${NO_TAP_HIGHLIGHT};
 `
 
 const Hamburger = styled.div`
@@ -82,7 +68,8 @@ const Hamburger = styled.div`
   padding: 0;
   margin: 0;
   position: relative;
-  ${NO_TAP_HIGHLIGHT};
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
 `
 
 const HamburgerLine = styled.span`
@@ -138,8 +125,8 @@ const DuplicateHeader = styled(HeaderWithoutNav)`
 
 const NavList = styled.ul`
   margin: 0;
+  padding: 0;
   padding-top: calc(0em + ${props => props.theme.header.height}px);
-  padding-right: 1em;
   font-size: 1.5em;
   position: absolute;
   top: ${props => props.theme.header.height / 2}px;
