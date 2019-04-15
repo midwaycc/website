@@ -1,12 +1,13 @@
 import React from 'react'
 import InfoWidget from './InfoWidget'
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
+import media from '~/utils/media'
 
 export default () => (
-  <InfoWidget title="Worship Schedule">
+  <Container title="Worship Schedule">
     <WeeklyEvent name="Bible Study" time="9:30 AM" />
     <WeeklyEvent name="Worship Service" time="11:00 AM" />
-  </InfoWidget>
+  </Container>
 )
 
 const WeeklyEvent = (props: { name: string; time: string }) => (
@@ -24,3 +25,12 @@ const WeeklyEvent = (props: { name: string; time: string }) => (
     <span css="opacity: 0.85">{props.time}</span>
   </div>
 )
+
+const Container = styled(InfoWidget)`
+  margin-top: 0;
+  width: 100%;
+
+  ${media.lg} {
+    width: 33.333333%;
+  }
+`

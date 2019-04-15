@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Section from '~/layout/Section'
 import theme from '~/theme'
+import media from '~/utils/media'
 
 type Props = React.ComponentProps<typeof Container> & {
   title: string
@@ -29,16 +30,32 @@ const Container = styled(Section)`
 `
 
 const Title = styled.h1`
-  font-family: ${props => props.theme.page.headerFont};
   margin: 0;
-  font-size: 5em;
+  font-family: ${props => props.theme.page.headerFont};
+  font-size: 3em;
+
+  ${media.sm} {
+    font-size: 4em;
+  }
+
+  ${media.md} {
+    font-size: 5em;
+  }
 `
 
 const Subtitle = styled.p`
   margin: 2em 0;
-  font-size: 1.5em;
-  max-width: 30em;
+  max-width: calc(100% - 4em - 60px);
   text-align: center;
+  /* font-size: 1.2em; */
+
+  ${media.sm} {
+    font-size: 1.25em;
+  }
+
+  ${media.md} {
+    font-size: 1.5em;
+  }
 `
 
 const Arrow = styled.span`

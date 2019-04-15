@@ -8,8 +8,8 @@ import Location from './Location'
 
 export default () => (
   <Container color={theme.criticalInfo.background}>
-    <Sermons />
     <WorshipSchedule />
+    <Sermons />
     <Location />
   </Container>
 )
@@ -19,6 +19,7 @@ const Container = styled(Section)`
   flex-direction: row;
   justify-content: space-around;
   align-items: stretch;
+  flex-wrap: wrap;
 
   color: ${props => props.theme.criticalInfo.color};
   padding-top: 3em;

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from '~/utils/media'
 
 type Props = {
   title: string
@@ -14,11 +15,21 @@ export default ({ title, children }: Props) => (
 )
 
 const Container = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: top;
+  width: 100%;
+
+  ${media.sm} {
+    margin-top: 2em;
+    width: 50%;
+  }
+
+  ${media.lg} {
+    width: 33.333333%;
+    margin-top: 0;
+  }
 `
 
 const Title = styled.h2`

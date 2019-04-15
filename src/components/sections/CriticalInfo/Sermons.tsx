@@ -2,13 +2,16 @@ import React from 'react'
 import InfoWidget from './InfoWidget'
 import styled from 'styled-components'
 import { lighten } from 'polished'
+import media from '~/utils/media'
 
 export default () => (
-  <InfoWidget title="Sermons">
+  <Container title="Sermons">
     <Action>Tune In Live</Action>
     <Action>Past Sermons</Action>
-  </InfoWidget>
+  </Container>
 )
+
+const Container = styled(InfoWidget)``
 
 const Action = styled.button`
   font-family: ${props => props.theme.header.font};
