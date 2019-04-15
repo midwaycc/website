@@ -6,7 +6,7 @@ export default styled.input.attrs({ type: 'checkbox' })`
   top: -3px;
   left: -2px;
 
-  cursor: pointer;
+  cursor: default;
 
   opacity: 0;
 

@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import media from '~/utils/media'
-import { NavItem } from '../types'
+import { NavItem, hasSubItems } from '../types'
 import HeaderWithoutNav, { HEADER_SHADOW } from '../../HeaderWithoutNav'
-import NavigationItem from './NavigationItem'
+import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
 
 type Props = {
@@ -15,8 +14,18 @@ export default ({ navigationItems, className }: Props) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Container className={className}>
-      <Toggle checked={open} onChange={() => setOpen(o => !o)} />
+    <Container
+      className={className}
+      onClick={(e: React.MouseEvent) => {
+        if (
+          e.target &&
+          ((e.target as any).tagName as string).toLowerCase() !== 'input'
+        ) {
+          setOpen(false)
+        }
+      }}
+    >
+      <Toggle checked={open} onChange={e => setOpen(o => !o)} />
 
       <HamburgerLine />
       <HamburgerLine />
@@ -26,9 +35,13 @@ export default ({ navigationItems, className }: Props) => {
 
       <MenuContainer>
         <NavList>
-          {navigationItems.map((nav: NavItem, i: number) => (
-            <NavigationItem key={i} {...nav} />
-          ))}
+          {navigationItems.map((navItem: NavItem, i: number) =>
+            hasSubItems(navItem) ? (
+              <NavigationItemWithSubmenu key={i} {...navItem} />
+            ) : (
+              <NavigationItem key={i} {...navItem} />
+            )
+          )}
         </NavList>
       </MenuContainer>
     </Container>
@@ -114,7 +127,7 @@ const NavList = styled.ul`
   margin: 0;
   padding: 0;
   padding-top: calc(0em + ${props => props.theme.header.height}px);
-  font-size: 1.5em;
+  font-size: 1.25em;
   position: absolute;
   top: ${props => props.theme.header.height / 2}px;
   right: ${props => props.theme.header.height / 2}px;

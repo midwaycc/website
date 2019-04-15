@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 
 const styles = css`
-  flex: 1;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

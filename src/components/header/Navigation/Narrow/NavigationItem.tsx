@@ -1,100 +1,109 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import { NavItem } from '../types'
-import { FullLink } from '../../FullLink'
+import { NavItem, NavItemWithSubitems, NavItemWithLink } from '../types'
+import { FullLink, FullText } from '../../FullLink'
 import BaseToggle from '~/components/BaseToggle'
+import { darken } from 'polished'
 
-export default ({ text, link, items }: NavItem) => {
+export const NavigationItemWithSubmenu = ({
+  text,
+  items
+}: NavItemWithSubitems) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <>
-      <Container>
-        <FullLink to={link || '#'}>{text}</FullLink>
-        {items && (
-          <>
-            <Plus open={open} />
-            <Toggle
-              checked={open}
-              onClick={e => {
-                e.stopPropagation()
-                setOpen(o => !o)
-              }}
-            />
-          </>
-        )}
-      </Container>
-      {items && (
-        <SubMenu open={open} numItems={items.length}>
-          {items.map((item, i) => (
-            <SubItem key={i}>
-              <FullLink to={item.link}>{item.text}</FullLink>
-            </SubItem>
-          ))}
-        </SubMenu>
-      )}
-    </>
+    <Container
+      onClick={(e: React.MouseEvent) => {
+        if (
+          e.target &&
+          ((e.target as any).tagName as string).toLowerCase() !== 'input'
+        ) {
+          setOpen(false)
+        }
+      }}
+    >
+      <Toggle checked={open} onChange={e => setOpen(o => !o)} />
+      <FullText>{text}</FullText>
+      <SubMenu numItems={items.length}>
+        {items.map((item, i) => (
+          <SubItem key={i}>
+            <FullLink to={item.link}>{item.text}</FullLink>
+          </SubItem>
+        ))}
+      </SubMenu>
+    </Container>
   )
 }
 
+export const NavigationItem = ({ text, link }: NavItemWithLink) => (
+  <Container>
+    <FullLink to={link}>{text}</FullLink>
+  </Container>
+)
+
 const ROW_HEIGHT = '60px'
+const SUB_ROW_HEIGHT = '40px'
+const HOVER_COLOR = (background: string) => darken(0.07, background)
+const HOVER_STYLES = css`
+  background-color: ${props => HOVER_COLOR(props.theme.header.background)};
+`
+
+const Toggle = styled(BaseToggle)`
+  width: 100vw;
+  height: ${ROW_HEIGHT};
+  z-index: 3;
+`
 
 const Container = styled.li`
   list-style: none;
-  height: ${ROW_HEIGHT};
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
 
   &:first-of-type {
     margin-top: 1px;
   }
 
-  ${FullLink} {
+  & > ${FullLink}, & > ${FullText} {
     justify-content: flex-start;
     padding: 0 1em;
+    height: ${ROW_HEIGHT};
+  }
+
+  :hover > ${FullText}, :hover > ${FullLink}, ${Toggle}:checked ~ ${FullText} {
+    ${HOVER_STYLES};
   }
 `
 
-const Plus = styled.div<{ open: boolean }>`
-  height: ${ROW_HEIGHT};
-  width: ${ROW_HEIGHT};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
-  z-index: 2;
-
-  :before {
-    transform: ${props => (props.open ? 'scaleX(1.5)' : 'inherit')};
-    content: ${props => (props.open ? "'-'" : "'+'")};
-  }
-`
-
-const Toggle = styled(BaseToggle)`
-  right: 0;
-  left: unset;
-  height: ${ROW_HEIGHT};
-  width: ${ROW_HEIGHT};
-  z-index: 3;
-`
-
-const SubMenu = styled.ul<{ open: boolean; numItems: number }>`
+const SubMenu = styled.ul<{ numItems: number }>`
   margin: 0;
+  padding: 0;
+  width: 100%;
   overflow: hidden;
 
   height: auto;
-  max-height: ${props => (props.open ? `calc(1.5em * ${props.numItems})` : 0)};
+  max-height: 0;
   transition: max-height 0.4s ease;
+
+  ${Toggle}:checked ~ & {
+    max-height: calc(${SUB_ROW_HEIGHT} * ${props => props.numItems});
+  }
 
   ${FullLink} {
     justify-content: flex-start;
     padding-left: 2em;
+    height: ${SUB_ROW_HEIGHT};
   }
 `
 
 const SubItem = styled.li`
   list-style: none;
+  width: 100%;
+
+  :hover {
+    ${HOVER_STYLES};
+  }
 `
