@@ -44,8 +44,9 @@ const SubMenu = styled.ul`
   z-index: -1;
 `
 
+const HOVER_COLOR = (background: string) => darken(0.07, background)
 const HOVER_STYLES = css`
-  background-color: ${props => darken(0.07, props.theme.header.background)};
+  background-color: ${props => HOVER_COLOR(props.theme.header.background)};
 `
 
 const Container = styled.li`
@@ -86,5 +87,21 @@ const SubItem = styled.li`
 
   :hover {
     ${HOVER_STYLES};
+  }
+
+  position: relative;
+
+  :first-child {
+    border-top: 1px solid ${props => HOVER_COLOR(props.theme.header.background)};
+
+    ::after {
+      content: ' ';
+      position: absolute;
+      left: -15px;
+      right: -15px;
+      top: -16px;
+      height: 15px;
+      background-color: ${props => props.theme.header.background};
+    }
   }
 `
