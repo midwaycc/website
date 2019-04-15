@@ -8,33 +8,30 @@ import BaseToggle from '~/components/BaseToggle'
 
 type Props = {
   navigationItems: any
+  className?: string
 }
 
-export default ({ navigationItems }: Props) => {
+export default ({ navigationItems, className }: Props) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <NarrowNavContainer>
-      <Hamburger onClick={() => setOpen(o => !o)}>
-        <Toggle checked={open} />
+    <Container className={className}>
+      <Toggle checked={open} onChange={() => setOpen(o => !o)} />
 
-        <HamburgerLine />
-        <HamburgerLine />
-        <HamburgerLine />
+      <HamburgerLine />
+      <HamburgerLine />
+      <HamburgerLine />
 
-        <DuplicateHeader
-          onClick={(e: React.MouseEvent) => e.stopPropagation()}
-        />
+      <DuplicateHeader onClick={(e: React.MouseEvent) => e.stopPropagation()} />
 
-        <MenuContainer>
-          <NavList>
-            {navigationItems.map((nav: NavItem, i: number) => (
-              <NavigationItem key={i} {...nav} />
-            ))}
-          </NavList>
-        </MenuContainer>
-      </Hamburger>
-    </NarrowNavContainer>
+      <MenuContainer>
+        <NavList>
+          {navigationItems.map((nav: NavItem, i: number) => (
+            <NavigationItem key={i} {...nav} />
+          ))}
+        </NavList>
+      </MenuContainer>
+    </Container>
   )
 }
 
@@ -42,23 +39,7 @@ const X_TRANSITION = '0.35s ease'
 const CENTER_TRANSITION = '0.2s ease'
 const MENU_TRANSITION = '.35s ease-out'
 
-const NarrowNavContainer = styled.div`
-  display: block;
-
-  ${media.lg} {
-    display: none;
-  }
-
-  position: relative;
-`
-
-const Toggle = styled(BaseToggle)`
-  width: ${props => props.theme.header.height}px;
-  height: ${props => props.theme.header.height}px;
-  z-index: 4;
-`
-
-const Hamburger = styled.div`
+const Container = styled.div`
   height: ${props => props.theme.header.height}px;
   width: ${props => props.theme.header.height}px;
   display: flex;
@@ -70,6 +51,12 @@ const Hamburger = styled.div`
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-touch-callout: none;
+`
+
+const Toggle = styled(BaseToggle)`
+  width: ${props => props.theme.header.height}px;
+  height: ${props => props.theme.header.height}px;
+  z-index: 4;
 `
 
 const HamburgerLine = styled.span`

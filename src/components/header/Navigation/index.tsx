@@ -3,6 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Wide from './Wide'
 import Narrow from './Narrow'
 import { NavItem, hasSubItems, hasLink } from './types'
+import media from '~/utils/media'
+import { css } from 'styled-components'
 
 export default () => {
   const data = useStaticQuery(query)
@@ -13,8 +15,24 @@ export default () => {
 
   return (
     <>
-      <Wide navigationItems={navigationItems} />
-      <Narrow navigationItems={navigationItems} />
+      <Wide
+        navigationItems={navigationItems}
+        css={css`
+          display: none;
+          ${media.lg} {
+            display: flex;
+          }
+        `}
+      />
+      <Narrow
+        navigationItems={navigationItems}
+        css={css`
+          display: flex;
+          ${media.lg} {
+            display: none;
+          }
+        `}
+      />
     </>
   )
 }
