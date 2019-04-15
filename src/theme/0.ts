@@ -11,7 +11,8 @@ const theme: DefaultTheme = {
     background: 'white',
     color: '#524637',
     font: "'Nunito', 'Avenir', 'Lucida Grande', Arial, sans-serif",
-    height: 90
+    height: 90,
+    logo: 0
   },
   slideshow: {
     background: '#7ba088',

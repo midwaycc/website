@@ -17,7 +17,6 @@ export default ({ children, className, onClick }: Props) => (
       <Link to="/">
         <Logo />
       </Link>
-      <TemporaryChurchName />
       {children}
     </HeaderContent>
   </Container>

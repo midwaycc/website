@@ -17,6 +17,7 @@ declare module 'styled-components' {
     header: Colors & {
       height: number
       font: FontStack
+      logo: number
     }
     slideshow: Colors & {}
     criticalInfo: Colors & {}
