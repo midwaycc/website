@@ -1,37 +1,31 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { darken } from 'polished'
-import FullLink from '../../FullLink'
-import { NavItem } from '../types'
+import { FullLink, FullText } from '../../FullLink'
+import { NavItemWithLink, NavItemWithSubitems } from '../types'
 
-export default ({ text, link, items }: NavItem) => {
+export const NavigationItem = ({ text, link }: NavItemWithLink) => (
+  <Container>
+    <FullLink to={link}>{text}</FullLink>
+  </Container>
+)
+
+export const NavigationItemWithSubmenu = ({
+  text,
+  items
+}: NavItemWithSubitems) => {
   const [containerKey, setContainerKey] = useState(0)
-
-  const resetContainer = (e: React.MouseEvent) => {
-    setContainerKey(k => k + 1)
-  }
-
-  const swallowClick = (e: React.MouseEvent) => {
-    if (!link) {
-      e.preventDefault()
-      e.stopPropagation()
-    }
-  }
 
   return (
     <Container key={containerKey}>
-      <FullLink to={link || '#'} onClick={swallowClick}>
-        {text}
-      </FullLink>
-      {items && (
-        <SubMenu>
-          {items.map((item, i) => (
-            <SubItem key={i} onClick={resetContainer}>
-              <FullLink to={item.link}>{item.text}</FullLink>
-            </SubItem>
-          ))}
-        </SubMenu>
-      )}
+      <FullText>{text}</FullText>
+      <SubMenu>
+        {items.map((item, i) => (
+          <SubItem key={i} onClick={() => setContainerKey(k => k + 1)}>
+            <FullLink to={item.link}>{item.text}</FullLink>
+          </SubItem>
+        ))}
+      </SubMenu>
     </Container>
   )
 }
@@ -42,14 +36,19 @@ const SubMenu = styled.ul`
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
+  white-space: nowrap;
   min-width: 100%;
   background-color: ${props => props.theme.header.background};
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   z-index: -1;
 `
 
-const Container = styled.li<{ link?: string }>`
+const HOVER_STYLES = css`
+  background-color: ${props => darken(0.07, props.theme.header.background)};
+`
+
+const Container = styled.li`
   list-style: none;
   height: 100%;
   display: flex;
@@ -60,12 +59,12 @@ const Container = styled.li<{ link?: string }>`
   user-select: none;
   position: relative;
 
-  ${FullLink} {
+  ${FullLink}, ${FullText} {
     padding: 0 1.5em;
   }
 
   :hover {
-    background-color: ${props => darken(0.07, props.theme.header.background)};
+    ${HOVER_STYLES};
 
     ${SubMenu} {
       display: block;
@@ -86,6 +85,6 @@ const SubItem = styled.li`
   }
 
   :hover {
-    background-color: ${props => darken(0.07, props.theme.header.background)};
+    ${HOVER_STYLES};
   }
 `

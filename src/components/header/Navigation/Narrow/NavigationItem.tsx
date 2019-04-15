@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { NavItem } from '../types'
-import FullLink from '../../FullLink'
+import { FullLink } from '../../FullLink'
 import BaseToggle from '~/components/BaseToggle'
 
 export default ({ text, link, items }: NavItem) => {

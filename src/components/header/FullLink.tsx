@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 
-export default styled(Link)`
+const styles = css`
   flex: 1;
   display: flex;
   justify-content: center;
@@ -10,4 +10,12 @@ export default styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.header.color};
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+`
+
+export const FullLink = styled(Link)`
+  ${styles}
+`
+
+export const FullText = styled.span`
+  ${styles}
 `

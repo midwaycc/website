@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import NavigationItem from './NavigationItem'
-import { NavItem } from '../types'
+import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
+import { NavItem, hasSubItems } from '../types'
 import media from '~/utils/media'
 
 type Props = {
@@ -10,9 +10,13 @@ type Props = {
 
 export default ({ navigationItems }: Props) => (
   <Container>
-    {navigationItems.map((nav: NavItem, i: number) => (
-      <NavigationItem key={i} {...nav} />
-    ))}
+    {navigationItems.map((navItem: NavItem, i: number) =>
+      hasSubItems(navItem) ? (
+        <NavigationItemWithSubmenu key={i} {...navItem} />
+      ) : (
+        <NavigationItem key={i} {...navItem} />
+      )
+    )}
   </Container>
 )
 
