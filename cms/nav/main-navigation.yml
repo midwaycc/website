@@ -6,7 +6,7 @@ navigation:
   - link: /two
     text: Two
     type: link-item
-  - menu-subitems:
+  - items:
       - link: /minor
         text: Minor
       - link: /three
