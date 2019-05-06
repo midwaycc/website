@@ -4,7 +4,8 @@ import theme2 from './2'
 import theme3 from './3'
 import theme4 from './4'
 import theme5 from './5'
+import theme6 from './6'
+import theme7 from './7'
 import darkTheme from './dark'
 
-export default theme1
-// export default darkTheme
+export default theme7
