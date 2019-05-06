@@ -8,33 +8,47 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "nav-items"
-    label: "Navigation"
-    folder: '_nav'
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
     create: true
-    delete: true
-    widget: "list"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+     preview: false
     fields:
-      - { label: 'Title', name: 'title', default: 'Main Navigation' }
-      - label: 'Navigation Items'
-        label_singular: 'Navigation'
-        name: 'navigation'
-        widget: 'list'
-        types:
-          - label: 'Plain link'
-            name: 'link-item'
-            widget: 'object'
-            fields:
-              - { label: Text, name: text, widget: string }
-              - { label: Link, name: link, widget: string }
-          - label: 'Menu with sub-items'
-            name: 'menu-item'
-            widget: 'object'
-            fields:
-              - { label: Text, name: text, widget: string }
-              - label: "Items"
-                name: 'menu-subitems'
-                widget: 'list'
-                fields: 
-                  - { label: Text, name: text, widget: string }
-                  - { label: Link, name: link, widget: string }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+# collections:
+  # - name: "nav-items"
+    # label: "Navigation"
+    # folder: '_nav'
+    # create: true
+    # delete: true
+    # widget: "list"
+    # fields:
+      # - { label: 'Title', name: 'title', default: 'Main Navigation' }
+      # - label: 'Navigation Items'
+        # label_singular: 'Navigation'
+        # name: 'navigation'
+        # widget: 'list'
+        # types:
+          # - label: 'Plain link'
+            # name: 'link-item'
+            # widget: 'object'
+            # fields:
+              # - { label: Text, name: text, widget: string }
+              # - { label: Link, name: link, widget: string }
+          # - label: 'Menu with sub-items'
+            # name: 'menu-item'
+            # widget: 'object'
+            # fields:
+              # - { label: Text, name: text, widget: string }
+              # - label: "Items"
+                # name: 'menu-subitems'
+                # widget: 'list'
+                # fields: 
+                  # - { label: Text, name: text, widget: string }
+                  # - { label: Link, name: link, widget: string }
