@@ -10,6 +10,10 @@ const theme: DefaultTheme = {
   slideshow: {
     ...baseTheme.slideshow,
     background: '#52656A'
+  },
+  buttons: {
+    ...baseTheme.buttons,
+    background: '#9FBF7C'
   }
 }
 
