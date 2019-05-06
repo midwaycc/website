@@ -20,6 +20,7 @@ module.exports = {
       options: {
         component: require.resolve('./src/layout/Layout.tsx')
       }
-    }
+    },
+    'gatsby-plugin-netlify-cms'
   ]
 }
