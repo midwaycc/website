@@ -3,7 +3,6 @@ backend:
   branch: master
 
 site_url: https://midwaycc.netlify.com
-publish_mode: editorial_workflow
 media_folder: static/img
 public_folder: /img
 
