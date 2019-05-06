@@ -1,0 +1,15 @@
+title: Main Navigation
+navigation:
+  - link: /one
+    text: One
+    type: link-item
+  - link: /two
+    text: Two
+    type: link-item
+  - menu-subitems:
+      - link: /minor
+        text: Minor
+      - link: /three
+        text: Three
+    text: Major
+    type: menu-item
