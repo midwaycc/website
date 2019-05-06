@@ -11,8 +11,8 @@ collections:
     label: "Navigation"
     folder: 'cms/nav'
     format: 'yaml'
-    create: true
-    delete: true
+    create: false
+    delete: false
     widget: "list"
     fields:
       - { label: 'Title', name: 'title', widget: 'hidden', default: 'Main Navigation' }
@@ -24,14 +24,12 @@ collections:
           - label: 'Plain link'
             name: 'link-item'
             widget: 'object'
-            summary: "{{text}}"
             fields:
               - { label: Text, name: text, widget: string }
               - { label: Link, name: link, widget: string }
           - label: 'Menu with sub-items'
             name: 'menu-item'
             widget: 'object'
-            summary: "{{text}}"
             fields:
               - { label: Text, name: text, widget: string }
               - label: "Items"
