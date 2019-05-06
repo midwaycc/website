@@ -3,9 +3,6 @@ navigation:
   - link: /one
     text: One
     type: link-item
-  - link: /two
-    text: Two
-    type: link-item
   - items:
       - link: /minor
         text: Minor
@@ -13,3 +10,6 @@ navigation:
         text: Three
     text: Major
     type: menu-item
+  - link: /two
+    text: Two
+    type: link-item
