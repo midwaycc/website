@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import media from '~/utils/media'
 
 export default () => (
-  <Container title="Worship Schedule">
+  <Container title="Sunday Schedule">
     <WeeklyEvent name="Bible Study" time="9:30 AM" />
     <WeeklyEvent name="Worship Service" time="11:00 AM" />
   </Container>
