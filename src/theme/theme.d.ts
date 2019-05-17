@@ -18,7 +18,7 @@ declare module 'styled-components' {
       shadow: string
       height: number
       font: FontStack
-      logo: number
+      logo: number | string
     }
     slideshow: Colors & {}
     criticalInfo: Colors & {}
