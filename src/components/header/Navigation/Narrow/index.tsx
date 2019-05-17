@@ -6,7 +6,7 @@ import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
 
 type Props = {
-  navigationItems: any
+  navigationItems: NavItem[]
   className?: string
 }
 
