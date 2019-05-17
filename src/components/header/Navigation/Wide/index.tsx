@@ -29,6 +29,7 @@ const Container = styled.ul`
   padding: 0;
   margin: 0;
 
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;

@@ -21,6 +21,13 @@ module.exports = {
         component: require.resolve('./src/layout/Layout.tsx')
       }
     },
-    'gatsby-plugin-netlify-cms'
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        manualInit: true,
+        modulePath: require.resolve('./cms/index.tsx'),
+        htmlTitle: 'Midway Admin'
+      }
+    }
   ]
 }
