@@ -14,6 +14,7 @@ collections:
     create: false
     delete: false
     widget: "list"
+    identifier_field: 'text'
     fields:
       - { label: 'Title', name: 'title', widget: 'hidden', default: 'Main Navigation' }
       - label: 'Navigation Items'
