@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { NavItem, hasSubItems } from '../types'
-import HeaderWithoutNav, { HEADER_SHADOW } from '../../HeaderWithoutNav'
+import HeaderWithoutNav from '../../HeaderWithoutNav'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
 
@@ -119,7 +119,7 @@ const DuplicateHeader = styled(HeaderWithoutNav)`
   transition: box-shadow 0.15s ease;
 
   ${Toggle}:checked ~ & {
-    box-shadow: ${HEADER_SHADOW};
+    box-shadow: ${props => props.theme.header.shadow};
   }
 `
 

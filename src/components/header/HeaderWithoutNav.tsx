@@ -22,11 +22,9 @@ export default ({ children, className, onClick }: Props) => (
   </Container>
 )
 
-export const HEADER_SHADOW = '0 0 15px rgba(0, 0, 0, 0.5)'
-
 const Container = styled.header`
   background-color: ${props => props.theme.header.background};
-  box-shadow: ${HEADER_SHADOW};
+  box-shadow: ${props => props.theme.header.shadow};
   height: ${props => props.theme.header.height}px;
   position: relative;
   z-index: 999;

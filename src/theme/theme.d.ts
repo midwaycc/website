@@ -15,6 +15,7 @@ declare module 'styled-components' {
       bodyFont: FontStack
     }
     header: Colors & {
+      shadow: string
       height: number
       font: FontStack
       logo: number
