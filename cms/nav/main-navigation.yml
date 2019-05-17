@@ -18,6 +18,8 @@ navigation:
         text: Two
       - link: /about
         text: Three
+      - link: /about
+        text: Added with Netlify CMS
     text: Ministries
     type: menu-item
   - link: /giving
