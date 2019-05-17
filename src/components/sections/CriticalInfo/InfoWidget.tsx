@@ -5,10 +5,11 @@ import media from '~/utils/media'
 type Props = {
   title: string
   children: React.ReactNode[]
+  className?: string
 }
 
-export default ({ title, children }: Props) => (
-  <Container>
+export default ({ title, children, className }: Props) => (
+  <Container className={className}>
     <Title>{title}</Title>
     {children}
   </Container>
