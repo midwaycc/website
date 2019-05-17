@@ -25,7 +25,7 @@ export const FullText = styled.span`
 
 export let FullLink
 
-if (window.CMS_MANUAL_INIT) {
+if (typeof window !== 'undefined' && window.CMS_MANUAL_INIT) {
   FullLink = styled.a`
     ${styles};
   `
