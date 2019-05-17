@@ -8,23 +8,5 @@ module.exports = {
     title: 'Welcome!',
     subtitle:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-  },
-  navigation: [
-    { text: 'New Here?', link: '/new' },
-    { text: 'About', link: '/about' },
-    { text: 'Events', link: '/events' },
-    {
-      text: 'Ministries',
-      items: [
-        { text: 'One', link: '/about' },
-        { text: 'Two', link: '/about' },
-        { text: 'Exceedingly long link text', link: '/about' },
-        { text: 'Three', link: '/about' }
-      ]
-    },
-    {
-      text: 'Giving',
-      link: '/giving'
-    }
-  ]
+  }
 }

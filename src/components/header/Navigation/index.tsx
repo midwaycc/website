@@ -8,7 +8,7 @@ import { css } from 'styled-components'
 
 export default () => {
   const data = useStaticQuery(query)
-  const navigationItems: NavItem[] = data.site.siteMetadata.navigation
+  const navigationItems: NavItem[] = data.allNavYaml.edges[0].node.navigation
   if (!validateNavigationItems(navigationItems)) {
     throw new Error('Navigation items are not valid!')
   }
@@ -39,14 +39,16 @@ export default () => {
 
 const query = graphql`
   query {
-    site {
-      siteMetadata {
-        navigation {
-          text
-          link
-          items {
-            text
+    allNavYaml {
+      edges {
+        node {
+          navigation {
             link
+            text
+            items {
+              link
+              text
+            }
           }
         }
       }
