@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Slideshow from '~/components/sections/Slideshow'
+import Hero from '~/components/sections/Hero'
 import CriticalInfo from '~/components/sections/CriticalInfo'
 
 type Props = {
@@ -12,7 +13,7 @@ export default ({ data }: Props) => {
 
   return (
     <>
-      <Slideshow title={title} subtitle={subtitle} />
+      <Hero title={title} subtitle={subtitle} />
       <CriticalInfo />
     </>
   )
