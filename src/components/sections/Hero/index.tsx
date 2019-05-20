@@ -11,7 +11,10 @@ export default ({ title, subtitle }: Props) => (
   <Container>
     <VideoContainer>
       <video autoPlay loop preload="" muted>
-        <source src="/hero-720.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/ksmithbaylor/video/upload/v1558391645/hero-720.mp4"
+          type="video/mp4"
+        />
       </video>
     </VideoContainer>
     <OverlayContainer>
