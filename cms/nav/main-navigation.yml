@@ -1,23 +1,23 @@
 title: Main Navigation
 navigation:
   - link: /new
-    text: New Here?
-    type: link-item
-  - link: /about
-    text: About
+    text: New?
     type: link-item
   - link: /events
     text: Events
     type: link-item
+  - link: /about
+    text: About
+    type: link-item
   - items:
+      - link: /about
+        text: Three
       - link: /about
         text: One
       - link: /about
         text: Exceedingly long link text
       - link: /about
         text: Two
-      - link: /about
-        text: Three
     text: Ministries
     type: menu-item
   - link: /giving
