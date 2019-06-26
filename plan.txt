@@ -1,0 +1,69 @@
+Tangible components
+  Home page
+    Navigation
+      Fix mobile menu animation
+    Hero section
+      New video for larger sceens
+      Static image for smaller screens
+      Overlay text
+    Info Widgets section
+      Add more to our weekly schedule?
+      Streaming buttons
+    Upcoming events section
+    Recent updates/events section
+      Pulls from Google Calendar
+    Contact form
+      Emails someone or several people at the church
+    Image gallery?
+      Pulls from Facebook page
+    Footer
+  Ministry pages
+    For each:
+      Sublogo
+      Header image
+      Content
+      Other images
+      Layout
+  Events page
+    Pull from Google Calendar
+    Add search capability?
+  New Here page
+    Content
+    Layout
+    Images
+  About page
+    Content
+    Layout
+    Images
+  Giving page
+    Content
+    Layout
+    Images?
+
+Cosmetic
+  Typeography
+    Pick fonts
+    Decide on sizes, vertical rhythm, and spacing conventions
+  Overall design
+    Menu/header look and feel
+    Solid colors for sections?
+    Button shape, color, and animation
+
+Technical
+  Image hosting for CMS content
+    Probably Cloudinary
+  Google calendar feed
+  Facebook photo feed
+  RSS feed for podcast
+  Contact form backend
+  CMS
+    Hero copy
+    Info widgets
+    News updates
+    Ministry pages
+    New Here page
+    About page
+    Giving page
+    Podcast episodes
+    Footer content
+    Newsletter
