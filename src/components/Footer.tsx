@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Content from '~/layout/Content'
+import { hiddenWhenMenuOpen } from '~/utils/cssHelpers'
 
 export default () => (
   <Container>
@@ -11,6 +12,7 @@ export default () => (
 const Container = styled.footer`
   background-color: ${props => props.theme.footer.background};
   color: ${props => props.theme.footer.color};
+  ${hiddenWhenMenuOpen};
 `
 
 const FooterContent = styled(Content)`

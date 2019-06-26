@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { NavItem, hasSubItems } from '../types'
 import HeaderWithoutNav from '../../HeaderWithoutNav'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
+import { useSetMenuOpen } from '~/utils/cssHelpers'
 
 type Props = {
   navigationItems: NavItem[]
@@ -12,6 +13,7 @@ type Props = {
 
 export default ({ navigationItems, className }: Props) => {
   const [open, setOpen] = useState(false)
+  useSetMenuOpen(open)
 
   return (
     <Container

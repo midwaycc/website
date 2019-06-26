@@ -7,6 +7,7 @@ import Header from '~/components/header/Header'
 import Footer from '~/components/Footer'
 import MediaIndicator from './MediaIndicator'
 import theme from '~/theme'
+import { hiddenWhenMenuOpen } from '~/utils/cssHelpers'
 
 import 'typeface-nunito'
 import 'typeface-montserrat'
@@ -35,4 +36,5 @@ const Main = styled.main`
   position: relative;
   min-height: 100vh;
   background-color: ${props => props.theme.page.background};
+  ${hiddenWhenMenuOpen};
 `
