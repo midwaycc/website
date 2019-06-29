@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { css } from 'styled-components'
 
-const MENU_OPEN_CLASS = 'menu-open'
+export const MENU_OPEN_CLASS = 'menu-open'
 
-export function useSetMenuOpen(open) {
+export function useSetMenuOpen(open: boolean) {
   useEffect(() => {
     document.body.classList[open ? 'add' : 'remove'](MENU_OPEN_CLASS)
     return () => document.body.classList.remove(MENU_OPEN_CLASS)

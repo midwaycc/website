@@ -1,54 +1,64 @@
 import React, { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import styled from 'styled-components'
 import { NavItem, hasSubItems } from '../types'
-import HeaderWithoutNav from '../../HeaderWithoutNav'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
-import { useSetMenuOpen } from '~/utils/cssHelpers'
+import { useSetMenuOpen, MENU_OPEN_CLASS } from '~/utils/cssHelpers'
 
 type Props = {
   navigationItems: NavItem[]
   className?: string
 }
 
-export default ({ navigationItems, className }: Props) => {
+const Narrow = ({ navigationItems, className }: Props) => {
   const [open, setOpen] = useState(false)
   useSetMenuOpen(open)
 
   return (
-    <Container
-      className={className}
-      onClick={(e: React.MouseEvent) => {
-        if (
-          e.target &&
-          ((e.target as any).tagName as string).toLowerCase() !== 'input'
-        ) {
-          setOpen(false)
-        }
-      }}
-    >
-      <Toggle checked={open} onChange={e => setOpen(o => !o)} />
+    <>
+      <Container
+        className={className}
+        onClick={(e: React.MouseEvent) => {
+          if (
+            e.target &&
+            ((e.target as any).tagName as string).toLowerCase() !== 'input'
+          ) {
+            setOpen(false)
+          }
+        }}
+      >
+        <Toggle checked={open} onChange={e => setOpen(o => !o)} />
 
-      <HamburgerLine />
-      <HamburgerLine />
-      <HamburgerLine />
-
-      <DuplicateHeader onClick={(e: React.MouseEvent) => e.stopPropagation()} />
-
-      <MenuContainer>
-        <NavList>
-          {navigationItems.map((navItem: NavItem, i: number) =>
-            hasSubItems(navItem) ? (
-              <NavigationItemWithSubmenu key={i} {...navItem} />
-            ) : (
-              <NavigationItem key={i} {...navItem} />
-            )
-          )}
-        </NavList>
-      </MenuContainer>
-    </Container>
+        <HamburgerLine />
+        <HamburgerLine />
+        <HamburgerLine />
+      </Container>
+      <MobileMenuContents navigationItems={navigationItems} />
+    </>
   )
 }
+
+const MOBILE_MENU_ID = 'mobile-menu'
+
+const MobileMenuContents = (props: { navigationItems: NavItem[] }) => {
+  return createPortal(
+    <NavList>
+      {props.navigationItems.map((navItem: NavItem, i: number) =>
+        hasSubItems(navItem) ? (
+          <NavigationItemWithSubmenu key={i} {...navItem} />
+        ) : (
+          <NavigationItem key={i} {...navItem} />
+        )
+      )}
+    </NavList>,
+    document.getElementById(MOBILE_MENU_ID) || document.createElement('div')
+  )
+}
+
+Narrow.MenuContentsTarget = () => <MenuContainer id={MOBILE_MENU_ID} />
+
+export default Narrow
 
 const X_TRANSITION = '0.35s ease'
 const CENTER_TRANSITION = '0.2s ease'
@@ -109,22 +119,6 @@ const HamburgerLine = styled.span`
   }
 `
 
-const DuplicateHeader = styled(HeaderWithoutNav)`
-  position: absolute !important;
-  top: 0;
-  left: calc(-100vw + ${props => props.theme.header.height}px);
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  position: unset;
-  box-shadow: unset;
-  transition: box-shadow 0.15s ease;
-
-  ${Toggle}:checked ~ & {
-    box-shadow: ${props => props.theme.header.shadow};
-  }
-`
-
 const NavList = styled.ul`
   margin: 0;
   padding: 0;
@@ -154,7 +148,7 @@ const MenuContainer = styled.div`
   border-radius: 50%;
   background-color: white;
 
-  ${Toggle}:checked ~ & {
+  .${MENU_OPEN_CLASS} & {
     height: 300vh;
     width: 300vh;
     top: -150vh;

@@ -6,7 +6,7 @@ import { NavItem, hasSubItems, hasLink } from './types'
 import media from '~/utils/media'
 import { css } from 'styled-components'
 
-export default () => {
+const Navigation = () => {
   const data = useStaticQuery(query)
   const navigationItems: NavItem[] = data.allNavYaml.edges[0].node.navigation
   if (!validateNavigationItems(navigationItems)) {
@@ -36,6 +36,10 @@ export default () => {
     </>
   )
 }
+
+Navigation.NarrowMenuContentsTarget = Narrow.MenuContentsTarget
+
+export default Navigation
 
 const query = graphql`
   query {
