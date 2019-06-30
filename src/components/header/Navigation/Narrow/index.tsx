@@ -42,6 +42,10 @@ const Narrow = ({ navigationItems, className }: Props) => {
 const MOBILE_MENU_ID = 'mobile-menu'
 
 const MobileMenuContents = (props: { navigationItems: NavItem[] }) => {
+  if (typeof window === 'undefined') {
+    return null
+  }
+
   return createPortal(
     <NavList>
       {props.navigationItems.map((navItem: NavItem, i: number) =>
