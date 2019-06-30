@@ -5,7 +5,7 @@ import Head from '~/components/Head'
 import PageContainer from './PageContainer'
 import Header from '~/components/header/Header'
 import Footer from '~/components/Footer'
-import MediaIndicator from './MediaIndicator'
+import MediaIndicator from '../components/MediaIndicator'
 import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/utils/cssHelpers'
 
