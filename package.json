@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@rooks/use-window-size": "^3.0.0",
+    "@types/react-dom": "^16.8.4",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.4.0",
     "gatsby-plugin-layout": "^1.0.15",

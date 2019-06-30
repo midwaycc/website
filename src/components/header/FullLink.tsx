@@ -1,4 +1,9 @@
-import styled, { css } from 'styled-components'
+import styled, {
+  css,
+  AnyStyledComponent,
+  StyledComponent,
+  DefaultTheme
+} from 'styled-components'
 
 const styles = css`
   width: 100%;
@@ -23,9 +28,9 @@ export const FullText = styled.span`
 // that environment, we use a simple anchor tag, and only require `Link`
 // indirectly in production. Hopefully this can eventually be removed.
 
-export let FullLink
+export let FullLink: AnyStyledComponent
 
-if (typeof window !== 'undefined' && window.CMS_MANUAL_INIT) {
+if (typeof window !== 'undefined' && (window as any).CMS_MANUAL_INIT) {
   FullLink = styled.a`
     ${styles};
   `

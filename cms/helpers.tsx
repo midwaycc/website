@@ -3,11 +3,16 @@ import CMS from 'netlify-cms-app'
 import { StyleSheetManager, ThemeProvider } from 'styled-components'
 import theme from '~/theme'
 
-export const injectStyles = Wrapped =>
+export const injectStyles = (Wrapped: any) =>
   class extends React.Component {
     render() {
-      const previewFrame = document.querySelector('#nc-root iframe')
-      const previewFrameHead = previewFrame && previewFrame.contentDocument.head
+      const previewFrame: HTMLIFrameElement | null = document.querySelector(
+        '#nc-root iframe'
+      )
+      const previewFrameHead =
+        previewFrame &&
+        previewFrame.contentDocument &&
+        previewFrame.contentDocument.head
 
       if (!previewFrameHead) {
         return null
@@ -23,5 +28,7 @@ export const injectStyles = Wrapped =>
     }
   }
 
-export const register = (collection, Component) =>
-  CMS.registerPreviewTemplate(collection, injectStyles(Component))
+export const register = (
+  collection: string,
+  Component: React.ComponentType<{ entry: any }>
+) => CMS.registerPreviewTemplate(collection, injectStyles(Component))
