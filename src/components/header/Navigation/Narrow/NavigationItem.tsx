@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import { NavItem, NavItemWithSubitems, NavItemWithLink } from '../types'
-import { FullLink, FullText } from '../../FullLink'
+import {
+  NavItemWithSubitems,
+  NavItemWithLink
+} from '~/components/header/Navigation/types'
+import { FullLink, FullText } from '~/components/header/FullLink'
 import BaseToggle from '~/components/BaseToggle'
 import { darken } from 'polished'
 

@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { darken } from 'polished'
-import { FullLink, FullText } from '../../FullLink'
-import { NavItemWithLink, NavItemWithSubitems } from '../types'
+import { FullLink, FullText } from '~/components/header/FullLink'
+import {
+  NavItemWithLink,
+  NavItemWithSubitems
+} from '~/components/header/Navigation/types'
 
 export const NavigationItem = ({ text, link }: NavItemWithLink) => (
   <Container>
