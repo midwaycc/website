@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { createPortal } from 'react-dom'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { NavItem, hasSubItems } from '~/layout/Header/Navigation/types'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
@@ -11,7 +10,7 @@ type Props = {
   className?: string
 }
 
-const Narrow = ({ navigationItems, className }: Props) => {
+export default ({ navigationItems, className }: Props) => {
   const [open, setOpen] = useState(false)
   useSetMenuOpen(open)
 
@@ -34,35 +33,25 @@ const Narrow = ({ navigationItems, className }: Props) => {
         <HamburgerLine />
         <HamburgerLine />
       </Container>
-      <MobileMenuContents navigationItems={navigationItems} />
     </>
   )
 }
 
-const MOBILE_MENU_ID = 'mobile-menu'
-
-const MobileMenuContents = (props: { navigationItems: NavItem[] }) => {
-  if (typeof window === 'undefined') {
-    return null
-  }
-
-  return createPortal(
-    <NavList>
-      {props.navigationItems.map((navItem: NavItem, i: number) =>
-        hasSubItems(navItem) ? (
-          <NavigationItemWithSubmenu key={i} {...navItem} />
-        ) : (
-          <NavigationItem key={i} {...navItem} />
-        )
-      )}
-    </NavList>,
-    document.getElementById(MOBILE_MENU_ID) || document.createElement('div')
+export const NarrowMenuContents = (props: { navigationItems: NavItem[] }) => {
+  return (
+    <MenuContainer>
+      <NavList>
+        {props.navigationItems.map((navItem: NavItem, i: number) =>
+          hasSubItems(navItem) ? (
+            <NavigationItemWithSubmenu key={i} {...navItem} />
+          ) : (
+            <NavigationItem key={i} {...navItem} />
+          )
+        )}
+      </NavList>
+    </MenuContainer>
   )
 }
-
-Narrow.MenuContentsTarget = () => <MenuContainer id={MOBILE_MENU_ID} />
-
-export default Narrow
 
 const X_TRANSITION = '0.35s ease'
 const CENTER_TRANSITION = '0.2s ease'

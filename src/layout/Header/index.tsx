@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import Content from '~/layout/Content'
 import Navigation from './Navigation'
+import { NarrowMenuContents } from './Navigation/Narrow'
 import Logo from './Logo'
+import { NavItem, hasSubItems, hasLink } from './Navigation/types'
 
 type Props = {
   children?: React.ReactNode
@@ -11,19 +13,56 @@ type Props = {
   onClick?: (e: React.MouseEvent) => void
 }
 
-export default ({ children, className, onClick }: Props) => (
-  <>
-    <Navigation.NarrowMenuContentsTarget />
-    <Container className={className} onClick={onClick}>
-      <HeaderContent>
-        <Link to="/">
-          <Logo />
-        </Link>
-        <Navigation />
-      </HeaderContent>
-    </Container>
-  </>
-)
+export default ({ children, className, onClick }: Props) => {
+  const data = useStaticQuery(query)
+  const navigationItems: NavItem[] = data.allNavYaml.edges[0].node.navigation
+
+  if (!validateNavigationItems(navigationItems)) {
+    throw new Error('Navigation items are not valid!')
+  }
+
+  return (
+    <>
+      <NarrowMenuContents navigationItems={navigationItems} />
+      <Container className={className} onClick={onClick}>
+        <HeaderContent>
+          <Link to="/">
+            <Logo />
+          </Link>
+          <Navigation navigationItems={navigationItems} />
+        </HeaderContent>
+      </Container>
+    </>
+  )
+}
+
+const query = graphql`
+  query {
+    allNavYaml {
+      edges {
+        node {
+          navigation {
+            link
+            text
+            items {
+              link
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+function validateNavigationItems(navigationItems: NavItem[]) {
+  return navigationItems.every(navItem => {
+    if (!navItem.text) return false
+    if (hasSubItems(navItem) && (navItem as any).link) return false
+    if (hasLink(navItem) && (navItem as any).items) return false
+    return true
+  })
+}
 
 const Container = styled.header`
   background-color: ${props => props.theme.header.background};

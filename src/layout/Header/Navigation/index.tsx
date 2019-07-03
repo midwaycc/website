@@ -1,70 +1,33 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import Wide from './Wide'
 import Narrow from './Narrow'
-import { NavItem, hasSubItems, hasLink } from './types'
+import { NavItem } from './types'
 import media from '~/utils/media'
 import { css } from 'styled-components'
 
-const Navigation = () => {
-  const data = useStaticQuery(query)
-  const navigationItems: NavItem[] = data.allNavYaml.edges[0].node.navigation
-  if (!validateNavigationItems(navigationItems)) {
-    throw new Error('Navigation items are not valid!')
-  }
+type Props = {
+  navigationItems: NavItem[]
+}
 
-  return (
-    <>
-      <Wide
-        navigationItems={navigationItems}
-        css={css`
-          display: none;
-          ${media.lg} {
-            display: flex;
-          }
-        `}
-      />
-      <Narrow
-        navigationItems={navigationItems}
-        css={css`
+export default ({ navigationItems }: Props) => (
+  <>
+    <Wide
+      navigationItems={navigationItems}
+      css={css`
+        display: none;
+        ${media.lg} {
           display: flex;
-          ${media.lg} {
-            display: none;
-          }
-        `}
-      />
-    </>
-  )
-}
-
-Navigation.NarrowMenuContentsTarget = Narrow.MenuContentsTarget
-
-export default Navigation
-
-const query = graphql`
-  query {
-    allNavYaml {
-      edges {
-        node {
-          navigation {
-            link
-            text
-            items {
-              link
-              text
-            }
-          }
         }
-      }
-    }
-  }
-`
-
-function validateNavigationItems(navigationItems: NavItem[]) {
-  return navigationItems.every(navItem => {
-    if (!navItem.text) return false
-    if (hasSubItems(navItem) && (navItem as any).link) return false
-    if (hasLink(navItem) && (navItem as any).items) return false
-    return true
-  })
-}
+      `}
+    />
+    <Narrow
+      navigationItems={navigationItems}
+      css={css`
+        display: flex;
+        ${media.lg} {
+          display: none;
+        }
+      `}
+    />
+  </>
+)
