@@ -1,5 +1,5 @@
 import React from 'react'
-import WideNavigation from '~/components/header/Navigation/Wide'
+import WideNavigation from '~/layout/Header/Navigation/Wide'
 import styled from 'styled-components'
 import Content from '~/layout/Content'
 

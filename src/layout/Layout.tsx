@@ -1,10 +1,9 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import Head from '~/components/Head'
-import PageContainer from './PageContainer'
-import Header from '~/components/header/Header'
-import Footer from '~/components/Footer'
+import Head from './Head'
+import Header from './Header'
+import Footer from './Footer'
 import MediaIndicator from '~/components/MediaIndicator'
 import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/utils/cssHelpers'
@@ -32,6 +31,11 @@ export default ({ children }: Props) => (
   </>
 )
 
+const PageContainer = styled.div`
+  font-family: ${props => props.theme.page.bodyFont};
+  width: 100%;
+  position: relative;
+`
 const Main = styled.main`
   position: relative;
   min-height: 100vh;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import styled from 'styled-components'
-import { NavItem, hasSubItems } from '~/components/header/Navigation/types'
+import { NavItem, hasSubItems } from '~/layout/Header/Navigation/types'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
 import { useSetMenuOpen, MENU_OPEN_CLASS } from '~/utils/cssHelpers'
