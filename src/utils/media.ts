@@ -1,6 +1,6 @@
-type StringCompatibleQuery = MediaQueryWithWidth & string
+export type StringCompatibleQuery = MediaQueryWithWidth & string
 
-class MediaQueryWithWidth {
+export class MediaQueryWithWidth {
   _width: number
   rule: string
 

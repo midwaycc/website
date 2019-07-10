@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Content from '~/layout/Content'
-import { hiddenWhenMenuOpen } from '~/utils/cssHelpers'
+import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
 
 export default () => (
   <Container>

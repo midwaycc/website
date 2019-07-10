@@ -6,7 +6,7 @@ import Header from './Header'
 import Footer from './Footer'
 import MediaIndicator from '~/components/MediaIndicator'
 import theme from '~/theme'
-import { hiddenWhenMenuOpen } from '~/utils/cssHelpers'
+import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
 
 import 'typeface-nunito'
 import 'typeface-montserrat'

@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Content from '~/layout/Content'
-import Navigation from './Navigation'
-import { NarrowMenuContents } from './Navigation/Narrow'
+import { hiddenAbove } from '~/utils/visibility'
+import Navigation, { BREAKPOINT } from './Navigation'
+import { NarrowMenuContents, NarrowMenuToggle } from './Navigation/Narrow'
 import Logo from './Logo'
 import { NavItem, hasSubItems, hasLink } from './Navigation/types'
 
@@ -23,7 +24,7 @@ export default ({ children, className, onClick }: Props) => {
 
   return (
     <>
-      <NarrowMenuContents navigationItems={navigationItems} />
+      <NarrowMenuToggle css={hiddenAbove(BREAKPOINT, 'block')} />
       <Container className={className} onClick={onClick}>
         <HeaderContent>
           <Link to="/">
@@ -32,6 +33,7 @@ export default ({ children, className, onClick }: Props) => {
           <Navigation navigationItems={navigationItems} />
         </HeaderContent>
       </Container>
+      <NarrowMenuContents navigationItems={navigationItems} />
     </>
   )
 }
@@ -69,7 +71,7 @@ const Container = styled.header`
   box-shadow: ${props => props.theme.header.shadow};
   height: ${props => props.theme.header.height}px;
   position: relative;
-  z-index: 999;
+  z-index: 2;
 `
 
 const HeaderContent = styled(Content)`

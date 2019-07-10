@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { NavItem, hasSubItems } from '~/layout/Header/Navigation/types'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
-import { useSetMenuOpen, MENU_OPEN_CLASS } from '~/utils/cssHelpers'
 
 type Props = {
   navigationItems: NavItem[]
@@ -12,28 +11,23 @@ type Props = {
 
 export default ({ navigationItems, className }: Props) => {
   const [open, setOpen] = useState(false)
-  useSetMenuOpen(open)
 
   return (
-    <>
-      <Container
-        className={className}
-        onClick={(e: React.MouseEvent) => {
-          if (
-            e.target &&
-            ((e.target as any).tagName as string).toLowerCase() !== 'input'
-          ) {
-            setOpen(false)
-          }
-        }}
-      >
-        <Toggle checked={open} onChange={e => setOpen(o => !o)} />
-
-        <HamburgerLine />
-        <HamburgerLine />
-        <HamburgerLine />
-      </Container>
-    </>
+    <Container
+      className={className}
+      onClick={(e: React.MouseEvent) => {
+        if (
+          e.target &&
+          ((e.target as any).tagName as string).toLowerCase() !== 'input'
+        ) {
+          setOpen(false)
+        }
+      }}
+    >
+      <HamburgerLine />
+      <HamburgerLine />
+      <HamburgerLine />
+    </Container>
   )
 }
 
@@ -53,6 +47,25 @@ export const NarrowMenuContents = (props: { navigationItems: NavItem[] }) => {
   )
 }
 
+export const NarrowMenuToggle = styled(BaseToggle)`
+  right: 0;
+  top: 0;
+  width: ${props => props.theme.header.height}px;
+  height: ${props => props.theme.header.height}px;
+  z-index: 3;
+`
+
+export const hiddenWhenMenuOpen = css`
+  opacity: 1;
+  transition: opacity 0s;
+  transition-delay: 0;
+
+  ${NarrowMenuToggle}:checked ~ & {
+    opacity: 0;
+    transition-delay: 0.5s;
+  }
+`
+
 const X_TRANSITION = '0.35s ease'
 const CENTER_TRANSITION = '0.2s ease'
 const MENU_TRANSITION = '.35s ease-out'
@@ -69,12 +82,6 @@ const Container = styled.div`
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-touch-callout: none;
-`
-
-const Toggle = styled(BaseToggle)`
-  width: ${props => props.theme.header.height}px;
-  height: ${props => props.theme.header.height}px;
-  z-index: 4;
 `
 
 const HamburgerLine = styled.span`
@@ -94,20 +101,20 @@ const HamburgerLine = styled.span`
     margin-top: 0.3em;
   }
 
-  ${Toggle}:checked ~ &:not(:nth-of-type(2)) {
+  ${NarrowMenuToggle}:checked ~ &:not(:nth-of-type(2)) {
     width: 2.25em;
   }
 
-  ${Toggle}:checked ~ &:first-of-type {
+  ${NarrowMenuToggle}:checked ~ &:first-of-type {
     transform: rotate(45deg) translate(0.05em, -0.1em);
   }
 
-  ${Toggle}:checked ~ &:nth-of-type(2) {
+  ${NarrowMenuToggle}:checked ~ &:nth-of-type(2) {
     opacity: 0;
     transition: opacity ${CENTER_TRANSITION};
   }
 
-  ${Toggle}:checked ~ &:last-of-type {
+  ${NarrowMenuToggle}:checked ~ &:last-of-type {
     transform: rotate(-45deg) translate(-0.05em, 0.1em);
   }
 `
@@ -141,7 +148,7 @@ const MenuContainer = styled.div`
   border-radius: 50%;
   background-color: white;
 
-  .${MENU_OPEN_CLASS} & {
+  ${NarrowMenuToggle}:checked ~ & {
     height: 300vh;
     width: 300vh;
     top: -150vh;
