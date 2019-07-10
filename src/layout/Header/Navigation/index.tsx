@@ -18,9 +18,6 @@ export default ({ navigationItems }: Props) => (
       navigationItems={navigationItems}
       css={shownAbove(BREAKPOINT, 'flex')}
     />
-    <Narrow
-      navigationItems={navigationItems}
-      css={hiddenAbove(BREAKPOINT, 'flex')}
-    />
+    <Narrow css={hiddenAbove(BREAKPOINT, 'flex')} />
   </>
 )

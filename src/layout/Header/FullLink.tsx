@@ -35,7 +35,9 @@ if (typeof window !== 'undefined' && (window as any).CMS_MANUAL_INIT) {
     ${styles};
   `
 } else {
-  FullLink = styled(require('~/components/IsolatedLink').Link)`
+  FullLink = styled(require('~/components/IsolatedLink').Link).attrs({
+    className: 'navigation-link'
+  })`
     ${styles};
   `
 }

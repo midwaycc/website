@@ -3,7 +3,8 @@ import media from '~/utils/media'
 import theme from '~/theme'
 
 export default styled.img.attrs({
-  src: '/logo_horizontal.png'
+  src: '/logo_horizontal.png',
+  className: 'navigation-link'
 })`
   height: calc(${props => props.theme.header.height}px - 1em);
   width: auto;

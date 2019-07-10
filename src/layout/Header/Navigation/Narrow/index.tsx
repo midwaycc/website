@@ -5,25 +5,12 @@ import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import BaseToggle from '~/components/BaseToggle'
 
 type Props = {
-  navigationItems: NavItem[]
   className?: string
 }
 
-export default ({ navigationItems, className }: Props) => {
-  const [open, setOpen] = useState(false)
-
+export default ({ className }: Props) => {
   return (
-    <Container
-      className={className}
-      onClick={(e: React.MouseEvent) => {
-        if (
-          e.target &&
-          ((e.target as any).tagName as string).toLowerCase() !== 'input'
-        ) {
-          setOpen(false)
-        }
-      }}
-    >
+    <Container className={className}>
       <HamburgerLine />
       <HamburgerLine />
       <HamburgerLine />
@@ -47,7 +34,9 @@ export const NarrowMenuContents = (props: { navigationItems: NavItem[] }) => {
   )
 }
 
-export const NarrowMenuToggle = styled(BaseToggle)`
+export const NarrowMenuToggle = styled(BaseToggle).attrs({
+  id: 'narrow-menu-toggle'
+})`
   right: 0;
   top: 0;
   width: ${props => props.theme.header.height}px;
@@ -101,20 +90,20 @@ const HamburgerLine = styled.span`
     margin-top: 0.3em;
   }
 
-  ${NarrowMenuToggle}:checked ~ &:not(:nth-of-type(2)) {
+  ${NarrowMenuToggle}:checked ~ header &:not(:nth-of-type(2)) {
     width: 2.25em;
   }
 
-  ${NarrowMenuToggle}:checked ~ &:first-of-type {
+  ${NarrowMenuToggle}:checked ~ header &:first-of-type {
     transform: rotate(45deg) translate(0.05em, -0.1em);
   }
 
-  ${NarrowMenuToggle}:checked ~ &:nth-of-type(2) {
+  ${NarrowMenuToggle}:checked ~ header &:nth-of-type(2) {
     opacity: 0;
     transition: opacity ${CENTER_TRANSITION};
   }
 
-  ${NarrowMenuToggle}:checked ~ &:last-of-type {
+  ${NarrowMenuToggle}:checked ~ header &:last-of-type {
     transform: rotate(-45deg) translate(-0.05em, 0.1em);
   }
 `

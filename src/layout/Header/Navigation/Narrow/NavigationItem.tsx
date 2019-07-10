@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import {
   NavItemWithSubitems,
@@ -12,20 +12,9 @@ export const NavigationItemWithSubmenu = ({
   text,
   items
 }: NavItemWithSubitems) => {
-  const [open, setOpen] = useState(false)
-
   return (
-    <Container
-      onClick={(e: React.MouseEvent) => {
-        if (
-          e.target &&
-          ((e.target as any).tagName as string).toLowerCase() !== 'input'
-        ) {
-          setOpen(false)
-        }
-      }}
-    >
-      <Toggle checked={open} onChange={e => setOpen(o => !o)} />
+    <Container>
+      <Toggle />
       <FullText>{text}</FullText>
       <SubMenu numItems={items.length}>
         {items.map((item, i) => (
