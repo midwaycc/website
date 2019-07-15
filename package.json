@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "prod": "yarn build && serve -s public -p 5001",
-    "push": "git push && netlify watch",
+    "push": "git push && netlify watch && notify -t Midway Website -m 'The site is deployed!'",
     "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css}",
     "ci": "yarn format && yarn tsc",
@@ -43,6 +43,7 @@
     "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "^4.1.14",
     "netlify-cli": "^2.11.23",
+    "node-notifier-cli": "^1.1.2",
     "prettier": "^1.17.0",
     "serve": "^11.0.0",
     "typescript": "^3.4.0"
