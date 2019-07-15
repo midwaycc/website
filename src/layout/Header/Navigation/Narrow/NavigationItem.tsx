@@ -40,7 +40,7 @@ const HOVER_STYLES = css`
   background-color: ${props => HOVER_COLOR(props.theme.header.background)};
 `
 
-const Toggle = styled(BaseToggle)`
+const Toggle = styled(BaseToggle).attrs({ className: 'narrow-submenu-toggle' })`
   width: 100vw;
   height: ${ROW_HEIGHT};
   z-index: 3;
