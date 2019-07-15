@@ -20,7 +20,7 @@ declare module 'styled-components' {
       font: FontStack
       logo: number | string
     }
-    slideshow: Colors & {}
+    hero: Colors & {}
     criticalInfo: Colors & {}
     footer: Colors & {}
     buttons: Colors & {}

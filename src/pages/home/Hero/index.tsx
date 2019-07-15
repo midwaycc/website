@@ -9,14 +9,6 @@ type Props = React.ComponentProps<typeof Container> & {
 
 export default ({ title, subtitle }: Props) => (
   <Container>
-    <VideoContainer>
-      <video autoPlay loop preload="" muted>
-        <source
-          src="https://res.cloudinary.com/ksmithbaylor/video/upload/v1558391645/hero-720.mp4"
-          type="video/mp4"
-        />
-      </video>
-    </VideoContainer>
     <OverlayContainer>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
@@ -51,8 +43,8 @@ const OverlayContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  color: ${props => props.theme.slideshow.color};
-  background-color: rgba(0, 0, 0, 0.25);
+  color: ${props => props.theme.hero.color};
+  background-color: ${props => props.theme.hero.background};
 
   & > * {
     max-width: ${media.xl.width};

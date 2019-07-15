@@ -15,12 +15,12 @@ const theme: DefaultTheme = {
     height: 90,
     logo: 'final'
   },
-  slideshow: {
-    background: '#52656A',
+  hero: {
+    background: '#2B6667',
     color: 'white'
   },
   criticalInfo: {
-    background: '#524637',
+    background: '#738637',
     color: 'white'
   },
   footer: {
@@ -28,7 +28,7 @@ const theme: DefaultTheme = {
     color: 'white'
   },
   buttons: {
-    background: '#9FBF7C',
+    background: '#9fb94b',
     color: '#524637'
   }
 }
