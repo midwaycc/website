@@ -35,6 +35,13 @@ module.exports = {
       options: {
         path: './cms/nav'
       }
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'iq9kxmf9',
+        dataset: 'production'
+      }
     }
   ]
 }
