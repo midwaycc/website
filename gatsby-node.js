@@ -53,7 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
   ministryPages.forEach(page => {
     createPage({
       path: `/ministries/${page.identifier.current}`,
-      component: require.resolve('./src/components/MinistryPage.tsx'),
+      component: require.resolve('./src/templates/MinistryPage.tsx'),
       context: page
     })
   })

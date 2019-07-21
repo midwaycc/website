@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Hero from './Hero'
-import CriticalInfo from './CriticalInfo'
+import Hero from '~/views/Hero'
+import CriticalInfo from '~/views/CriticalInfo'
 
 type Props = {
   data: any
