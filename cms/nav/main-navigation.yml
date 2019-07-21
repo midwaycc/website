@@ -10,14 +10,18 @@ navigation:
     text: Events
     type: link-item
   - items:
-      - link: /about
-        text: One
-      - link: /about
-        text: Exceedingly long link text
-      - link: /about
-        text: Two
-      - link: /about
-        text: Three
+      - link: /ministries/men
+        text: Men
+      - link: /ministries/women
+        text: Women
+      - link: /ministries/youth
+        text: Youth
+      - link: /ministries/children
+        text: Children
+      - link: /ministries/missions
+        text: Missions
+      - link: /ministries/music
+        text: Music
     text: Ministries
     type: menu-item
   - link: /giving
