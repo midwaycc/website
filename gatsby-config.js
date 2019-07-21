@@ -40,7 +40,8 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: 'iq9kxmf9',
-        dataset: 'production'
+        dataset: 'production',
+        watchMode: true
       }
     }
   ]
