@@ -20,6 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
             current
           }
           name
+          _rawContent
           content {
             _key
             _type

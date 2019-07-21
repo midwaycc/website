@@ -6,9 +6,9 @@ import Section from '~/layout/Section'
 export default ({ pageContext }) => {
   return (
     <Section css="padding-top: 2em">
-      <h1>{pageContext.name}</h1>
       <Image fixed={pageContext.splashImage.asset.fixed} />
-      <BlockContent blocks={pageContext.content} />
+      <h1>{pageContext.name}</h1>
+      <BlockContent blocks={pageContext._rawContent} />
     </Section>
   )
 }
