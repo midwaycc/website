@@ -8,11 +8,9 @@ type Props = {
 }
 
 export default ({ data }: Props) => {
-  const { title, subtitle } = data.site.siteMetadata.text
-
   return (
     <>
-      <Hero title={title} subtitle={subtitle} />
+      <Hero />
       <CriticalInfo />
     </>
   )

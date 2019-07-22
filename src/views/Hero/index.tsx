@@ -1,20 +1,35 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from '~/utils/media'
 
-type Props = React.ComponentProps<typeof Container> & {
-  title: string
-  subtitle: string
+export default () => {
+  const data = useStaticQuery(query)
+  const { title, subtitle, video } = data.sanityHeroSection
+
+  return (
+    <Container>
+      <OverlayContainer>
+        <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
+      </OverlayContainer>
+    </Container>
+  )
 }
 
-export default ({ title, subtitle }: Props) => (
-  <Container>
-    <OverlayContainer>
-      <Title>{title}</Title>
-      <Subtitle>{subtitle}</Subtitle>
-    </OverlayContainer>
-  </Container>
-)
+const query = graphql`
+  query {
+    sanityHeroSection {
+      subtitle
+      title
+      video {
+        asset {
+          url
+        }
+      }
+    }
+  }
+`
 
 const Container = styled.section`
   width: 100%;

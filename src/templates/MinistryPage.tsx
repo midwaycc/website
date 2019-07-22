@@ -8,7 +8,7 @@ export default ({ data }) => {
   const { _rawContent: content, name, splashImage } = data.sanityMinistryPage
 
   return (
-    <Section css="padding-top: 2em">
+    <Section css="padding: 2em">
       <Image fixed={splashImage.asset.fixed} fadeIn durationFadeIn={1500} />
       <h1>{name}</h1>
       <BlockContent blocks={content} />
