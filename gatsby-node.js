@@ -16,30 +16,9 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       allSanityMinistryPage {
         nodes {
+          _id
           identifier {
             current
-          }
-          name
-          _rawContent
-          content {
-            _key
-            _type
-            style
-            list
-          }
-          splashImage {
-            asset {
-              url
-              fixed(width: 950) {
-                base64
-                width
-                height
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-              }
-            }
           }
         }
       }
@@ -51,11 +30,11 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const ministryPages = result.data.allSanityMinistryPage.nodes || []
-  ministryPages.forEach(page => {
+  ministryPages.forEach(({ _id, identifier }) => {
     createPage({
-      path: `/ministries/${page.identifier.current}`,
+      path: `/ministries/${identifier.current}`,
       component: require.resolve('./src/templates/MinistryPage.tsx'),
-      context: page
+      context: { _id }
     })
   })
 }
