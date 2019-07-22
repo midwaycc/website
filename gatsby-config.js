@@ -41,9 +41,13 @@ module.exports = {
       options: {
         projectId: 'iq9kxmf9',
         dataset: 'production',
-        watchMode: true,
-        overlayDrafts: true,
-        token: process.env.SANITY_TOKEN
+        ...(process.env.NODE_ENV === 'production'
+          ? {}
+          : {
+              watchMode: true,
+              overlayDrafts: true,
+              token: process.env.SANITY_TOKEN
+            })
       }
     }
   ]
