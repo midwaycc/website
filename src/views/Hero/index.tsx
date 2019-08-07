@@ -33,7 +33,7 @@ const query = graphql`
 
 const Container = styled.section`
   width: 100%;
-  height: 75vh;
+  height: 70vh;
   overflow: hidden;
   position: relative;
 `
@@ -70,12 +70,13 @@ const Title = styled.h1`
   margin: 0;
   font-family: ${props => props.theme.page.headerFont};
   font-size: 3em;
+  text-align: center;
 
-  ${media.sm} {
+  ${media.md} {
     font-size: 4em;
   }
 
-  ${media.md} {
+  ${media.lg} {
     font-size: 5em;
   }
 `
