@@ -15,11 +15,13 @@ export const NavigationItemWithSubmenu = ({
   return (
     <Container>
       <Toggle />
-      <FullText>{text}</FullText>
+      <FullText css="color: white">+ {text}</FullText>
       <SubMenu numItems={items.length}>
         {items.map((item, i) => (
           <SubItem key={i}>
-            <FullLink to={item.link}>{item.text}</FullLink>
+            <FullLink css="color: white" to={item.link}>
+              - {item.text}
+            </FullLink>
           </SubItem>
         ))}
       </SubMenu>
@@ -29,7 +31,9 @@ export const NavigationItemWithSubmenu = ({
 
 export const NavigationItem = ({ text, link }: NavItemWithLink) => (
   <Container>
-    <FullLink to={link}>{text}</FullLink>
+    <FullLink css="color: white" to={link}>
+      {text}
+    </FullLink>
   </Container>
 )
 
@@ -37,7 +41,7 @@ const ROW_HEIGHT = '60px'
 const SUB_ROW_HEIGHT = '40px'
 const HOVER_COLOR = (background: string) => darken(0.07, background)
 const HOVER_STYLES = css`
-  background-color: ${props => HOVER_COLOR(props.theme.header.background)};
+  background-color: ${props => HOVER_COLOR('#099799')};
 `
 
 const Toggle = styled(BaseToggle).attrs({ className: 'narrow-submenu-toggle' })`
@@ -54,6 +58,7 @@ const Container = styled.li`
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
+  color: white;
 
   &:first-of-type {
     margin-top: 1px;

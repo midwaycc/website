@@ -17,3 +17,7 @@ html {
 noscript {
   display: none;
 }
+
+#___gatsby {
+  background-color: #099799;
+}

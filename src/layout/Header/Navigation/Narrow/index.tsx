@@ -135,7 +135,8 @@ const MenuContainer = styled.div`
   transition: all ${MENU_TRANSITION};
   transition-duration: 0.4s;
   border-radius: 50%;
-  background-color: white;
+  background-color: #099799;
+  color: white;
 
   ${NarrowMenuToggle}:checked ~ & {
     height: 300vh;
