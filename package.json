@@ -8,6 +8,7 @@
     "build": "gatsby build",
     "sanity": "cd content && yarn sanity",
     "sanity:deploy": "yarn sanity graphql deploy && yarn sanity deploy",
+    "sanity:start": "yarn sanity start --port 4444",
     "prod": "yarn build && serve -s public -p 5001",
     "push": "git push && netlify watch && notify -t Midway Website -m 'The site is deployed!'",
     "develop": "gatsby develop -H 0.0.0.0",
