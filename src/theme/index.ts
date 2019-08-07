@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components'
 
 const theme: DefaultTheme = {
   page: {
-    background: '#eee',
+    background: 'white',
     color: '#333',
     headerFont: "'Montserrat', 'Avenir', 'Lucida Grande', Arial, sans-serif",
     bodyFont: "'Open Sans', 'Avenir', 'Lucida Grande', Arial, sans-serif"

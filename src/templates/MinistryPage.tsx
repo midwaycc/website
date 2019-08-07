@@ -5,11 +5,16 @@ import BlockContent from '@sanity/block-content-to-react'
 import Section from '~/layout/Section'
 
 export default ({ data }) => {
-  const { _rawContent: content, name, splashImage } = data.sanityMinistryPage
+  const { _rawContent: content, name, subLogo } = data.sanityMinistryPage
 
   return (
     <Section css="padding: 2em">
-      <Image fixed={splashImage.asset.fixed} fadeIn durationFadeIn={1500} />
+      <Image
+        fluid={subLogo.asset.fluid}
+        style={{ maxWidth: 400 }}
+        fadeIn
+        durationFadeIn={1500}
+      />
       <h1>{name}</h1>
       <BlockContent blocks={content} />
     </Section>
@@ -21,11 +26,10 @@ export const query = graphql`
     sanityMinistryPage(_id: { eq: $_id }) {
       name
       _rawContent
-      splashImage {
+      subLogo {
         asset {
-          url
-          fixed(width: 950) {
-            ...GatsbySanityImageFixed
+          fluid(maxWidth: 400) {
+            ...GatsbySanityImageFluid
           }
         }
       }
