@@ -10,14 +10,14 @@ navigation:
     text: Events
     type: link-item
   - items:
-      - link: /ministries/men
-        text: Men
-      - link: /ministries/women
-        text: Women
-      - link: /ministries/youth
-        text: Youth
       - link: /ministries/children
         text: Children
+      - link: /ministries/youth
+        text: Youth
+      - link: /ministries/women
+        text: Women
+      - link: /ministries/men
+        text: Men
       - link: /ministries/missions
         text: Missions
       - link: /ministries/music
