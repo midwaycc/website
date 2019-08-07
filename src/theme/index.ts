@@ -24,7 +24,7 @@ const theme: DefaultTheme = {
     color: 'white'
   },
   footer: {
-    background: 'deeppink',
+    background: '#444',
     color: 'white'
   },
   buttons: {
