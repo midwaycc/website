@@ -12,12 +12,17 @@ export default {
       description:
         'This will be the last part of the URL (example: to make this page live at /ministries/men, put "men" in this field).'
     },
+    // {
+    // name: 'splashImage',
+    // type: 'image',
+    // title: 'Splash Image',
+    // description: 'The size should be exactly 1900px by 300px.'
+    // // TODO: validate image dimensions
+    // },
     {
-      name: 'splashImage',
+      name: 'subLogo',
       type: 'image',
-      title: 'Splash Image',
-      description: 'The size should be exactly 1900px by 300px.'
-      // TODO: validate image dimensions
+      title: 'Sub-logo'
     },
     {
       name: 'content',
