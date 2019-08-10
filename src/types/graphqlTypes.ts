@@ -3324,30 +3324,11 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>
   glob?: Maybe<Scalars['String']>
 }
-export type Unnamed_1_QueryVariables = {}
-
-export type Unnamed_1_Query = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & {
-          text: Maybe<
-            { __typename?: 'SiteSiteMetadataText' } & Pick<
-              SiteSiteMetadataText,
-              'title' | 'subtitle'
-            >
-          >
-        }
-      >
-    }
-  >
-}
-
-export type Unnamed_2_QueryVariables = {
+export type Unnamed_1_QueryVariables = {
   _id: Scalars['String']
 }
 
-export type Unnamed_2_Query = { __typename?: 'Query' } & {
+export type Unnamed_1_Query = { __typename?: 'Query' } & {
   sanityMinistryPage: Maybe<
     { __typename?: 'SanityMinistryPage' } & Pick<
       SanityMinistryPage,
@@ -3367,6 +3348,25 @@ export type Unnamed_2_Query = { __typename?: 'Query' } & {
           }
         >
       }
+  >
+}
+
+export type Unnamed_2_QueryVariables = {}
+
+export type Unnamed_2_Query = { __typename?: 'Query' } & {
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & {
+          text: Maybe<
+            { __typename?: 'SiteSiteMetadataText' } & Pick<
+              SiteSiteMetadataText,
+              'title' | 'subtitle'
+            >
+          >
+        }
+      >
+    }
   >
 }
 

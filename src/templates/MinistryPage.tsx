@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
 import BlockContent from '@sanity/block-content-to-react'
 import Section from '~/layout/Section'
-import { Query } from '~/graphqlTypes'
+import { Query } from '~/types/graphqlTypes'
 
 type Props = {
   data: Query
