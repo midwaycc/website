@@ -1,20 +1,28 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import Image, { FluidObject } from 'gatsby-image'
 import BlockContent from '@sanity/block-content-to-react'
 import Section from '~/layout/Section'
+import { Query } from '~/graphqlTypes'
 
-export default ({ data }) => {
+type Props = {
+  data: Query
+}
+
+export default ({ data }: Props) => {
+  if (!data.sanityMinistryPage) return
+
   const { _rawContent: content, name, subLogo } = data.sanityMinistryPage
 
   return (
     <Section css="padding: 2em">
-      <Image
-        fluid={subLogo.asset.fluid}
-        style={{ maxWidth: 400 }}
-        fadeIn
-        durationFadeIn={1500}
-      />
+      {subLogo && subLogo.asset && (
+        <Image
+          fluid={(subLogo.asset.fluid as FluidObject) || undefined}
+          style={{ maxWidth: 400 }}
+          fadeIn
+        />
+      )}
       <h1>{name}</h1>
       <BlockContent blocks={content} />
     </Section>

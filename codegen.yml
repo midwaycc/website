@@ -1,0 +1,16 @@
+schema: http://localhost:8000/___graphql
+documents:
+  - ./src/**/*.{ts,tsx}
+  # - ./node_modules/gatsby-image/**/*.js
+  # - ./node_modules/gatsby-plugin-react-helmet/**/*.js
+  # - ./node_modules/gatsby-source-filesystem/**/*.js
+  - ./node_modules/gatsby-source-sanity/**/*.js
+generates:
+  ./src/graphqlTypes.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+config:
+  namingConvention:
+    enumValues: keep
+    transformUnderscore: false
