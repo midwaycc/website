@@ -14,7 +14,7 @@
     "push": "git push && netlify watch && notify -t Midway Website -m 'The site is deployed!'",
     "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css}'",
-    "list-pages": "echo \"console.log('--------------------------------') || pages.forEach(p => console.log(p[0])) || console.log('--------------------------------')\" | gatsby repl",
+    "list-pages": "echo \"pages.forEach(p => console.log(p[0]))\" | gatsby repl",
     "ci": "yarn format && yarn codegen && yarn tsc",
     "start": "yarn develop",
     "serve": "gatsby serve",
