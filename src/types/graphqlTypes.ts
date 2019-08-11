@@ -3324,11 +3324,11 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>
   glob?: Maybe<Scalars['String']>
 }
-export type Unnamed_1_QueryVariables = {
+export type MinistryPageQueryVariables = {
   _id: Scalars['String']
 }
 
-export type Unnamed_1_Query = { __typename?: 'Query' } & {
+export type MinistryPageQuery = { __typename?: 'Query' } & {
   sanityMinistryPage: Maybe<
     { __typename?: 'SanityMinistryPage' } & Pick<
       SanityMinistryPage,
@@ -3351,17 +3351,32 @@ export type Unnamed_1_Query = { __typename?: 'Query' } & {
   >
 }
 
-export type Unnamed_2_QueryVariables = {}
+export type HeaderQueryVariables = {}
 
-export type Unnamed_2_Query = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & {
-          text: Maybe<
-            { __typename?: 'SiteSiteMetadataText' } & Pick<
-              SiteSiteMetadataText,
-              'title' | 'subtitle'
+export type HeaderQuery = { __typename?: 'Query' } & {
+  allNavYaml: Maybe<
+    { __typename?: 'NavYamlConnection' } & {
+      nodes: Array<
+        { __typename?: 'NavYaml' } & {
+          navigation: Maybe<
+            Array<
+              Maybe<
+                { __typename?: 'NavYamlNavigation' } & Pick<
+                  NavYamlNavigation,
+                  'link' | 'text'
+                > & {
+                    items: Maybe<
+                      Array<
+                        Maybe<
+                          { __typename?: 'NavYamlNavigationItems' } & Pick<
+                            NavYamlNavigationItems,
+                            'link' | 'text'
+                          >
+                        >
+                      >
+                    >
+                  }
+              >
             >
           >
         }
@@ -3370,45 +3385,9 @@ export type Unnamed_2_Query = { __typename?: 'Query' } & {
   >
 }
 
-export type Unnamed_3_QueryVariables = {}
+export type ChurchLocationQueryVariables = {}
 
-export type Unnamed_3_Query = { __typename?: 'Query' } & {
-  allNavYaml: Maybe<
-    { __typename?: 'NavYamlConnection' } & {
-      edges: Array<
-        { __typename?: 'NavYamlEdge' } & {
-          node: { __typename?: 'NavYaml' } & {
-            navigation: Maybe<
-              Array<
-                Maybe<
-                  { __typename?: 'NavYamlNavigation' } & Pick<
-                    NavYamlNavigation,
-                    'link' | 'text'
-                  > & {
-                      items: Maybe<
-                        Array<
-                          Maybe<
-                            { __typename?: 'NavYamlNavigationItems' } & Pick<
-                              NavYamlNavigationItems,
-                              'link' | 'text'
-                            >
-                          >
-                        >
-                      >
-                    }
-                >
-              >
-            >
-          }
-        }
-      >
-    }
-  >
-}
-
-export type Unnamed_4_QueryVariables = {}
-
-export type Unnamed_4_Query = { __typename?: 'Query' } & {
+export type ChurchLocationQuery = { __typename?: 'Query' } & {
   site: Maybe<
     { __typename?: 'Site' } & {
       siteMetadata: Maybe<
@@ -3425,9 +3404,9 @@ export type Unnamed_4_Query = { __typename?: 'Query' } & {
   >
 }
 
-export type Unnamed_5_QueryVariables = {}
+export type HeroSectionQueryVariables = {}
 
-export type Unnamed_5_Query = { __typename?: 'Query' } & {
+export type HeroSectionQuery = { __typename?: 'Query' } & {
   sanityHeroSection: Maybe<
     { __typename?: 'SanityHeroSection' } & Pick<
       SanityHeroSection,

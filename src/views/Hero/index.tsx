@@ -2,9 +2,11 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from '~/utils/media'
+import { HeroSectionQuery } from '~/types/graphqlTypes'
 
 export default () => {
-  const data = useStaticQuery(query)
+  const data: HeroSectionQuery = useStaticQuery(query)
+  if (!data.sanityHeroSection) return null
   const { title, subtitle, video } = data.sanityHeroSection
 
   return (
@@ -18,7 +20,7 @@ export default () => {
 }
 
 const query = graphql`
-  query {
+  query HeroSection {
     sanityHeroSection {
       subtitle
       title

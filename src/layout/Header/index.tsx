@@ -7,6 +7,7 @@ import Navigation, { BREAKPOINT } from './Navigation'
 import { NarrowMenuContents, NarrowMenuToggle } from './Navigation/Narrow'
 import Logo from './Logo'
 import { NavItem, hasSubItems, hasLink } from './Navigation/types'
+import { HeaderQuery } from '~/types/graphqlTypes'
 
 type Props = {
   children?: React.ReactNode
@@ -15,8 +16,10 @@ type Props = {
 }
 
 export default ({ children, className, onClick }: Props) => {
-  const data = useStaticQuery(query)
-  const navigationItems: NavItem[] = data.allNavYaml.edges[0].node.navigation
+  const data: HeaderQuery = useStaticQuery(query)
+  if (!data.allNavYaml) return null
+  console.log('data is', data)
+  const navigationItems = data.allNavYaml.nodes[0].navigation as NavItem[]
 
   if (!validateNavigationItems(navigationItems)) {
     throw new Error('Navigation items are not valid!')
@@ -39,17 +42,15 @@ export default ({ children, className, onClick }: Props) => {
 }
 
 const query = graphql`
-  query {
+  query Header {
     allNavYaml {
-      edges {
-        node {
-          navigation {
+      nodes {
+        navigation {
+          link
+          text
+          items {
             link
             text
-            items {
-              link
-              text
-            }
           }
         }
       }

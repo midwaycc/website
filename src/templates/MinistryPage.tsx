@@ -3,14 +3,14 @@ import { graphql } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
 import BlockContent from '@sanity/block-content-to-react'
 import Section from '~/layout/Section'
-import { Query } from '~/types/graphqlTypes'
+import { MinistryPageQuery } from '~/types/graphqlTypes'
 
 type Props = {
-  data: Query
+  data: MinistryPageQuery
 }
 
 export default ({ data }: Props) => {
-  if (!data.sanityMinistryPage) return
+  if (!data.sanityMinistryPage) return null
 
   const { _rawContent: content, name, subLogo } = data.sanityMinistryPage
 
@@ -30,7 +30,7 @@ export default ({ data }: Props) => {
 }
 
 export const query = graphql`
-  query($_id: String!) {
+  query MinistryPage($_id: String!) {
     sanityMinistryPage(_id: { eq: $_id }) {
       name
       _rawContent
