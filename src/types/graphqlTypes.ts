@@ -921,6 +921,10 @@ export type Query = {
   allSanityHeroSection?: Maybe<SanityHeroSectionConnection>
   sanityMinistryPage?: Maybe<SanityMinistryPage>
   allSanityMinistryPage?: Maybe<SanityMinistryPageConnection>
+  sanityNavigation?: Maybe<SanityNavigation>
+  allSanityNavigation?: Maybe<SanityNavigationConnection>
+  sanityPage?: Maybe<SanityPage>
+  allSanityPage?: Maybe<SanityPageConnection>
   sanityFileAsset?: Maybe<SanityFileAsset>
   allSanityFileAsset?: Maybe<SanityFileAssetConnection>
   sanityImageAsset?: Maybe<SanityImageAsset>
@@ -948,8 +952,6 @@ export type QuerySanityHeroSectionArgs = {
   _key?: Maybe<StringQueryOperatorInput>
   title?: Maybe<StringQueryOperatorInput>
   subtitle?: Maybe<StringQueryOperatorInput>
-  video?: Maybe<SanityFileFilterInput>
-  _rawVideo?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -971,10 +973,10 @@ export type QuerySanityMinistryPageArgs = {
   _rev?: Maybe<StringQueryOperatorInput>
   _key?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
-  identifier?: Maybe<SanitySlugFilterInput>
+  url?: Maybe<SanitySlugFilterInput>
   subLogo?: Maybe<SanityImageFilterInput>
   content?: Maybe<SanityBlockFilterListInput>
-  _rawIdentifier?: Maybe<JsonQueryOperatorInput>
+  _rawUrl?: Maybe<JsonQueryOperatorInput>
   _rawSubLogo?: Maybe<JsonQueryOperatorInput>
   _rawContent?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
@@ -986,6 +988,51 @@ export type QuerySanityMinistryPageArgs = {
 export type QueryAllSanityMinistryPageArgs = {
   filter?: Maybe<SanityMinistryPageFilterInput>
   sort?: Maybe<SanityMinistryPageSortInput>
+  skip?: Maybe<Scalars['Int']>
+  limit?: Maybe<Scalars['Int']>
+}
+
+export type QuerySanityNavigationArgs = {
+  _id?: Maybe<StringQueryOperatorInput>
+  _type?: Maybe<StringQueryOperatorInput>
+  _createdAt?: Maybe<DateQueryOperatorInput>
+  _updatedAt?: Maybe<DateQueryOperatorInput>
+  _rev?: Maybe<StringQueryOperatorInput>
+  _key?: Maybe<StringQueryOperatorInput>
+  title?: Maybe<StringQueryOperatorInput>
+  _rawItems?: Maybe<JsonQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllSanityNavigationArgs = {
+  filter?: Maybe<SanityNavigationFilterInput>
+  sort?: Maybe<SanityNavigationSortInput>
+  skip?: Maybe<Scalars['Int']>
+  limit?: Maybe<Scalars['Int']>
+}
+
+export type QuerySanityPageArgs = {
+  _id?: Maybe<StringQueryOperatorInput>
+  _type?: Maybe<StringQueryOperatorInput>
+  _createdAt?: Maybe<DateQueryOperatorInput>
+  _updatedAt?: Maybe<DateQueryOperatorInput>
+  _rev?: Maybe<StringQueryOperatorInput>
+  _key?: Maybe<StringQueryOperatorInput>
+  name?: Maybe<StringQueryOperatorInput>
+  url?: Maybe<SanitySlugFilterInput>
+  _rawUrl?: Maybe<JsonQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllSanityPageArgs = {
+  filter?: Maybe<SanityPageFilterInput>
+  sort?: Maybe<SanityPageSortInput>
   skip?: Maybe<Scalars['Int']>
   limit?: Maybe<Scalars['Int']>
 }
@@ -1472,12 +1519,6 @@ export type SanityFileAssetSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>
 }
 
-export type SanityFileFilterInput = {
-  _key?: Maybe<StringQueryOperatorInput>
-  _type?: Maybe<StringQueryOperatorInput>
-  asset?: Maybe<SanityFileAssetFilterInput>
-}
-
 export type SanityGeopoint = {
   __typename?: 'SanityGeopoint'
   _key?: Maybe<Scalars['String']>
@@ -1506,8 +1547,6 @@ export type SanityHeroSection = SanityDocument &
     _key?: Maybe<Scalars['String']>
     title?: Maybe<Scalars['String']>
     subtitle?: Maybe<Scalars['String']>
-    video?: Maybe<SanityFile>
-    _rawVideo?: Maybe<Scalars['JSON']>
     id: Scalars['ID']
     parent?: Maybe<Node>
     children: Array<Node>
@@ -1526,10 +1565,6 @@ export type SanityHeroSection_UpdatedAtArgs = {
   fromNow?: Maybe<Scalars['Boolean']>
   difference?: Maybe<Scalars['String']>
   locale?: Maybe<Scalars['String']>
-}
-
-export type SanityHeroSection_RawVideoArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 }
 
 export type SanityHeroSectionConnection = {
@@ -1568,38 +1603,6 @@ export enum SanityHeroSectionFieldsEnum {
   _key = '_key',
   title = 'title',
   subtitle = 'subtitle',
-  video____key = 'video____key',
-  video____type = 'video____type',
-  video___asset____id = 'video___asset____id',
-  video___asset____type = 'video___asset____type',
-  video___asset____createdAt = 'video___asset____createdAt',
-  video___asset____updatedAt = 'video___asset____updatedAt',
-  video___asset____rev = 'video___asset____rev',
-  video___asset____key = 'video___asset____key',
-  video___asset___originalFilename = 'video___asset___originalFilename',
-  video___asset___label = 'video___asset___label',
-  video___asset___sha1hash = 'video___asset___sha1hash',
-  video___asset___extension = 'video___asset___extension',
-  video___asset___mimeType = 'video___asset___mimeType',
-  video___asset___size = 'video___asset___size',
-  video___asset___assetId = 'video___asset___assetId',
-  video___asset___path = 'video___asset___path',
-  video___asset___url = 'video___asset___url',
-  video___asset___id = 'video___asset___id',
-  video___asset___parent___id = 'video___asset___parent___id',
-  video___asset___parent___children = 'video___asset___parent___children',
-  video___asset___children = 'video___asset___children',
-  video___asset___children___id = 'video___asset___children___id',
-  video___asset___children___children = 'video___asset___children___children',
-  video___asset___internal___content = 'video___asset___internal___content',
-  video___asset___internal___contentDigest = 'video___asset___internal___contentDigest',
-  video___asset___internal___description = 'video___asset___internal___description',
-  video___asset___internal___fieldOwners = 'video___asset___internal___fieldOwners',
-  video___asset___internal___ignoreType = 'video___asset___internal___ignoreType',
-  video___asset___internal___mediaType = 'video___asset___internal___mediaType',
-  video___asset___internal___owner = 'video___asset___internal___owner',
-  video___asset___internal___type = 'video___asset___internal___type',
-  _rawVideo = '_rawVideo',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -1697,8 +1700,6 @@ export type SanityHeroSectionFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>
   title?: Maybe<StringQueryOperatorInput>
   subtitle?: Maybe<StringQueryOperatorInput>
-  video?: Maybe<SanityFileFilterInput>
-  _rawVideo?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -2226,10 +2227,10 @@ export type SanityMinistryPage = SanityDocument &
     _rev?: Maybe<Scalars['String']>
     _key?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
-    identifier?: Maybe<SanitySlug>
+    url?: Maybe<SanitySlug>
     subLogo?: Maybe<SanityImage>
     content?: Maybe<Array<Maybe<SanityBlock>>>
-    _rawIdentifier?: Maybe<Scalars['JSON']>
+    _rawUrl?: Maybe<Scalars['JSON']>
     _rawSubLogo?: Maybe<Scalars['JSON']>
     _rawContent?: Maybe<Scalars['JSON']>
     id: Scalars['ID']
@@ -2252,7 +2253,7 @@ export type SanityMinistryPage_UpdatedAtArgs = {
   locale?: Maybe<Scalars['String']>
 }
 
-export type SanityMinistryPage_RawIdentifierArgs = {
+export type SanityMinistryPage_RawUrlArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 }
 
@@ -2299,9 +2300,9 @@ export enum SanityMinistryPageFieldsEnum {
   _rev = '_rev',
   _key = '_key',
   name = 'name',
-  identifier____key = 'identifier____key',
-  identifier____type = 'identifier____type',
-  identifier___current = 'identifier___current',
+  url____key = 'url____key',
+  url____type = 'url____type',
+  url___current = 'url___current',
   subLogo____key = 'subLogo____key',
   subLogo____type = 'subLogo____type',
   subLogo___asset____id = 'subLogo___asset____id',
@@ -2376,7 +2377,7 @@ export enum SanityMinistryPageFieldsEnum {
   content___sanityChildren___text = 'content___sanityChildren___text',
   content___style = 'content___style',
   content___list = 'content___list',
-  _rawIdentifier = '_rawIdentifier',
+  _rawUrl = '_rawUrl',
   _rawSubLogo = '_rawSubLogo',
   _rawContent = '_rawContent',
   id = 'id',
@@ -2475,10 +2476,10 @@ export type SanityMinistryPageFilterInput = {
   _rev?: Maybe<StringQueryOperatorInput>
   _key?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
-  identifier?: Maybe<SanitySlugFilterInput>
+  url?: Maybe<SanitySlugFilterInput>
   subLogo?: Maybe<SanityImageFilterInput>
   content?: Maybe<SanityBlockFilterListInput>
-  _rawIdentifier?: Maybe<JsonQueryOperatorInput>
+  _rawUrl?: Maybe<JsonQueryOperatorInput>
   _rawSubLogo?: Maybe<JsonQueryOperatorInput>
   _rawContent?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
@@ -2497,10 +2498,429 @@ export type SanityMinistryPageGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>
 }
 
+export type SanityMinistryPageOrPage = SanityMinistryPage | SanityPage
+
 export type SanityMinistryPageSortInput = {
   fields?: Maybe<Array<Maybe<SanityMinistryPageFieldsEnum>>>
   order?: Maybe<Array<Maybe<SortOrderEnum>>>
 }
+
+export type SanityNavigation = SanityDocument &
+  Node & {
+    __typename?: 'SanityNavigation'
+    _id?: Maybe<Scalars['String']>
+    _type?: Maybe<Scalars['String']>
+    _createdAt?: Maybe<Scalars['Date']>
+    _updatedAt?: Maybe<Scalars['Date']>
+    _rev?: Maybe<Scalars['String']>
+    _key?: Maybe<Scalars['String']>
+    title?: Maybe<Scalars['String']>
+    items?: Maybe<Array<Maybe<SanityNestedMenuOrPageLinkOrPlainLink>>>
+    _rawItems?: Maybe<Scalars['JSON']>
+    id: Scalars['ID']
+    parent?: Maybe<Node>
+    children: Array<Node>
+    internal: Internal
+  }
+
+export type SanityNavigation_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>
+  fromNow?: Maybe<Scalars['Boolean']>
+  difference?: Maybe<Scalars['String']>
+  locale?: Maybe<Scalars['String']>
+}
+
+export type SanityNavigation_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>
+  fromNow?: Maybe<Scalars['Boolean']>
+  difference?: Maybe<Scalars['String']>
+  locale?: Maybe<Scalars['String']>
+}
+
+export type SanityNavigation_RawItemsArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+}
+
+export type SanityNavigationConnection = {
+  __typename?: 'SanityNavigationConnection'
+  totalCount: Scalars['Int']
+  edges: Array<SanityNavigationEdge>
+  nodes: Array<SanityNavigation>
+  pageInfo: PageInfo
+  distinct: Array<Scalars['String']>
+  group: Array<SanityNavigationGroupConnection>
+}
+
+export type SanityNavigationConnectionDistinctArgs = {
+  field: SanityNavigationFieldsEnum
+}
+
+export type SanityNavigationConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>
+  limit?: Maybe<Scalars['Int']>
+  field: SanityNavigationFieldsEnum
+}
+
+export type SanityNavigationEdge = {
+  __typename?: 'SanityNavigationEdge'
+  next?: Maybe<SanityNavigation>
+  node: SanityNavigation
+  previous?: Maybe<SanityNavigation>
+}
+
+export enum SanityNavigationFieldsEnum {
+  _id = '_id',
+  _type = '_type',
+  _createdAt = '_createdAt',
+  _updatedAt = '_updatedAt',
+  _rev = '_rev',
+  _key = '_key',
+  title = 'title',
+  _rawItems = '_rawItems',
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type SanityNavigationFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>
+  _type?: Maybe<StringQueryOperatorInput>
+  _createdAt?: Maybe<DateQueryOperatorInput>
+  _updatedAt?: Maybe<DateQueryOperatorInput>
+  _rev?: Maybe<StringQueryOperatorInput>
+  _key?: Maybe<StringQueryOperatorInput>
+  title?: Maybe<StringQueryOperatorInput>
+  _rawItems?: Maybe<JsonQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
+}
+
+export type SanityNavigationGroupConnection = {
+  __typename?: 'SanityNavigationGroupConnection'
+  totalCount: Scalars['Int']
+  edges: Array<SanityNavigationEdge>
+  nodes: Array<SanityNavigation>
+  pageInfo: PageInfo
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+}
+
+export type SanityNavigationSortInput = {
+  fields?: Maybe<Array<Maybe<SanityNavigationFieldsEnum>>>
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>
+}
+
+export type SanityNestedMenu = {
+  __typename?: 'SanityNestedMenu'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  text?: Maybe<Scalars['String']>
+  items?: Maybe<Array<Maybe<SanityPageLinkOrPlainLink>>>
+}
+
+export type SanityNestedMenuOrPageLinkOrPlainLink =
+  | SanityNestedMenu
+  | SanityPageLink
+  | SanityPlainLink
+
+export type SanityPage = SanityDocument &
+  Node & {
+    __typename?: 'SanityPage'
+    _id?: Maybe<Scalars['String']>
+    _type?: Maybe<Scalars['String']>
+    _createdAt?: Maybe<Scalars['Date']>
+    _updatedAt?: Maybe<Scalars['Date']>
+    _rev?: Maybe<Scalars['String']>
+    _key?: Maybe<Scalars['String']>
+    name?: Maybe<Scalars['String']>
+    url?: Maybe<SanitySlug>
+    _rawUrl?: Maybe<Scalars['JSON']>
+    id: Scalars['ID']
+    parent?: Maybe<Node>
+    children: Array<Node>
+    internal: Internal
+  }
+
+export type SanityPage_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>
+  fromNow?: Maybe<Scalars['Boolean']>
+  difference?: Maybe<Scalars['String']>
+  locale?: Maybe<Scalars['String']>
+}
+
+export type SanityPage_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>
+  fromNow?: Maybe<Scalars['Boolean']>
+  difference?: Maybe<Scalars['String']>
+  locale?: Maybe<Scalars['String']>
+}
+
+export type SanityPage_RawUrlArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+}
+
+export type SanityPageConnection = {
+  __typename?: 'SanityPageConnection'
+  totalCount: Scalars['Int']
+  edges: Array<SanityPageEdge>
+  nodes: Array<SanityPage>
+  pageInfo: PageInfo
+  distinct: Array<Scalars['String']>
+  group: Array<SanityPageGroupConnection>
+}
+
+export type SanityPageConnectionDistinctArgs = {
+  field: SanityPageFieldsEnum
+}
+
+export type SanityPageConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>
+  limit?: Maybe<Scalars['Int']>
+  field: SanityPageFieldsEnum
+}
+
+export type SanityPageEdge = {
+  __typename?: 'SanityPageEdge'
+  next?: Maybe<SanityPage>
+  node: SanityPage
+  previous?: Maybe<SanityPage>
+}
+
+export enum SanityPageFieldsEnum {
+  _id = '_id',
+  _type = '_type',
+  _createdAt = '_createdAt',
+  _updatedAt = '_updatedAt',
+  _rev = '_rev',
+  _key = '_key',
+  name = 'name',
+  url____key = 'url____key',
+  url____type = 'url____type',
+  url___current = 'url___current',
+  _rawUrl = '_rawUrl',
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type SanityPageFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>
+  _type?: Maybe<StringQueryOperatorInput>
+  _createdAt?: Maybe<DateQueryOperatorInput>
+  _updatedAt?: Maybe<DateQueryOperatorInput>
+  _rev?: Maybe<StringQueryOperatorInput>
+  _key?: Maybe<StringQueryOperatorInput>
+  name?: Maybe<StringQueryOperatorInput>
+  url?: Maybe<SanitySlugFilterInput>
+  _rawUrl?: Maybe<JsonQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
+}
+
+export type SanityPageGroupConnection = {
+  __typename?: 'SanityPageGroupConnection'
+  totalCount: Scalars['Int']
+  edges: Array<SanityPageEdge>
+  nodes: Array<SanityPage>
+  pageInfo: PageInfo
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+}
+
+export type SanityPageLink = {
+  __typename?: 'SanityPageLink'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  text?: Maybe<Scalars['String']>
+  page?: Maybe<SanityMinistryPageOrPage>
+}
+
+export type SanityPageLinkOrPlainLink = SanityPageLink | SanityPlainLink
+
+export type SanityPageSortInput = {
+  fields?: Maybe<Array<Maybe<SanityPageFieldsEnum>>>
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>
+}
+
+export type SanityPlainLink = {
+  __typename?: 'SanityPlainLink'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  text?: Maybe<Scalars['String']>
+  link?: Maybe<Scalars['String']>
+}
+
+export type SanityPlainOrPageLink = SanityPlainLink | SanityPageLink
 
 export type SanityResolveReferencesConfiguration = {
   /** Max depth to resolve references to */
@@ -2902,11 +3322,11 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___modulePath = 'pluginCreator___pluginOptions___modulePath',
   pluginCreator___pluginOptions___htmlTitle = 'pluginCreator___pluginOptions___htmlTitle',
   pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
   pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
   pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
   pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
   pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
@@ -3103,11 +3523,11 @@ export enum SitePluginFieldsEnum {
   pluginOptions___modulePath = 'pluginOptions___modulePath',
   pluginOptions___htmlTitle = 'pluginOptions___htmlTitle',
   pluginOptions___path = 'pluginOptions___path',
-  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   pluginOptions___projectId = 'pluginOptions___projectId',
   pluginOptions___dataset = 'pluginOptions___dataset',
   pluginOptions___watchMode = 'pluginOptions___watchMode',
   pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
+  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
   ssrAPIs = 'ssrAPIs',
@@ -3237,11 +3657,11 @@ export type SitePluginPluginOptions = {
   modulePath?: Maybe<Scalars['String']>
   htmlTitle?: Maybe<Scalars['String']>
   path?: Maybe<Scalars['String']>
-  pathCheck?: Maybe<Scalars['Boolean']>
   projectId?: Maybe<Scalars['String']>
   dataset?: Maybe<Scalars['String']>
   watchMode?: Maybe<Scalars['Boolean']>
   overlayDrafts?: Maybe<Scalars['Boolean']>
+  pathCheck?: Maybe<Scalars['Boolean']>
 }
 
 export type SitePluginPluginOptionsAliases = {
@@ -3261,11 +3681,11 @@ export type SitePluginPluginOptionsFilterInput = {
   modulePath?: Maybe<StringQueryOperatorInput>
   htmlTitle?: Maybe<StringQueryOperatorInput>
   path?: Maybe<StringQueryOperatorInput>
-  pathCheck?: Maybe<BooleanQueryOperatorInput>
   projectId?: Maybe<StringQueryOperatorInput>
   dataset?: Maybe<StringQueryOperatorInput>
   watchMode?: Maybe<BooleanQueryOperatorInput>
   overlayDrafts?: Maybe<BooleanQueryOperatorInput>
+  pathCheck?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type SitePluginSortInput = {
@@ -3383,7 +3803,42 @@ export type HeaderQuery = { __typename?: 'Query' } & {
       >
     }
   >
+  sanityNavigation: Maybe<
+    { __typename?: 'SanityNavigation' } & {
+      items: Maybe<
+        Array<
+          Maybe<
+            | AnyNavLinkFragment
+            | ({ __typename?: 'SanityNestedMenu' } & Pick<
+                SanityNestedMenu,
+                'text'
+              > & { items: Maybe<Array<Maybe<AnyNavLinkFragment>>> })
+          >
+        >
+      >
+    }
+  >
 }
+
+export type AnyNavLinkFragment =
+  | ({ __typename?: 'SanityPlainLink' } & Pick<
+      SanityPlainLink,
+      'text' | 'link'
+    >)
+  | ({ __typename?: 'SanityPageLink' } & Pick<SanityPageLink, 'text'> & {
+        page: Maybe<
+          | ({ __typename?: 'SanityPage' } & {
+              url: Maybe<
+                { __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>
+              >
+            })
+          | ({ __typename?: 'SanityMinistryPage' } & {
+              url: Maybe<
+                { __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>
+              >
+            })
+        >
+      })
 
 export type ChurchLocationQueryVariables = {}
 
@@ -3411,15 +3866,7 @@ export type HeroSectionQuery = { __typename?: 'Query' } & {
     { __typename?: 'SanityHeroSection' } & Pick<
       SanityHeroSection,
       'subtitle' | 'title'
-    > & {
-        video: Maybe<
-          { __typename?: 'SanityFile' } & {
-            asset: Maybe<
-              { __typename?: 'SanityFileAsset' } & Pick<SanityFileAsset, 'url'>
-            >
-          }
-        >
-      }
+    >
   >
 }
 
