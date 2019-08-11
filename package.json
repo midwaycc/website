@@ -35,6 +35,7 @@
     "gatsby-image": "^2.2.6",
     "gatsby-plugin-layout": "^1.0.15",
     "gatsby-plugin-module-resolver": "^1.0.3",
+    "gatsby-plugin-netlify": "^2.1.4",
     "gatsby-plugin-netlify-cms": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-styled-components": "^3.0.7",
