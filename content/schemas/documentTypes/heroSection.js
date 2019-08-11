@@ -3,8 +3,18 @@ export default {
   title: 'Hero Section',
   type: 'document',
   fields: [
-    { name: 'title', type: 'string', title: 'Title' },
-    { name: 'subtitle', type: 'string', title: 'Subtitle' },
-    { name: 'video', type: 'file', title: 'Splash Video' }
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle',
+      validation: Rule => Rule.required()
+    }
+    // TODO: array of images for slideshow
   ]
 }

@@ -7,7 +7,7 @@ import { HeroSectionQuery } from '~/types/graphqlTypes'
 export default () => {
   const data: HeroSectionQuery = useStaticQuery(query)
   if (!data.sanityHeroSection) return null
-  const { title, subtitle, video } = data.sanityHeroSection
+  const { title, subtitle } = data.sanityHeroSection
 
   return (
     <Container>
@@ -24,11 +24,6 @@ const query = graphql`
     sanityHeroSection {
       subtitle
       title
-      video {
-        asset {
-          url
-        }
-      }
     }
   }
 `

@@ -2,6 +2,26 @@ exports.onCreatePage = ({ page, actions }) => {
   movePage('/home/', '/', page, actions)
 }
 
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  await Promise.all([
+    createPages(graphql, createPage),
+    createMinistryPages(graphql, createPage)
+  ])
+}
+
+exports.sourceNodes = ({ actions }) => {
+  const { createTypes } = actions
+
+  createTypes(`
+    union SanityPlainOrPageLink = SanityPlainLink | SanityPageLink
+  `)
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Helpers
+
 function movePage(oldPath, newPath, page, { createPage, deletePage }) {
   if (page.path === oldPath) {
     deletePage(page)
@@ -9,15 +29,17 @@ function movePage(oldPath, newPath, page, { createPage, deletePage }) {
   }
 }
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+async function createPages(graphql, createPage) {
+  return
+}
 
+async function createMinistryPages(graphql, createPage) {
   const result = await graphql(`
     {
       allSanityMinistryPage {
         nodes {
           _id
-          identifier {
+          url {
             current
           }
         }
@@ -30,9 +52,9 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const ministryPages = result.data.allSanityMinistryPage.nodes || []
-  ministryPages.forEach(({ _id, identifier }) => {
+  ministryPages.forEach(({ _id, url }) => {
     createPage({
-      path: `/ministries/${identifier.current}`,
+      path: url.current,
       component: require.resolve('./src/templates/MinistryPage.tsx'),
       context: { _id }
     })

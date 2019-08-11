@@ -17,6 +17,7 @@ type Props = {
 
 export default ({ children, className, onClick }: Props) => {
   const data: HeaderQuery = useStaticQuery(query)
+  console.log(data)
   if (!data.allNavYaml) return null
   const navigationItems = data.allNavYaml.nodes[0].navigation as NavItem[]
 
@@ -50,6 +51,41 @@ const query = graphql`
           items {
             link
             text
+          }
+        }
+      }
+    }
+    sanityNavigation(title: { eq: "Main Navigation" }) {
+      items {
+        __typename
+        ...AnyNavLink
+        ... on SanityNestedMenu {
+          text
+          items {
+            ...AnyNavLink
+          }
+        }
+      }
+    }
+  }
+
+  fragment AnyNavLink on SanityPlainOrPageLink {
+    __typename
+    ... on SanityPlainLink {
+      text
+      link
+    }
+    ... on SanityPageLink {
+      text
+      page {
+        ... on SanityPage {
+          url {
+            current
+          }
+        }
+        ... on SanityMinistryPage {
+          url {
+            current
           }
         }
       }
