@@ -9,13 +9,7 @@ import Logo from './Logo'
 import { NavItem, hasSubItems, hasLink } from './Navigation/types'
 import { HeaderQuery } from '~/types/graphqlTypes'
 
-type Props = {
-  children?: React.ReactNode
-  className?: string
-  onClick?: (e: React.MouseEvent) => void
-}
-
-export default ({ children, className, onClick }: Props) => {
+export default () => {
   const data: HeaderQuery = useStaticQuery(query)
   if (!data.allNavYaml) return null
   const navigationItems = data.allNavYaml.nodes[0].navigation as NavItem[]
@@ -27,7 +21,7 @@ export default ({ children, className, onClick }: Props) => {
   return (
     <>
       <NarrowMenuToggle css={hiddenAbove(BREAKPOINT, 'block')} />
-      <Container className={className} onClick={onClick}>
+      <Container>
         <HeaderContent>
           <Link to="/">
             <Logo />
