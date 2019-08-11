@@ -17,7 +17,6 @@ type Props = {
 
 export default ({ children, className, onClick }: Props) => {
   const data: HeaderQuery = useStaticQuery(query)
-  console.log(data)
   if (!data.allNavYaml) return null
   const navigationItems = data.allNavYaml.nodes[0].navigation as NavItem[]
 
