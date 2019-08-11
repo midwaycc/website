@@ -9,6 +9,6 @@ if [[ $(git diff --stat) ]]; then
   exit 1
 else
   git push
-  netlify watch
-  notify -t Midway Website -m 'The site is deployed!'
+  yarn netlify watch
+  yarn notify -t Midway Website -m 'The site is deployed!'
 fi
