@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "midway-community-church-website",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Our church website, built with Gatsby",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
