@@ -11,3 +11,4 @@ config:
   namingConvention:
     enumValues: keep
     transformUnderscore: false
+    avoidOptionals: true

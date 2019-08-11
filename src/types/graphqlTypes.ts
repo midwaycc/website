@@ -3326,6 +3326,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
   pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
   pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
+  pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
@@ -3527,6 +3528,7 @@ export enum SitePluginFieldsEnum {
   pluginOptions___dataset = 'pluginOptions___dataset',
   pluginOptions___watchMode = 'pluginOptions___watchMode',
   pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
+  pluginOptions___token = 'pluginOptions___token',
   pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -3661,6 +3663,7 @@ export type SitePluginPluginOptions = {
   dataset?: Maybe<Scalars['String']>
   watchMode?: Maybe<Scalars['Boolean']>
   overlayDrafts?: Maybe<Scalars['Boolean']>
+  token?: Maybe<Scalars['String']>
   pathCheck?: Maybe<Scalars['Boolean']>
 }
 
@@ -3685,6 +3688,7 @@ export type SitePluginPluginOptionsFilterInput = {
   dataset?: Maybe<StringQueryOperatorInput>
   watchMode?: Maybe<BooleanQueryOperatorInput>
   overlayDrafts?: Maybe<BooleanQueryOperatorInput>
+  token?: Maybe<StringQueryOperatorInput>
   pathCheck?: Maybe<BooleanQueryOperatorInput>
 }
 
@@ -3774,35 +3778,6 @@ export type MinistryPageQuery = { __typename?: 'Query' } & {
 export type HeaderQueryVariables = {}
 
 export type HeaderQuery = { __typename?: 'Query' } & {
-  allNavYaml: Maybe<
-    { __typename?: 'NavYamlConnection' } & {
-      nodes: Array<
-        { __typename?: 'NavYaml' } & {
-          navigation: Maybe<
-            Array<
-              Maybe<
-                { __typename?: 'NavYamlNavigation' } & Pick<
-                  NavYamlNavigation,
-                  'link' | 'text'
-                > & {
-                    items: Maybe<
-                      Array<
-                        Maybe<
-                          { __typename?: 'NavYamlNavigationItems' } & Pick<
-                            NavYamlNavigationItems,
-                            'link' | 'text'
-                          >
-                        >
-                      >
-                    >
-                  }
-              >
-            >
-          >
-        }
-      >
-    }
-  >
   sanityNavigation: Maybe<
     { __typename?: 'SanityNavigation' } & {
       items: Maybe<

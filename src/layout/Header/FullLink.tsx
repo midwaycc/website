@@ -1,9 +1,6 @@
-import styled, {
-  css,
-  AnyStyledComponent,
-  StyledComponent,
-  DefaultTheme
-} from 'styled-components'
+import React from 'react'
+import { Link } from 'gatsby'
+import styled, { css } from 'styled-components'
 
 const styles = css`
   width: 100%;
@@ -21,23 +18,17 @@ export const FullText = styled.span`
   ${styles};
 `
 
-// For some reason, the way gatsby-plugin-netlify-cms is compiling
-// our preview components prevents us from using gatsby-link directly.
-// It seems to be a Babel issue, and just simply including a reference
-// to `Link` causes a runtime error around styled-components. So in
-// that environment, we use a simple anchor tag, and only require `Link`
-// indirectly in production. Hopefully this can eventually be removed.
-
-export let FullLink: AnyStyledComponent
-
-if (typeof window !== 'undefined' && (window as any).CMS_MANUAL_INIT) {
-  FullLink = styled.a`
-    ${styles};
-  `
-} else {
-  FullLink = styled(require('~/components/IsolatedLink').Link).attrs({
-    className: 'navigation-link'
-  })`
-    ${styles};
-  `
-}
+export const FullLink = styled(
+  (props: { className?: string; to: string; children: string | string[] }) => {
+    if (props.to.indexOf('http') === 0) {
+      return (
+        <a className={props.className} href={props.to} target="_blank">
+          {props.children}
+        </a>
+      )
+    }
+    return <Link {...props} />
+  }
+).attrs({ className: 'navigation-link' })`
+  ${styles};
+`

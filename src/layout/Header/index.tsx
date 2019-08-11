@@ -7,12 +7,19 @@ import Navigation, { BREAKPOINT } from './Navigation'
 import { NarrowMenuContents, NarrowMenuToggle } from './Navigation/Narrow'
 import Logo from './Logo'
 import { NavItem, hasSubItems, hasLink } from './Navigation/types'
-import { HeaderQuery } from '~/types/graphqlTypes'
+import {
+  HeaderQuery,
+  SanityNavigation,
+  SanityPlainLink,
+  SanityPageLink,
+  SanityNestedMenu
+} from '~/types/graphqlTypes'
 
 export default () => {
   const data: HeaderQuery = useStaticQuery(query)
-  if (!data.allNavYaml) return null
-  const navigationItems = data.allNavYaml.nodes[0].navigation as NavItem[]
+  if (!data.sanityNavigation) return null
+  const sanityItems = data.sanityNavigation.items
+  const navigationItems = navigationItemsFromSanityItems(sanityItems)
 
   if (!validateNavigationItems(navigationItems)) {
     throw new Error('Navigation items are not valid!')
@@ -36,18 +43,6 @@ export default () => {
 
 const query = graphql`
   query Header {
-    allNavYaml {
-      nodes {
-        navigation {
-          link
-          text
-          items {
-            link
-            text
-          }
-        }
-      }
-    }
     sanityNavigation(title: { eq: "Main Navigation" }) {
       items {
         __typename
@@ -93,6 +88,43 @@ function validateNavigationItems(navigationItems: NavItem[]) {
     if (hasLink(navItem) && (navItem as any).items) return false
     return true
   })
+}
+
+function navigationItemsFromSanityItems<T>(
+  items: SanityNavigation['items']
+): NavItem[] {
+  if (!items) return []
+
+  return items
+    .map(item => {
+      if (!item) return undefined
+      if (!item.__typename) return undefined
+      switch (item.__typename) {
+        case 'SanityPlainLink':
+          return navigationItemFromSanityPlainLink(item)
+        case 'SanityPageLink':
+          return navigationItemFromSanityPageLink(item)
+        case 'SanityNestedMenu':
+          return navigationItemsFromSanityNestedMenu(item)
+      }
+    })
+    .filter(Boolean) as NavItem[]
+}
+
+function navigationItemFromSanityPlainLink(item: SanityPlainLink) {
+  return { text: item.text, link: item.link }
+}
+
+function navigationItemFromSanityPageLink(item: SanityPageLink) {
+  if (!item.page || !item.page.url || !item.page.url.current) return undefined
+  return { text: item.text, link: item.page.url.current }
+}
+
+function navigationItemsFromSanityNestedMenu(menu: SanityNestedMenu) {
+  return {
+    text: menu.text,
+    items: navigationItemsFromSanityItems(menu.items)
+  }
 }
 
 const Container = styled.header`

@@ -8,6 +8,14 @@ import { FullLink, FullText } from '~/layout/Header/FullLink'
 import BaseToggle from '~/components/BaseToggle'
 import { darken } from 'polished'
 
+export const NavigationItem = ({ text, link }: NavItemWithLink) => (
+  <Container>
+    <FullLink css="color: white" to={link}>
+      {text}
+    </FullLink>
+  </Container>
+)
+
 export const NavigationItemWithSubmenu = ({
   text,
   items
@@ -28,14 +36,6 @@ export const NavigationItemWithSubmenu = ({
     </Container>
   )
 }
-
-export const NavigationItem = ({ text, link }: NavItemWithLink) => (
-  <Container>
-    <FullLink css="color: white" to={link}>
-      {text}
-    </FullLink>
-  </Container>
-)
 
 const ROW_HEIGHT = '60px'
 const SUB_ROW_HEIGHT = '40px'
