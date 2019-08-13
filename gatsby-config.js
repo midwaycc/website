@@ -26,21 +26,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        manualInit: true,
-        modulePath: require.resolve('./cms/index.tsx'),
-        htmlTitle: 'Midway Admin'
-      }
-    },
-    'gatsby-transformer-yaml',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: './cms/nav'
-      }
-    },
-    {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: 'iq9kxmf9',
