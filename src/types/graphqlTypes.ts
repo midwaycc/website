@@ -119,23 +119,23 @@ export type PageInfo = {
 export type Query = {
   __typename?: 'Query'
   sanityHeroSection?: Maybe<SanityHeroSection>
-  allSanityHeroSection?: Maybe<SanityHeroSectionConnection>
+  allSanityHeroSection: SanityHeroSectionConnection
   sanityMinistryPage?: Maybe<SanityMinistryPage>
-  allSanityMinistryPage?: Maybe<SanityMinistryPageConnection>
+  allSanityMinistryPage: SanityMinistryPageConnection
   sanityNavigation?: Maybe<SanityNavigation>
-  allSanityNavigation?: Maybe<SanityNavigationConnection>
+  allSanityNavigation: SanityNavigationConnection
   sanityPage?: Maybe<SanityPage>
-  allSanityPage?: Maybe<SanityPageConnection>
+  allSanityPage: SanityPageConnection
   sanityFileAsset?: Maybe<SanityFileAsset>
-  allSanityFileAsset?: Maybe<SanityFileAssetConnection>
+  allSanityFileAsset: SanityFileAssetConnection
   sanityImageAsset?: Maybe<SanityImageAsset>
-  allSanityImageAsset?: Maybe<SanityImageAssetConnection>
+  allSanityImageAsset: SanityImageAssetConnection
   sitePage?: Maybe<SitePage>
-  allSitePage?: Maybe<SitePageConnection>
+  allSitePage: SitePageConnection
   sitePlugin?: Maybe<SitePlugin>
-  allSitePlugin?: Maybe<SitePluginConnection>
+  allSitePlugin: SitePluginConnection
   site?: Maybe<Site>
-  allSite?: Maybe<SiteConnection>
+  allSite: SiteConnection
 }
 
 export type QuerySanityHeroSectionArgs = {
@@ -348,8 +348,8 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
   port?: Maybe<IntQueryOperatorInput>
   host?: Maybe<StringQueryOperatorInput>
-  pathPrefix?: Maybe<StringQueryOperatorInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
+  pathPrefix?: Maybe<StringQueryOperatorInput>
   buildTime?: Maybe<DateQueryOperatorInput>
 }
 
@@ -2052,8 +2052,8 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>
   port?: Maybe<Scalars['Int']>
   host?: Maybe<Scalars['String']>
-  pathPrefix?: Maybe<Scalars['String']>
   polyfill?: Maybe<Scalars['Boolean']>
+  pathPrefix?: Maybe<Scalars['String']>
   buildTime?: Maybe<Scalars['Date']>
 }
 
@@ -2182,8 +2182,8 @@ export enum SiteFieldsEnum {
   siteMetadata___church___googleMapsEmbedSrc = 'siteMetadata___church___googleMapsEmbedSrc',
   port = 'port',
   host = 'host',
-  pathPrefix = 'pathPrefix',
   polyfill = 'polyfill',
+  pathPrefix = 'pathPrefix',
   buildTime = 'buildTime'
 }
 
@@ -2195,8 +2195,8 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
   port?: Maybe<IntQueryOperatorInput>
   host?: Maybe<StringQueryOperatorInput>
-  pathPrefix?: Maybe<StringQueryOperatorInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
+  pathPrefix?: Maybe<StringQueryOperatorInput>
   buildTime?: Maybe<DateQueryOperatorInput>
 }
 
@@ -2400,13 +2400,13 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
   pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
   pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
   pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
   pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
   pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
   pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
+  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
   pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
@@ -2599,13 +2599,13 @@ export enum SitePluginFieldsEnum {
   pluginOptions___root = 'pluginOptions___root',
   pluginOptions___aliases____ = 'pluginOptions___aliases____',
   pluginOptions___component = 'pluginOptions___component',
-  pluginOptions___path = 'pluginOptions___path',
-  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   pluginOptions___projectId = 'pluginOptions___projectId',
   pluginOptions___dataset = 'pluginOptions___dataset',
   pluginOptions___watchMode = 'pluginOptions___watchMode',
   pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
   pluginOptions___token = 'pluginOptions___token',
+  pluginOptions___path = 'pluginOptions___path',
+  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
   ssrAPIs = 'ssrAPIs',
@@ -2731,13 +2731,13 @@ export type SitePluginPluginOptions = {
   root?: Maybe<Scalars['String']>
   aliases?: Maybe<SitePluginPluginOptionsAliases>
   component?: Maybe<Scalars['String']>
-  path?: Maybe<Scalars['String']>
-  pathCheck?: Maybe<Scalars['Boolean']>
   projectId?: Maybe<Scalars['String']>
   dataset?: Maybe<Scalars['String']>
   watchMode?: Maybe<Scalars['Boolean']>
   overlayDrafts?: Maybe<Scalars['Boolean']>
   token?: Maybe<Scalars['String']>
+  path?: Maybe<Scalars['String']>
+  pathCheck?: Maybe<Scalars['Boolean']>
 }
 
 export type SitePluginPluginOptionsAliases = {
@@ -2753,13 +2753,13 @@ export type SitePluginPluginOptionsFilterInput = {
   root?: Maybe<StringQueryOperatorInput>
   aliases?: Maybe<SitePluginPluginOptionsAliasesFilterInput>
   component?: Maybe<StringQueryOperatorInput>
-  path?: Maybe<StringQueryOperatorInput>
-  pathCheck?: Maybe<BooleanQueryOperatorInput>
   projectId?: Maybe<StringQueryOperatorInput>
   dataset?: Maybe<StringQueryOperatorInput>
   watchMode?: Maybe<BooleanQueryOperatorInput>
   overlayDrafts?: Maybe<BooleanQueryOperatorInput>
   token?: Maybe<StringQueryOperatorInput>
+  path?: Maybe<StringQueryOperatorInput>
+  pathCheck?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type SitePluginSortInput = {
