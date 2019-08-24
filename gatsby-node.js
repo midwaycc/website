@@ -42,6 +42,11 @@ async function createMinistryPages(graphql, createPage) {
           url {
             current
           }
+          sections {
+            urlSuffix {
+              current
+            }
+          }
         }
       }
     }
@@ -52,11 +57,18 @@ async function createMinistryPages(graphql, createPage) {
   }
 
   const ministryPages = result.data.allSanityMinistryPage.nodes || []
-  ministryPages.forEach(({ _id, url }) => {
+  ministryPages.forEach(ministryPage => {
     createPage({
-      path: url.current,
+      path: ministryPage.url.current,
       component: require.resolve('./src/templates/MinistryPage.tsx'),
-      context: { _id }
+      context: { _id: ministryPage._id }
+    })
+    ministryPage.sections.forEach(section => {
+      createPage({
+        path: `${ministryPage.url.current}/${section.urlSuffix.current}`,
+        component: require.resolve('./src/templates/MinistryPage.tsx'),
+        context: { _id: ministryPage._id }
+      })
     })
   })
 }

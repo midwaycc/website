@@ -170,10 +170,12 @@ export type QuerySanityMinistryPageArgs = {
   name?: Maybe<StringQueryOperatorInput>
   url?: Maybe<SanitySlugFilterInput>
   subLogo?: Maybe<SanityImageFilterInput>
+  sections?: Maybe<SanityPageSectionFilterListInput>
   content?: Maybe<SanityBlockFilterListInput>
   _rawUrl?: Maybe<JsonQueryOperatorInput>
   _rawSubLogo?: Maybe<JsonQueryOperatorInput>
   _rawContent?: Maybe<JsonQueryOperatorInput>
+  _rawSections?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -1313,10 +1315,12 @@ export type SanityMinistryPage = SanityDocument &
     name?: Maybe<Scalars['String']>
     url?: Maybe<SanitySlug>
     subLogo?: Maybe<SanityImage>
+    sections?: Maybe<Array<Maybe<SanityPageSection>>>
     content?: Maybe<Array<Maybe<SanityBlock>>>
     _rawUrl?: Maybe<Scalars['JSON']>
     _rawSubLogo?: Maybe<Scalars['JSON']>
     _rawContent?: Maybe<Scalars['JSON']>
+    _rawSections?: Maybe<Scalars['JSON']>
     id: Scalars['ID']
     parent?: Maybe<Node>
     children: Array<Node>
@@ -1346,6 +1350,10 @@ export type SanityMinistryPage_RawSubLogoArgs = {
 }
 
 export type SanityMinistryPage_RawContentArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+}
+
+export type SanityMinistryPage_RawSectionsArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 }
 
@@ -1451,6 +1459,23 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___crop___bottom = 'subLogo___crop___bottom',
   subLogo___crop___left = 'subLogo___crop___left',
   subLogo___crop___right = 'subLogo___crop___right',
+  sections = 'sections',
+  sections____key = 'sections____key',
+  sections____type = 'sections____type',
+  sections___name = 'sections___name',
+  sections___urlSuffix____key = 'sections___urlSuffix____key',
+  sections___urlSuffix____type = 'sections___urlSuffix____type',
+  sections___urlSuffix___current = 'sections___urlSuffix___current',
+  sections___content = 'sections___content',
+  sections___content____key = 'sections___content____key',
+  sections___content____type = 'sections___content____type',
+  sections___content___sanityChildren = 'sections___content___sanityChildren',
+  sections___content___sanityChildren____key = 'sections___content___sanityChildren____key',
+  sections___content___sanityChildren____type = 'sections___content___sanityChildren____type',
+  sections___content___sanityChildren___marks = 'sections___content___sanityChildren___marks',
+  sections___content___sanityChildren___text = 'sections___content___sanityChildren___text',
+  sections___content___style = 'sections___content___style',
+  sections___content___list = 'sections___content___list',
   content = 'content',
   content____key = 'content____key',
   content____type = 'content____type',
@@ -1464,6 +1489,7 @@ export enum SanityMinistryPageFieldsEnum {
   _rawUrl = '_rawUrl',
   _rawSubLogo = '_rawSubLogo',
   _rawContent = '_rawContent',
+  _rawSections = '_rawSections',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -1562,10 +1588,12 @@ export type SanityMinistryPageFilterInput = {
   name?: Maybe<StringQueryOperatorInput>
   url?: Maybe<SanitySlugFilterInput>
   subLogo?: Maybe<SanityImageFilterInput>
+  sections?: Maybe<SanityPageSectionFilterListInput>
   content?: Maybe<SanityBlockFilterListInput>
   _rawUrl?: Maybe<JsonQueryOperatorInput>
   _rawSubLogo?: Maybe<JsonQueryOperatorInput>
   _rawContent?: Maybe<JsonQueryOperatorInput>
+  _rawSections?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -1990,6 +2018,27 @@ export type SanityPageLink = {
 }
 
 export type SanityPageLinkOrPlainLink = SanityPageLink | SanityPlainLink
+
+export type SanityPageSection = {
+  __typename?: 'SanityPageSection'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  urlSuffix?: Maybe<SanitySlug>
+  content?: Maybe<Array<Maybe<SanityBlock>>>
+}
+
+export type SanityPageSectionFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>
+  _type?: Maybe<StringQueryOperatorInput>
+  name?: Maybe<StringQueryOperatorInput>
+  urlSuffix?: Maybe<SanitySlugFilterInput>
+  content?: Maybe<SanityBlockFilterListInput>
+}
+
+export type SanityPageSectionFilterListInput = {
+  elemMatch?: Maybe<SanityPageSectionFilterInput>
+}
 
 export type SanityPageSortInput = {
   fields?: Maybe<Array<Maybe<SanityPageFieldsEnum>>>
@@ -2946,6 +2995,21 @@ export type MinistryPageQuery = { __typename?: 'Query' } & {
               }
             >
           }
+        >
+        url: Maybe<{ __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>>
+        sections: Maybe<
+          Array<
+            Maybe<
+              { __typename?: 'SanityPageSection' } & Pick<
+                SanityPageSection,
+                '_key' | 'name'
+              > & {
+                  urlSuffix: Maybe<
+                    { __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>
+                  >
+                }
+            >
+          >
         >
       }
   >

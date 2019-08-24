@@ -28,6 +28,12 @@ export default {
       type: 'array',
       of: [{ type: 'block' }],
       title: 'Content'
+    },
+    {
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [{ type: 'pageSection' }]
     }
   ]
 }

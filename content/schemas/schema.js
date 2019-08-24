@@ -11,6 +11,7 @@ import navigation from './documentTypes/navigation'
 import plainLink from './otherTypes/plainLink'
 import pageLink from './otherTypes/pageLink'
 import nestedMenu from './otherTypes/nestedMenu'
+import pageSection from './otherTypes/pageSection'
 
 export default createSchema({
   name: 'default',
@@ -21,7 +22,8 @@ export default createSchema({
     navigation,
     plainLink,
     pageLink,
-    nestedMenu
+    nestedMenu,
+    pageSection
     // Ideas:
     //
     // event,
