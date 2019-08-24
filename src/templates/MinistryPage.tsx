@@ -58,6 +58,7 @@ export default ({ data, path }: Props) => {
               getProps={() => ({
                 style: {
                   backgroundColor:
+                    typeof window !== 'undefined' &&
                     window.location.pathname === sectionURL
                       ? '#9fb94b'
                       : '#099799'
