@@ -26,5 +26,13 @@ export default {
       type: 'array',
       of: [{ type: 'block' }]
     }
-  ]
+  ],
+  preview: {
+    select: { name: 'name', urlSuffix: 'urlSuffix' },
+    prepare(selection) {
+      return {
+        title: `${selection.name} (.../${selection.urlSuffix.current})`
+      }
+    }
+  }
 }
