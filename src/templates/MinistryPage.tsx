@@ -18,7 +18,13 @@ type Props = {
 export default ({ data, path }: Props) => {
   if (!data.sanityMinistryPage) return null
 
-  const { _rawContent, name, url, subLogo, sections } = data.sanityMinistryPage
+  const {
+    _rawContent: content,
+    name,
+    url,
+    subLogo,
+    _rawSections: sections
+  } = data.sanityMinistryPage
   const parentURL = url && url.current
   if (!url || !parentURL || !sections) return null
 
@@ -78,15 +84,11 @@ export default ({ data, path }: Props) => {
       <h1>{name}</h1>
 
       {!activeSection ? (
-        <BlockContent blocks={_rawContent} />
+        <BlockContent blocks={content} />
       ) : (
         <>
           <h2>{activeSection.name}</h2>
-          <p>
-            Content for this section will go here once I figure out how to
-            display it properly.
-          </p>
-          {/*<BlockContent blocks={activeSection.content} />*/}
+          <BlockContent blocks={activeSection.content} />
         </>
       )}
     </Section>
@@ -108,6 +110,7 @@ export const query = graphql`
       url {
         current
       }
+      _rawSections
       sections {
         _key
         name
