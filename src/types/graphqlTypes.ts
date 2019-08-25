@@ -2981,7 +2981,7 @@ export type MinistryPageQuery = { __typename?: 'Query' } & {
   sanityMinistryPage: Maybe<
     { __typename?: 'SanityMinistryPage' } & Pick<
       SanityMinistryPage,
-      'name' | '_rawContent'
+      'name' | '_rawContent' | '_rawSections'
     > & {
         subLogo: Maybe<
           { __typename?: 'SanityImage' } & {

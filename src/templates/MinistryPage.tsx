@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
+import styled from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import Section from '~/layout/Section'
-import ButtonLink from '~/components/ButtonLink'
 import {
   MinistryPageQuery,
   SanitySlug,
   SanityPageSection
 } from '~/types/graphqlTypes'
+import media from '~/utils/media'
 
 type Props = {
   data: MinistryPageQuery
@@ -30,7 +31,8 @@ export default ({ data, path }: Props) => {
 
   const getActiveSection = () =>
     sections.find(
-      section => section && path === ministryPageSectionURL(url, section)
+      (section: SanityPageSection) =>
+        section && path === ministryPageSectionURL(url, section)
     )
   const [activeSection, setActiveSection] = useState(getActiveSection())
 
@@ -52,13 +54,13 @@ export default ({ data, path }: Props) => {
         </Link>
       )}
 
-      <div css="margin-top: 1em">
-        {sections.map(section => {
+      <SectionLinkContainer>
+        {sections.map((section: SanityPageSection) => {
           if (!section || !section._key) return null
           const sectionURL = ministryPageSectionURL(url, section)
 
           return (
-            <ButtonLink
+            <SectionLink
               key={section._key}
               to={sectionURL}
               getProps={() => ({
@@ -76,10 +78,10 @@ export default ({ data, path }: Props) => {
               }}
             >
               {section.name}
-            </ButtonLink>
+            </SectionLink>
           )
         })}
-      </div>
+      </SectionLinkContainer>
 
       <h1>{name}</h1>
 
@@ -135,3 +137,27 @@ const hijackURL = (e: React.MouseEvent, url: string) => {
   e.preventDefault()
   window.history.pushState(window.history.state, document.title, url)
 }
+
+const HORIZONTAL_SPACE = '0.75em'
+const VERTICAL_SPACE = '0.75em'
+
+const SectionLinkContainer = styled.div`
+  margin-top: calc(1em - ${VERTICAL_SPACE});
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -${HORIZONTAL_SPACE};
+`
+
+const SectionLink = styled(Link)<{ stacked?: boolean }>`
+  color: white;
+  background-color: #099799;
+  text-decoration: none;
+  text-align: center;
+  display: ${props => (props.stacked ? 'block' : 'inline-block')};
+  padding: 0.5em 1em;
+  border-radius: 1.5em;
+  flex-grow: 1;
+  margin-left: ${HORIZONTAL_SPACE};
+  margin-top: ${VERTICAL_SPACE};
+  max-width: 12em;
+`
