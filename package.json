@@ -18,6 +18,7 @@
     "ci": "yarn codegen && yarn tsc && yarn format",
     "start": "yarn develop",
     "serve": "gatsby serve",
+    "check-upgrades": "yarn outdated && cd content && yarn outdated",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
