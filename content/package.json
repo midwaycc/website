@@ -14,18 +14,18 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^0.141.6",
-    "@sanity/components": "^0.141.6",
-    "@sanity/core": "^0.141.6",
-    "@sanity/default-layout": "^0.141.6",
-    "@sanity/default-login": "^0.141.5",
-    "@sanity/desk-tool": "^0.141.6",
+    "@sanity/base": "^0.142",
+    "@sanity/components": "^0.142",
+    "@sanity/core": "^0.142",
+    "@sanity/default-layout": "^0.142",
+    "@sanity/default-login": "^0.142",
+    "@sanity/desk-tool": "^0.142",
     "prop-types": "^15.6",
-    "react": "^16.2",
-    "react-dom": "^16.2"
+    "react": "^16.9",
+    "react-dom": "^16.9"
   },
   "devDependencies": {
-    "@sanity/cli": "^0.141.6"
+    "@sanity/cli": "^0.142"
   },
   "repository": {
     "type": "git",
