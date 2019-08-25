@@ -2449,13 +2449,13 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
   pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
   pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
   pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
   pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
   pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
   pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
+  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
   pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
@@ -2648,13 +2648,13 @@ export enum SitePluginFieldsEnum {
   pluginOptions___root = 'pluginOptions___root',
   pluginOptions___aliases____ = 'pluginOptions___aliases____',
   pluginOptions___component = 'pluginOptions___component',
-  pluginOptions___path = 'pluginOptions___path',
-  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   pluginOptions___projectId = 'pluginOptions___projectId',
   pluginOptions___dataset = 'pluginOptions___dataset',
   pluginOptions___watchMode = 'pluginOptions___watchMode',
   pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
   pluginOptions___token = 'pluginOptions___token',
+  pluginOptions___path = 'pluginOptions___path',
+  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
   ssrAPIs = 'ssrAPIs',
@@ -2780,13 +2780,13 @@ export type SitePluginPluginOptions = {
   root?: Maybe<Scalars['String']>
   aliases?: Maybe<SitePluginPluginOptionsAliases>
   component?: Maybe<Scalars['String']>
-  path?: Maybe<Scalars['String']>
-  pathCheck?: Maybe<Scalars['Boolean']>
   projectId?: Maybe<Scalars['String']>
   dataset?: Maybe<Scalars['String']>
   watchMode?: Maybe<Scalars['Boolean']>
   overlayDrafts?: Maybe<Scalars['Boolean']>
   token?: Maybe<Scalars['String']>
+  path?: Maybe<Scalars['String']>
+  pathCheck?: Maybe<Scalars['Boolean']>
 }
 
 export type SitePluginPluginOptionsAliases = {
@@ -2802,13 +2802,13 @@ export type SitePluginPluginOptionsFilterInput = {
   root?: Maybe<StringQueryOperatorInput>
   aliases?: Maybe<SitePluginPluginOptionsAliasesFilterInput>
   component?: Maybe<StringQueryOperatorInput>
-  path?: Maybe<StringQueryOperatorInput>
-  pathCheck?: Maybe<BooleanQueryOperatorInput>
   projectId?: Maybe<StringQueryOperatorInput>
   dataset?: Maybe<StringQueryOperatorInput>
   watchMode?: Maybe<BooleanQueryOperatorInput>
   overlayDrafts?: Maybe<BooleanQueryOperatorInput>
   token?: Maybe<StringQueryOperatorInput>
+  path?: Maybe<StringQueryOperatorInput>
+  pathCheck?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type SitePluginSortInput = {
