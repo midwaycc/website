@@ -24,10 +24,11 @@ export default ({ data, path }: Props) => {
     name,
     url,
     subLogo,
-    _rawSections: sections
+    _rawSections
   } = data.sanityMinistryPage
+  const sections = Array.isArray(_rawSections) ? _rawSections : []
   const parentURL = url && url.current
-  if (!url || !parentURL || !sections) return null
+  if (!url || !parentURL) return null
 
   const getActiveSection = () =>
     sections.find(
@@ -49,7 +50,6 @@ export default ({ data, path }: Props) => {
           <Image
             fluid={(subLogo.asset.fluid as FluidObject) || undefined}
             style={{ maxWidth: 400 }}
-            fadeIn
           />
         </Link>
       )}
@@ -90,7 +90,9 @@ export default ({ data, path }: Props) => {
       ) : (
         <>
           <h2>{activeSection.name}</h2>
-          <BlockContent blocks={activeSection.content} />
+          {activeSection.content && (
+            <BlockContent blocks={activeSection.content} />
+          )}
         </>
       )}
     </Section>
