@@ -12,6 +12,7 @@ import 'typeface-nunito'
 import 'typeface-montserrat'
 import 'typeface-open-sans'
 import './index.css'
+import './fonts.css'
 
 type Props = {
   children: React.ReactNode
