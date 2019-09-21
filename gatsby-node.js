@@ -7,7 +7,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   await Promise.all([
     createPages(graphql, createPage),
-    createMinistryPages(graphql, createPage)
+    createMinistryPages(graphql, createPage),
+    createPostPages(graphql, createPage)
   ])
 }
 
@@ -69,6 +70,34 @@ async function createMinistryPages(graphql, createPage) {
         component: require.resolve('./src/templates/MinistryPage.tsx'),
         context: { _id: ministryPage._id }
       })
+    })
+  })
+}
+
+async function createPostPages(graphql, createPage) {
+  const result = await graphql(`
+    {
+      allSanityPost {
+        nodes {
+          _id
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) {
+    throw result.errors
+  }
+
+  const posts = result.data.allSanityPost.nodes || []
+  posts.forEach(post => {
+    createPage({
+      path: `posts/${post.slug.current}`,
+      component: require.resolve('./src/templates/Post.tsx'),
+      context: { _id: post._id }
     })
   })
 }
