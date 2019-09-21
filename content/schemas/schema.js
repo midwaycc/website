@@ -6,6 +6,7 @@ import page from './documentTypes/page'
 import ministryPage from './documentTypes/ministryPage'
 import heroSection from './documentTypes/heroSection'
 import navigation from './documentTypes/navigation'
+import post from './documentTypes/post'
 
 // Other custom types
 import plainLink from './otherTypes/plainLink'
@@ -20,6 +21,7 @@ export default createSchema({
     ministryPage,
     heroSection,
     navigation,
+    post,
     plainLink,
     pageLink,
     nestedMenu,
