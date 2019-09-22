@@ -42,8 +42,11 @@ export default {
           styles: [{ title: 'Normal', value: 'normal' }],
           lists: [],
           marks: {
-            decorators: [],
-            annotations: []
+            decorators: [
+              { title: 'Bold', value: 'strong' },
+              { title: 'Italic', value: 'em' },
+              { title: 'Underline', value: 'underline' }
+            ]
           }
         }
       ],
