@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
-import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 import BlockContent from '@sanity/block-content-to-react'
 import Section from '~/layout/Section'
 import { PostQuery } from '~/types/graphqlTypes'
-import media from '~/utils/media'
+import { CenteredGatsbyImage } from '~/utils/blockSerializers/CenteredGatsbyImage'
 
 type Props = {
   data: PostQuery
@@ -26,7 +25,14 @@ export default ({ data }: Props) => {
       </Link>
       <PostTitle>{title}</PostTitle>
       <PostDate date={date} />
-      <BlockContent blocks={body} />
+      <BlockContent
+        blocks={body}
+        serializers={{
+          types: {
+            image: CenteredGatsbyImage
+          }
+        }}
+      />
     </Container>
   )
 }
@@ -53,10 +59,6 @@ function formatDate(date: string) {
 
 const Container = styled(Section)`
   padding: 2em;
-
-  figure {
-    text-align: center;
-  }
 `
 
 const PostTitle = styled.h1`

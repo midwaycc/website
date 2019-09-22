@@ -50,7 +50,7 @@ export default ({ data }: Props) => {
 
 export const query = graphql`
   query AllPosts {
-    allSanityPost {
+    allSanityPost(sort: { fields: date, order: DESC }) {
       nodes {
         _id
         title
