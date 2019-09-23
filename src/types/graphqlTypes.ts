@@ -2648,10 +2648,20 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   __typename?: 'SitePageContext'
   _id?: Maybe<Scalars['String']>
+  page?: Maybe<Scalars['Int']>
+  perPage?: Maybe<Scalars['Int']>
+  offset?: Maybe<Scalars['Int']>
+  isFirst?: Maybe<Scalars['Boolean']>
+  isLast?: Maybe<Scalars['Boolean']>
 }
 
 export type SitePageContextFilterInput = {
   _id?: Maybe<StringQueryOperatorInput>
+  page?: Maybe<IntQueryOperatorInput>
+  perPage?: Maybe<IntQueryOperatorInput>
+  offset?: Maybe<IntQueryOperatorInput>
+  isFirst?: Maybe<BooleanQueryOperatorInput>
+  isLast?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type SitePageEdge = {
@@ -2754,6 +2764,11 @@ export enum SitePageFieldsEnum {
   componentChunkName = 'componentChunkName',
   isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
   context____id = 'context____id',
+  context___page = 'context___page',
+  context___perPage = 'context___perPage',
+  context___offset = 'context___offset',
+  context___isFirst = 'context___isFirst',
+  context___isLast = 'context___isLast',
   pluginCreator___id = 'pluginCreator___id',
   pluginCreator___parent___id = 'pluginCreator___parent___id',
   pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',
@@ -3322,36 +3337,6 @@ export type AnyNavLinkFragment =
         >
       })
 
-export type AllPostsQueryVariables = {}
-
-export type AllPostsQuery = { __typename?: 'Query' } & {
-  allSanityPost: { __typename?: 'SanityPostConnection' } & {
-    nodes: Array<
-      { __typename?: 'SanityPost' } & Pick<
-        SanityPost,
-        '_id' | 'title' | 'date' | '_rawSummary'
-      > & {
-          thumbnail: Maybe<
-            { __typename?: 'SanityImage' } & {
-              asset: Maybe<
-                { __typename?: 'SanityImageAsset' } & {
-                  fixed: Maybe<
-                    {
-                      __typename?: 'SanityImageFixed'
-                    } & GatsbySanityImageFixedFragment
-                  >
-                }
-              >
-            }
-          >
-          slug: Maybe<
-            { __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>
-          >
-        }
-    >
-  }
-}
-
 export type MinistryPageQueryVariables = {
   _id: Scalars['String']
 }
@@ -3402,9 +3387,42 @@ export type PostQuery = { __typename?: 'Query' } & {
   sanityPost: Maybe<
     { __typename?: 'SanityPost' } & Pick<
       SanityPost,
-      'title' | 'date' | '_rawBody'
+      'title' | 'date' | '_rawBody' | '_rawSummary'
     >
   >
+}
+
+export type AllPostsQueryVariables = {
+  perPage: Scalars['Int']
+  offset: Scalars['Int']
+}
+
+export type AllPostsQuery = { __typename?: 'Query' } & {
+  allSanityPost: { __typename?: 'SanityPostConnection' } & {
+    nodes: Array<
+      { __typename?: 'SanityPost' } & Pick<
+        SanityPost,
+        '_id' | 'title' | 'date' | '_rawSummary'
+      > & {
+          thumbnail: Maybe<
+            { __typename?: 'SanityImage' } & {
+              asset: Maybe<
+                { __typename?: 'SanityImageAsset' } & {
+                  fixed: Maybe<
+                    {
+                      __typename?: 'SanityImageFixed'
+                    } & GatsbySanityImageFixedFragment
+                  >
+                }
+              >
+            }
+          >
+          slug: Maybe<
+            { __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>
+          >
+        }
+    >
+  }
 }
 
 export type ChurchLocationQueryVariables = {}

@@ -9,12 +9,21 @@ import { PostDate } from '~/templates/Post'
 
 type Props = {
   data: AllPostsQuery
+  pageContext: {
+    perPage: number
+    page: number
+    offset: number
+    isFirst: boolean
+    isLast: boolean
+  }
 }
 
-export default ({ data }: Props) => {
+export default ({ data, pageContext }: Props) => {
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
 
   const { nodes: posts } = data.allSanityPost
+  const { page, isFirst, isLast } = pageContext
+  console.log(pageContext)
 
   return (
     <Section css="padding: 2em">
@@ -46,13 +55,34 @@ export default ({ data }: Props) => {
           </>
         )
       })}
+      <div
+        style={{
+          width: '100%',
+          display: isFirst ? 'block' : 'flex',
+          justifyContent: 'space-between',
+          textAlign: isFirst ? 'right' : 'left'
+        }}
+      >
+        {!isFirst && (
+          <Link to={page === 2 ? '/posts' : `/posts/page/${page - 1}`}>
+            &#8592; Newer Posts
+          </Link>
+        )}
+        {!isLast && (
+          <Link to={`/posts/page/${page + 1}`}>Older Posts &#8594;</Link>
+        )}
+      </div>
     </Section>
   )
 }
 
 export const query = graphql`
-  query AllPosts {
-    allSanityPost(sort: { fields: date, order: DESC }) {
+  query AllPosts($perPage: Int!, $offset: Int!) {
+    allSanityPost(
+      sort: { fields: date, order: DESC }
+      limit: $perPage
+      skip: $offset
+    ) {
       nodes {
         _id
         title

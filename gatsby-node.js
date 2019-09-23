@@ -75,6 +75,8 @@ async function createMinistryPages(graphql, createPage) {
 }
 
 async function createPostPages(graphql, createPage) {
+  const perPage = 5
+
   const result = await graphql(`
     {
       allSanityPost {
@@ -100,4 +102,19 @@ async function createPostPages(graphql, createPage) {
       context: { _id: post._id }
     })
   })
+
+  const maxPage = Math.ceil(posts.length / perPage)
+  for (let page = 1; page <= maxPage; page++) {
+    createPage({
+      path: page === 1 ? 'posts' : `posts/page/${page}`,
+      component: require.resolve('./src/templates/PostsPage.tsx'),
+      context: {
+        page,
+        perPage,
+        offset: (page - 1) * perPage,
+        isFirst: page === 1,
+        isLast: page === maxPage
+      }
+    })
+  }
 }
