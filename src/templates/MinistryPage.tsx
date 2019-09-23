@@ -9,7 +9,6 @@ import {
   SanitySlug,
   SanityPageSection
 } from '~/types/graphqlTypes'
-import media from '~/utils/media'
 
 type Props = {
   data: MinistryPageQuery

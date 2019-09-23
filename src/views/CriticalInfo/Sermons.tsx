@@ -2,7 +2,6 @@ import React from 'react'
 import InfoWidget from './InfoWidget'
 import styled from 'styled-components'
 import { lighten } from 'polished'
-import media from '~/utils/media'
 
 export default () => (
   <Container title="Sermons">

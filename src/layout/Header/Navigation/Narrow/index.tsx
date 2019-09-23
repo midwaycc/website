@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { NavItem, hasSubItems } from '~/layout/Header/Navigation/types'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'

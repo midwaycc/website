@@ -90,7 +90,7 @@ function validateNavigationItems(navigationItems: NavItem[]) {
   })
 }
 
-function navigationItemsFromSanityItems<T>(
+function navigationItemsFromSanityItems(
   items: SanityNavigation['items']
 ): NavItem[] {
   if (!items) return []

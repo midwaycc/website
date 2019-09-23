@@ -1,5 +1,5 @@
 import React from 'react'
-import Image, { FluidObject } from 'gatsby-image'
+import Image from 'gatsby-image'
 import media from '~/utils/media'
 
 type Props = {

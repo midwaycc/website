@@ -41,7 +41,7 @@ const ROW_HEIGHT = '60px'
 const SUB_ROW_HEIGHT = '40px'
 const HOVER_COLOR = (background: string) => darken(0.07, background)
 const HOVER_STYLES = css`
-  background-color: ${props => HOVER_COLOR('#099799')};
+  background-color: ${HOVER_COLOR('#099799')};
 `
 
 const Toggle = styled(BaseToggle).attrs({ className: 'narrow-submenu-toggle' })`

@@ -35,15 +35,15 @@ const Container = styled.section`
   position: relative;
 `
 
-const VideoContainer = styled.div`
-  width: 100%;
-  position: absolute;
-  top: -15vh;
+// const VideoContainer = styled.div`
+// width: 100%;
+// position: absolute;
+// top: -15vh;
 
-  video {
-    width: 100%;
-  }
-`
+// video {
+// width: 100%;
+// }
+// `
 
 const OverlayContainer = styled.div`
   width: 100%;

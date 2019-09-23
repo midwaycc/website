@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import media from '~/utils/media'
-import theme from '~/theme'
 
 export default styled.img.attrs({
   src: '/logo_horizontal.png',

@@ -2,7 +2,6 @@ import React from 'react'
 import InfoWidget from './InfoWidget'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import media from '~/utils/media'
 import { ChurchLocationQuery } from '~/types/graphqlTypes'
 
 export default () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import { format } from 'date-fns'

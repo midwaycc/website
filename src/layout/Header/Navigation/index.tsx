@@ -1,5 +1,4 @@
 import React from 'react'
-import { css } from 'styled-components'
 import Wide from './Wide'
 import Narrow from './Narrow'
 import { NavItem } from './types'
