@@ -21,19 +21,21 @@ export default ({ data }: Props) => {
       <h1>All Updates</h1>
       <hr css="color: #eee; margin: 2em 0" />
       {posts.map(post => {
-        if (!post.slug || !post.thumbnail || !post.thumbnail.asset) return null
+        if (!post.slug) return null
 
         const postUrl = `/posts/${post.slug.current}`
 
         return (
           <>
             <FlexRow>
-              <Link to={postUrl}>
-                <Image
-                  css="float: left; margin-right: 1em"
-                  fixed={post.thumbnail.asset.fixed as FixedObject}
-                />
-              </Link>
+              {post.thumbnail && post.thumbnail.asset && (
+                <Link to={postUrl}>
+                  <Image
+                    css="float: left; margin-right: 1em"
+                    fixed={post.thumbnail.asset.fixed as FixedObject}
+                  />
+                </Link>
+              )}
               <div css="flex: 1; display: flex; flex-direction: column">
                 <PostTitle to={postUrl}>{post.title}</PostTitle>
                 <PostDate date={post.date} />

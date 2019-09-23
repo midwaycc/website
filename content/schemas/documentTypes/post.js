@@ -52,14 +52,15 @@ export default {
       ],
       title: 'Short Summary',
       description:
-        'This appears where the thumbnail is displayed, before opening up the post.'
+        'This appears where the thumbnail is displayed, before opening up the post. Can include basic formatting and links.'
     },
     {
       name: 'body',
       type: 'array',
       of: [{ type: 'block' }, { type: 'image' }],
       title: 'Body',
-      description: 'Can include images!'
+      description:
+        'Can include images! Leave blank to just use the summary as the body.'
     }
   ]
 }

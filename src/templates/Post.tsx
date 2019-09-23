@@ -11,12 +11,13 @@ type Props = {
   data: PostQuery
 }
 
-export default ({ data }: Props) => {
+export default ({ data, ...otherProps }: Props) => {
+  console.log(data, otherProps)
   if (!data.sanityPost) return null
 
-  const { _rawBody: body, title, date } = data.sanityPost
+  const { title, date, _rawBody: body, _rawSummary: summary } = data.sanityPost
 
-  if (!body || !title || !date) return null
+  if ((!body && !summary) || !title || !date) return null
 
   return (
     <Container>
@@ -26,7 +27,7 @@ export default ({ data }: Props) => {
       <PostTitle>{title}</PostTitle>
       <PostDate date={date} />
       <BlockContent
-        blocks={body}
+        blocks={body || summary}
         serializers={{
           types: {
             image: CenteredGatsbyImage
@@ -43,6 +44,7 @@ export const query = graphql`
       title
       date
       _rawBody(resolveReferences: { maxDepth: 10 })
+      _rawSummary(resolveReferences: { maxDepth: 10 })
     }
   }
 `
