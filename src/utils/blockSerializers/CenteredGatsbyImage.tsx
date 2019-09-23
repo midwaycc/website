@@ -18,7 +18,7 @@ type Props = {
   }
 }
 
-const MAX_WIDTH = media.xl.width
+const MAX_WIDTH = parseInt(media.xl.width)
 
 export const CenteredGatsbyImage = (props: Props) => {
   const { url, metadata } = props.node.asset
