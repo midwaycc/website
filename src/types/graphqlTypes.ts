@@ -3454,3 +3454,33 @@ export type HeroSectionQuery = { __typename?: 'Query' } & {
     >
   >
 }
+
+export type RecentPostsQueryVariables = {}
+
+export type RecentPostsQuery = { __typename?: 'Query' } & {
+  allSanityPost: { __typename?: 'SanityPostConnection' } & {
+    nodes: Array<
+      { __typename?: 'SanityPost' } & Pick<
+        SanityPost,
+        '_id' | '_rawSummary' | 'date' | 'title'
+      > & {
+          thumbnail: Maybe<
+            { __typename?: 'SanityImage' } & {
+              asset: Maybe<
+                { __typename?: 'SanityImageAsset' } & {
+                  fixed: Maybe<
+                    {
+                      __typename?: 'SanityImageFixed'
+                    } & GatsbySanityImageFixedFragment
+                  >
+                }
+              >
+            }
+          >
+          slug: Maybe<
+            { __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>
+          >
+        }
+    >
+  }
+}
