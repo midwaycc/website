@@ -4,13 +4,13 @@ import styled, { ThemeProvider } from 'styled-components'
 import Head from './Head'
 import Header from './Header'
 import Footer from './Footer'
-import MediaIndicator from '~/components/MediaIndicator'
+// import MediaIndicator from '~/components/MediaIndicator'
 import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
 
-import 'typeface-nunito'
-import 'typeface-montserrat'
-import 'typeface-open-sans'
+// import 'typeface-nunito'
+// import 'typeface-montserrat'
+// import 'typeface-open-sans'
 import './index.css'
 import './fonts.css'
 
@@ -28,7 +28,7 @@ export default ({ children }: Props) => (
         <Footer />
       </PageContainer>
     </ThemeProvider>
-    <MediaIndicator />
+    {/*<MediaIndicator />*/}
   </>
 )
 
