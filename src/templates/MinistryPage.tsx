@@ -4,6 +4,7 @@ import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import Section from '~/layout/Section'
+import RecentPosts from '~/views/RecentPosts'
 import {
   MinistryPageQuery,
   SanitySlug,
@@ -16,7 +17,12 @@ type Props = {
 }
 
 export default ({ data, path }: Props) => {
-  if (!data.sanityMinistryPage) return null
+  if (
+    !data.sanityMinistryPage ||
+    !data.allSanityPost ||
+    !data.allSanityPost.nodes
+  )
+    return null
 
   const {
     _rawContent: content,
@@ -25,6 +31,7 @@ export default ({ data, path }: Props) => {
     subLogo,
     _rawSections
   } = data.sanityMinistryPage
+  const { nodes: relatedPosts } = data.allSanityPost
   const sections = Array.isArray(_rawSections) ? _rawSections : []
   const parentURL = url && url.current
   if (!url || !parentURL) return null
@@ -37,64 +44,69 @@ export default ({ data, path }: Props) => {
   const [activeSection, setActiveSection] = useState(getActiveSection())
 
   return (
-    <Section css="padding: 2em">
-      {subLogo && subLogo.asset && (
-        <Link
-          to={parentURL}
-          onClick={e => {
-            hijackURL(e, parentURL)
-            setActiveSection(undefined)
-          }}
-        >
-          <Image
-            fluid={(subLogo.asset.fluid as FluidObject) || undefined}
-            style={{ maxWidth: 400 }}
-          />
-        </Link>
+    <>
+      <Section css="padding: 2em">
+        {subLogo && subLogo.asset && (
+          <Link
+            to={parentURL}
+            onClick={e => {
+              hijackURL(e, parentURL)
+              setActiveSection(undefined)
+            }}
+          >
+            <Image
+              fluid={(subLogo.asset.fluid as FluidObject) || undefined}
+              style={{ maxWidth: 400 }}
+            />
+          </Link>
+        )}
+
+        <SectionLinkContainer>
+          {sections.map((section: SanityPageSection) => {
+            if (!section || !section._key) return null
+            const sectionURL = ministryPageSectionURL(url, section)
+
+            return (
+              <SectionLink
+                key={section._key}
+                to={sectionURL}
+                getProps={() => ({
+                  style: {
+                    backgroundColor:
+                      typeof window !== 'undefined' &&
+                      window.location.pathname === sectionURL
+                        ? '#9fb94b'
+                        : '#099799'
+                  }
+                })}
+                onClick={e => {
+                  hijackURL(e, sectionURL)
+                  setActiveSection(section)
+                }}
+              >
+                {section.name}
+              </SectionLink>
+            )
+          })}
+        </SectionLinkContainer>
+
+        <h1>{name}</h1>
+
+        {!activeSection ? (
+          <BlockContent blocks={content} />
+        ) : (
+          <>
+            <h2>{activeSection.name}</h2>
+            {activeSection.content && (
+              <BlockContent blocks={activeSection.content} />
+            )}
+          </>
+        )}
+      </Section>
+      {relatedPosts && relatedPosts.length > 0 && (
+        <RecentPosts posts={relatedPosts} />
       )}
-
-      <SectionLinkContainer>
-        {sections.map((section: SanityPageSection) => {
-          if (!section || !section._key) return null
-          const sectionURL = ministryPageSectionURL(url, section)
-
-          return (
-            <SectionLink
-              key={section._key}
-              to={sectionURL}
-              getProps={() => ({
-                style: {
-                  backgroundColor:
-                    typeof window !== 'undefined' &&
-                    window.location.pathname === sectionURL
-                      ? '#9fb94b'
-                      : '#099799'
-                }
-              })}
-              onClick={e => {
-                hijackURL(e, sectionURL)
-                setActiveSection(section)
-              }}
-            >
-              {section.name}
-            </SectionLink>
-          )
-        })}
-      </SectionLinkContainer>
-
-      <h1>{name}</h1>
-
-      {!activeSection ? (
-        <BlockContent blocks={content} />
-      ) : (
-        <>
-          <h2>{activeSection.name}</h2>
-          {activeSection.content && (
-            <BlockContent blocks={activeSection.content} />
-          )}
-        </>
-      )}
-    </Section>
+    </>
   )
 }
 
@@ -118,6 +130,28 @@ export const query = graphql`
         _key
         name
         urlSuffix {
+          current
+        }
+      }
+    }
+    allSanityPost(
+      limit: 5
+      sort: { fields: date, order: DESC }
+      filter: { ministries: { elemMatch: { _id: { eq: $_id } } } }
+    ) {
+      nodes {
+        _id
+        title
+        date
+        thumbnail {
+          asset {
+            fixed(width: 75, height: 75) {
+              ...GatsbySanityImageFixed
+            }
+          }
+        }
+        _rawSummary
+        slug {
           current
         }
       }

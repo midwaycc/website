@@ -247,12 +247,14 @@ export type QuerySanityPostArgs = {
   slug?: Maybe<SanitySlugFilterInput>
   date?: Maybe<DateQueryOperatorInput>
   thumbnail?: Maybe<SanityImageFilterInput>
+  ministries?: Maybe<SanityMinistryPageFilterListInput>
   summary?: Maybe<SanityBlockFilterListInput>
   body?: Maybe<SanityBlockFilterListInput>
   _rawSlug?: Maybe<JsonQueryOperatorInput>
   _rawThumbnail?: Maybe<JsonQueryOperatorInput>
   _rawSummary?: Maybe<JsonQueryOperatorInput>
   _rawBody?: Maybe<JsonQueryOperatorInput>
+  _rawMinistries?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -1634,6 +1636,10 @@ export type SanityMinistryPageFilterInput = {
   internal?: Maybe<InternalFilterInput>
 }
 
+export type SanityMinistryPageFilterListInput = {
+  elemMatch?: Maybe<SanityMinistryPageFilterInput>
+}
+
 export type SanityMinistryPageGroupConnection = {
   __typename?: 'SanityMinistryPageGroupConnection'
   totalCount: Scalars['Int']
@@ -2102,12 +2108,14 @@ export type SanityPost = SanityDocument &
     slug?: Maybe<SanitySlug>
     date?: Maybe<Scalars['Date']>
     thumbnail?: Maybe<SanityImage>
+    ministries?: Maybe<Array<Maybe<SanityMinistryPage>>>
     summary?: Maybe<Array<Maybe<SanityBlock>>>
     body?: Maybe<Array<Maybe<SanityBlock>>>
     _rawSlug?: Maybe<Scalars['JSON']>
     _rawThumbnail?: Maybe<Scalars['JSON']>
     _rawSummary?: Maybe<Scalars['JSON']>
     _rawBody?: Maybe<Scalars['JSON']>
+    _rawMinistries?: Maybe<Scalars['JSON']>
     id: Scalars['ID']
     parent?: Maybe<Node>
     children: Array<Node>
@@ -2148,6 +2156,10 @@ export type SanityPost_RawSummaryArgs = {
 }
 
 export type SanityPost_RawBodyArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+}
+
+export type SanityPost_RawMinistriesArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 }
 
@@ -2254,6 +2266,114 @@ export enum SanityPostFieldsEnum {
   thumbnail___crop___bottom = 'thumbnail___crop___bottom',
   thumbnail___crop___left = 'thumbnail___crop___left',
   thumbnail___crop___right = 'thumbnail___crop___right',
+  ministries = 'ministries',
+  ministries____id = 'ministries____id',
+  ministries____type = 'ministries____type',
+  ministries____createdAt = 'ministries____createdAt',
+  ministries____updatedAt = 'ministries____updatedAt',
+  ministries____rev = 'ministries____rev',
+  ministries____key = 'ministries____key',
+  ministries___name = 'ministries___name',
+  ministries___url____key = 'ministries___url____key',
+  ministries___url____type = 'ministries___url____type',
+  ministries___url___current = 'ministries___url___current',
+  ministries___subLogo____key = 'ministries___subLogo____key',
+  ministries___subLogo____type = 'ministries___subLogo____type',
+  ministries___subLogo___asset____id = 'ministries___subLogo___asset____id',
+  ministries___subLogo___asset____type = 'ministries___subLogo___asset____type',
+  ministries___subLogo___asset____createdAt = 'ministries___subLogo___asset____createdAt',
+  ministries___subLogo___asset____updatedAt = 'ministries___subLogo___asset____updatedAt',
+  ministries___subLogo___asset____rev = 'ministries___subLogo___asset____rev',
+  ministries___subLogo___asset____key = 'ministries___subLogo___asset____key',
+  ministries___subLogo___asset___originalFilename = 'ministries___subLogo___asset___originalFilename',
+  ministries___subLogo___asset___label = 'ministries___subLogo___asset___label',
+  ministries___subLogo___asset___sha1hash = 'ministries___subLogo___asset___sha1hash',
+  ministries___subLogo___asset___extension = 'ministries___subLogo___asset___extension',
+  ministries___subLogo___asset___mimeType = 'ministries___subLogo___asset___mimeType',
+  ministries___subLogo___asset___size = 'ministries___subLogo___asset___size',
+  ministries___subLogo___asset___assetId = 'ministries___subLogo___asset___assetId',
+  ministries___subLogo___asset___path = 'ministries___subLogo___asset___path',
+  ministries___subLogo___asset___url = 'ministries___subLogo___asset___url',
+  ministries___subLogo___asset____rawMetadata = 'ministries___subLogo___asset____rawMetadata',
+  ministries___subLogo___asset___id = 'ministries___subLogo___asset___id',
+  ministries___subLogo___asset___children = 'ministries___subLogo___asset___children',
+  ministries___subLogo___hotspot____key = 'ministries___subLogo___hotspot____key',
+  ministries___subLogo___hotspot____type = 'ministries___subLogo___hotspot____type',
+  ministries___subLogo___hotspot___x = 'ministries___subLogo___hotspot___x',
+  ministries___subLogo___hotspot___y = 'ministries___subLogo___hotspot___y',
+  ministries___subLogo___hotspot___height = 'ministries___subLogo___hotspot___height',
+  ministries___subLogo___hotspot___width = 'ministries___subLogo___hotspot___width',
+  ministries___subLogo___crop____key = 'ministries___subLogo___crop____key',
+  ministries___subLogo___crop____type = 'ministries___subLogo___crop____type',
+  ministries___subLogo___crop___top = 'ministries___subLogo___crop___top',
+  ministries___subLogo___crop___bottom = 'ministries___subLogo___crop___bottom',
+  ministries___subLogo___crop___left = 'ministries___subLogo___crop___left',
+  ministries___subLogo___crop___right = 'ministries___subLogo___crop___right',
+  ministries___sections = 'ministries___sections',
+  ministries___sections____key = 'ministries___sections____key',
+  ministries___sections____type = 'ministries___sections____type',
+  ministries___sections___name = 'ministries___sections___name',
+  ministries___sections___urlSuffix____key = 'ministries___sections___urlSuffix____key',
+  ministries___sections___urlSuffix____type = 'ministries___sections___urlSuffix____type',
+  ministries___sections___urlSuffix___current = 'ministries___sections___urlSuffix___current',
+  ministries___sections___content = 'ministries___sections___content',
+  ministries___sections___content____key = 'ministries___sections___content____key',
+  ministries___sections___content____type = 'ministries___sections___content____type',
+  ministries___sections___content___sanityChildren = 'ministries___sections___content___sanityChildren',
+  ministries___sections___content___style = 'ministries___sections___content___style',
+  ministries___sections___content___list = 'ministries___sections___content___list',
+  ministries___content = 'ministries___content',
+  ministries___content____key = 'ministries___content____key',
+  ministries___content____type = 'ministries___content____type',
+  ministries___content___sanityChildren = 'ministries___content___sanityChildren',
+  ministries___content___sanityChildren____key = 'ministries___content___sanityChildren____key',
+  ministries___content___sanityChildren____type = 'ministries___content___sanityChildren____type',
+  ministries___content___sanityChildren___marks = 'ministries___content___sanityChildren___marks',
+  ministries___content___sanityChildren___text = 'ministries___content___sanityChildren___text',
+  ministries___content___style = 'ministries___content___style',
+  ministries___content___list = 'ministries___content___list',
+  ministries____rawUrl = 'ministries____rawUrl',
+  ministries____rawSubLogo = 'ministries____rawSubLogo',
+  ministries____rawContent = 'ministries____rawContent',
+  ministries____rawSections = 'ministries____rawSections',
+  ministries___id = 'ministries___id',
+  ministries___parent___id = 'ministries___parent___id',
+  ministries___parent___parent___id = 'ministries___parent___parent___id',
+  ministries___parent___parent___children = 'ministries___parent___parent___children',
+  ministries___parent___children = 'ministries___parent___children',
+  ministries___parent___children___id = 'ministries___parent___children___id',
+  ministries___parent___children___children = 'ministries___parent___children___children',
+  ministries___parent___internal___content = 'ministries___parent___internal___content',
+  ministries___parent___internal___contentDigest = 'ministries___parent___internal___contentDigest',
+  ministries___parent___internal___description = 'ministries___parent___internal___description',
+  ministries___parent___internal___fieldOwners = 'ministries___parent___internal___fieldOwners',
+  ministries___parent___internal___ignoreType = 'ministries___parent___internal___ignoreType',
+  ministries___parent___internal___mediaType = 'ministries___parent___internal___mediaType',
+  ministries___parent___internal___owner = 'ministries___parent___internal___owner',
+  ministries___parent___internal___type = 'ministries___parent___internal___type',
+  ministries___children = 'ministries___children',
+  ministries___children___id = 'ministries___children___id',
+  ministries___children___parent___id = 'ministries___children___parent___id',
+  ministries___children___parent___children = 'ministries___children___parent___children',
+  ministries___children___children = 'ministries___children___children',
+  ministries___children___children___id = 'ministries___children___children___id',
+  ministries___children___children___children = 'ministries___children___children___children',
+  ministries___children___internal___content = 'ministries___children___internal___content',
+  ministries___children___internal___contentDigest = 'ministries___children___internal___contentDigest',
+  ministries___children___internal___description = 'ministries___children___internal___description',
+  ministries___children___internal___fieldOwners = 'ministries___children___internal___fieldOwners',
+  ministries___children___internal___ignoreType = 'ministries___children___internal___ignoreType',
+  ministries___children___internal___mediaType = 'ministries___children___internal___mediaType',
+  ministries___children___internal___owner = 'ministries___children___internal___owner',
+  ministries___children___internal___type = 'ministries___children___internal___type',
+  ministries___internal___content = 'ministries___internal___content',
+  ministries___internal___contentDigest = 'ministries___internal___contentDigest',
+  ministries___internal___description = 'ministries___internal___description',
+  ministries___internal___fieldOwners = 'ministries___internal___fieldOwners',
+  ministries___internal___ignoreType = 'ministries___internal___ignoreType',
+  ministries___internal___mediaType = 'ministries___internal___mediaType',
+  ministries___internal___owner = 'ministries___internal___owner',
+  ministries___internal___type = 'ministries___internal___type',
   summary = 'summary',
   summary____key = 'summary____key',
   summary____type = 'summary____type',
@@ -2278,6 +2398,7 @@ export enum SanityPostFieldsEnum {
   _rawThumbnail = '_rawThumbnail',
   _rawSummary = '_rawSummary',
   _rawBody = '_rawBody',
+  _rawMinistries = '_rawMinistries',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -2377,12 +2498,14 @@ export type SanityPostFilterInput = {
   slug?: Maybe<SanitySlugFilterInput>
   date?: Maybe<DateQueryOperatorInput>
   thumbnail?: Maybe<SanityImageFilterInput>
+  ministries?: Maybe<SanityMinistryPageFilterListInput>
   summary?: Maybe<SanityBlockFilterListInput>
   body?: Maybe<SanityBlockFilterListInput>
   _rawSlug?: Maybe<JsonQueryOperatorInput>
   _rawThumbnail?: Maybe<JsonQueryOperatorInput>
   _rawSummary?: Maybe<JsonQueryOperatorInput>
   _rawBody?: Maybe<JsonQueryOperatorInput>
+  _rawMinistries?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -3377,6 +3500,31 @@ export type MinistryPageQuery = { __typename?: 'Query' } & {
         >
       }
   >
+  allSanityPost: { __typename?: 'SanityPostConnection' } & {
+    nodes: Array<
+      { __typename?: 'SanityPost' } & Pick<
+        SanityPost,
+        '_id' | 'title' | 'date' | '_rawSummary'
+      > & {
+          thumbnail: Maybe<
+            { __typename?: 'SanityImage' } & {
+              asset: Maybe<
+                { __typename?: 'SanityImageAsset' } & {
+                  fixed: Maybe<
+                    {
+                      __typename?: 'SanityImageFixed'
+                    } & GatsbySanityImageFixedFragment
+                  >
+                }
+              >
+            }
+          >
+          slug: Maybe<
+            { __typename?: 'SanitySlug' } & Pick<SanitySlug, 'current'>
+          >
+        }
+    >
+  }
 }
 
 export type PostQueryVariables = {

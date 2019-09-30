@@ -39,7 +39,7 @@ const PageContainer = styled.div`
 `
 const Main = styled.main`
   position: relative;
-  min-height: 100vh;
+  // min-height: 100vh;
   background-color: ${props => props.theme.page.background};
   ${hiddenWhenMenuOpen};
 `

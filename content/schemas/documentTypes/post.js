@@ -61,6 +61,18 @@ export default {
       title: 'Body',
       description:
         'Can include images! Leave blank to just use the summary as the body.'
+    },
+    {
+      name: 'ministries',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'ministryPage' }]
+        }
+      ],
+      title: 'Ministries',
+      description: 'What ministries is this post related to?'
     }
   ]
 }

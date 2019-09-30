@@ -6,19 +6,23 @@ import Section from '~/layout/Section'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import RecentPost from './RecentPost'
 
-export default () => {
+type Props = {
+  posts?: RecentPostsQuery['allSanityPost']['nodes']
+}
+
+export default ({ posts }: Props) => {
   const data: RecentPostsQuery = useStaticQuery(query)
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
-  const posts = data.allSanityPost.nodes
+  const postsToUse = posts || data.allSanityPost.nodes
 
   return (
     <Container color="#5aa7a9">
       <h1 css="color: white; text-align: center">Recent Updates</h1>
       <Posts>
-        {posts.map(post => (
-          <RecentPost post={post} />
+        {postsToUse.map((post, i) => (
+          <RecentPost key={post._id || `post-${i}`} post={post} />
         ))}
-        <SeeMoreLink to="/posts">See more &#8594;</SeeMoreLink>
+        <SeeMoreLink to="/posts">See all &#8594;</SeeMoreLink>
       </Posts>
     </Container>
   )
