@@ -17,6 +17,7 @@ export default {
             : 'Must start with "/" and have at least one letter'
         )
       ]
-    }
+    },
+    { name: 'content', title: 'Content', type: 'richContent' }
   ]
 }

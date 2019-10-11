@@ -222,7 +222,9 @@ export type QuerySanityPageArgs = {
   _key?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
   url?: Maybe<SanitySlugFilterInput>
+  content?: Maybe<SanityBlockFilterListInput>
   _rawUrl?: Maybe<JsonQueryOperatorInput>
+  _rawContent?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -417,7 +419,20 @@ export type SanityBlockFilterListInput = {
   elemMatch?: Maybe<SanityBlockFilterInput>
 }
 
-export type SanityBlockOrImage = SanityBlock | SanityImage
+export type SanityBlockOrCenterImageOrLeftImageOrRightImage =
+  | SanityBlock
+  | SanityCenterImage
+  | SanityLeftImage
+  | SanityRightImage
+
+export type SanityCenterImage = {
+  __typename?: 'SanityCenterImage'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  asset?: Maybe<SanityImageAsset>
+  hotspot?: Maybe<SanityImageHotspot>
+  crop?: Maybe<SanityImageCrop>
+}
 
 /** A Sanity document */
 export type SanityDocument = {
@@ -1339,6 +1354,15 @@ export type SanityImagePaletteSwatchFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
 }
 
+export type SanityLeftImage = {
+  __typename?: 'SanityLeftImage'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  asset?: Maybe<SanityImageAsset>
+  hotspot?: Maybe<SanityImageHotspot>
+  crop?: Maybe<SanityImageCrop>
+}
+
 export type SanityMinistryPage = SanityDocument &
   Node & {
     __typename?: 'SanityMinistryPage'
@@ -1871,7 +1895,9 @@ export type SanityPage = SanityDocument &
     _key?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     url?: Maybe<SanitySlug>
+    content?: Maybe<Array<Maybe<SanityBlock>>>
     _rawUrl?: Maybe<Scalars['JSON']>
+    _rawContent?: Maybe<Scalars['JSON']>
     id: Scalars['ID']
     parent?: Maybe<Node>
     children: Array<Node>
@@ -1893,6 +1919,10 @@ export type SanityPage_UpdatedAtArgs = {
 }
 
 export type SanityPage_RawUrlArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+}
+
+export type SanityPage_RawContentArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 }
 
@@ -1934,7 +1964,18 @@ export enum SanityPageFieldsEnum {
   url____key = 'url____key',
   url____type = 'url____type',
   url___current = 'url___current',
+  content = 'content',
+  content____key = 'content____key',
+  content____type = 'content____type',
+  content___sanityChildren = 'content___sanityChildren',
+  content___sanityChildren____key = 'content___sanityChildren____key',
+  content___sanityChildren____type = 'content___sanityChildren____type',
+  content___sanityChildren___marks = 'content___sanityChildren___marks',
+  content___sanityChildren___text = 'content___sanityChildren___text',
+  content___style = 'content___style',
+  content___list = 'content___list',
   _rawUrl = '_rawUrl',
+  _rawContent = '_rawContent',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -2032,7 +2073,9 @@ export type SanityPageFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
   url?: Maybe<SanitySlugFilterInput>
+  content?: Maybe<SanityBlockFilterListInput>
   _rawUrl?: Maybe<JsonQueryOperatorInput>
+  _rawContent?: Maybe<JsonQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
@@ -2530,6 +2573,15 @@ export type SanityPostSortInput = {
 export type SanityResolveReferencesConfiguration = {
   /** Max depth to resolve references to */
   maxDepth: Scalars['Int']
+}
+
+export type SanityRightImage = {
+  __typename?: 'SanityRightImage'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  asset?: Maybe<SanityImageAsset>
+  hotspot?: Maybe<SanityImageHotspot>
+  crop?: Maybe<SanityImageCrop>
 }
 
 export type SanitySlug = {
@@ -3525,6 +3577,16 @@ export type MinistryPageQuery = { __typename?: 'Query' } & {
         }
     >
   }
+}
+
+export type PageQueryVariables = {
+  _id: Scalars['String']
+}
+
+export type PageQuery = { __typename?: 'Query' } & {
+  sanityPage: Maybe<
+    { __typename?: 'SanityPage' } & Pick<SanityPage, 'name' | '_rawContent'>
+  >
 }
 
 export type PostQueryVariables = {

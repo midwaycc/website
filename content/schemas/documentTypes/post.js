@@ -56,8 +56,7 @@ export default {
     },
     {
       name: 'body',
-      type: 'array',
-      of: [{ type: 'block' }, { type: 'image' }],
+      type: 'richContent',
       title: 'Body',
       description:
         'Can include images! Leave blank to just use the summary as the body.'

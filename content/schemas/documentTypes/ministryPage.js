@@ -25,9 +25,8 @@ export default {
     },
     {
       name: 'content',
-      type: 'array',
-      of: [{ type: 'block' }],
-      title: 'Content'
+      title: 'Content',
+      type: 'richContent'
     },
     {
       name: 'sections',

@@ -31,7 +31,31 @@ function movePage(oldPath, newPath, page, { createPage, deletePage }) {
 }
 
 async function createPages(graphql, createPage) {
-  return
+  const result = await graphql(`
+    {
+      allSanityPage {
+        nodes {
+          _id
+          url {
+            current
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) {
+    throw result.errors
+  }
+
+  const pages = result.data.allSanityPage.nodes || []
+  pages.forEach(page => {
+    createPage({
+      path: page.url.current,
+      component: require.resolve('./src/templates/Page.tsx'),
+      context: { _id: page._id }
+    })
+  })
 }
 
 async function createMinistryPages(graphql, createPage) {

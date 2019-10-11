@@ -13,6 +13,11 @@ import plainLink from './otherTypes/plainLink'
 import pageLink from './otherTypes/pageLink'
 import nestedMenu from './otherTypes/nestedMenu'
 import pageSection from './otherTypes/pageSection'
+import richContent, {
+  centerImage,
+  rightImage,
+  leftImage
+} from './otherTypes/richContent'
 
 export default createSchema({
   name: 'default',
@@ -25,7 +30,11 @@ export default createSchema({
     plainLink,
     pageLink,
     nestedMenu,
-    pageSection
+    pageSection,
+    richContent,
+    centerImage,
+    rightImage,
+    leftImage
     // Ideas:
     //
     // event,

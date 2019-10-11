@@ -14,6 +14,21 @@ html {
   box-sizing: border-box;
 }
 
+p {
+  margin-top: 1em;
+  font-size: 18px;
+  line-height: 1.66666667em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+}
+
 noscript {
   display: none;
 }
