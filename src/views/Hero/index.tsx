@@ -1,5 +1,5 @@
 import React from 'react'
-import { Video, Transformation } from 'cloudinary-react'
+import { Video } from 'cloudinary-react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from '~/utils/media'
@@ -21,7 +21,7 @@ export default () => {
             muted
             playsInline
             cloudName="ksmithbaylor"
-            publicId="d32eacc5f88ef6c5a6be61f77d7d9efc139f363a"
+            publicId={video.asset.url}
           />
         </VideoContainer>
       )}
