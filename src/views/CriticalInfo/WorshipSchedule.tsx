@@ -17,7 +17,7 @@ const WeeklyEvent = (props: { name: string; time: string }) => (
       display: flex;
       justify-content: space-between;
       & + & {
-        margin-top: 0.25em;
+        margin-top: 0.5em;
       }
     `}
   >
