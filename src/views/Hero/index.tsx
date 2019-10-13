@@ -19,8 +19,10 @@ export default () => {
             loop
             preload=""
             muted
+            playsInline
             cloudName="ksmithbaylor"
             publicId={video.asset.url}
+            progressive="true"
           />
         </VideoContainer>
       )}
