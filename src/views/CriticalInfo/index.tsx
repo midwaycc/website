@@ -22,6 +22,6 @@ const Container = styled(Section)`
   flex-wrap: wrap;
 
   color: ${props => props.theme.criticalInfo.color};
-  padding-top: 3em;
+  padding-top: 2em;
   padding-bottom: 5em;
 `

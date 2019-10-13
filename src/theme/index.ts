@@ -21,7 +21,8 @@ const theme: DefaultTheme = {
     color: 'white'
   },
   criticalInfo: {
-    background: '#738637',
+    // background: '#738637',
+    background: '#2B6667',
     color: 'white'
   },
   footer: {

@@ -21,9 +21,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: top;
   width: 100%;
+  margin-top: 2em;
 
   ${media.sm} {
-    margin-top: 2em;
     width: 50%;
   }
 
