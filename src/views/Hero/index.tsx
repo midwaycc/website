@@ -20,9 +20,10 @@ export default () => {
             muted
             playsInline
             poster={
-              poster && poster.asset && poster.asset.url
-                ? poster.asset.url
-                : undefined
+              undefined
+              //poster && poster.asset && poster.asset.url
+              // ? poster.asset.url
+              // : undefined
             }
           >
             <source src={video.asset.url} type="video/mp4" />
