@@ -21,13 +21,8 @@ export default () => {
             muted
             playsInline
             cloudName="ksmithbaylor"
-            publicId={video.asset.url}
-          >
-            <Transformation
-              streamingProfile="full_hd_lean"
-              progressive="true"
-            />
-          </Video>
+            publicId="d32eacc5f88ef6c5a6be61f77d7d9efc139f363a"
+          />
         </VideoContainer>
       )}
 
