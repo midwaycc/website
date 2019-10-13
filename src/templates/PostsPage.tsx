@@ -20,7 +20,6 @@ export default ({ data, pageContext }: Props) => {
 
   const { nodes: posts } = data.allSanityPost
   const { page, isFirst, isLast } = pageContext
-  console.log(pageContext)
 
   return (
     <Section css="padding: 2em">
