@@ -44,7 +44,14 @@ const FlexRow = styled.div`
 `
 
 const PostTitle = styled(Link)`
-  font-size: 1.4em;
+  font-family: 'Brandon Grotesque';
+  font-size: 1.6em;
   line-height: 1.3em;
   font-weight: bold;
+  text-decoration: none;
+  color: black;
+
+  :hover {
+    color: #2b6667;
+  }
 `
