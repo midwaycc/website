@@ -7,10 +7,18 @@ import { HeroSectionQuery } from '~/types/graphqlTypes'
 export default () => {
   const data: HeroSectionQuery = useStaticQuery(query)
   if (!data.sanityHeroSection) return null
-  const { title, subtitle } = data.sanityHeroSection
+  const { title, subtitle, video } = data.sanityHeroSection
 
   return (
     <Container>
+      {video && video.asset && video.asset.url && (
+        <VideoContainer>
+          <video autoPlay loop preload="" muted>
+            <source src={video.asset.url} type="video/mp4" />
+          </video>
+        </VideoContainer>
+      )}
+
       <OverlayContainer>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
@@ -24,26 +32,35 @@ const query = graphql`
     sanityHeroSection {
       subtitle
       title
+      video {
+        asset {
+          url
+          size
+        }
+      }
     }
   }
 `
 
 const Container = styled.section`
   width: 100%;
-  height: 70vh;
+  height: calc(85vh - ${props => props.theme.header.height}px);
   overflow: hidden;
   position: relative;
 `
 
-// const VideoContainer = styled.div`
-// width: 100%;
-// position: absolute;
-// top: -15vh;
+const VideoContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
 
-// video {
-// width: 100%;
-// }
-// `
+  video {
+    min-height: 100%;
+    min-width: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+`
 
 const OverlayContainer = styled.div`
   width: 100%;
@@ -56,7 +73,11 @@ const OverlayContainer = styled.div`
   justify-content: center;
   position: relative;
   color: ${props => props.theme.hero.color};
-  background-color: ${props => props.theme.hero.background};
+  background-image: linear-gradient(
+    90deg,
+    rgba(10, 76, 77, 0.7) 0%,
+    rgba(115, 134, 55, 0.7) 130%
+  );
 
   & > * {
     max-width: ${media.xl.width};

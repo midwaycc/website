@@ -14,7 +14,12 @@ export default {
       type: 'string',
       title: 'Subtitle',
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'video',
+      type: 'file',
+      title: 'Splash Video',
+      validation: Rule => Rule.required()
     }
-    // TODO: array of images for slideshow
   ]
 }
