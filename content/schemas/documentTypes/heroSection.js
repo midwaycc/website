@@ -19,6 +19,7 @@ export default {
       name: 'video',
       type: 'file',
       title: 'Splash Video',
+      description: 'Must be under 100MB',
       validation: Rule => Rule.required()
     }
   ]

@@ -21,7 +21,6 @@ export default () => {
             muted
             cloudName="ksmithbaylor"
             publicId={video.asset.url}
-            streamingProfile="full_hd_lean"
           />
         </VideoContainer>
       )}
