@@ -1,5 +1,4 @@
 import React from 'react'
-import { Video } from 'cloudinary-react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from '~/utils/media'
@@ -8,21 +7,26 @@ import { HeroSectionQuery } from '~/types/graphqlTypes'
 export default () => {
   const data: HeroSectionQuery = useStaticQuery(query)
   if (!data.sanityHeroSection) return null
-  const { title, subtitle, video } = data.sanityHeroSection
+  const { title, subtitle, video, poster } = data.sanityHeroSection
 
   return (
     <Container>
       {video && video.asset && video.asset.url && (
         <VideoContainer>
-          <Video
+          <video
             autoPlay
             loop
             preload=""
             muted
             playsInline
-            cloudName="ksmithbaylor"
-            publicId={video.asset.url}
-          />
+            poster={
+              poster && poster.asset && poster.asset.url
+                ? poster.asset.url
+                : undefined
+            }
+          >
+            <source src={video.asset.url} type="video/mp4" />
+          </video>
         </VideoContainer>
       )}
 
@@ -42,7 +46,11 @@ const query = graphql`
       video {
         asset {
           url
-          size
+        }
+      }
+      poster {
+        asset {
+          url
         }
       }
     }
