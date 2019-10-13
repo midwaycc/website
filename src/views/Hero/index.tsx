@@ -1,4 +1,5 @@
 import React from 'react'
+import { Video } from 'cloudinary-react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from '~/utils/media'
@@ -13,9 +14,15 @@ export default () => {
     <Container>
       {video && video.asset && video.asset.url && (
         <VideoContainer>
-          <video autoPlay loop preload="" muted>
-            <source src={video.asset.url} type="video/mp4" />
-          </video>
+          <Video
+            autoPlay
+            loop
+            preload=""
+            muted
+            cloudName="ksmithbaylor"
+            publicId={video.asset.url}
+            streamingProfile="full_hd_lean"
+          />
         </VideoContainer>
       )}
 
