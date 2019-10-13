@@ -50,7 +50,8 @@ const query = graphql`
 
 const Container = styled.section`
   width: 100%;
-  height: calc(85vh - ${props => props.theme.header.height}px);
+  height: calc(100vh - ${props => props.theme.header.height}px - 7em);
+  min-height: 480px;
   overflow: hidden;
   position: relative;
 `
