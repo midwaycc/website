@@ -1,5 +1,5 @@
 import React from 'react'
-import { Video } from 'cloudinary-react'
+import { Video, Transformation } from 'cloudinary-react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import media from '~/utils/media'
@@ -22,8 +22,12 @@ export default () => {
             playsInline
             cloudName="ksmithbaylor"
             publicId={video.asset.url}
-            progressive="true"
-          />
+          >
+            <Transformation
+              streamingProfile="full_hd_lean"
+              progressive="true"
+            />
+          </Video>
         </VideoContainer>
       )}
 
