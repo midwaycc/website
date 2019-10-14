@@ -114,7 +114,7 @@ export const query = graphql`
   query MinistryPage($_id: String!) {
     sanityMinistryPage(_id: { eq: $_id }) {
       name
-      _rawContent
+      _rawContent(resolveReferences: { maxDepth: 10 })
       subLogo {
         asset {
           fluid(maxWidth: 400) {
