@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
-import BlockContent from '@sanity/block-content-to-react'
+import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import RecentPosts from '~/views/RecentPosts'
 import {
@@ -93,12 +93,12 @@ export default ({ data, path }: Props) => {
         <h1>{name}</h1>
 
         {!activeSection ? (
-          <BlockContent blocks={content} />
+          <RichContent blocks={content} />
         ) : (
           <>
             <h2>{activeSection.name}</h2>
             {activeSection.content && (
-              <BlockContent blocks={activeSection.content} />
+              <RichContent blocks={activeSection.content} />
             )}
           </>
         )}
