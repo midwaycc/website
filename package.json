@@ -20,7 +20,8 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "check-upgrades": "yarn outdated && cd content && yarn outdated",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "heroku-postbuild": "echo 'No build step.'"
   },
   "dependencies": {
     "@graphql-codegen/cli": "^1.5.0",
