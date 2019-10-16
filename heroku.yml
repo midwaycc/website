@@ -1,2 +1,2 @@
 run:
-  web: yarn start
+  web: yarn preview-server
