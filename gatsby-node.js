@@ -1,3 +1,5 @@
+const execa = require('execa')
+
 exports.onCreatePage = ({ page, actions }) => {
   movePage('/home/', '/', page, actions)
 }
@@ -18,6 +20,18 @@ exports.sourceNodes = ({ actions }) => {
   createTypes(`
     union SanityPlainOrPageLink = SanityPlainLink | SanityPageLink
   `)
+}
+
+exports.onCreateDevServer = ({ app }) => {
+  app.get('/___refresh', (req, res) => {
+    res.end()
+    console.log('--- REFRESHING ---')
+    cmd('git pull')
+    cmd('yarn')
+    cmd('rm -rf public')
+    console.log('Exiting and allowing forever to restart...')
+    process.exit()
+  })
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -141,4 +155,9 @@ async function createPostPages(graphql, createPage) {
       }
     })
   }
+}
+
+function cmd(command) {
+  console.log(`Running \`${command}\`...`)
+  execa.commandSync(command, { all: true })
 }
