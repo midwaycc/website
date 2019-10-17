@@ -24,6 +24,7 @@ const MAX_WIDTH = parseInt(media.xl.width)
 
 export const SanityGatsbyImage = ({ node }: Props) => {
   const { asset, _type: imageType } = node
+  if (!asset) return null
   const { url, metadata } = asset
   const { dimensions, lqip } = metadata
   const { aspectRatio, width } = dimensions
