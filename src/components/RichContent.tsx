@@ -8,15 +8,18 @@ type Props = {
 
 export default ({ blocks }: Props) => {
   return (
-    <BlockContent
-      blocks={blocks}
-      serializers={{
-        types: {
-          leftImage: SanityGatsbyImage,
-          centerImage: SanityGatsbyImage,
-          rightImage: SanityGatsbyImage
-        }
-      }}
-    />
+    <>
+      <BlockContent
+        blocks={blocks}
+        serializers={{
+          types: {
+            leftImage: SanityGatsbyImage,
+            centerImage: SanityGatsbyImage,
+            rightImage: SanityGatsbyImage
+          }
+        }}
+      />
+      <div css="clear: both" />
+    </>
   )
 }
