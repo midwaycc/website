@@ -46,8 +46,8 @@ export const SanityGatsbyImage = ({ node }: Props) => {
 
         ${media.md} {
           margin: ${imageType === 'centerImage' ? '0 auto' : '1em'};
-          max-width: ${imageType === 'centerImage' ? width : '50%'};
-          width: ${imageType === 'centerImage' ? width : '50%'};
+          max-width: ${imageType === 'centerImage' ? '100%' : '50%'};
+          width: ${width}px;
           float: ${imageType === 'leftImage'
             ? 'left'
             : imageType === 'rightImage'
