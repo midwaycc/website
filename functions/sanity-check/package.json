@@ -1,9 +1,0 @@
-{
-  "name": "sanity-check",
-  "version": "1.0.0",
-  "description": "Checks sanity for the latest update, and triggers a deploy if needed",
-  "main": "index.js",
-  "dependencies": {
-    "node-fetch": "^2.3.0"
-  }
-}
