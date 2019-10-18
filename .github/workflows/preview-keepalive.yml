@@ -1,0 +1,12 @@
+name: Keep Preview Alive
+on:
+  schedule:
+    # Every five minutes
+    - cron: '0/20 * * * *'
+jobs:
+  build:
+    name: Request Home Page
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl request
+        run: curl https://midway-preview.herokuapp.com
