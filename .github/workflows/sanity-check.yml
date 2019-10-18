@@ -1,0 +1,12 @@
+name: Sanity Check
+on:
+  schedule:
+    # Every five minutes
+    - cron: '0/5 * * * *'
+jobs:
+  build:
+    name: Request Netlify Lambda
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl request
+        run: curl https://midwaycc.netlify.com/.netlify/functions/sanity-check
