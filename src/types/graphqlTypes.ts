@@ -423,11 +423,14 @@ export type SanityBlockFilterListInput = {
   elemMatch?: Maybe<SanityBlockFilterInput>
 }
 
-export type SanityBlockOrCenterImageOrLeftImageOrRightImage =
+export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidth =
   | SanityBlock
   | SanityCenterImage
+  | SanityCenterImageWithWidth
   | SanityLeftImage
+  | SanityLeftImageWithWidth
   | SanityRightImage
+  | SanityRightImageWithWidth
 
 export type SanityCenterImage = {
   __typename?: 'SanityCenterImage'
@@ -436,6 +439,14 @@ export type SanityCenterImage = {
   asset?: Maybe<SanityImageAsset>
   hotspot?: Maybe<SanityImageHotspot>
   crop?: Maybe<SanityImageCrop>
+}
+
+export type SanityCenterImageWithWidth = {
+  __typename?: 'SanityCenterImageWithWidth'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  image?: Maybe<SanityImage>
+  width?: Maybe<Scalars['Float']>
 }
 
 /** A Sanity document */
@@ -1484,6 +1495,14 @@ export type SanityLeftImage = {
   asset?: Maybe<SanityImageAsset>
   hotspot?: Maybe<SanityImageHotspot>
   crop?: Maybe<SanityImageCrop>
+}
+
+export type SanityLeftImageWithWidth = {
+  __typename?: 'SanityLeftImageWithWidth'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  image?: Maybe<SanityImage>
+  width?: Maybe<Scalars['Float']>
 }
 
 export type SanityMinistryPage = SanityDocument &
@@ -2705,6 +2724,14 @@ export type SanityRightImage = {
   asset?: Maybe<SanityImageAsset>
   hotspot?: Maybe<SanityImageHotspot>
   crop?: Maybe<SanityImageCrop>
+}
+
+export type SanityRightImageWithWidth = {
+  __typename?: 'SanityRightImageWithWidth'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  image?: Maybe<SanityImage>
+  width?: Maybe<Scalars['Float']>
 }
 
 export type SanitySlug = {

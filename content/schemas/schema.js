@@ -18,6 +18,11 @@ import richContent, {
   rightImage,
   leftImage
 } from './otherTypes/richContent'
+import {
+  centerImageWithWidth,
+  rightImageWithWidth,
+  leftImageWithWidth
+} from './otherTypes/imageWithWidth'
 
 export default createSchema({
   name: 'default',
@@ -34,7 +39,10 @@ export default createSchema({
     richContent,
     centerImage,
     rightImage,
-    leftImage
+    leftImage,
+    centerImageWithWidth,
+    rightImageWithWidth,
+    leftImageWithWidth
     // Ideas:
     //
     // event,

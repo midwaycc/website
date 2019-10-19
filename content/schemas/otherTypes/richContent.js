@@ -5,13 +5,34 @@ const imagePreview = style => ({
     filename: 'asset.originalFilename',
     imageUrl: 'asset.url'
   },
-  prepare({ imageUrl, filename }) {
+  prepare({ filename, imageUrl }) {
     return {
       title: filename,
       extendedPreview: <img src={imageUrl} style={style} />
     }
   }
 })
+
+const imageWithWidthPreview = style => ({
+  select: {
+    filename: 'image.asset.originalFilename',
+    imageUrl: 'image.asset.url',
+    width: 'width'
+  },
+  prepare({ filename, imageUrl, width }) {
+    alert('prepare')
+    console.log({ filename, imageUrl, width })
+    return {
+      title: filename,
+      extendedPreview: <img src={imageUrl} style={style} />
+    }
+  }
+})
+
+function ImageWithWidth(props) {
+  console.log('PROPS', props)
+  return <span />
+}
 
 export const centerImage = {
   type: 'image',
@@ -38,5 +59,13 @@ export default {
   name: 'richContent',
   title: 'Content',
   type: 'array',
-  of: [{ type: 'block' }, centerImage, leftImage, rightImage]
+  of: [
+    { type: 'block' },
+    centerImage,
+    leftImage,
+    rightImage,
+    { type: 'centerImageWithWidth' },
+    { type: 'leftImageWithWidth' },
+    { type: 'rightImageWithWidth' }
+  ]
 }

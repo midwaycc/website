@@ -15,7 +15,10 @@ export default ({ blocks }: Props) => {
           types: {
             leftImage: SanityGatsbyImage,
             centerImage: SanityGatsbyImage,
-            rightImage: SanityGatsbyImage
+            rightImage: SanityGatsbyImage,
+            leftImageWithWidth: SanityGatsbyImage,
+            centerImageWithWidth: SanityGatsbyImage,
+            rightImageWithWidth: SanityGatsbyImage
           }
         }}
       />
