@@ -3,7 +3,6 @@ export default function resolveProductionUrl(document) {
 }
 
 function path(document) {
-  console.log('PREVIEW', document._type, document)
   switch (document._type) {
     case 'page':
     case 'ministryPage':
