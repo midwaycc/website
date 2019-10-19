@@ -36,6 +36,7 @@ export const SanityGatsbyImage = ({ node }: Props) => {
   const [image, imageType, fixedWidth] = hasWidth(node)
     ? [node.image, node._type, node.width]
     : [node, node._type, undefined]
+  if (!image) return null
   const { asset } = image
   if (!asset) return null
   const { url, metadata } = asset
