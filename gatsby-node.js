@@ -1,17 +1,17 @@
 const execa = require('execa')
 const express = require('express')
 
-const fakeApp = express()
-fakeApp.use((req, res) => {
-  res.send('hello')
-})
-const fakeServer = fakeApp.listen(process.env.PORT || 8000, '0.0.0.0', () => {
-  console.log('----- STARTING FAKE APP')
-  setTimeout(() => {
-    console.log('----- STOPPING FAKE APP')
-    fakeServer.close()
-  }, 2000)
-})
+// const fakeApp = express()
+// fakeApp.use((req, res) => {
+// res.send('hello')
+// })
+// const fakeServer = fakeApp.listen(process.env.PORT || 8000, '0.0.0.0', () => {
+// console.log('----- STARTING FAKE APP')
+// setTimeout(() => {
+// console.log('----- STOPPING FAKE APP')
+// fakeServer.close()
+// }, 2000)
+// })
 
 exports.onCreatePage = ({ page, actions }) => {
   movePage('/home/', '/', page, actions)
@@ -69,11 +69,13 @@ async function createPages(graphql, createPage) {
 
   const pages = result.data.allSanityPage.nodes || []
   pages.forEach(page => {
-    createPage({
-      path: page.url.current,
-      component: require.resolve('./src/templates/Page.tsx'),
-      context: { _id: page._id }
-    })
+    if (page.url) {
+      createPage({
+        path: page.url.current,
+        component: require.resolve('./src/templates/Page.tsx'),
+        context: { _id: page._id }
+      })
+    }
   })
 }
 
@@ -102,18 +104,22 @@ async function createMinistryPages(graphql, createPage) {
 
   const ministryPages = result.data.allSanityMinistryPage.nodes || []
   ministryPages.forEach(ministryPage => {
-    createPage({
-      path: ministryPage.url.current,
-      component: require.resolve('./src/templates/MinistryPage.tsx'),
-      context: { _id: ministryPage._id }
-    })
-    ministryPage.sections.forEach(section => {
+    if (ministryPage.url) {
       createPage({
-        path: `${ministryPage.url.current}/${section.urlSuffix.current}`,
+        path: ministryPage.url.current,
         component: require.resolve('./src/templates/MinistryPage.tsx'),
         context: { _id: ministryPage._id }
       })
-    })
+      ministryPage.sections.forEach(section => {
+        if (section.urlSuffix) {
+          createPage({
+            path: `${ministryPage.url.current}/${section.urlSuffix.current}`,
+            component: require.resolve('./src/templates/MinistryPage.tsx'),
+            context: { _id: ministryPage._id }
+          })
+        }
+      })
+    }
   })
 }
 
@@ -139,11 +145,13 @@ async function createPostPages(graphql, createPage) {
 
   const posts = result.data.allSanityPost.nodes || []
   posts.forEach(post => {
-    createPage({
-      path: `posts/${post.slug.current}`,
-      component: require.resolve('./src/templates/Post.tsx'),
-      context: { _id: post._id }
-    })
+    if (post.slug) {
+      createPage({
+        path: `posts/${post.slug.current}`,
+        component: require.resolve('./src/templates/Post.tsx'),
+        context: { _id: post._id }
+      })
+    }
   })
 
   const maxPage = Math.ceil(posts.length / perPage)
