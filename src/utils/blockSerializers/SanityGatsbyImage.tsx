@@ -40,7 +40,9 @@ export const SanityGatsbyImage = ({ node }: Props) => {
   const { asset } = image
   if (!asset) return null
   const { url, metadata } = asset
+  if (!metadata) return null
   const { dimensions, lqip } = metadata
+  if (!dimensions) return null
   const { aspectRatio, width } = dimensions
   const widthToUse = fixedWidth || width
 
