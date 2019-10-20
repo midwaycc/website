@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Image, { FixedObject } from 'gatsby-image'
 import styled from 'styled-components'
-import BlockContent from '@sanity/block-content-to-react'
+import RichContent from '~/components/RichContent'
 import { PostDate } from '~/templates/Post'
 import { SanityPost } from '~/types/graphqlTypes'
 
@@ -34,7 +34,7 @@ export default ({ post }: Props) => {
           <PostDate date={post.date} />
         </div>
       </FlexRow>
-      <BlockContent css="clearfix: both" blocks={post._rawSummary} />
+      <RichContent blocks={post._rawSummary} />
     </>
   )
 }

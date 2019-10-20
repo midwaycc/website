@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import PostSummary from '~/components/PostSummary'
@@ -12,16 +11,14 @@ type Props = {
 }
 
 export default ({ post }: Props) => {
-  if (!post.slug) return null
-
   return (
-    <Container to={`/posts/${post.slug.current}`}>
+    <Container>
       <PostSummary post={post} />
     </Container>
   )
 }
 
-const Container = styled(Link)`
+const Container = styled.div`
   display: block;
   text-decoration: none;
   background-color: #eee;
