@@ -65,13 +65,22 @@ export const SanityGatsbyImage = ({ node }: Props) => {
 
           ${media.md} {
             margin: ${imageType.startsWith('centerImage') ? '0 auto' : '1em'};
+            ${
+              imageType.startsWith('leftImage')
+                ? 'margin-left: 0; margin-top: 0.5em;'
+                : imageType.startsWith('rightImage')
+                ? 'margin-right: 0; margin-top: 0.5em;'
+                : ''
+            }
             max-width: ${imageType.startsWith('centerImage') ? '100%' : '50%'};
             width: ${widthToUse}px;
-            float: ${imageType.startsWith('leftImage')
-              ? 'left'
-              : imageType.startsWith('rightImage')
-              ? 'right'
-              : 'none'};
+            float: ${
+              imageType.startsWith('leftImage')
+                ? 'left'
+                : imageType.startsWith('rightImage')
+                ? 'right'
+                : 'none'
+            };
           }
         `}
       >
