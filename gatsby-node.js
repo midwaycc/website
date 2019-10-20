@@ -1,18 +1,6 @@
 const execa = require('execa')
 const express = require('express')
 
-// const fakeApp = express()
-// fakeApp.use((req, res) => {
-// res.send('hello')
-// })
-// const fakeServer = fakeApp.listen(process.env.PORT || 8000, '0.0.0.0', () => {
-// console.log('----- STARTING FAKE APP')
-// setTimeout(() => {
-// console.log('----- STOPPING FAKE APP')
-// fakeServer.close()
-// }, 2000)
-// })
-
 exports.onCreatePage = ({ page, actions }) => {
   movePage('/home/', '/', page, actions)
 }
@@ -35,9 +23,7 @@ exports.sourceNodes = ({ actions }) => {
   `)
 }
 
-exports.onCreateDevServer = ({ app }) => {
-  // fakeApp.close()
-}
+exports.onCreateDevServer = ({ app }) => {}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
