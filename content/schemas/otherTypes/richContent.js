@@ -61,6 +61,7 @@ export default {
   type: 'array',
   of: [
     { type: 'block' },
+    { type: 'verticalSpace' },
     centerImage,
     leftImage,
     rightImage,

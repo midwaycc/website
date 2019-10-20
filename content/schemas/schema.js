@@ -23,6 +23,7 @@ import {
   rightImageWithWidth,
   leftImageWithWidth
 } from './otherTypes/imageWithWidth'
+import verticalSpace from './otherTypes/verticalSpace'
 
 export default createSchema({
   name: 'default',
@@ -42,7 +43,8 @@ export default createSchema({
     leftImage,
     centerImageWithWidth,
     rightImageWithWidth,
-    leftImageWithWidth
+    leftImageWithWidth,
+    verticalSpace
     // Ideas:
     //
     // event,
