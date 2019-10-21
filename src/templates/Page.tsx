@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import { PageQuery } from '~/types/graphqlTypes'
@@ -15,11 +15,11 @@ export default ({ data }: Props) => {
 
   return (
     <Section css="padding: 2em">
+      <Link to="/">&#8592; Home</Link>
       <h1>{name}</h1>
       <RichContent blocks={content} />
     </Section>
   )
-  return <pre>{JSON.stringify(data, null, 2)}</pre>
 }
 
 export const query = graphql`

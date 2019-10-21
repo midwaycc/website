@@ -46,6 +46,9 @@ export default ({ data, path }: Props) => {
   return (
     <>
       <Section css="padding: 2em">
+        <Link css="display: block; margin-bottom: 1em" to="/">
+          &#8592; Home
+        </Link>
         {subLogo && subLogo.asset && (
           <Link
             to={parentURL}

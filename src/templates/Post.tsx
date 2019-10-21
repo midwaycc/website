@@ -19,9 +19,7 @@ export default ({ data }: Props) => {
 
   return (
     <Container>
-      <Link css="font-size: 0.9em" to="/posts">
-        &#8592; See all posts
-      </Link>
+      <Link to="/posts">&#8592; See all posts</Link>
       <PostTitle>{title}</PostTitle>
       <PostDate date={date} />
       <RichContent blocks={body || summary} />

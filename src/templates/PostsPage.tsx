@@ -23,6 +23,7 @@ export default ({ data, pageContext }: Props) => {
 
   return (
     <Section css="padding: 2em">
+      <Link to="/">&#8592; Home</Link>
       <h1>All Updates</h1>
       <hr css="color: #eee; margin: 2em 0" />
       {posts.map((post, i) => (
