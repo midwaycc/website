@@ -128,7 +128,7 @@ export const query = graphql`
       url {
         current
       }
-      _rawSections
+      _rawSections(resolveReferences: { maxDepth: 10 })
       sections {
         _key
         name
