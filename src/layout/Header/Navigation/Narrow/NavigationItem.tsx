@@ -16,24 +16,70 @@ export const NavigationItem = ({ text, link }: NavItemWithLink) => (
   </Container>
 )
 
+let openItem: string | null = null
+
 export const NavigationItemWithSubmenu = ({
   text,
   items
 }: NavItemWithSubitems) => {
   return (
     <Container>
-      <Toggle />
-      <FullText css="color: white">+ {text}</FullText>
+      <Toggle
+        onClick={e => {
+          if (openItem === text) {
+            ;(e.target as any).checked = false
+            openItem = null
+          } else {
+            openItem = text
+          }
+        }}
+      />
+      <FullText css="color: white">
+        <Plus /> {text}
+      </FullText>
       <SubMenu numItems={items.length}>
         {items.map((item, i) => (
           <SubItem key={i}>
             <FullLink css="color: white" to={item.link}>
-              - {item.text}
+              <Minus /> {item.text}
             </FullLink>
           </SubItem>
         ))}
       </SubMenu>
     </Container>
+  )
+}
+
+const Plus = () => {
+  return (
+    <span
+      css={css`
+        font-size: 1.1em;
+        margin-right: 0.5em;
+        transform: rotate(0deg);
+        transition: transform 0.4s ease-in-out;
+
+        input:checked ~ ${FullText} & {
+          transform: rotate(90deg);
+        }
+      `}
+    >
+      +
+    </span>
+  )
+}
+
+const Minus = () => {
+  return (
+    <span
+      css={css`
+        font-size: 1.7em;
+        margin-right: 0.5em;
+        transform: translateY(-0.05em);
+      `}
+    >
+      -
+    </span>
   )
 }
 
@@ -44,7 +90,11 @@ const HOVER_STYLES = css`
   background-color: ${HOVER_COLOR('#099799')};
 `
 
-const Toggle = styled(BaseToggle).attrs({ className: 'narrow-submenu-toggle' })`
+const Toggle = styled(BaseToggle).attrs({
+  className: 'narrow-submenu-toggle',
+  type: 'radio',
+  name: 'submenu'
+})`
   width: 100vw;
   height: ${ROW_HEIGHT};
   z-index: 3;

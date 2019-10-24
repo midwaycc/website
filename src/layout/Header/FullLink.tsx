@@ -19,7 +19,7 @@ export const FullText = styled.span`
 `
 
 export const FullLink = styled(
-  (props: { className?: string; to: string; children: string | string[] }) => {
+  (props: { className?: string; to: string; children: React.ReactNode }) => {
     if (props.to.indexOf('http') === 0) {
       return (
         <a className={props.className} href={props.to} target="_blank">

@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export default styled.input.attrs({ type: 'checkbox' })`
+export default styled.input.attrs(props => ({
+  type: props.type || 'checkbox',
+  name: props.name
+}))`
   display: block;
   position: absolute;
 
