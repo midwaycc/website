@@ -64,34 +64,55 @@ export default ({ data, path }: Props) => {
           </Link>
         )}
 
-        <SectionLinkContainer>
-          {sections.map((section: SanityPageSection) => {
-            if (!section || !section._key) return null
-            const sectionURL = ministryPageSectionURL(url, section)
+        {sections.length > 0 && (
+          <SectionLinkContainer>
+            <SectionLink
+              key="main"
+              to={parentURL}
+              onClick={e => {
+                hijackURL(e, parentURL)
+                setActiveSection(undefined)
+              }}
+              getProps={() => ({
+                style: {
+                  backgroundColor:
+                    typeof window !== 'undefined' &&
+                    window.location.pathname === parentURL
+                      ? '#9fb94b'
+                      : '#099799'
+                }
+              })}
+            >
+              Main
+            </SectionLink>
+            {sections.map((section: SanityPageSection) => {
+              if (!section || !section._key) return null
+              const sectionURL = ministryPageSectionURL(url, section)
 
-            return (
-              <SectionLink
-                key={section._key}
-                to={sectionURL}
-                getProps={() => ({
-                  style: {
-                    backgroundColor:
-                      typeof window !== 'undefined' &&
-                      window.location.pathname === sectionURL
-                        ? '#9fb94b'
-                        : '#099799'
-                  }
-                })}
-                onClick={e => {
-                  hijackURL(e, sectionURL)
-                  setActiveSection(section)
-                }}
-              >
-                {section.name}
-              </SectionLink>
-            )
-          })}
-        </SectionLinkContainer>
+              return (
+                <SectionLink
+                  key={section._key}
+                  to={sectionURL}
+                  getProps={() => ({
+                    style: {
+                      backgroundColor:
+                        typeof window !== 'undefined' &&
+                        window.location.pathname === sectionURL
+                          ? '#9fb94b'
+                          : '#099799'
+                    }
+                  })}
+                  onClick={e => {
+                    hijackURL(e, sectionURL)
+                    setActiveSection(section)
+                  }}
+                >
+                  {section.name}
+                </SectionLink>
+              )
+            })}
+          </SectionLinkContainer>
+        )}
 
         <h1>{name}</h1>
 
@@ -197,5 +218,5 @@ const SectionLink = styled(Link)<{ stacked?: boolean }>`
   flex-grow: 1;
   margin-left: ${HORIZONTAL_SPACE};
   margin-top: ${VERTICAL_SPACE};
-  max-width: 12em;
+  max-width: 13em;
 `
