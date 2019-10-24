@@ -423,7 +423,7 @@ export type SanityBlockFilterListInput = {
   elemMatch?: Maybe<SanityBlockFilterInput>
 }
 
-export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidth =
+export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidthOrVerticalSpace =
   | SanityBlock
   | SanityCenterImage
   | SanityCenterImageWithWidth
@@ -431,6 +431,7 @@ export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImage
   | SanityLeftImageWithWidth
   | SanityRightImage
   | SanityRightImageWithWidth
+  | SanityVerticalSpace
 
 export type SanityCenterImage = {
   __typename?: 'SanityCenterImage'
@@ -2766,6 +2767,13 @@ export type SanitySpanFilterListInput = {
   elemMatch?: Maybe<SanitySpanFilterInput>
 }
 
+export type SanityVerticalSpace = {
+  __typename?: 'SanityVerticalSpace'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Float']>
+}
+
 export type Site = Node & {
   __typename?: 'Site'
   id: Scalars['ID']
@@ -2902,6 +2910,7 @@ export enum SiteFieldsEnum {
   internal___owner = 'internal___owner',
   internal___type = 'internal___type',
   siteMetadata___church___address = 'siteMetadata___church___address',
+  siteMetadata___church___phone = 'siteMetadata___church___phone',
   siteMetadata___church___googleMapsEmbedSrc = 'siteMetadata___church___googleMapsEmbedSrc',
   port = 'port',
   host = 'host',
@@ -3513,11 +3522,13 @@ export type SiteSiteMetadata = {
 export type SiteSiteMetadataChurch = {
   __typename?: 'SiteSiteMetadataChurch'
   address?: Maybe<Array<Maybe<Scalars['String']>>>
+  phone?: Maybe<Scalars['String']>
   googleMapsEmbedSrc?: Maybe<Scalars['String']>
 }
 
 export type SiteSiteMetadataChurchFilterInput = {
   address?: Maybe<StringQueryOperatorInput>
+  phone?: Maybe<StringQueryOperatorInput>
   googleMapsEmbedSrc?: Maybe<StringQueryOperatorInput>
 }
 
@@ -3610,6 +3621,25 @@ export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = {
   SanityImageFluid,
   'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
 >
+
+export type ChurchInfoQueryVariables = {}
+
+export type ChurchInfoQuery = { __typename?: 'Query' } & {
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & {
+          church: Maybe<
+            { __typename?: 'SiteSiteMetadataChurch' } & Pick<
+              SiteSiteMetadataChurch,
+              'address' | 'phone'
+            >
+          >
+        }
+      >
+    }
+  >
+}
 
 export type HeaderQueryVariables = {}
 

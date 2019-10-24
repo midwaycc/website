@@ -13,8 +13,10 @@ export default () => {
     !data.site.siteMetadata ||
     !data.site.siteMetadata.church ||
     !data.site.siteMetadata.church.address
-  )
+  ) {
     return null
+  }
+
   const [addressLine1, addressLine2] = data.site.siteMetadata.church.address
 
   return (
