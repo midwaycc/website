@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
-import styled from 'styled-components'
 import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import RecentPosts from '~/views/RecentPosts'
+import { PillLinkContainer, PillLink } from '~/components/Pills'
 import {
   MinistryPageQuery,
   SanitySlug,
   SanityPageSection
 } from '~/types/graphqlTypes'
+import styled from 'styled-components'
 
 type Props = {
   data: MinistryPageQuery
@@ -46,9 +47,9 @@ export default ({ data, path }: Props) => {
   return (
     <>
       <Section css="padding: 2em">
-        <Link css="display: block; margin-bottom: 1em" to="/">
+        <PillLink css="margin-bottom: 1em" to="/">
           &#8592; Home
-        </Link>
+        </PillLink>
         {subLogo && subLogo.asset && (
           <Link
             to={parentURL}
@@ -65,7 +66,7 @@ export default ({ data, path }: Props) => {
         )}
 
         {sections.length > 0 && (
-          <SectionLinkContainer>
+          <PillLinkContainer>
             <SectionLink
               key="main"
               to={parentURL}
@@ -111,7 +112,7 @@ export default ({ data, path }: Props) => {
                 </SectionLink>
               )
             })}
-          </SectionLinkContainer>
+          </PillLinkContainer>
         )}
 
         <h1>{name}</h1>
@@ -197,26 +198,6 @@ const hijackURL = (e: React.MouseEvent, url: string) => {
   window.history.pushState(window.history.state, document.title, url)
 }
 
-const HORIZONTAL_SPACE = '0.75em'
-const VERTICAL_SPACE = '0.75em'
-
-const SectionLinkContainer = styled.div`
-  margin-top: calc(1em - ${VERTICAL_SPACE});
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -${HORIZONTAL_SPACE};
-`
-
-const SectionLink = styled(Link)<{ stacked?: boolean }>`
-  color: white;
-  background-color: #099799;
-  text-decoration: none;
-  text-align: center;
-  display: ${props => (props.stacked ? 'block' : 'inline-block')};
-  padding: 0.5em 1em;
-  border-radius: 1.5em;
-  flex-grow: 1;
-  margin-left: ${HORIZONTAL_SPACE};
-  margin-top: ${VERTICAL_SPACE};
+const SectionLink = styled(PillLink)`
   max-width: 13em;
 `

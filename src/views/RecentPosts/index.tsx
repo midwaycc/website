@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import Section from '~/layout/Section'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import RecentPost from './RecentPost'
+import { ActionButton } from '~/components/Pills'
 
 type Props = {
   posts?: RecentPostsQuery['allSanityPost']['nodes']
@@ -22,7 +22,13 @@ export default ({ posts }: Props) => {
         {postsToUse.map((post, i) => (
           <RecentPost key={post._id || `post-${i}`} post={post} />
         ))}
-        <SeeMoreLink to="/posts">See all &#8594;</SeeMoreLink>
+        <SeeMoreRow>
+          <Link to="/posts">
+            <ActionButton css="padding-top: 0.8em">
+              &nbsp;&nbsp;See all &#8594;
+            </ActionButton>
+          </Link>
+        </SeeMoreRow>
       </Posts>
     </Container>
   )
@@ -64,8 +70,10 @@ const Posts = styled.div`
   justify-content: flex-start;
 `
 
-const SeeMoreLink = styled(Link)`
-  margin-top: 2em;
+const SeeMoreRow = styled.div`
+  margin-top: 2.5em;
   text-align: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
 `

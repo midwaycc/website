@@ -1,10 +1,11 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import { PostQuery } from '~/types/graphqlTypes'
+import { PillLink } from '~/components/Pills'
 
 type Props = {
   data: PostQuery
@@ -19,7 +20,7 @@ export default ({ data }: Props) => {
 
   return (
     <Container>
-      <Link to="/posts">&#8592; See all posts</Link>
+      <PillLink to="/posts">&#8592; See all posts</PillLink>
       <PostTitle>{title}</PostTitle>
       <PostDate date={date} />
       <RichContent blocks={body || summary} />
