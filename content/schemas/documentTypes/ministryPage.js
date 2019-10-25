@@ -24,6 +24,14 @@ export default {
       title: 'Sub-logo'
     },
     {
+      name: 'subLogoWidth',
+      type: 'number',
+      title: 'Sub-logo width',
+      description:
+        'In pixels. Used to display the sublogos at a consistent size. Must be less than 600.',
+      validation: Rule => Rule.required().max(600)
+    },
+    {
       name: 'content',
       title: 'Content',
       type: 'richContent'

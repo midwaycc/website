@@ -51,7 +51,8 @@ const HORIZONTAL_SPACE = '0.75em'
 const VERTICAL_SPACE = '0.75em'
 
 export const PillLinkContainer = styled.div`
-  margin-top: calc(1em - ${VERTICAL_SPACE});
+  margin-top: calc(-${VERTICAL_SPACE});
+  margin-bottom: 1em;
   display: flex;
   flex-wrap: wrap;
   margin-left: -${HORIZONTAL_SPACE};

@@ -1,5 +1,15 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from '~/utils/media'
+
+export const shiftOnEdge = css`
+  margin-left: 0.75rem;
+  transform: translateX(0.75rem);
+  transition: transform 200ms ease;
+
+  ${media.xl.plusEm(0.75)} {
+    transform: translateX(0);
+  }
+`
 
 export default styled.img.attrs({
   src: '/logos/rgb/png/mcc_logo_horizontal_rgb.png',
@@ -7,11 +17,6 @@ export default styled.img.attrs({
 })`
   height: calc(${props => props.theme.header.height}px - 1.5em);
   width: auto;
-  margin: 0.75em 0;
-  transform: translateX(0.75em);
-  transition: transform 200ms ease;
-
-  ${media.xl.plusEm(0.75)} {
-    transform: translateX(0);
-  }
+  ${shiftOnEdge};
+  margin-top: 0.75em;
 `

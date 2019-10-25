@@ -27,9 +27,10 @@ export default ({ data, path }: Props) => {
 
   const {
     _rawContent: content,
-    name,
+    // name,
     url,
     subLogo,
+    subLogoWidth,
     _rawSections
   } = data.sanityMinistryPage
   const { nodes: relatedPosts } = data.allSanityPost
@@ -46,8 +47,8 @@ export default ({ data, path }: Props) => {
 
   return (
     <>
-      <Section css="padding: 2em">
-        <PillLink css="margin-bottom: 1em" to="/">
+      <Section css="padding: 2em 1em">
+        <PillLink css="margin-bottom: 2em" to="/">
           &#8592; Home
         </PillLink>
         {subLogo && subLogo.asset && (
@@ -58,9 +59,9 @@ export default ({ data, path }: Props) => {
               setActiveSection(undefined)
             }}
           >
-            <Image
+            <SubLogo
               fluid={(subLogo.asset.fluid as FluidObject) || undefined}
-              style={{ maxWidth: 400 }}
+              width={subLogoWidth || 0}
             />
           </Link>
         )}
@@ -115,7 +116,7 @@ export default ({ data, path }: Props) => {
           </PillLinkContainer>
         )}
 
-        <h1>{name}</h1>
+        {/* <h1>{name}</h1> */}
 
         {!activeSection ? (
           <RichContent blocks={content} />
@@ -142,11 +143,12 @@ export const query = graphql`
       _rawContent(resolveReferences: { maxDepth: 10 })
       subLogo {
         asset {
-          fluid(maxWidth: 400) {
+          fluid(maxWidth: 600) {
             ...GatsbySanityImageFluid
           }
         }
       }
+      subLogoWidth
       url {
         current
       }
@@ -197,6 +199,12 @@ const hijackURL = (e: React.MouseEvent, url: string) => {
   e.preventDefault()
   window.history.pushState(window.history.state, document.title, url)
 }
+
+export const SubLogo = styled(Image)<{ width: number }>`
+  width: ${props => props.width || 0}px;
+  max-width: calc(100%);
+  margin-bottom: 2em;
+`
 
 const SectionLink = styled(PillLink)`
   max-width: 13em;

@@ -176,6 +176,7 @@ export type QuerySanityMinistryPageArgs = {
   name?: Maybe<StringQueryOperatorInput>
   url?: Maybe<SanitySlugFilterInput>
   subLogo?: Maybe<SanityImageFilterInput>
+  subLogoWidth?: Maybe<FloatQueryOperatorInput>
   sections?: Maybe<SanityPageSectionFilterListInput>
   content?: Maybe<SanityBlockFilterListInput>
   _rawUrl?: Maybe<JsonQueryOperatorInput>
@@ -1518,6 +1519,7 @@ export type SanityMinistryPage = SanityDocument &
     name?: Maybe<Scalars['String']>
     url?: Maybe<SanitySlug>
     subLogo?: Maybe<SanityImage>
+    subLogoWidth?: Maybe<Scalars['Float']>
     sections?: Maybe<Array<Maybe<SanityPageSection>>>
     content?: Maybe<Array<Maybe<SanityBlock>>>
     _rawUrl?: Maybe<Scalars['JSON']>
@@ -1662,6 +1664,7 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___crop___bottom = 'subLogo___crop___bottom',
   subLogo___crop___left = 'subLogo___crop___left',
   subLogo___crop___right = 'subLogo___crop___right',
+  subLogoWidth = 'subLogoWidth',
   sections = 'sections',
   sections____key = 'sections____key',
   sections____type = 'sections____type',
@@ -1791,6 +1794,7 @@ export type SanityMinistryPageFilterInput = {
   name?: Maybe<StringQueryOperatorInput>
   url?: Maybe<SanitySlugFilterInput>
   subLogo?: Maybe<SanityImageFilterInput>
+  subLogoWidth?: Maybe<FloatQueryOperatorInput>
   sections?: Maybe<SanityPageSectionFilterListInput>
   content?: Maybe<SanityBlockFilterListInput>
   _rawUrl?: Maybe<JsonQueryOperatorInput>
@@ -2495,6 +2499,7 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___crop___bottom = 'ministries___subLogo___crop___bottom',
   ministries___subLogo___crop___left = 'ministries___subLogo___crop___left',
   ministries___subLogo___crop___right = 'ministries___subLogo___crop___right',
+  ministries___subLogoWidth = 'ministries___subLogoWidth',
   ministries___sections = 'ministries___sections',
   ministries___sections____key = 'ministries___sections____key',
   ministries___sections____type = 'ministries___sections____type',
@@ -3692,6 +3697,33 @@ export type AnyNavLinkFragment =
         >
       })
 
+export type AllSubLogosQueryVariables = {}
+
+export type AllSubLogosQuery = { __typename?: 'Query' } & {
+  allSanityMinistryPage: { __typename?: 'SanityMinistryPageConnection' } & {
+    nodes: Array<
+      { __typename?: 'SanityMinistryPage' } & Pick<
+        SanityMinistryPage,
+        'name' | 'subLogoWidth'
+      > & {
+          subLogo: Maybe<
+            { __typename?: 'SanityImage' } & {
+              asset: Maybe<
+                { __typename?: 'SanityImageAsset' } & {
+                  fluid: Maybe<
+                    {
+                      __typename?: 'SanityImageFluid'
+                    } & GatsbySanityImageFluidFragment
+                  >
+                }
+              >
+            }
+          >
+        }
+    >
+  }
+}
+
 export type MinistryPageQueryVariables = {
   _id: Scalars['String']
 }
@@ -3700,7 +3732,7 @@ export type MinistryPageQuery = { __typename?: 'Query' } & {
   sanityMinistryPage: Maybe<
     { __typename?: 'SanityMinistryPage' } & Pick<
       SanityMinistryPage,
-      'name' | '_rawContent' | '_rawSections'
+      'name' | '_rawContent' | 'subLogoWidth' | '_rawSections'
     > & {
         subLogo: Maybe<
           { __typename?: 'SanityImage' } & {
