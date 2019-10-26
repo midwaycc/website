@@ -63,7 +63,6 @@ const Container = styled(Section)`
 `
 
 const Posts = styled.div`
-  margin-left: calc(auto - 1em);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

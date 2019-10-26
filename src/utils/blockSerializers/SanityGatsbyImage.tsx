@@ -61,7 +61,7 @@ export const SanityGatsbyImage = ({ node }: Props) => {
       <div
         css={css`
           margin: 0 auto;
-          max-width: ${widthToUse};
+          max-width: ${widthToUse}px;
 
           ${media.md} {
             margin: ${imageType.startsWith('centerImage') ? '0 auto' : '1em'};
