@@ -3,6 +3,7 @@ import BlockContent from '@sanity/block-content-to-react'
 import { SanityGatsbyImage } from '~/utils/blockSerializers/SanityGatsbyImage'
 import { VerticalSpace } from '~/utils/blockSerializers/VerticalSpace'
 import { EnhancedLink } from '~/utils/blockSerializers/EnhancedLink'
+import { CustomBlock } from '~/utils/blockSerializers/CustomBlock'
 
 type Props = {
   blocks: unknown[]
@@ -15,6 +16,7 @@ export default ({ blocks }: Props) => {
         blocks={blocks}
         serializers={{
           types: {
+            block: CustomBlock,
             leftImage: SanityGatsbyImage,
             centerImage: SanityGatsbyImage,
             rightImage: SanityGatsbyImage,
