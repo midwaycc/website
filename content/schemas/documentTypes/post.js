@@ -10,6 +10,13 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured',
+      description:
+        'The most recent featured posts will appear on the home page.'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',

@@ -36,7 +36,11 @@ export default ({ posts }: Props) => {
 
 const query = graphql`
   query RecentPosts {
-    allSanityPost(limit: 6, sort: { fields: date, order: DESC }) {
+    allSanityPost(
+      limit: 6
+      sort: { fields: date, order: DESC }
+      filter: { featured: { eq: true } }
+    ) {
       nodes {
         _id
         _rawSummary(resolveReferences: { maxDepth: 10 })
