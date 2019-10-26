@@ -3,6 +3,7 @@ import InfoWidget from './InfoWidget'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import { ChurchLocationQuery } from '~/types/graphqlTypes'
+import { MapPin } from '~/components/MapPin'
 
 const USE_GOOGLE_MAPS = false
 
@@ -21,6 +22,7 @@ export default () => {
 
   return (
     <Container title="Location">
+      {!USE_GOOGLE_MAPS && <ShadowPin />}
       <Address href="https://goo.gl/maps/8BQDcF1DBxq" target="_blank">
         {addressLine1}
         <br />
@@ -59,6 +61,11 @@ const query = graphql`
 
 const Container = styled(InfoWidget)``
 
+const ShadowPin = styled(MapPin)`
+  margin-bottom: 2em;
+  filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.5));
+`
+
 const Map = styled.iframe`
   border: 0;
   margin-top: 2em;
@@ -68,6 +75,7 @@ const Address = styled.a`
   margin: 0;
   text-align: center;
   color: white;
+  line-height: 1.5em;
 
   :hover {
     color: #9fb94b;
