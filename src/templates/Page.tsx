@@ -1,8 +1,9 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import { PageQuery } from '~/types/graphqlTypes'
+import { PillLink } from '~/components/Pills'
 
 type Props = {
   data: PageQuery
@@ -15,7 +16,7 @@ export default ({ data }: Props) => {
 
   return (
     <Section css="padding: 2em">
-      <Link to="/">&#8592; Home</Link>
+      <PillLink to="/">&#8592; Home</PillLink>
       <h1>{name}</h1>
       <RichContent blocks={content} />
     </Section>
