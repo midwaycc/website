@@ -8,5 +8,5 @@ type Props = {
 
 export const VerticalSpace = ({ node }: Props) => {
   if (!node || node.height == null) return null
-  return <div style={{ height: `${node.height}em` }} />
+  return <div style={{ height: `${node.height}em`, clear: 'both' }} />
 }
