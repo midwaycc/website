@@ -23,8 +23,8 @@ export default () => {
     <Container>
       <FooterContent>
         <p>
-          <strong>Midway Community Church.</strong> All Rights Reserved. &copy;{' '}
-          {copyrightYears()}.
+          &copy; {copyrightYears()} <strong>Midway Community Church.</strong>{' '}
+          All Rights Reserved.
         </p>
         <p>{address.join(', ')}</p>
         <p>Church office: {phone}</p>
@@ -82,16 +82,18 @@ function copyrightYears() {
 const Container = styled.footer`
   background-color: ${props => props.theme.footer.background};
   color: ${props => props.theme.footer.color};
+  margin: 0;
   ${hiddenWhenMenuOpen};
 `
 
 const FooterContent = styled(Content)`
   text-align: center;
-  padding-top: 3em;
+  padding: 3em 0;
   height: 16em;
   color: #ddd;
 
   p {
+    font-size: 1em;
     margin-top: 0;
     margin-bottom: 0.5em;
   }
