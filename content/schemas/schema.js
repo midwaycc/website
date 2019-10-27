@@ -24,6 +24,7 @@ import {
   leftImageWithWidth
 } from './otherTypes/imageWithWidth'
 import verticalSpace from './otherTypes/verticalSpace'
+import videoEmbed from './otherTypes/videoEmbed'
 
 export default createSchema({
   name: 'default',
@@ -44,7 +45,8 @@ export default createSchema({
     centerImageWithWidth,
     rightImageWithWidth,
     leftImageWithWidth,
-    verticalSpace
+    verticalSpace,
+    videoEmbed
     // Ideas:
     //
     // event,

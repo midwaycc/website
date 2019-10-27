@@ -83,6 +83,7 @@ export default {
     rightImage,
     { type: 'centerImageWithWidth', icon: icon('\u2502\u2610\u2502') },
     { type: 'leftImageWithWidth', icon: icon('\u250f\u2502', 'left') },
-    { type: 'rightImageWithWidth', icon: icon('\u2502\u2513', 'right') }
+    { type: 'rightImageWithWidth', icon: icon('\u2502\u2513', 'right') },
+    { type: 'videoEmbed' }
   ]
 }

@@ -4,6 +4,7 @@ import { SanityGatsbyImage } from '~/utils/blockSerializers/SanityGatsbyImage'
 import { VerticalSpace } from '~/utils/blockSerializers/VerticalSpace'
 import { EnhancedLink } from '~/utils/blockSerializers/EnhancedLink'
 import { CustomBlock } from '~/utils/blockSerializers/CustomBlock'
+import { VideoEmbed } from '~/utils/blockSerializers/VideoEmbed'
 
 type Props = {
   blocks: unknown[]
@@ -23,7 +24,8 @@ export default ({ blocks }: Props) => {
             leftImageWithWidth: SanityGatsbyImage,
             centerImageWithWidth: SanityGatsbyImage,
             rightImageWithWidth: SanityGatsbyImage,
-            verticalSpace: VerticalSpace
+            verticalSpace: VerticalSpace,
+            videoEmbed: VideoEmbed
           },
           marks: {
             link: EnhancedLink

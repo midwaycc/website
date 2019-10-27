@@ -251,6 +251,7 @@ export type QuerySanityPostArgs = {
   _rev?: Maybe<StringQueryOperatorInput>
   _key?: Maybe<StringQueryOperatorInput>
   title?: Maybe<StringQueryOperatorInput>
+  featured?: Maybe<BooleanQueryOperatorInput>
   slug?: Maybe<SanitySlugFilterInput>
   date?: Maybe<DateQueryOperatorInput>
   thumbnail?: Maybe<SanityImageFilterInput>
@@ -424,7 +425,7 @@ export type SanityBlockFilterListInput = {
   elemMatch?: Maybe<SanityBlockFilterInput>
 }
 
-export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidthOrVerticalSpace =
+export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed =
   | SanityBlock
   | SanityCenterImage
   | SanityCenterImageWithWidth
@@ -433,6 +434,7 @@ export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImage
   | SanityRightImage
   | SanityRightImageWithWidth
   | SanityVerticalSpace
+  | SanityVideoEmbed
 
 export type SanityCenterImage = {
   __typename?: 'SanityCenterImage'
@@ -2295,6 +2297,7 @@ export type SanityPost = SanityDocument &
     _rev?: Maybe<Scalars['String']>
     _key?: Maybe<Scalars['String']>
     title?: Maybe<Scalars['String']>
+    featured?: Maybe<Scalars['Boolean']>
     slug?: Maybe<SanitySlug>
     date?: Maybe<Scalars['Date']>
     thumbnail?: Maybe<SanityImage>
@@ -2388,6 +2391,7 @@ export enum SanityPostFieldsEnum {
   _rev = '_rev',
   _key = '_key',
   title = 'title',
+  featured = 'featured',
   slug____key = 'slug____key',
   slug____type = 'slug____type',
   slug___current = 'slug___current',
@@ -2686,6 +2690,7 @@ export type SanityPostFilterInput = {
   _rev?: Maybe<StringQueryOperatorInput>
   _key?: Maybe<StringQueryOperatorInput>
   title?: Maybe<StringQueryOperatorInput>
+  featured?: Maybe<BooleanQueryOperatorInput>
   slug?: Maybe<SanitySlugFilterInput>
   date?: Maybe<DateQueryOperatorInput>
   thumbnail?: Maybe<SanityImageFilterInput>
@@ -2777,6 +2782,13 @@ export type SanityVerticalSpace = {
   _key?: Maybe<Scalars['String']>
   _type?: Maybe<Scalars['String']>
   height?: Maybe<Scalars['Float']>
+}
+
+export type SanityVideoEmbed = {
+  __typename?: 'SanityVideoEmbed'
+  _key?: Maybe<Scalars['String']>
+  _type?: Maybe<Scalars['String']>
+  videoId?: Maybe<Scalars['String']>
 }
 
 export type Site = Node & {
