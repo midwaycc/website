@@ -38,11 +38,11 @@ export default () => {
             url="https://www.instagram.com/midwaycommunitychurch/"
             css="margin-left: 0.5em"
           />
-          <SocialLink
+          {/* <SocialLink
             logo="/logos/social/twitter.svg"
             url="https://twitter.com/_midwayyouth"
             css="margin-left: 0.9em"
-          />
+          /> */}
         </p>
       </FooterContent>
     </Container>
