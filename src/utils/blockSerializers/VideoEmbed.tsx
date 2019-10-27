@@ -32,7 +32,7 @@ const YouTubeEmbed = ({ videoId }: { videoId: string }) => (
         width: '100%',
         height: '100%'
       }}
-      src={`https://www.youtube.com/embed/${videoId}?color=white`}
+      src={`https://www.youtube.com/embed/${videoId}?color=white&autoplay=1`}
       frameBorder="0"
     />
   </div>
