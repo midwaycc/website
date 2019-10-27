@@ -113,10 +113,12 @@ const TextInput = ({
 const Column = styled.div`
   width: 100%;
   float: left;
+  margin-top: 1em;
 
   ${media.md} {
     width: calc(50% - 1em);
     margin-right: 1em;
+    margin-top: 0;
 
     & + & {
       margin-right: 0;
