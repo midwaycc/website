@@ -1,7 +1,7 @@
 name: Keep Preview Alive
 on:
   schedule:
-    # Every five minutes
+    # Every twenty minutes
     - cron: '0/20 * * * *'
 jobs:
   build:
