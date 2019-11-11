@@ -1,7 +1,9 @@
 import React from 'react'
-import Plyr from 'react-plyr'
+import loadable from '@loadable/component'
 import 'plyr/dist/plyr.css'
 // import '@vimeo/player
+
+const Plyr = loadable(() => import('react-plyr'))
 
 type Props = {
   node?: {
@@ -12,6 +14,10 @@ type Props = {
 export const VideoEmbed = ({ node }: Props) => {
   if (!node || !node.videoId) {
     return null
+  }
+
+  if (typeof document === 'undefined') {
+    return <VimeoEmbed videoId={node.videoId} />
   }
 
   return <PlyrEmbed videoId={node.videoId} />
