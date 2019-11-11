@@ -1,4 +1,7 @@
 import React from 'react'
+import Plyr from 'react-plyr'
+import 'plyr/dist/plyr.css'
+// import '@vimeo/player
 
 type Props = {
   node?: {
@@ -11,8 +14,28 @@ export const VideoEmbed = ({ node }: Props) => {
     return null
   }
 
-  return <YouTubeEmbed videoId={node.videoId} />
+  return <PlyrEmbed videoId={node.videoId} />
 }
+
+const PlyrEmbed = ({
+  videoId,
+  type = 'vimeo'
+}: {
+  videoId: string
+  type: 'youtube' | 'vimeo'
+}) => <Plyr type={type} videoId={videoId} autoplay />
+
+const VimeoEmbed = ({ videoId }: { videoId: string }) => (
+  <div css="padding:56.25% 0 0 0;position:relative;">
+    <iframe
+      src={`https://player.vimeo.com/video/${videoId}?autoplay=1&color=2B6667&title=0&byline=0&portrait=0`}
+      css="position:absolute;top:0;left:0;width:100%;height:100%;"
+      frameBorder="0"
+      allow="autoplay; fullscreen"
+      allowFullScreen
+    ></iframe>
+  </div>
+)
 
 const YouTubeEmbed = ({ videoId }: { videoId: string }) => (
   <div
