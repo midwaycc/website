@@ -54,7 +54,6 @@ export const hiddenWhenMenuOpen = css`
 `
 
 const X_TRANSITION = '0.35s ease'
-const CENTER_TRANSITION = '0.2s ease'
 const MENU_TRANSITION = '.35s ease-out'
 
 const Container = styled.div`
