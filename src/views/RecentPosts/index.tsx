@@ -17,7 +17,7 @@ export default ({ posts }: Props) => {
 
   return (
     <Container color="#5aa7a9">
-      <h1 css="color: white; text-align: center">Recent Updates</h1>
+      <h1 css="color: white; text-align: center">News</h1>
       <Posts>
         {postsToUse.map((post, i) => (
           <RecentPost key={post._id || `post-${i}`} post={post} />

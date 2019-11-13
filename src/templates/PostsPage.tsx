@@ -25,7 +25,7 @@ export default ({ data, pageContext }: Props) => {
   return (
     <Section css="padding: 2em">
       <PillLink to="/">&#8592; Home</PillLink>
-      <h1>All Updates</h1>
+      <h1>News</h1>
       <hr css="color: #eee; margin: 2em 0" />
       {posts.map((post, i) => (
         <>
