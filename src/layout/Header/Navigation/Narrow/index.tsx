@@ -11,9 +11,7 @@ type Props = {
 export default ({ className }: Props) => {
   return (
     <Container className={className}>
-      <HamburgerLine />
-      <HamburgerLine />
-      <HamburgerLine />
+      <HamburgerLines />
     </Container>
   )
 }
@@ -60,51 +58,48 @@ const CENTER_TRANSITION = '0.2s ease'
 const MENU_TRANSITION = '.35s ease-out'
 
 const Container = styled.div`
-  height: ${props => props.theme.header.height}px;
-  width: ${props => props.theme.header.height}px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
   position: relative;
+  width: ${props => props.theme.header.height}px;
+  height: ${props => props.theme.header.height}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${X_TRANSITION};
+  will-change: transform;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-touch-callout: none;
+
+  ${NarrowMenuToggle}:checked ~ header & {
+    transform: rotate(45deg);
+  }
 `
 
-const HamburgerLine = styled.span`
-  display: block;
-  width: 2em;
-  height: 0.2em;
-  position: relative;
-  background-color: ${props => props.theme.header.color};
-  border-radius: 0.2em;
-  z-index: 3;
-
-  transform-origin: 0.3em 0;
-
-  transition: all ${X_TRANSITION};
-
-  & + & {
-    margin-top: 0.3em;
-  }
-
-  ${NarrowMenuToggle}:checked ~ header &:not(:nth-of-type(2)) {
+const HamburgerLines = styled.div`
+  &,
+  &::before,
+  &::after {
+    content: '';
     width: 2.25em;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: transform ${X_TRANSITION};
+    will-change: transform;
+    background-color: black;
+    border-radius: 1px;
   }
 
-  ${NarrowMenuToggle}:checked ~ header &:first-of-type {
-    transform: rotate(45deg) translate(0.05em, -0.1em);
+  &::before {
+    transform: translateY(0.6em);
   }
 
-  ${NarrowMenuToggle}:checked ~ header &:nth-of-type(2) {
-    opacity: 0;
-    transition: opacity ${CENTER_TRANSITION};
+  &::after {
+    transform: translateY(-0.6em);
   }
 
-  ${NarrowMenuToggle}:checked ~ header &:last-of-type {
-    transform: rotate(-45deg) translate(-0.05em, 0.1em);
+  ${NarrowMenuToggle}:checked ~ header &::after,
+  ${NarrowMenuToggle}:checked ~ header &::before {
+    transform: rotate(90deg);
   }
 `
 
