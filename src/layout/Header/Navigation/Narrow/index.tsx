@@ -80,11 +80,10 @@ const HamburgerLines = styled.div`
     content: '';
     width: 2.25em;
     height: 2px;
-    background: #fff;
     position: absolute;
     transition: transform ${X_TRANSITION};
     will-change: transform;
-    background-color: black;
+    background-color: #2b6667;
     border-radius: 1px;
   }
 
