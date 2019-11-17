@@ -13,10 +13,23 @@ export default () => {
     <Section color="white" css="padding: 2em 1em">
       <h1 css="text-align: center">Contact Us</h1>
       {/* <p>We'd love to hear from you!</p> */}
-      <form name="contact" method="POST" data-netlify="true">
+      <form
+        name="contact"
+        method="POST"
+        action="/contact/success"
+        data-netlify="true"
+        netlify-honeypot="phone"
+      >
         <Column>
           <TextInput title="Name" name="name" value={name} set={setName} />
           <TextInput title="Email" name="email" value={email} set={setEmail} />
+          <TextInput
+            css="display: none"
+            title="Phone"
+            name="phone"
+            value=""
+            set={() => {}}
+          />
         </Column>
         <Column>
           <TextInput
@@ -51,6 +64,7 @@ type InputProps = {
   value: string
   textarea?: boolean
   set: (s: string) => void
+  className?: string
 }
 
 const TextInput = ({
@@ -58,6 +72,7 @@ const TextInput = ({
   name,
   value,
   set,
+  className,
   textarea = false
 }: InputProps) => {
   const id = `input-${name}`
@@ -82,6 +97,7 @@ const TextInput = ({
 
   return (
     <div
+      className={className}
       css={css`
         :not(:first-of-type) {
           margin-top: 1em;
