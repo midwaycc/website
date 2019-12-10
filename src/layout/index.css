@@ -72,3 +72,11 @@ noscript {
 #___gatsby {
   background-color: #099799;
 }
+
+.fc-day-grid-container {
+  background-color: #5aa7a9;
+}
+
+.fc-today {
+  color: #099799;
+}
