@@ -27,6 +27,7 @@ const theme: DefaultTheme = {
   },
   footer: {
     background: '#444',
+    height: '16rem',
     color: 'white'
   },
   buttons: {

@@ -22,7 +22,9 @@ declare module 'styled-components' {
     }
     hero: Colors & {}
     criticalInfo: Colors & {}
-    footer: Colors & {}
+    footer: Colors & {
+      height: string
+    }
     buttons: Colors & {}
   }
 }

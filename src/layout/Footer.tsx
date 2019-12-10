@@ -80,6 +80,7 @@ function copyrightYears() {
 }
 
 const Container = styled.footer`
+  height: ${props => props.theme.footer.height};
   background-color: ${props => props.theme.footer.background};
   color: ${props => props.theme.footer.color};
   margin: 0;
@@ -89,7 +90,6 @@ const Container = styled.footer`
 const FooterContent = styled(Content)`
   text-align: center;
   padding: 3em 0;
-  height: 16em;
   color: #ddd;
 
   p {
