@@ -39,7 +39,12 @@ const PageContainer = styled.div`
 `
 const Main = styled.main`
   position: relative;
-  // min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(
+    100vh - ${props => props.theme.header.height}px -
+      ${props => props.theme.footer.height}
+  );
   background-color: ${props => props.theme.page.background};
   ${hiddenWhenMenuOpen};
 `

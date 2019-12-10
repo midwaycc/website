@@ -5,7 +5,8 @@ export default () => {
   return (
     <Section
       color="#2B6667"
-      css="padding: 2em 1em; height: 100vh; color: white"
+      css="padding: 2em 1em; color: white"
+      outerCss="flex: 1"
     >
       <p>Thanks! We'll be in touch shortly.</p>
     </Section>
