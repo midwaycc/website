@@ -92,8 +92,8 @@ const OverlayContainer = styled.div`
   color: ${props => props.theme.hero.color};
   background-image: linear-gradient(
     90deg,
-    rgba(10, 76, 77, 0.75) 0%,
-    rgba(115, 134, 55, 0.7) 130%
+    rgba(10, 76, 77, 0.4) 0%,
+    rgba(115, 134, 55, 0.4) 130%
   );
 
   & > * {
