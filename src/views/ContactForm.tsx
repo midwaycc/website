@@ -12,7 +12,6 @@ export default () => {
   return (
     <Section color="white" css="padding: 2em 1em">
       <h1 css="text-align: center">Contact Us</h1>
-      {/* <p>We'd love to hear from you!</p> */}
       <form
         name="contact"
         method="POST"
@@ -23,13 +22,8 @@ export default () => {
         <Column>
           <TextInput title="Name" name="name" value={name} set={setName} />
           <TextInput title="Email" name="email" value={email} set={setEmail} />
-          <TextInput
-            css="display: none"
-            title="Phone"
-            name="phone"
-            value=""
-            set={() => {}}
-          />
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="phone" value="" />
         </Column>
         <Column>
           <TextInput
