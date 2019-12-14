@@ -1,8 +1,84 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { createGlobalStyle } from 'styled-components'
+import Modal from 'react-modal'
 import FullCalendar from '@fullcalendar/react'
-import dayGrid from '@fullcalendar/daygrid'
-import googleCalendar from '@fullcalendar/google-calendar'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import listPlugin from '@fullcalendar/list'
+import googleCalendarPlugin from '@fullcalendar/google-calendar'
+import useWindowSize from '@rooks/use-window-size'
+import media from '~/utils/media'
+import { format, addMinutes } from 'date-fns'
+
 import '@fullcalendar/core/main.css'
+import '@fullcalendar/daygrid/main.css'
+import '@fullcalendar/list/main.css'
+
+Modal.setAppElement(document.body)
+
+export default () => {
+  const [event, setEvent] = useState(null)
+  const [modalOpen, setModalOpen] = useState(false)
+  const { innerWidth } = useWindowSize()
+  if (innerWidth === null) return null
+
+  const isSmall = innerWidth < media.lg.pixelWidth
+
+  const handleEventClick = info => {
+    info.jsEvent.preventDefault()
+    info.jsEvent.stopPropagation()
+    console.log(info.event)
+    setEvent(info.event)
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+
+  return (
+    <>
+      <StyleOverrides />
+      <FullCalendar
+        key={String(isSmall)}
+        defaultView={isSmall ? 'listMonth' : 'dayGridMonth'}
+        plugins={[dayGridPlugin, listPlugin, googleCalendarPlugin]}
+        googleCalendarApiKey="AIzaSyDhddcpnZvFan-d1e7AOTI3UM6of2QdcOk"
+        eventClick={handleEventClick}
+        eventSources={calendarIds.map(googleCalendarId => ({
+          googleCalendarId,
+          backgroundColor: '#9fb94b',
+          borderColor: '#9fb94b',
+          url: '#'
+        }))}
+      />
+      <Modal
+        isOpen={modalOpen}
+        onRequestClose={closeModal}
+        style={{
+          overlay: {
+            zIndex: 5,
+            backgroundColor: 'rgba(255,255,255,0.2)'
+          },
+          content: {
+            zIndex: 6,
+            top: 'calc(50% - 80px)',
+            bottom: 'calc(50% - 80px)',
+            left: 'calc(50% - 150px)',
+            right: 'calc(50% - 150px)',
+            padding: '1em'
+          }
+        }}
+      >
+        {event ? (
+          <>
+            <h4 css="margin-top: 0">{event._def.title}</h4>
+            <p>{format(toEST(event._instance.range.start), 'h:mm a')}</p>
+          </>
+        ) : null}
+      </Modal>
+    </>
+  )
+}
 
 const calendarIds = [
   // Children's non-recurring
@@ -21,25 +97,25 @@ const calendarIds = [
   'midwaycommunitychurch.org_jh1327qfohm33th4kgaig3anhg@group.calendar.google.com'
 ]
 
-export default () => {
-  const handleEventClick = info => {
-    info.jsEvent.preventDefault()
-    info.jsEvent.stopPropagation()
-    alert(info.event._def.title)
+const StyleOverrides = createGlobalStyle`
+  .fc-day-grid-container {
+    background-color: #5aa7a9;
   }
 
-  return (
-    <FullCalendar
-      defaultView="dayGridMonth"
-      plugins={[dayGrid, googleCalendar]}
-      googleCalendarApiKey="AIzaSyDhddcpnZvFan-d1e7AOTI3UM6of2QdcOk"
-      eventClick={handleEventClick}
-      eventSources={calendarIds.map(googleCalendarId => ({
-        googleCalendarId,
-        backgroundColor: '#9fb94b',
-        borderColor: '#9fb94b',
-        url: '#'
-      }))}
-    />
-  )
+  .fc-today {
+    color: #099799;
+  }
+
+  .fc-unthemed .fc-list-item:hover td {
+    background-color: #5aa7a9 !important;
+  }
+
+  .fc-list-heading span {
+    color: #2b6667;
+  }
+`
+
+function toEST(date: Date) {
+  const offset = date.getTimezoneOffset()
+  return addMinutes(date, offset)
 }
