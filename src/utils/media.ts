@@ -8,12 +8,15 @@ export class MediaQueryWithWidth {
   constructor(width: number, rule: string = 'min-width') {
     this._width = width
     this.rule = rule
-    const baseFontSize = Number(
-      window
-        .getComputedStyle(document.body)
-        .getPropertyValue('font-size')
-        .match(/\d+/)[0]
-    )
+    const baseFontSize =
+      typeof window === 'undefined'
+        ? 16
+        : Number(
+            window
+              .getComputedStyle(document.body)
+              .getPropertyValue('font-size')
+              .match(/\d+/)[0]
+          )
     this.pixelWidth = this._width * baseFontSize
   }
 
