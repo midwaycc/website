@@ -816,11 +816,6 @@
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.3.1.tgz#a061c6d2e998d4155439dbc8aefdfe01cdf648d8"
   integrity sha512-Eh+p/wpMkWGu26f8NpfQK9ecQMoZxX/aopv+0+4/CH+Ip0paP6iEc40JYgTz7RFl0bFqV1dvwyGyUZ4+9ZeySA==
 
-"@fullcalendar/daygrid@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.3.0.tgz#1b4ab9fdc238dba77921cb7c5bd2d813c834e905"
-  integrity sha512-OrGaRIGbELESOXOCXtoQVY4cOxnxmN7OrjDGbMoVITdoXWuIZ6sFNO84WcBQoRaIbkmqVM0SAU2MENwy+eEwqQ==
-
 "@fullcalendar/google-calendar@^4.3.0":
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-4.3.0.tgz#ad2fc7f15d641bf1cbadc4b0c2a8d83089106890"
@@ -1564,13 +1559,6 @@
   version "5.0.9"
   resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.9.tgz#60ab5accce74b168ca1d274671522f6b2cf2c98f"
   integrity sha512-0UVaMQk/Xvq6rFaGyepSBnRApy5RE+YH0XAXlbOBhtez5D9y1/jxKaKODofPzNnJLoLQ+sATTsWQIvrw1Dtiag==
-  dependencies:
-    "@types/react" "*"
-
-"@types/react-modal@^3.10.1":
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/@types/react-modal/-/react-modal-3.10.1.tgz#77cfe83167d29beb940c602788eb0751903df539"
-  integrity sha512-u8MTXPFxfsY2zsWfAwQIS315zwM716vO4WFjGiexKEOgappMjmKQaApmUoMH4SKijeEFIjxnaAyCyGJXyUIvdg==
   dependencies:
     "@types/react" "*"
 
@@ -5540,7 +5528,7 @@ execa@^3.1.0:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
-exenv@^1.2.0, exenv@^1.2.1:
+exenv@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
   integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
@@ -11565,20 +11553,10 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
+react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-
-react-modal@^3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.11.1.tgz#2a0d6877c9e98f123939ea92d2bb4ad7fa5a17f9"
-  integrity sha512-8uN744Yq0X2lbfSLxsEEc2UV3RjSRb4yDVxRQ1aGzPo86QjNOwhQSukDb8U8kR+636TRTvfMren10fgOjAy9eA==
-  dependencies:
-    exenv "^1.2.0"
-    prop-types "^15.5.10"
-    react-lifecycles-compat "^3.0.0"
-    warning "^4.0.3"
 
 react-plyr@^2.2.0:
   version "2.2.0"
@@ -13902,13 +13880,6 @@ warning@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
   integrity sha1-MuU3fLVy3kqwR1O9+IIcAe1gW3w=
-  dependencies:
-    loose-envify "^1.0.0"
-
-warning@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
-  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
   dependencies:
     loose-envify "^1.0.0"
 
