@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import Head from './Head'
 import Header from './Header'
@@ -20,6 +20,7 @@ type Props = {
 
 export default ({ children }: Props) => (
   <>
+    <GlobalStyles />
     <Head />
     <ThemeProvider theme={theme}>
       <PageContainer>
@@ -32,10 +33,20 @@ export default ({ children }: Props) => (
   </>
 )
 
+const GlobalStyles = createGlobalStyle`
+  .ReactModalPortal {
+    font-family: ${theme.page.bodyFont};
+  }
+`
+
 const PageContainer = styled.div`
   font-family: ${props => props.theme.page.bodyFont};
   width: 100%;
   position: relative;
+
+  body.ReactModal__Body--open & {
+    overflow: hidden;
+  }
 `
 const Main = styled.main`
   position: relative;
