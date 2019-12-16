@@ -3,6 +3,7 @@ import Section from '~/layout/Section'
 import styled, { css } from 'styled-components'
 import media from '~/utils/media'
 import { ActionButton } from '~/components/Pills'
+import { SquareButton } from '~/components/SquareButton'
 
 export default () => {
   const [name, setName] = useState('')
@@ -10,45 +11,32 @@ export default () => {
   const [message, setMessage] = useState('')
 
   return (
-    <Section color="white" css="padding: 2em 1em">
-      <h1 css="text-align: center">Contact Us</h1>
+    <>
+      <Greeting>We'd love to hear from you!</Greeting>
       <form
         name="contact"
         method="POST"
         action="/contact/success"
         data-netlify="true"
         netlify-honeypot="phone"
+        css="width: 100%; text-align: center"
       >
-        <Column>
-          <TextInput title="Name" name="name" value={name} set={setName} />
-          <TextInput title="Email" name="email" value={email} set={setEmail} />
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="phone" value="" />
-        </Column>
-        <Column>
-          <TextInput
-            textarea
-            title="Message"
-            name="message"
-            value={message}
-            set={setMessage}
-          />
-        </Column>
-        <div css="clear: both; width: 100%; padding-top: 2em;">
-          <ActionButton
-            type="submit"
-            css={css`
-              background-color: #5aa7a9;
-              color: white;
-              margin: 0 auto;
-              display: block;
-            `}
-          >
-            Submit
-          </ActionButton>
-        </div>
+        <TextInput title="Name" name="name" value={name} set={setName} />
+        <TextInput title="Email" name="email" value={email} set={setEmail} />
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="phone" value="" />
+        <TextInput
+          textarea
+          title="Message"
+          name="message"
+          value={message}
+          set={setMessage}
+        />
+        <SquareButton type="submit" css="margin-top: 1em">
+          Submit
+        </SquareButton>
       </form>
-    </Section>
+    </>
   )
 }
 
@@ -74,6 +62,7 @@ const TextInput = ({
     type: 'text',
     id,
     name,
+    placeholder: title,
     value,
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       set(e.target.value)
@@ -81,12 +70,17 @@ const TextInput = ({
 
   const styles = css`
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1.2em;
+    border: none;
+    font-size: 1em;
     padding: 0.5em;
     font-family: 'Proxima Nova', sans-serif;
     resize: vertical;
+    color: white;
+    background-color: #5aa7a9;
+
+    &::placeholder {
+      font-style: italic;
+    }
   `
 
   return (
@@ -98,19 +92,6 @@ const TextInput = ({
         }
       `}
     >
-      <label
-        htmlFor={id}
-        css={css`
-          font-family: 'Brandon Grotesque';
-          display: block;
-          margin-bottom: 0.25em;
-          font-weight: bold;
-          font-size: 1.2em;
-          color: #2b6667;
-        `}
-      >
-        {title}
-      </label>
       {textarea ? (
         <textarea css={styles} {...inputProps} rows={10} />
       ) : (
@@ -120,19 +101,8 @@ const TextInput = ({
   )
 }
 
-const Column = styled.div`
-  width: 100%;
-  float: left;
-  margin-top: 1em;
-
-  ${media.md} {
-    width: calc(50% - 1em);
-    margin-right: 1em;
-    margin-top: 0;
-
-    & + & {
-      margin-right: 0;
-      margin-left: 1em;
-    }
-  }
+const Greeting = styled.h4`
+  text-transform: uppercase;
+  color: #9fb94b;
+  margin: 0.5em 0;
 `
