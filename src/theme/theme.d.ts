@@ -23,6 +23,7 @@ declare module 'styled-components' {
     hero: Colors & {}
     criticalInfo: Colors & {}
     footer: Colors & {
+      contactFields: string
       height: string
     }
     buttons: Colors & {}

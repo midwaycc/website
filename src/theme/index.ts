@@ -26,7 +26,8 @@ const theme: DefaultTheme = {
     color: 'white'
   },
   footer: {
-    background: '#2B6667',
+    background: 'rgb(35, 74, 77)',
+    contactFields: 'rgb(116, 147, 147)',
     height: '16rem',
     color: 'white'
   },

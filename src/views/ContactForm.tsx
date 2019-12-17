@@ -76,9 +76,11 @@ const TextInput = ({
     font-family: 'Proxima Nova', sans-serif;
     resize: vertical;
     color: white;
-    background-color: #5aa7a9;
+    background-color: ${props => props.theme.footer.contactFields};
 
     &::placeholder {
+      color: white;
+      opacity: 0.8;
       font-style: italic;
     }
   `
