@@ -91,7 +91,6 @@ const Banner = styled.div`
     content: 'Get involved! Get connected!';
     width: 40vw;
     min-width: 14em;
-    font-weight: bold;
   }
 `
 
