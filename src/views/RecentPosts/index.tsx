@@ -81,10 +81,10 @@ const Banner = styled.div`
 
   :after {
     position: absolute;
-    bottom: -0.75rem;
+    bottom: -1em;
     right: 0;
-    height: 1.5em;
-    line-height: 1.5em;
+    height: 2em;
+    line-height: 2em;
     padding: 0 0.5em;
     background-color: #2b6667;
     color: white;
