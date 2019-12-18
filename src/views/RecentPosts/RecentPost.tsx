@@ -21,12 +21,12 @@ export default ({ post }: Props) => {
 const Container = styled.div`
   display: block;
   text-decoration: none;
-  background-color: #eee;
+  background-color: white;
   margin-left: 1em;
   margin-top: 1em;
   padding: 1em;
   color: black;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 
   :hover {
     background-color: white;

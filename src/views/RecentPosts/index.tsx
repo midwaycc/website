@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import Section from '~/layout/Section'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import RecentPost from './RecentPost'
-import { ActionButton } from '~/components/Pills'
+import { SquareButton } from '~/components/SquareButton'
+import paper from '~/../static/images/paper.jpg'
+import { Title } from '~/components/Title'
+import Content from '~/layout/Content'
 
 type Props = {
   posts?: RecentPostsQuery['allSanityPost']['nodes']
@@ -16,20 +18,25 @@ export default ({ posts }: Props) => {
   const postsToUse = posts || data.allSanityPost.nodes
 
   return (
-    <Container color="#5aa7a9">
-      <h1 css="color: white; text-align: center">News</h1>
-      <Posts>
-        {postsToUse.map((post, i) => (
-          <RecentPost key={post._id || `post-${i}`} post={post} />
-        ))}
-        <SeeMoreRow>
-          <Link to="/posts">
-            <ActionButton css="padding-top: 0.8em">
-              &nbsp;&nbsp;See all &#8594;
-            </ActionButton>
-          </Link>
-        </SeeMoreRow>
-      </Posts>
+    <Container color="#9FB94B">
+      <Banner>
+        <Title css="margin-bottom: 0">Midway News</Title>
+        <Subtitle>Find out what's happening.</Subtitle>
+      </Banner>
+      <Content>
+        <Posts>
+          {postsToUse.map((post, i) => (
+            <RecentPost key={post._id || `post-${i}`} post={post} />
+          ))}
+          <SeeMoreRow>
+            <Link to="/posts">
+              <SquareButton thick dark point="right">
+                View all
+              </SquareButton>
+            </Link>
+          </SeeMoreRow>
+        </Posts>
+      </Content>
     </Container>
   )
 }
@@ -61,9 +68,39 @@ const query = graphql`
   }
 `
 
-const Container = styled(Section)`
-  padding-top: 2em;
+const Container = styled.div`
+  width: 100%;
+  background-image: url('${paper}');
   padding-bottom: 3em;
+`
+
+const Banner = styled.div`
+  background-color: white;
+  padding: 1em 0;
+  position: relative;
+
+  :after {
+    position: absolute;
+    bottom: -0.75rem;
+    right: 0;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding: 0 0.5em;
+    background-color: #2b6667;
+    color: white;
+    content: 'Get involved! Get connected!';
+    width: 40vw;
+    min-width: 14em;
+    font-weight: bold;
+  }
+`
+
+const Subtitle = styled.h2`
+  color: #5aa7a9;
+  font-style: italic;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 0;
 `
 
 const Posts = styled.div`
@@ -71,6 +108,7 @@ const Posts = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  padding-top: 2em;
 `
 
 const SeeMoreRow = styled.div`

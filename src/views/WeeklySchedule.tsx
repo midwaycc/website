@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Section from '~/layout/Section'
 import Content from '~/layout/Content'
+import { Title } from '~/components/Title'
 import media from '~/utils/media'
 import buildingHorizontal from '~/../static/images/building_horizontal.jpg'
 
@@ -9,7 +9,9 @@ export default () => {
   return (
     <Container>
       <Content css="z-index: 2; position: relative">
-        <Title>Weekly Schedule</Title>
+        <Title left color="white">
+          Weekly Schedule
+        </Title>
         <Horizontal>
           <Column>
             <Day name="Sundays">
@@ -162,17 +164,6 @@ const Column = styled.div`
     & + & {
       margin-top: 0;
     }
-  }
-`
-
-const Title = styled.h1`
-  color: white;
-  text-transform: uppercase;
-  text-align: center;
-
-  ${media.lg} {
-    text-align: left;
-    margin-left: 0.5rem;
   }
 `
 
