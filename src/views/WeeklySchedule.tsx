@@ -74,11 +74,22 @@ function Event(props: { name: string; time: string }) {
 
 const Container = styled.div`
   width: 100%;
-  padding-top: 4em;
-  padding-bottom: 8em;
-  background-color: #222;
+  background-color: #111;
   overflow: hidden;
   position: relative;
+
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+
+  ${media.md} {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
+
+  ${media.lg} {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+  }
 
   &:before {
     content: ' ';
@@ -88,19 +99,32 @@ const Container = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.5;
+    opacity: 0.4;
     background: url('${buildingHorizontal}');
     background-repeat: no-repeat;
-    background-size: 1800px;
+    background-size: 1920px;
 
-    background-position: bottom -60px left -300px;
+    background-position: bottom left -150px;
 
     ${media.sm} {
-      background-position: bottom -60px left -200px;
+      background-position: bottom -20px left -50px;
+    }
+
+    ${media.md} {
+      background-position: bottom -25px left -50px;
     }
 
     ${media.lg} {
-      background-position: bottom -60px left -100px;
+      background-position: bottom -30px left;
+    }
+
+    ${media.xl} {
+      background-position: bottom -50px left;
+    }
+
+    @media screen and (min-width: 1920px) {
+      background-size: 100vw;
+      background-position: bottom -75px left;
     }
   }
 `
@@ -144,7 +168,12 @@ const Column = styled.div`
 const Title = styled.h1`
   color: white;
   text-transform: uppercase;
-  margin-left: 0.5rem;
+  text-align: center;
+
+  ${media.lg} {
+    text-align: left;
+    margin-left: 0.5rem;
+  }
 `
 
 const EventTime = styled.span`
