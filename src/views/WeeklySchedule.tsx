@@ -46,10 +46,7 @@ function Day(props: { name: string; children: React.ReactNode }) {
           margin: 0;
           text-transform: lowercase;
           font-variant: small-caps;
-
-          & ~ & {
-            margin-top: 1em;
-          }
+          margin-top: 1em;
         `}
       >
         {props.name}

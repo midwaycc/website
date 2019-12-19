@@ -5,6 +5,8 @@ export const Title = styled.h1<{ color?: string; left?: boolean }>`
   color: ${props => props.color || 'rgb(35, 74, 77)'};
   text-transform: uppercase;
   text-align: center;
+  margin-bottom: 0;
+  font-size: 2.5rem;
 
   ${props =>
     props.left

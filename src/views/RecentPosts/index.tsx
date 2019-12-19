@@ -20,7 +20,7 @@ export default ({ posts }: Props) => {
   return (
     <Container color="#9FB94B">
       <Banner>
-        <Title css="margin-bottom: 0">Midway News</Title>
+        <Title>Midway News</Title>
         <Subtitle>Find out what's happening.</Subtitle>
       </Banner>
       <Content>
@@ -76,7 +76,8 @@ const Container = styled.div`
 
 const Banner = styled.div`
   background-color: white;
-  padding: 1em 0;
+  padding-top: 1em;
+  padding-bottom: 2em;
   position: relative;
 
   :after {
@@ -84,6 +85,7 @@ const Banner = styled.div`
     bottom: -1em;
     right: 0;
     height: 2em;
+    font-size: 1.25em;
     line-height: 2em;
     padding: 0 0.5em;
     background-color: #2b6667;
