@@ -6,7 +6,7 @@ import {
 } from '~/layout/Header/Navigation/types'
 import { FullLink, FullText } from '~/layout/Header/FullLink'
 import BaseToggle from '~/components/BaseToggle'
-import { darken } from 'polished'
+import { darken, lighten } from 'polished'
 
 export const NavigationItem = ({ text, link }: NavItemWithLink) => (
   <Container>
@@ -85,10 +85,7 @@ const Minus = () => {
 
 const ROW_HEIGHT = '60px'
 const SUB_ROW_HEIGHT = '40px'
-const HOVER_COLOR = (background: string) => darken(0.07, background)
-const HOVER_STYLES = css`
-  background-color: ${HOVER_COLOR('#099799')};
-`
+const BASE_COLOR = '#099799'
 
 const Toggle = styled(BaseToggle).attrs({
   className: 'narrow-submenu-toggle',
@@ -121,7 +118,7 @@ const Container = styled.li`
   }
 
   :hover > ${FullText}, :hover > ${FullLink}, ${Toggle}:checked ~ ${FullText} {
-    ${HOVER_STYLES};
+    background-color: ${darken(0.05, BASE_COLOR)};
   }
 `
 
@@ -149,8 +146,9 @@ const SubMenu = styled.ul<{ numItems: number }>`
 const SubItem = styled.li`
   list-style: none;
   width: 100%;
+  background-color: ${lighten(0.05, BASE_COLOR)};
 
   :hover {
-    ${HOVER_STYLES};
+    background-color: ${darken(0.01, BASE_COLOR)};
   }
 `
