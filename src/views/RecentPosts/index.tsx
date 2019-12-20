@@ -5,6 +5,7 @@ import { RecentPostsQuery } from '~/types/graphqlTypes'
 import RecentPost from './RecentPost'
 import { SquareButton } from '~/components/SquareButton'
 import paper from '~/../static/images/paper.jpg'
+import stamp from '~/../static/images/stamp.png'
 import { Title } from '~/components/Title'
 import Content from '~/layout/Content'
 
@@ -28,13 +29,14 @@ export default ({ posts }: Props) => {
           {postsToUse.map((post, i) => (
             <RecentPost key={post._id || `post-${i}`} post={post} />
           ))}
-          <SeeMoreRow>
-            <Link to="/posts">
+          <ViewAllRow>
+            <Stamp />
+            <Link to="/posts" css="z-index: 1; margin: 1rem 0">
               <SquareButton thick dark point="right">
                 View all
               </SquareButton>
             </Link>
-          </SeeMoreRow>
+          </ViewAllRow>
         </Posts>
       </Content>
     </Container>
@@ -112,10 +114,19 @@ const Posts = styled.div`
   padding-top: 2em;
 `
 
-const SeeMoreRow = styled.div`
+const ViewAllRow = styled.div`
   margin-top: 2.5em;
   text-align: center;
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
+`
+
+const Stamp = styled.img.attrs({ src: stamp })`
+  position: absolute;
+  width: 7rem;
+  height: auto;
+  left: calc(50% - 11rem);
+  top: -2rem;
 `

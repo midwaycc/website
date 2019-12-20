@@ -5,10 +5,12 @@ import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
 import { SquareButton } from '~/components/SquareButton'
 import mapPin from '~/../static/images/map_pin.png'
+import leaves from '~/../static/images/leaves.png'
 
 export default () => (
   <Container>
     <Columns>
+      <Leaves />
       <Column>
         <Title color="#9fb94b">Sermons</Title>
         <Subtitle>You're invited! Sundays at 11am.</Subtitle>
@@ -71,6 +73,7 @@ const Container = styled.div`
 const Columns = styled(Content)`
   display: flex;
   flex-direction: column;
+  position: relative;
 
   ${media.md} {
     flex-direction: row;
@@ -86,6 +89,11 @@ const Column = styled.div`
 const Subtitle = styled.h2`
   margin: 0;
   font-weight: normal;
+  font-size: 1.5rem;
+
+  ${media.xs} {
+    font-size: initial;
+  }
 `
 
 const Button = styled(SquareButton)`
@@ -109,4 +117,12 @@ const AddressLine = styled.div`
   & + & {
     margin-top: 0.5em;
   }
+`
+
+const Leaves = styled.img.attrs({ src: leaves })`
+  position: absolute;
+  height: 75px;
+  width: auto;
+  top: -105px;
+  left: 1rem;
 `
