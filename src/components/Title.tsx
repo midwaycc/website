@@ -6,7 +6,11 @@ export const Title = styled.h1<{ color?: string; left?: boolean }>`
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
+
+  ${media.sm} {
+    font-size: 2.5rem;
+  }
 
   ${props =>
     props.left
