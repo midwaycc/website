@@ -10,7 +10,9 @@ import {
   SanitySlug,
   SanityPageSection
 } from '~/types/graphqlTypes'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { raggedEdgeGradient } from '~/views/QuickInfo'
+import { SquareButton } from '~/components/SquareButton'
 
 type Props = {
   data: MinistryPageQuery
@@ -47,10 +49,12 @@ export default ({ data, path }: Props) => {
 
   return (
     <>
-      <Section css="padding: 2em 1em">
-        <PillLink css="margin-bottom: 2em" to="/">
-          &#8592; Home
-        </PillLink>
+      <TopNav color="white">
+        <Link to="/">
+          <SquareButton dark thick point="left" css="margin-bottom: 1em">
+            Home
+          </SquareButton>
+        </Link>
         {subLogo && subLogo.asset && (
           <Link
             to={parentURL}
@@ -115,9 +119,9 @@ export default ({ data, path }: Props) => {
             })}
           </PillLinkContainer>
         )}
+      </TopNav>
 
-        {/* <h1>{name}</h1> */}
-
+      <Section css="padding: 2em 1em">
         {!activeSection ? (
           <RichContent blocks={content} />
         ) : (
@@ -199,6 +203,19 @@ const hijackURL = (e: React.MouseEvent, url: string) => {
   e.preventDefault()
   window.history.pushState(window.history.state, document.title, url)
 }
+
+const TopNav = styled(Section).attrs({
+  outerCss: css`
+    ${raggedEdgeGradient(
+      [255, 255, 255],
+      [239, 239, 239],
+      'rgb(43, 102, 103)'
+    )};
+  `
+})`
+  padding: 2em 1em;
+  padding-bottom: 3em;
+`
 
 export const SubLogo = styled(Image)<{ width: number }>`
   width: ${props => props.width || 0}px;

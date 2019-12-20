@@ -1,9 +1,10 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import { PageQuery } from '~/types/graphqlTypes'
 import { PillLink } from '~/components/Pills'
+import { SquareButton } from '~/components/SquareButton'
 
 type Props = {
   data: PageQuery
@@ -16,7 +17,9 @@ export default ({ data }: Props) => {
 
   return (
     <Section css="padding: 2em">
-      <PillLink to="/">&#8592; Home</PillLink>
+      <Link to="/">
+        <SquareButton point="left">Home</SquareButton>
+      </Link>
       <h1>{name}</h1>
       <RichContent blocks={content} />
     </Section>

@@ -9,7 +9,7 @@ export default () => {
     <>
       <Hero />
       <QuickInfo />
-      <RecentPosts />
+      <RecentPosts withBanner />
       <WeeklySchedule />
     </>
   )

@@ -59,5 +59,6 @@ const Main = styled.main`
       ${props => props.theme.footer.height}
   );
   background-color: ${props => props.theme.page.background};
+  color: ${props => props.theme.page.color};
   ${hiddenWhenMenuOpen};
 `

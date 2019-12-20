@@ -25,6 +25,10 @@ p {
   margin-top: 1em;
 }
 
+a {
+  color: #9fb94b;
+}
+
 h1,
 h2,
 h3,
@@ -33,6 +37,7 @@ h5,
 h6 {
   font-family: 'Brandon Grotesque';
   letter-spacing: 0px;
+  color: white;
 }
 
 h1,

@@ -8,22 +8,26 @@ import paper from '~/../static/images/paper.jpg'
 import stamp from '~/../static/images/stamp.png'
 import { Title } from '~/components/Title'
 import Content from '~/layout/Content'
+import media from '~/utils/media'
 
 type Props = {
   posts?: RecentPostsQuery['allSanityPost']['nodes']
+  withBanner?: boolean
 }
 
-export default ({ posts }: Props) => {
+export default ({ posts, withBanner }: Props) => {
   const data: RecentPostsQuery = useStaticQuery(query)
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
   const postsToUse = posts || data.allSanityPost.nodes
 
   return (
     <Container color="#9FB94B">
-      <Banner>
-        <Title>Midway News</Title>
-        <Subtitle>Find out what's happening.</Subtitle>
-      </Banner>
+      {withBanner && (
+        <Banner>
+          <Title>Midway News</Title>
+          <Subtitle>Find out what's happening.</Subtitle>
+        </Banner>
+      )}
       <Content>
         <Posts>
           {postsToUse.map((post, i) => (
@@ -87,7 +91,6 @@ const Banner = styled.div`
     bottom: -1em;
     right: 0;
     height: 2em;
-    font-size: 1.25em;
     line-height: 2em;
     padding: 0 0.5em;
     background-color: #2b6667;
@@ -95,6 +98,10 @@ const Banner = styled.div`
     content: 'Get involved! Get connected!';
     width: 40vw;
     min-width: 14em;
+
+    ${media.sm} {
+      font-size: 1.25em;
+    }
   }
 `
 

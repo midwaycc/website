@@ -6,7 +6,7 @@ blockquote {
   position: relative;
   /* quotes: '\00AB''\00BB''\201E''\201C'; */
   quotes: '\201C''\201D''\2018''\2019';
-  color: #888;
+  color: #eee;
 }
 
 blockquote::before {
@@ -37,7 +37,7 @@ blockquote + blockquote {
   margin-top: -2.5em;
   transform: translateX(2em);
   font-size: 1.5em;
-  color: #aaa;
+  color: #ddd;
 }
 
 blockquote + blockquote em {

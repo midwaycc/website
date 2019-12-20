@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { transparentize } from 'polished'
 
 type Props = {
   children: React.ReactNode
@@ -31,6 +32,7 @@ export const SquareButton = ({
 const DARK_COLOR = 'rgb(35, 74, 77)'
 
 const Button = styled.button<{ dark: boolean; thick: boolean }>`
+  display: inline-block;
   background-color: rgba(255, 255, 255, 0);
   color: ${props => (props.dark ? DARK_COLOR : 'white')};
   border: ${props => (props.thick ? 3 : 2)}px solid
@@ -44,7 +46,10 @@ const Button = styled.button<{ dark: boolean; thick: boolean }>`
   ${props => (props.thick ? 'font-weight: bold;' : '')}
 
   :hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: ${props =>
+      props.dark
+        ? DARK_COLOR.replace('rgb', 'rgba').replace(')', ',0.25)')
+        : 'rgba(255,255,255,0.15)'};
   }
 `
 

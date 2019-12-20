@@ -2,8 +2,8 @@ import { DefaultTheme } from 'styled-components'
 
 const theme: DefaultTheme = {
   page: {
-    background: 'white',
-    color: '#333',
+    background: '#2B6667',
+    color: '#eaeaea',
     headerFont:
       "'Brandon Grotesque', 'Avenir', 'Lucida Grande', Arial, sans-serif",
     bodyFont: "'Proxima Nova Lt', 'Avenir', 'Lucida Grande', Arial, sans-serif"

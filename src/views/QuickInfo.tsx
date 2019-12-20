@@ -6,6 +6,7 @@ import { Title } from '~/components/Title'
 import { SquareButton } from '~/components/SquareButton'
 import mapPin from '~/../static/images/map_pin.png'
 import leaves from '~/../static/images/leaves.png'
+import { darken } from 'polished'
 
 export default () => (
   <Container>
@@ -28,7 +29,11 @@ export default () => (
   </Container>
 )
 
-const raggedEdgeGradient = ([r0, g0, b0]: number[], [r, g, b]: number[]) => css`
+export const raggedEdgeGradient = (
+  [r0, g0, b0]: number[],
+  [r, g, b]: number[],
+  nextColor: string = 'rgb(255,255,255)'
+) => css`
   background-color: rgba(${r}, ${g}, ${b}, 1);
   background-image: linear-gradient(
       to bottom,
@@ -46,14 +51,14 @@ const raggedEdgeGradient = ([r0, g0, b0]: number[], [r, g, b]: number[]) => css`
       -160deg,
       rgba(${r}, ${g}, ${b}, 1) 0%,
       rgba(${r}, ${g}, ${b}, 1) 50%,
-      rgba(${r}, ${g}, 255, 0) 50%,
+      rgba(${r}, ${g}, ${b}, 0) 50%,
       rgba(${r}, ${g}, ${b}, 0) 100%
     ),
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(255, 255, 255, 0.8) 75%,
-      rgba(255, 255, 255, 1) 100%
+      ${darken(0.1, nextColor)} 0%,
+      ${darken(0.04, nextColor)} 75%,
+      ${nextColor} 100%
     );
   background-position: top center, bottom center, bottom center, bottom center;
   background-size: 100% calc(100% - 2rem), 2rem 2rem, 2rem 2rem, 100% 2rem;
@@ -92,7 +97,7 @@ const Subtitle = styled.h2`
   font-size: 1.5rem;
 
   ${media.xs} {
-    font-size: initial;
+    font-size: 1.65rem;
   }
 `
 

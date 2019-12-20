@@ -158,7 +158,7 @@ const FooterBlocks = styled(Content)`
 
 const FooterBlock = styled.div`
   width: 100%;
-  padding: 0 0.5em;
+  padding: 0 1em;
 
   & ~ & {
     padding-top: 2em;
