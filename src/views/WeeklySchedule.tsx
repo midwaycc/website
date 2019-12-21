@@ -7,50 +7,43 @@ import buildingHorizontal from '~/../static/images/building_horizontal.jpg'
 
 export default () => {
   return (
-    <>
-      <Content>
+    <Container>
+      <Content css="z-index: 2; position: relative">
+        <Title left color="white">
+          Weekly Schedule
+        </Title>
         <Alert>
           <strong>Special Advent season schedule:</strong> Christmas Eve
-          services are on 12/24 at 4:30 and 6:00. Sunday 12/22 will have a
-          normal morning schedule (Bible study at 9:30 and service at 11:00),
-          but there will be NO normal Sunday evening activities on 12/22 due to
-          caroling at Lanier Place at 5:45 (see above for details!). There will
-          not be any activities on Wednesday or Thursday. On Sunday 12/29, there
-          will be no 9:30 Bible studies (service only at 11:00).
+          services will be held on 12/24 at 4:30 and 6:00p. Sunday 12/22 will
+          have a normal morning schedule (Bible study at 9:30 and service at
+          11:00), but there will be NO normal Sunday evening activities on 12/22
+          due to caroling at Lanier Place at 5:45 (see above news post for
+          details!). No activities scheduled for Wednesday or Thursday the
+          following week. On Sunday 12/29, there will be no 9:30 Bible studies
+          (service only at 11:00) or evening activities.
         </Alert>
+        <Horizontal>
+          <Column>
+            <Day name="Sundays">
+              <Event time="9:30 AM" name="Bible Study" />
+              <Event time="11:00 AM" name="Worship Service" />
+              <Event time="5:00 PM" name="AWANA" />
+              <Event time="5:00 PM" name="Youth" />
+              <Event time="5:15 PM" name="Adult Q&A" />
+            </Day>
+          </Column>
+          <Column>
+            <Day name="Wednesdays">
+              <Event time="7:00 PM" name="Prayer Meeting" />
+              <Event time="7:00 PM" name="Youth D-Groups" />
+            </Day>
+            <Day name="Thursdays">
+              <Event time="6:30 AM" name="Men's Bible Study" />
+            </Day>
+          </Column>
+        </Horizontal>
       </Content>
-      <Container>
-        <Content css="z-index: 2; position: relative">
-          <Title left color="white">
-            Weekly Schedule
-          </Title>
-          <Alert>
-            This is how weeks at Midway typically look, but please see above for
-            information about our Christmas week schedule!
-          </Alert>
-          <Horizontal>
-            <Column>
-              <Day name="Sundays">
-                <Event time="9:30 AM" name="Bible Study" />
-                <Event time="11:00 AM" name="Worship Service" />
-                <Event time="5:00 PM" name="AWANA" />
-                <Event time="5:00 PM" name="Youth" />
-                <Event time="5:15 PM" name="Adult Q&A" />
-              </Day>
-            </Column>
-            <Column>
-              <Day name="Wednesdays">
-                <Event time="7:00 PM" name="Prayer Meeting" />
-                <Event time="7:00 PM" name="Youth D-Groups" />
-              </Day>
-              <Day name="Thursdays">
-                <Event time="6:30 AM" name="Men's Bible Study" />
-              </Day>
-            </Column>
-          </Horizontal>
-        </Content>
-      </Container>
-    </>
+    </Container>
   )
 }
 
@@ -118,30 +111,28 @@ const Container = styled.div`
     opacity: 0.4;
     background: url('${buildingHorizontal}');
     background-repeat: no-repeat;
-    background-size: 1920px;
-
-    background-position: bottom left -150px;
+    background-size: cover;
+    background-position: bottom left 18%;
 
     ${media.sm} {
-      background-position: bottom -20px left -50px;
+      background-position: bottom left -50px;
     }
 
     ${media.md} {
-      background-position: bottom -25px left -50px;
+      background-position: bottom left -50px;
     }
 
     ${media.lg} {
-      background-position: bottom -30px left;
+      background-position: bottom left;
     }
 
-    ${media.xl} {
-      background-position: bottom -50px left;
+    /* ${media.xl} {
+      background-position: bottom left;
     }
 
     @media screen and (min-width: 1920px) {
-      background-size: 100vw;
-      background-position: bottom -75px left;
-    }
+      background-position: bottom left;
+    } */
   }
 `
 
@@ -194,7 +185,7 @@ const EventName = styled.span`
 const Alert = styled.div`
   background-color: rgba(175, 40, 0, 0.65);
   margin: 1rem;
-  padding: 2rem 1rem;
+  padding: 1rem;
   font-size: 1.2em;
   line-height: 1.4em;
   border: 4px solid rgba(0, 175, 40, 0.65);
