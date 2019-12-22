@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { AllPostsQuery } from '~/types/graphqlTypes'
 import Section from '~/layout/Section'
 import PostSummary from '~/components/PostSummary'
-import { PillLink } from '~/components/Pills'
+import { SquareButton } from '~/components/SquareButton'
 
 type Props = {
   data: AllPostsQuery
@@ -24,12 +24,18 @@ export default ({ data, pageContext }: Props) => {
 
   return (
     <Section css="padding: 2em">
-      <PillLink to="/">&#8592; Home</PillLink>
+      <Link to="/">
+        <SquareButton point="left">Home</SquareButton>
+      </Link>
       <h1>News</h1>
       <hr css="color: #eee; margin: 2em 0" />
       {posts.map((post, i) => (
         <>
-          <PostSummary key={post._id || `post-${i}`} post={post} />
+          <PostSummary
+            key={post._id || `post-${i}`}
+            post={post}
+            darkBackground
+          />
           <hr css="color: #eee; margin: 2em 0" />
         </>
       ))}

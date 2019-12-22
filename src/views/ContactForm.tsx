@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import Section from '~/layout/Section'
 import styled, { css } from 'styled-components'
-import media from '~/utils/media'
-import { ActionButton } from '~/components/Pills'
 import { SquareButton } from '~/components/SquareButton'
 
 export default () => {

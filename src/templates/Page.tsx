@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby'
 import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import { PageQuery } from '~/types/graphqlTypes'
-import { PillLink } from '~/components/Pills'
 import { SquareButton } from '~/components/SquareButton'
 
 type Props = {
