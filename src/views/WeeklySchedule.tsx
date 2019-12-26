@@ -125,14 +125,6 @@ const Container = styled.div`
     ${media.lg} {
       background-position: bottom left;
     }
-
-    /* ${media.xl} {
-      background-position: bottom left;
-    }
-
-    @media screen and (min-width: 1920px) {
-      background-position: bottom left;
-    } */
   }
 `
 
