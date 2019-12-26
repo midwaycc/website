@@ -7,6 +7,7 @@ import ministryPage from './documentTypes/ministryPage'
 import heroSection from './documentTypes/heroSection'
 import navigation from './documentTypes/navigation'
 import post from './documentTypes/post'
+import scheduleAlert from './documentTypes/scheduleAlert'
 
 // Other custom types
 import plainLink from './otherTypes/plainLink'
@@ -34,6 +35,7 @@ export default createSchema({
     heroSection,
     navigation,
     post,
+    scheduleAlert,
     plainLink,
     pageLink,
     nestedMenu,

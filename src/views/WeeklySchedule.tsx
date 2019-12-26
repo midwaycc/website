@@ -4,19 +4,25 @@ import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
 import media from '~/utils/media'
 import buildingHorizontal from '~/../static/images/building_horizontal.jpg'
+import { useStaticQuery, graphql } from 'gatsby'
+import { ScheduleAlertQuery } from '~/types/graphqlTypes'
+import RichContent from '~/components/RichContent'
 
 export default () => {
+  const data: ScheduleAlertQuery = useStaticQuery(QUERY)
+  const alert = data.sanityScheduleAlert
+
   return (
     <Container>
       <Content css="z-index: 2; position: relative">
         <Title left color="white">
           Weekly Schedule
         </Title>
-        <Alert>
-          On Sunday 12/29, there will be no 9:30 Bible studies (service only at
-          11:00) or evening activities. There will be no evening activities on
-          Wednesday 1/1.
-        </Alert>
+        {alert && alert.active && alert._rawMessage && (
+          <Alert>
+            <RichContent blocks={alert._rawMessage} />
+          </Alert>
+        )}
         <Horizontal>
           <Column>
             <Day name="Sundays">
@@ -41,6 +47,16 @@ export default () => {
     </Container>
   )
 }
+
+export const QUERY = graphql`
+  query ScheduleAlert {
+    sanityScheduleAlert {
+      id
+      active
+      _rawMessage
+    }
+  }
+`
 
 function Day(props: { name: string; children: React.ReactNode }) {
   return (
@@ -173,7 +189,15 @@ const Alert = styled.div`
   background-color: rgba(35, 74, 77, 0.75);
   margin: 1rem;
   padding: 1rem;
-  font-size: 1.2em;
-  line-height: 1.4em;
   border: 3px solid #9fb94b;
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.4em;
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: 1em;
+  }
 `
