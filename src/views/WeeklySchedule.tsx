@@ -13,14 +13,9 @@ export default () => {
           Weekly Schedule
         </Title>
         <Alert>
-          <strong>Special Advent season schedule:</strong> Christmas Eve
-          services will be held on 12/24 at 4:30 and 6:00p. Sunday 12/22 will
-          have a normal morning schedule (Bible study at 9:30 and service at
-          11:00), but there will be NO normal Sunday evening activities on 12/22
-          due to caroling at Lanier Place at 5:45 (see above news post for
-          details!). No activities scheduled for Wednesday or Thursday the
-          following week. On Sunday 12/29, there will be no 9:30 Bible studies
-          (service only at 11:00) or evening activities.
+          On Sunday 12/29, there will be no 9:30 Bible studies (service only at
+          11:00) or evening activities. There will be no evening activities on
+          Wednesday 1/1.
         </Alert>
         <Horizontal>
           <Column>
