@@ -183,10 +183,10 @@ const EventName = styled.span`
 `
 
 const Alert = styled.div`
-  background-color: rgba(175, 40, 0, 0.65);
+  background-color: rgba(35, 74, 77, 0.75);
   margin: 1rem;
   padding: 1rem;
   font-size: 1.2em;
   line-height: 1.4em;
-  border: 4px solid rgba(0, 175, 40, 0.65);
+  border: 3px solid #9fb94b;
 `
