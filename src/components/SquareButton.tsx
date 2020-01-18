@@ -43,7 +43,7 @@ const Button = styled.button<{ dark: boolean; thick: boolean }>`
   text-transform: lowercase;
   font-variant: small-caps;
   user-select: none;
-  ${props => (props.thick ? 'font-weight: bold;' : '')}
+  ${props => (props.thick ? 'font-weight: bold' : '')};
 
   :hover {
     background-color: ${props =>
