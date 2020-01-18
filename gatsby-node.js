@@ -1,6 +1,3 @@
-const execa = require('execa')
-const express = require('express')
-
 exports.onCreatePage = ({ page, actions }) => {
   movePage('/home/', '/', page, actions)
 }
@@ -154,9 +151,4 @@ async function createPostPages(graphql, createPage) {
       }
     })
   }
-}
-
-function cmd(command) {
-  console.log(`Running \`${command}\`...`)
-  execa.commandSync(command, { all: true })
 }

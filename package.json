@@ -49,7 +49,6 @@
     "cloudinary-react": "^1.2.1",
     "date-fns": "^2.2.1",
     "dotenv": "^8.0.0",
-    "execa": "^3.1.0",
     "forever": "^1.0.0",
     "gatsby": "^2.4.0",
     "gatsby-image": "^2.2.6",
