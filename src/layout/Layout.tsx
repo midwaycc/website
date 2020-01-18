@@ -8,9 +8,6 @@ import Footer from './Footer'
 import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
 
-// import 'typeface-nunito'
-// import 'typeface-montserrat'
-// import 'typeface-open-sans'
 import './index.css'
 import './fonts.css'
 

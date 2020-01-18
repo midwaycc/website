@@ -75,9 +75,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "serve": "^11.0.0",
     "styled-components": "^4.2.0",
-    "typeface-montserrat": "^0.0.75",
-    "typeface-nunito": "^0.0.72",
-    "typeface-open-sans": "^0.0.75",
     "typeface-short-stack": "^0.0.72",
     "typescript": "^3.4.0"
   },
