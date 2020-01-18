@@ -37,7 +37,7 @@
     "@loadable/component": "^5.10.3",
     "@rooks/use-window-size": "^3.0.0",
     "@sanity/block-content-to-react": "^2.0.6",
-    "@sanity/cli": "^0.142.0",
+    "@sanity/cli": "^0.147.0",
     "@types/loadable__component": "^5.10.0",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
