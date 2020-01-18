@@ -46,7 +46,9 @@ const FlexRow = styled.div`
   display: flex;
 `
 
-const PostTitle = styled(Link)<{ darkBackground?: boolean }>`
+const PostTitle = styled(({ darkBackground, ...otherProps }) => (
+  <Link {...otherProps} />
+))<{ darkBackground?: boolean }>`
   font-family: 'Brandon Grotesque';
   font-size: 1.4em;
   line-height: 1.2em;
