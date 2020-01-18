@@ -14666,12 +14666,7 @@ typeface-short-stack@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-short-stack/-/typeface-short-stack-0.0.72.tgz#24a0485b3717cf7c3e56862de8ac1d41c5e3f3b3"
   integrity sha512-qXFdPcTihTPoX88VckZjh2ztDEYJii452/boG/CF2VwzntvsQqQAoPQ3efV9yXv6Wgi50k7UZHQQn4t9p6jl/g==
 
-typescript@^3.4.0:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
-  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
-
-typescript@^3.6.4:
+typescript@^3.6.4, typescript@~3.7.0:
   version "3.7.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
   integrity sha512-/P5lkRXkWHNAbcJIiHPfRoKqyd7bsyCma1hZNUGfn20qm64T6ZBlrzprymeu918H+mB/0rIg2gGK/BXkhhYgBw==
