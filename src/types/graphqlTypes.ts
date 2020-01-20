@@ -5260,6 +5260,20 @@ type AnyNavLink_SanityPageLink_Fragment = (
 
 export type AnyNavLinkFragment = AnyNavLink_SanityPlainLink_Fragment | AnyNavLink_SanityPageLink_Fragment;
 
+export type NewsletterQueryVariables = {};
+
+
+export type NewsletterQuery = (
+  { __typename?: 'Query' }
+  & { allSanityNewsletter: (
+    { __typename?: 'SanityNewsletterConnection' }
+    & { nodes: Array<(
+      { __typename?: 'SanityNewsletter' }
+      & Pick<SanityNewsletter, '_id' | 'date' | 'link'>
+    )> }
+  ) }
+);
+
 export type SermonUploadQueryVariables = {};
 
 
