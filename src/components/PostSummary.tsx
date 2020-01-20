@@ -12,12 +12,13 @@ type Props = {
     'thumbnail' | 'title' | 'slug' | 'date' | '_rawSummary'
   >
   darkBackground?: boolean
+  addToUrl?: string
 }
 
-export default ({ post, darkBackground }: Props) => {
+export default ({ post, darkBackground, addToUrl = '' }: Props) => {
   if (!post.slug) return null
 
-  const postUrl = `/posts/${post.slug.current}`
+  const postUrl = `/posts/${post.slug.current}${addToUrl}`
 
   return (
     <>

@@ -6,6 +6,7 @@ import RichContent from '~/components/RichContent'
 import Section from '~/layout/Section'
 import { PostQuery } from '~/types/graphqlTypes'
 import { SquareButton } from '~/components/SquareButton'
+import queryString from 'query-string'
 
 type Props = {
   data: PostQuery
@@ -18,10 +19,15 @@ export default ({ data }: Props) => {
 
   if ((!body && !summary) || !title || !date) return null
 
+  const backLink =
+    typeof window === 'undefined'
+      ? '/posts'
+      : '/' + (queryString.parse(location.search).back || 'posts')
+
   return (
     <Container>
-      <Link to="/posts">
-        <SquareButton point="left">See all posts</SquareButton>
+      <Link to={backLink}>
+        <SquareButton point="left">Back</SquareButton>
       </Link>
       <PostTitle>{title}</PostTitle>
       <PostDate date={date} />

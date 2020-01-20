@@ -5,7 +5,7 @@ import Section from '~/layout/Section'
 import PostSummary from '~/components/PostSummary'
 import { SquareButton } from '~/components/SquareButton'
 
-type Props = {
+export type Props = {
   data: AllPostsQuery
   pageContext: {
     perPage: number
@@ -14,9 +14,16 @@ type Props = {
     isFirst: boolean
     isLast: boolean
   }
+  title?: string
+  addToUrl?: string
 }
 
-export default ({ data, pageContext }: Props) => {
+export default ({
+  data,
+  pageContext,
+  title = 'News',
+  addToUrl = ''
+}: Props) => {
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
 
   const { nodes: posts } = data.allSanityPost
@@ -27,13 +34,14 @@ export default ({ data, pageContext }: Props) => {
       <Link to="/">
         <SquareButton point="left">Home</SquareButton>
       </Link>
-      <h1>News</h1>
+      <h1>{title}</h1>
       <hr css="color: #eee; margin: 2em 0" />
       {posts.map((post, i) => (
         <>
           <PostSummary
             key={post._id || `post-${i}`}
             post={post}
+            addToUrl={addToUrl}
             darkBackground
           />
           <hr css="color: #eee; margin: 2em 0" />

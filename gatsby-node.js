@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 exports.onCreatePage = ({ page, actions }) => {
   movePage('/home/', '/', page, actions)
 }
@@ -8,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all([
     createPages(graphql, createPage),
     createMinistryPages(graphql, createPage),
-    createPostPages(graphql, createPage)
+    createAllPostPages(graphql, createPage)
   ])
 }
 
@@ -19,8 +21,6 @@ exports.sourceNodes = ({ actions }) => {
     union SanityPlainOrPageLink = SanityPlainLink | SanityPageLink
   `)
 }
-
-exports.onCreateDevServer = ({ app }) => {}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -106,28 +106,48 @@ async function createMinistryPages(graphql, createPage) {
   })
 }
 
-async function createPostPages(graphql, createPage) {
-  const perPage = 5
+async function createAllPostPages(graphql, createPage) {
+  const perPage = 10
 
-  const result = await graphql(`
-    {
-      allSanityPost {
-        nodes {
-          _id
-          slug {
-            current
+  const [allPostsResult, getInvolvedPostsResult] = await Promise.all([
+    graphql(`
+      {
+        allSanityPost {
+          nodes {
+            _id
+            slug {
+              current
+            }
           }
         }
       }
-    }
-  `)
+    `),
+    graphql(`
+      {
+        allSanityPost(
+          filter: {
+            ministries: { elemMatch: { name: { eq: "Get Involved" } } }
+          }
+        ) {
+          totalCount
+        }
+      }
+    `)
+  ])
 
-  if (result.errors) {
-    throw result.errors
+  if (allPostsResult.errors) {
+    throw allPostsResult.errors
   }
 
-  const posts = result.data.allSanityPost.nodes || []
-  posts.forEach(post => {
+  if (getInvolvedPostsResult.errors) {
+    throw getInvolvedPostsResult.errors
+  }
+
+  const allPosts = allPostsResult.data.allSanityPost.nodes || []
+  const numGetInvolvedPosts =
+    getInvolvedPostsResult.data.allSanityPost.totalCount
+
+  allPosts.forEach(post => {
     if (post.slug) {
       createPage({
         path: `posts/${post.slug.current}`,
@@ -137,11 +157,34 @@ async function createPostPages(graphql, createPage) {
     }
   })
 
-  const maxPage = Math.ceil(posts.length / perPage)
+  createPostPages(
+    createPage,
+    allPosts.length,
+    perPage,
+    'posts',
+    require.resolve('./src/templates/PostsPage.tsx')
+  )
+  createPostPages(
+    createPage,
+    numGetInvolvedPosts,
+    perPage,
+    'get-involved',
+    require.resolve('./src/templates/GetInvolvedPostsPage.tsx')
+  )
+}
+
+function createPostPages(
+  createPage,
+  totalCount,
+  perPage,
+  urlPrefix,
+  component
+) {
+  const maxPage = Math.ceil(totalCount / perPage)
   for (let page = 1; page <= maxPage; page++) {
     createPage({
-      path: page === 1 ? 'posts' : `posts/page/${page}`,
-      component: require.resolve('./src/templates/PostsPage.tsx'),
+      path: page === 1 ? urlPrefix : `${urlPrefix}/page/${page}`,
+      component,
       context: {
         page,
         perPage,

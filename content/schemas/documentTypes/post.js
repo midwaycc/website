@@ -77,8 +77,8 @@ export default {
           to: [{ type: 'ministryPage' }]
         }
       ],
-      title: 'Ministries',
-      description: 'What ministries is this post related to?'
+      title: 'Category Tags',
+      description: 'What tags should this post have?'
     }
   ]
 }

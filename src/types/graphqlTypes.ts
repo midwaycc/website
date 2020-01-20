@@ -5319,6 +5319,36 @@ export type AllSubLogosQuery = (
   ) }
 );
 
+export type GetInvolvedPostsQueryVariables = {
+  perPage: Scalars['Int'],
+  offset: Scalars['Int']
+};
+
+
+export type GetInvolvedPostsQuery = (
+  { __typename?: 'Query' }
+  & { allSanityPost: (
+    { __typename?: 'SanityPostConnection' }
+    & { nodes: Array<(
+      { __typename?: 'SanityPost' }
+      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawSummary'>
+      & { thumbnail: Maybe<(
+        { __typename?: 'SanityImage' }
+        & { asset: Maybe<(
+          { __typename?: 'SanityImageAsset' }
+          & { fixed: Maybe<(
+            { __typename?: 'SanityImageFixed' }
+            & GatsbySanityImageFixedFragment
+          )> }
+        )> }
+      )>, slug: Maybe<(
+        { __typename?: 'SanitySlug' }
+        & Pick<SanitySlug, 'current'>
+      )> }
+    )> }
+  ) }
+);
+
 export type MinistryPageQueryVariables = {
   _id: Scalars['String']
 };
