@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 import media from '~/utils/media'
 import Content from '~/layout/Content'
@@ -18,7 +19,9 @@ export default () => (
         <a href="http://midwaycc.sermon.net/" target="_blank">
           <Button>Stream Live</Button>
         </a>
-        {/* <Button>Past Sermons</Button> */}
+        <Link to="/sermons">
+          <Button>Past Sermons</Button>
+        </Link>
       </Column>
       <Column>
         <MapPin />
