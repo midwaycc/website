@@ -65,7 +65,7 @@ async function createPages(graphql, createPage) {
 async function createMinistryPages(graphql, createPage) {
   const result = await graphql(`
     {
-      allSanityMinistryPage {
+      allSanityMinistryPage(filter: { name: { ne: "Get Involved" } }) {
         nodes {
           _id
           url {
