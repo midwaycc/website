@@ -738,6 +738,8 @@ export type Query = {
   allSanityImageAsset: SanityImageAssetConnection,
   sanityScheduleAlert?: Maybe<SanityScheduleAlert>,
   allSanityScheduleAlert: SanityScheduleAlertConnection,
+  sanitySermonUpload?: Maybe<SanitySermonUpload>,
+  allSanitySermonUpload: SanitySermonUploadConnection,
   site?: Maybe<Site>,
   allSite: SiteConnection,
   sitePlugin?: Maybe<SitePlugin>,
@@ -996,6 +998,8 @@ export type QuerySanityFileAssetArgs = {
   _key?: Maybe<StringQueryOperatorInput>,
   originalFilename?: Maybe<StringQueryOperatorInput>,
   label?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
   sha1hash?: Maybe<StringQueryOperatorInput>,
   extension?: Maybe<StringQueryOperatorInput>,
   mimeType?: Maybe<StringQueryOperatorInput>,
@@ -1003,6 +1007,8 @@ export type QuerySanityFileAssetArgs = {
   assetId?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
+  source?: Maybe<SanityAssetSourceDataFilterInput>,
+  _rawSource?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -1027,6 +1033,8 @@ export type QuerySanityImageAssetArgs = {
   _key?: Maybe<StringQueryOperatorInput>,
   originalFilename?: Maybe<StringQueryOperatorInput>,
   label?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
   sha1hash?: Maybe<StringQueryOperatorInput>,
   extension?: Maybe<StringQueryOperatorInput>,
   mimeType?: Maybe<StringQueryOperatorInput>,
@@ -1035,9 +1043,11 @@ export type QuerySanityImageAssetArgs = {
   path?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
   metadata?: Maybe<SanityImageMetadataFilterInput>,
+  source?: Maybe<SanityAssetSourceDataFilterInput>,
   fixed?: Maybe<SanityImageFixedFilterInput>,
   fluid?: Maybe<SanityImageFluidFilterInput>,
   _rawMetadata?: Maybe<JsonQueryOperatorInput>,
+  _rawSource?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -1073,6 +1083,32 @@ export type QuerySanityScheduleAlertArgs = {
 export type QueryAllSanityScheduleAlertArgs = {
   filter?: Maybe<SanityScheduleAlertFilterInput>,
   sort?: Maybe<SanityScheduleAlertSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QuerySanitySermonUploadArgs = {
+  _id?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  _createdAt?: Maybe<DateQueryOperatorInput>,
+  _updatedAt?: Maybe<DateQueryOperatorInput>,
+  _rev?: Maybe<StringQueryOperatorInput>,
+  _key?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  extraInfo?: Maybe<StringQueryOperatorInput>,
+  audioFile?: Maybe<SanityFileFilterInput>,
+  _rawAudioFile?: Maybe<JsonQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
+};
+
+
+export type QueryAllSanitySermonUploadArgs = {
+  filter?: Maybe<SanitySermonUploadFilterInput>,
+  sort?: Maybe<SanitySermonUploadSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -1149,6 +1185,23 @@ export type QueryAllSitePageArgs = {
   limit?: Maybe<Scalars['Int']>
 };
 
+export type SanityAssetSourceData = {
+   __typename?: 'SanityAssetSourceData',
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  sanityId?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+};
+
+export type SanityAssetSourceDataFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  sanityId?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+};
+
 export type SanityBlock = {
    __typename?: 'SanityBlock',
   _key?: Maybe<Scalars['String']>,
@@ -1214,6 +1267,8 @@ export type SanityFileAsset = SanityDocument & Node & {
   _key?: Maybe<Scalars['String']>,
   originalFilename?: Maybe<Scalars['String']>,
   label?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
   sha1hash?: Maybe<Scalars['String']>,
   extension?: Maybe<Scalars['String']>,
   mimeType?: Maybe<Scalars['String']>,
@@ -1221,6 +1276,8 @@ export type SanityFileAsset = SanityDocument & Node & {
   assetId?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
+  source?: Maybe<SanityAssetSourceData>,
+  _rawSource?: Maybe<Scalars['JSON']>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -1241,6 +1298,11 @@ export type SanityFileAsset_UpdatedAtArgs = {
   fromNow?: Maybe<Scalars['Boolean']>,
   difference?: Maybe<Scalars['String']>,
   locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanityFileAsset_RawSourceArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 };
 
 export type SanityFileAssetConnection = {
@@ -1281,6 +1343,8 @@ export enum SanityFileAssetFieldsEnum {
   _key = '_key',
   originalFilename = 'originalFilename',
   label = 'label',
+  title = 'title',
+  description = 'description',
   sha1hash = 'sha1hash',
   extension = 'extension',
   mimeType = 'mimeType',
@@ -1288,6 +1352,12 @@ export enum SanityFileAssetFieldsEnum {
   assetId = 'assetId',
   path = 'path',
   url = 'url',
+  source____key = 'source____key',
+  source____type = 'source____type',
+  source___name = 'source___name',
+  source___sanityId = 'source___sanityId',
+  source___url = 'source___url',
+  _rawSource = '_rawSource',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -1385,6 +1455,8 @@ export type SanityFileAssetFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>,
   originalFilename?: Maybe<StringQueryOperatorInput>,
   label?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
   sha1hash?: Maybe<StringQueryOperatorInput>,
   extension?: Maybe<StringQueryOperatorInput>,
   mimeType?: Maybe<StringQueryOperatorInput>,
@@ -1392,6 +1464,8 @@ export type SanityFileAssetFilterInput = {
   assetId?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
+  source?: Maybe<SanityAssetSourceDataFilterInput>,
+  _rawSource?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -1530,6 +1604,8 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset____key = 'video___asset____key',
   video___asset___originalFilename = 'video___asset___originalFilename',
   video___asset___label = 'video___asset___label',
+  video___asset___title = 'video___asset___title',
+  video___asset___description = 'video___asset___description',
   video___asset___sha1hash = 'video___asset___sha1hash',
   video___asset___extension = 'video___asset___extension',
   video___asset___mimeType = 'video___asset___mimeType',
@@ -1537,6 +1613,12 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset___assetId = 'video___asset___assetId',
   video___asset___path = 'video___asset___path',
   video___asset___url = 'video___asset___url',
+  video___asset___source____key = 'video___asset___source____key',
+  video___asset___source____type = 'video___asset___source____type',
+  video___asset___source___name = 'video___asset___source___name',
+  video___asset___source___sanityId = 'video___asset___source___sanityId',
+  video___asset___source___url = 'video___asset___source___url',
+  video___asset____rawSource = 'video___asset____rawSource',
   video___asset___id = 'video___asset___id',
   video___asset___parent___id = 'video___asset___parent___id',
   video___asset___parent___children = 'video___asset___parent___children',
@@ -1561,6 +1643,8 @@ export enum SanityHeroSectionFieldsEnum {
   poster___asset____key = 'poster___asset____key',
   poster___asset___originalFilename = 'poster___asset___originalFilename',
   poster___asset___label = 'poster___asset___label',
+  poster___asset___title = 'poster___asset___title',
+  poster___asset___description = 'poster___asset___description',
   poster___asset___sha1hash = 'poster___asset___sha1hash',
   poster___asset___extension = 'poster___asset___extension',
   poster___asset___mimeType = 'poster___asset___mimeType',
@@ -1573,6 +1657,11 @@ export enum SanityHeroSectionFieldsEnum {
   poster___asset___metadata___lqip = 'poster___asset___metadata___lqip',
   poster___asset___metadata___hasAlpha = 'poster___asset___metadata___hasAlpha',
   poster___asset___metadata___isOpaque = 'poster___asset___metadata___isOpaque',
+  poster___asset___source____key = 'poster___asset___source____key',
+  poster___asset___source____type = 'poster___asset___source____type',
+  poster___asset___source___name = 'poster___asset___source___name',
+  poster___asset___source___sanityId = 'poster___asset___source___sanityId',
+  poster___asset___source___url = 'poster___asset___source___url',
   poster___asset___fixed___base64 = 'poster___asset___fixed___base64',
   poster___asset___fixed___aspectRatio = 'poster___asset___fixed___aspectRatio',
   poster___asset___fixed___width = 'poster___asset___fixed___width',
@@ -1589,6 +1678,7 @@ export enum SanityHeroSectionFieldsEnum {
   poster___asset___fluid___srcSetWebp = 'poster___asset___fluid___srcSetWebp',
   poster___asset___fluid___sizes = 'poster___asset___fluid___sizes',
   poster___asset____rawMetadata = 'poster___asset____rawMetadata',
+  poster___asset____rawSource = 'poster___asset____rawSource',
   poster___asset___id = 'poster___asset___id',
   poster___asset___parent___id = 'poster___asset___parent___id',
   poster___asset___parent___children = 'poster___asset___parent___children',
@@ -1758,6 +1848,8 @@ export type SanityImageAsset = SanityDocument & Node & {
   _key?: Maybe<Scalars['String']>,
   originalFilename?: Maybe<Scalars['String']>,
   label?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
   sha1hash?: Maybe<Scalars['String']>,
   extension?: Maybe<Scalars['String']>,
   mimeType?: Maybe<Scalars['String']>,
@@ -1766,9 +1858,11 @@ export type SanityImageAsset = SanityDocument & Node & {
   path?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
   metadata?: Maybe<SanityImageMetadata>,
+  source?: Maybe<SanityAssetSourceData>,
   fixed?: Maybe<SanityImageFixed>,
   fluid?: Maybe<SanityImageFluid>,
   _rawMetadata?: Maybe<Scalars['JSON']>,
+  _rawSource?: Maybe<Scalars['JSON']>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -1811,6 +1905,11 @@ export type SanityImageAsset_RawMetadataArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 };
 
+
+export type SanityImageAsset_RawSourceArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
 export type SanityImageAssetConnection = {
    __typename?: 'SanityImageAssetConnection',
   totalCount: Scalars['Int'],
@@ -1849,6 +1948,8 @@ export enum SanityImageAssetFieldsEnum {
   _key = '_key',
   originalFilename = 'originalFilename',
   label = 'label',
+  title = 'title',
+  description = 'description',
   sha1hash = 'sha1hash',
   extension = 'extension',
   mimeType = 'mimeType',
@@ -1915,6 +2016,11 @@ export enum SanityImageAssetFieldsEnum {
   metadata___lqip = 'metadata___lqip',
   metadata___hasAlpha = 'metadata___hasAlpha',
   metadata___isOpaque = 'metadata___isOpaque',
+  source____key = 'source____key',
+  source____type = 'source____type',
+  source___name = 'source___name',
+  source___sanityId = 'source___sanityId',
+  source___url = 'source___url',
   fixed___base64 = 'fixed___base64',
   fixed___aspectRatio = 'fixed___aspectRatio',
   fixed___width = 'fixed___width',
@@ -1931,6 +2037,7 @@ export enum SanityImageAssetFieldsEnum {
   fluid___srcSetWebp = 'fluid___srcSetWebp',
   fluid___sizes = 'fluid___sizes',
   _rawMetadata = '_rawMetadata',
+  _rawSource = '_rawSource',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -2028,6 +2135,8 @@ export type SanityImageAssetFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>,
   originalFilename?: Maybe<StringQueryOperatorInput>,
   label?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
   sha1hash?: Maybe<StringQueryOperatorInput>,
   extension?: Maybe<StringQueryOperatorInput>,
   mimeType?: Maybe<StringQueryOperatorInput>,
@@ -2036,9 +2145,11 @@ export type SanityImageAssetFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
   metadata?: Maybe<SanityImageMetadataFilterInput>,
+  source?: Maybe<SanityAssetSourceDataFilterInput>,
   fixed?: Maybe<SanityImageFixedFilterInput>,
   fluid?: Maybe<SanityImageFluidFilterInput>,
   _rawMetadata?: Maybe<JsonQueryOperatorInput>,
+  _rawSource?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -2368,6 +2479,8 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset____key = 'subLogo___asset____key',
   subLogo___asset___originalFilename = 'subLogo___asset___originalFilename',
   subLogo___asset___label = 'subLogo___asset___label',
+  subLogo___asset___title = 'subLogo___asset___title',
+  subLogo___asset___description = 'subLogo___asset___description',
   subLogo___asset___sha1hash = 'subLogo___asset___sha1hash',
   subLogo___asset___extension = 'subLogo___asset___extension',
   subLogo___asset___mimeType = 'subLogo___asset___mimeType',
@@ -2380,6 +2493,11 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___metadata___lqip = 'subLogo___asset___metadata___lqip',
   subLogo___asset___metadata___hasAlpha = 'subLogo___asset___metadata___hasAlpha',
   subLogo___asset___metadata___isOpaque = 'subLogo___asset___metadata___isOpaque',
+  subLogo___asset___source____key = 'subLogo___asset___source____key',
+  subLogo___asset___source____type = 'subLogo___asset___source____type',
+  subLogo___asset___source___name = 'subLogo___asset___source___name',
+  subLogo___asset___source___sanityId = 'subLogo___asset___source___sanityId',
+  subLogo___asset___source___url = 'subLogo___asset___source___url',
   subLogo___asset___fixed___base64 = 'subLogo___asset___fixed___base64',
   subLogo___asset___fixed___aspectRatio = 'subLogo___asset___fixed___aspectRatio',
   subLogo___asset___fixed___width = 'subLogo___asset___fixed___width',
@@ -2396,6 +2514,7 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___fluid___srcSetWebp = 'subLogo___asset___fluid___srcSetWebp',
   subLogo___asset___fluid___sizes = 'subLogo___asset___fluid___sizes',
   subLogo___asset____rawMetadata = 'subLogo___asset____rawMetadata',
+  subLogo___asset____rawSource = 'subLogo___asset____rawSource',
   subLogo___asset___id = 'subLogo___asset___id',
   subLogo___asset___parent___id = 'subLogo___asset___parent___id',
   subLogo___asset___parent___children = 'subLogo___asset___parent___children',
@@ -3177,6 +3296,8 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset____key = 'thumbnail___asset____key',
   thumbnail___asset___originalFilename = 'thumbnail___asset___originalFilename',
   thumbnail___asset___label = 'thumbnail___asset___label',
+  thumbnail___asset___title = 'thumbnail___asset___title',
+  thumbnail___asset___description = 'thumbnail___asset___description',
   thumbnail___asset___sha1hash = 'thumbnail___asset___sha1hash',
   thumbnail___asset___extension = 'thumbnail___asset___extension',
   thumbnail___asset___mimeType = 'thumbnail___asset___mimeType',
@@ -3189,6 +3310,11 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___metadata___lqip = 'thumbnail___asset___metadata___lqip',
   thumbnail___asset___metadata___hasAlpha = 'thumbnail___asset___metadata___hasAlpha',
   thumbnail___asset___metadata___isOpaque = 'thumbnail___asset___metadata___isOpaque',
+  thumbnail___asset___source____key = 'thumbnail___asset___source____key',
+  thumbnail___asset___source____type = 'thumbnail___asset___source____type',
+  thumbnail___asset___source___name = 'thumbnail___asset___source___name',
+  thumbnail___asset___source___sanityId = 'thumbnail___asset___source___sanityId',
+  thumbnail___asset___source___url = 'thumbnail___asset___source___url',
   thumbnail___asset___fixed___base64 = 'thumbnail___asset___fixed___base64',
   thumbnail___asset___fixed___aspectRatio = 'thumbnail___asset___fixed___aspectRatio',
   thumbnail___asset___fixed___width = 'thumbnail___asset___fixed___width',
@@ -3205,6 +3331,7 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___fluid___srcSetWebp = 'thumbnail___asset___fluid___srcSetWebp',
   thumbnail___asset___fluid___sizes = 'thumbnail___asset___fluid___sizes',
   thumbnail___asset____rawMetadata = 'thumbnail___asset____rawMetadata',
+  thumbnail___asset____rawSource = 'thumbnail___asset____rawSource',
   thumbnail___asset___id = 'thumbnail___asset___id',
   thumbnail___asset___parent___id = 'thumbnail___asset___parent___id',
   thumbnail___asset___parent___children = 'thumbnail___asset___parent___children',
@@ -3252,6 +3379,8 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___asset____key = 'ministries___subLogo___asset____key',
   ministries___subLogo___asset___originalFilename = 'ministries___subLogo___asset___originalFilename',
   ministries___subLogo___asset___label = 'ministries___subLogo___asset___label',
+  ministries___subLogo___asset___title = 'ministries___subLogo___asset___title',
+  ministries___subLogo___asset___description = 'ministries___subLogo___asset___description',
   ministries___subLogo___asset___sha1hash = 'ministries___subLogo___asset___sha1hash',
   ministries___subLogo___asset___extension = 'ministries___subLogo___asset___extension',
   ministries___subLogo___asset___mimeType = 'ministries___subLogo___asset___mimeType',
@@ -3260,6 +3389,7 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___asset___path = 'ministries___subLogo___asset___path',
   ministries___subLogo___asset___url = 'ministries___subLogo___asset___url',
   ministries___subLogo___asset____rawMetadata = 'ministries___subLogo___asset____rawMetadata',
+  ministries___subLogo___asset____rawSource = 'ministries___subLogo___asset____rawSource',
   ministries___subLogo___asset___id = 'ministries___subLogo___asset___id',
   ministries___subLogo___asset___children = 'ministries___subLogo___asset___children',
   ministries___subLogo___hotspot____key = 'ministries___subLogo___hotspot____key',
@@ -3717,6 +3847,251 @@ export type SanityScheduleAlertGroupConnection = {
 
 export type SanityScheduleAlertSortInput = {
   fields?: Maybe<Array<Maybe<SanityScheduleAlertFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type SanitySermonUpload = SanityDocument & Node & {
+   __typename?: 'SanitySermonUpload',
+  _id?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  _createdAt?: Maybe<Scalars['Date']>,
+  _updatedAt?: Maybe<Scalars['Date']>,
+  _rev?: Maybe<Scalars['String']>,
+  _key?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+  extraInfo?: Maybe<Scalars['String']>,
+  audioFile?: Maybe<SanityFile>,
+  _rawAudioFile?: Maybe<Scalars['JSON']>,
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+};
+
+
+export type SanitySermonUpload_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanitySermonUpload_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanitySermonUploadDateArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanitySermonUpload_RawAudioFileArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+export type SanitySermonUploadConnection = {
+   __typename?: 'SanitySermonUploadConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SanitySermonUploadEdge>,
+  nodes: Array<SanitySermonUpload>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<SanitySermonUploadGroupConnection>,
+};
+
+
+export type SanitySermonUploadConnectionDistinctArgs = {
+  field: SanitySermonUploadFieldsEnum
+};
+
+
+export type SanitySermonUploadConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: SanitySermonUploadFieldsEnum
+};
+
+export type SanitySermonUploadEdge = {
+   __typename?: 'SanitySermonUploadEdge',
+  next?: Maybe<SanitySermonUpload>,
+  node: SanitySermonUpload,
+  previous?: Maybe<SanitySermonUpload>,
+};
+
+export enum SanitySermonUploadFieldsEnum {
+  _id = '_id',
+  _type = '_type',
+  _createdAt = '_createdAt',
+  _updatedAt = '_updatedAt',
+  _rev = '_rev',
+  _key = '_key',
+  date = 'date',
+  extraInfo = 'extraInfo',
+  audioFile____key = 'audioFile____key',
+  audioFile____type = 'audioFile____type',
+  audioFile___asset____id = 'audioFile___asset____id',
+  audioFile___asset____type = 'audioFile___asset____type',
+  audioFile___asset____createdAt = 'audioFile___asset____createdAt',
+  audioFile___asset____updatedAt = 'audioFile___asset____updatedAt',
+  audioFile___asset____rev = 'audioFile___asset____rev',
+  audioFile___asset____key = 'audioFile___asset____key',
+  audioFile___asset___originalFilename = 'audioFile___asset___originalFilename',
+  audioFile___asset___label = 'audioFile___asset___label',
+  audioFile___asset___title = 'audioFile___asset___title',
+  audioFile___asset___description = 'audioFile___asset___description',
+  audioFile___asset___sha1hash = 'audioFile___asset___sha1hash',
+  audioFile___asset___extension = 'audioFile___asset___extension',
+  audioFile___asset___mimeType = 'audioFile___asset___mimeType',
+  audioFile___asset___size = 'audioFile___asset___size',
+  audioFile___asset___assetId = 'audioFile___asset___assetId',
+  audioFile___asset___path = 'audioFile___asset___path',
+  audioFile___asset___url = 'audioFile___asset___url',
+  audioFile___asset___source____key = 'audioFile___asset___source____key',
+  audioFile___asset___source____type = 'audioFile___asset___source____type',
+  audioFile___asset___source___name = 'audioFile___asset___source___name',
+  audioFile___asset___source___sanityId = 'audioFile___asset___source___sanityId',
+  audioFile___asset___source___url = 'audioFile___asset___source___url',
+  audioFile___asset____rawSource = 'audioFile___asset____rawSource',
+  audioFile___asset___id = 'audioFile___asset___id',
+  audioFile___asset___parent___id = 'audioFile___asset___parent___id',
+  audioFile___asset___parent___children = 'audioFile___asset___parent___children',
+  audioFile___asset___children = 'audioFile___asset___children',
+  audioFile___asset___children___id = 'audioFile___asset___children___id',
+  audioFile___asset___children___children = 'audioFile___asset___children___children',
+  audioFile___asset___internal___content = 'audioFile___asset___internal___content',
+  audioFile___asset___internal___contentDigest = 'audioFile___asset___internal___contentDigest',
+  audioFile___asset___internal___description = 'audioFile___asset___internal___description',
+  audioFile___asset___internal___fieldOwners = 'audioFile___asset___internal___fieldOwners',
+  audioFile___asset___internal___ignoreType = 'audioFile___asset___internal___ignoreType',
+  audioFile___asset___internal___mediaType = 'audioFile___asset___internal___mediaType',
+  audioFile___asset___internal___owner = 'audioFile___asset___internal___owner',
+  audioFile___asset___internal___type = 'audioFile___asset___internal___type',
+  _rawAudioFile = '_rawAudioFile',
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type SanitySermonUploadFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  _createdAt?: Maybe<DateQueryOperatorInput>,
+  _updatedAt?: Maybe<DateQueryOperatorInput>,
+  _rev?: Maybe<StringQueryOperatorInput>,
+  _key?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  extraInfo?: Maybe<StringQueryOperatorInput>,
+  audioFile?: Maybe<SanityFileFilterInput>,
+  _rawAudioFile?: Maybe<JsonQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+};
+
+export type SanitySermonUploadGroupConnection = {
+   __typename?: 'SanitySermonUploadGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SanitySermonUploadEdge>,
+  nodes: Array<SanitySermonUpload>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type SanitySermonUploadSortInput = {
+  fields?: Maybe<Array<Maybe<SanitySermonUploadFieldsEnum>>>,
   order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
