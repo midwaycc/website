@@ -5038,6 +5038,27 @@ type AnyNavLink_SanityPageLink_Fragment = (
 
 export type AnyNavLinkFragment = AnyNavLink_SanityPlainLink_Fragment | AnyNavLink_SanityPageLink_Fragment;
 
+export type SermonUploadQueryVariables = {};
+
+
+export type SermonUploadQuery = (
+  { __typename?: 'Query' }
+  & { allSanitySermonUpload: (
+    { __typename?: 'SanitySermonUploadConnection' }
+    & { nodes: Array<(
+      { __typename?: 'SanitySermonUpload' }
+      & Pick<SanitySermonUpload, '_id' | 'date' | 'extraInfo'>
+      & { audioFile: Maybe<(
+        { __typename?: 'SanityFile' }
+        & { asset: Maybe<(
+          { __typename?: 'SanityFileAsset' }
+          & Pick<SanityFileAsset, 'url'>
+        )> }
+      )> }
+    )> }
+  ) }
+);
+
 export type AllSubLogosQueryVariables = {};
 
 
