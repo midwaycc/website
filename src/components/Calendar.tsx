@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-modal'
 import { createGlobalStyle } from 'styled-components'
 import FullCalendar from '@fullcalendar/react'
+import { EventApi } from '@fullcalendar/core/api/EventApi'
 import listPlugin from '@fullcalendar/list'
 import googleCalendarPlugin from '@fullcalendar/google-calendar'
 import useWindowSize from '@rooks/use-window-size'
@@ -17,17 +18,10 @@ const MODAL_WIDTH = 500
 
 export default () => {
   const [modalOpen, setModalOpen] = useState(false)
-  const [event, setEvent] = useState(null)
+  const [event, setEvent] = useState<EventApi | null>(null)
   const width = useWindowSize().innerWidth
 
   if (width === null) return null
-
-  const handleEventClick = info => {
-    info.jsEvent.preventDefault()
-    info.jsEvent.stopPropagation()
-    setEvent(info.event)
-    setModalOpen(true)
-  }
 
   const closeModal = () => {
     setModalOpen(false)
@@ -40,7 +34,12 @@ export default () => {
         defaultView="listMonth"
         plugins={[listPlugin, googleCalendarPlugin]}
         googleCalendarApiKey="AIzaSyDhddcpnZvFan-d1e7AOTI3UM6of2QdcOk"
-        eventClick={handleEventClick}
+        eventClick={info => {
+          info.jsEvent.preventDefault()
+          info.jsEvent.stopPropagation()
+          setEvent(info.event)
+          setModalOpen(true)
+        }}
         eventSources={calendarIds.map(googleCalendarId => ({
           googleCalendarId,
           backgroundColor: 'white',
@@ -69,7 +68,7 @@ export default () => {
           }
         }}
       >
-        {event ? (
+        {event && event._instance ? (
           <>
             <h4 css="margin-top: 0">{event._def.title}</h4>
             <p css="opacity: 0.8">

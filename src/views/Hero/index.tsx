@@ -30,9 +30,6 @@ export default () => {
           <source src={heroVideo} type="video/mp4" />
         </video>
       </VideoContainer>
-
-      {/* <Faders /> */}
-
       <OverlayContainer>
         <HeroContent>
           <Title>{title}</Title>
@@ -85,34 +82,6 @@ const VideoContainer = styled.div`
     min-width: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
-  }
-`
-
-const FADE_OVERLAP = 400
-const Faders = styled.div`
-  :before,
-  :after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: calc(100vw/2 - 88.8889vh + ${props =>
-      props.theme.header.height * 0.888889}px + ${FADE_OVERLAP}px);
-    /* width: calc(
-      100vw - ((100vh - ${props => props.theme.header.height}px) * 0.88888889)
-    ); */
-  }
-
-  :before {
-    left: 0;
-    background-image: linear-gradient(to right, rgb(10, 76, 7) 0%, rgb(10, 76, 7) calc(100% - ${FADE_OVERLAP -
-      10}px), rgba(0,0,0,0) 100%);
-  }
-
-  :after {
-    right: 0;
-    background-image: linear-gradient(to left, rgb(115, 134, 55) 0%, rgb(115, 134, 55) calc(100% - ${FADE_OVERLAP -
-      10}px), rgba(0,0,0,0) 100%);
   }
 `
 

@@ -11,11 +11,8 @@ export class MediaQueryWithWidth {
     const baseFontSize =
       typeof window === 'undefined'
         ? 16
-        : Number(
-            window
-              .getComputedStyle(document.body)
-              .getPropertyValue('font-size')
-              .match(/\d+/)[0]
+        : parseInt(
+            window.getComputedStyle(document.body).getPropertyValue('font-size')
           )
     this.pixelWidth = this._width * baseFontSize
   }

@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { transparentize } from 'polished'
 
-type Props = {
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
   className?: string
   point?: 'left' | 'right'
@@ -15,13 +14,14 @@ export const SquareButton = ({
   dark = false,
   thick = false,
   children,
-  className
+className,
+...buttonProps
 }: Props) => {
   const left = point === 'left' ? <Arrow>&lsaquo;&nbsp;&nbsp;</Arrow> : null
   const right = point === 'right' ? <Arrow>&nbsp;&nbsp;&rsaquo;</Arrow> : null
 
   return (
-    <Button className={className} dark={dark} thick={thick}>
+    <Button className={className} dark={dark} thick={thick} {...buttonProps}>
       {left}
       {children}
       {right}
@@ -31,7 +31,7 @@ export const SquareButton = ({
 
 const DARK_COLOR = 'rgb(35, 74, 77)'
 
-const Button = styled.button<{ dark: boolean; thick: boolean }>`
+const Button = styled(({ dark, thick, ...buttonProps }) => <button {...buttonProps} />)<{ dark: boolean; thick: boolean }>`
   display: inline-block;
   background-color: rgba(255, 255, 255, 0);
   color: ${props => (props.dark ? DARK_COLOR : 'white')};
