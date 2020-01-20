@@ -31,7 +31,7 @@ export const query = graphql`
 export default ({ data }: Props) => {
   if (!data.allSanitySermonUpload) return null
   const sermons = data.allSanitySermonUpload.nodes
-  console.log(sermons)
+
   return (
     <Section css="padding: 2em">
       <Link to="/">

@@ -7,7 +7,6 @@ const imageWithWidthPreview = style => ({
     width: 'width'
   },
   prepare({ filename, imageUrl, width }) {
-    console.log({ filename, imageUrl, width })
     return {
       title: filename,
       extendedPreview: (

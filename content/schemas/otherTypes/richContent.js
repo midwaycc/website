@@ -20,8 +20,6 @@ const imageWithWidthPreview = style => ({
     width: 'width'
   },
   prepare({ filename, imageUrl, width }) {
-    alert('prepare')
-    console.log({ filename, imageUrl, width })
     return {
       title: filename,
       extendedPreview: <img src={imageUrl} style={style} />
@@ -30,7 +28,6 @@ const imageWithWidthPreview = style => ({
 })
 
 function ImageWithWidth(props) {
-  console.log('PROPS', props)
   return <span />
 }
 
