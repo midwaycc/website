@@ -21,6 +21,7 @@
     "@sanity/default-login": "^0.147",
     "@sanity/desk-tool": "^0.147",
     "@sanity/production-preview": "^0.147",
+    "date-fns": "^2.9.0",
     "react": "^16.12",
     "react-dom": "^16.11"
   },

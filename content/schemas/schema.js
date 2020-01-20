@@ -8,6 +8,7 @@ import heroSection from './documentTypes/heroSection'
 import navigation from './documentTypes/navigation'
 import post from './documentTypes/post'
 import scheduleAlert from './documentTypes/scheduleAlert'
+import sermonUpload from './documentTypes/sermonUpload'
 
 // Other custom types
 import plainLink from './otherTypes/plainLink'
@@ -36,6 +37,7 @@ export default createSchema({
     navigation,
     post,
     scheduleAlert,
+    sermonUpload,
     plainLink,
     pageLink,
     nestedMenu,
@@ -52,7 +54,6 @@ export default createSchema({
     // Ideas:
     //
     // event,
-    // sermon,
     // newsletter,
     // photoGallery
   ])
