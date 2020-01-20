@@ -25,6 +25,13 @@ export default {
       description: '.mp3 only'
     }
   ],
+  orderings: [
+    {
+      title: 'Chronological',
+      name: 'chronological',
+      by: [{ field: 'date', direction: 'desc' }]
+    }
+  ],
   preview: {
     select: {
       date: 'date',
