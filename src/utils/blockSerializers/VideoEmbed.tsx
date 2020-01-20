@@ -1,10 +1,15 @@
 import React, { useRef, RefAttributes } from 'react'
-import loadable, {LoadableComponent} from '@loadable/component'
+import loadable, { LoadableComponent } from '@loadable/component'
 import 'plyr/dist/plyr.css'
 
-type WithRef<T, R> = T extends LoadableComponent<infer P> ? LoadableComponent<P & RefAttributes<R>> : never;
+type WithRef<T, R> = T extends LoadableComponent<infer P>
+  ? LoadableComponent<P & RefAttributes<R>>
+  : never
 const Plyr = loadable(() => import('react-plyr'))
-const PlyrWithRef = Plyr as WithRef<typeof Plyr, typeof Plyr & { player: { stop: () => void } }>;
+const PlyrWithRef = Plyr as WithRef<
+  typeof Plyr,
+  typeof Plyr & { player: { stop: () => void } }
+>
 
 type Props = {
   node?: {

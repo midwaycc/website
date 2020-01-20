@@ -14,8 +14,8 @@ export const SquareButton = ({
   dark = false,
   thick = false,
   children,
-className,
-...buttonProps
+  className,
+  ...buttonProps
 }: Props) => {
   const left = point === 'left' ? <Arrow>&lsaquo;&nbsp;&nbsp;</Arrow> : null
   const right = point === 'right' ? <Arrow>&nbsp;&nbsp;&rsaquo;</Arrow> : null
@@ -31,7 +31,9 @@ className,
 
 const DARK_COLOR = 'rgb(35, 74, 77)'
 
-const Button = styled(({ dark, thick, ...buttonProps }) => <button {...buttonProps} />)<{ dark: boolean; thick: boolean }>`
+const Button = styled(({ dark, thick, ...buttonProps }) => (
+  <button {...buttonProps} />
+))<{ dark: boolean; thick: boolean }>`
   display: inline-block;
   background-color: rgba(255, 255, 255, 0);
   color: ${props => (props.dark ? DARK_COLOR : 'white')};
