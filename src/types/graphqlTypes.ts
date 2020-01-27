@@ -3386,6 +3386,7 @@ export type SanityPlainLink = {
   _type?: Maybe<Scalars['String']>,
   text?: Maybe<Scalars['String']>,
   link?: Maybe<Scalars['String']>,
+  sameWindow?: Maybe<Scalars['Boolean']>,
 };
 
 export type SanityPlainOrPageLink = SanityPlainLink | SanityPageLink;
@@ -5237,7 +5238,7 @@ export type HeaderQuery = (
 
 type AnyNavLink_SanityPlainLink_Fragment = (
   { __typename: 'SanityPlainLink' }
-  & Pick<SanityPlainLink, 'text' | 'link'>
+  & Pick<SanityPlainLink, 'text' | 'link' | 'sameWindow'>
 );
 
 type AnyNavLink_SanityPageLink_Fragment = (

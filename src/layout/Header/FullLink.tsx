@@ -19,10 +19,19 @@ export const FullText = styled.span`
 `
 
 export const FullLink = styled(
-  (props: { className?: string; to: string; children: React.ReactNode }) => {
+  (props: {
+    className?: string
+    to: string
+    children: React.ReactNode
+    sameWindow?: boolean
+  }) => {
     if (props.to.indexOf('http') === 0) {
       return (
-        <a className={props.className} href={props.to} target="_blank">
+        <a
+          className={props.className}
+          href={props.to}
+          target={props.sameWindow ? undefined : '_blank norel noreferrer'}
+        >
           {props.children}
         </a>
       )

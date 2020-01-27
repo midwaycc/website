@@ -25,6 +25,8 @@ export default () => {
     throw new Error('Navigation items are not valid!')
   }
 
+  console.log({ navigationItems })
+
   return (
     <>
       <NarrowMenuToggle css={hiddenAbove(BREAKPOINT, 'block')} />
@@ -62,6 +64,7 @@ const query = graphql`
     ... on SanityPlainLink {
       text
       link
+      sameWindow
     }
     ... on SanityPageLink {
       text
@@ -112,7 +115,7 @@ function navigationItemsFromSanityItems(
 }
 
 function navigationItemFromSanityPlainLink(item: SanityPlainLink) {
-  return { text: item.text, link: item.link }
+  return { text: item.text, link: item.link, sameWindow: item.sameWindow }
 }
 
 function navigationItemFromSanityPageLink(item: SanityPageLink) {

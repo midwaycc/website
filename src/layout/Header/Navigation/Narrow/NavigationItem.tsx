@@ -8,9 +8,9 @@ import { FullLink, FullText } from '~/layout/Header/FullLink'
 import BaseToggle from '~/components/BaseToggle'
 import { darken, lighten } from 'polished'
 
-export const NavigationItem = ({ text, link }: NavItemWithLink) => (
+export const NavigationItem = ({ text, link, sameWindow }: NavItemWithLink) => (
   <Container>
-    <FullLink css="color: white" to={link}>
+    <FullLink css="color: white" to={link} sameWindow={sameWindow}>
       {text}
     </FullLink>
   </Container>
@@ -22,6 +22,7 @@ export const NavigationItemWithSubmenu = ({
   text,
   items
 }: NavItemWithSubitems) => {
+  console.log('Narrow items:', text, items)
   return (
     <Container>
       <Toggle
@@ -40,7 +41,11 @@ export const NavigationItemWithSubmenu = ({
       <SubMenu numItems={items.length}>
         {items.map((item, i) => (
           <SubItem key={i}>
-            <FullLink css="color: white" to={item.link}>
+            <FullLink
+              css="color: white"
+              to={item.link}
+              sameWindow={item.sameWindow}
+            >
               <Minus /> {item.text}
             </FullLink>
           </SubItem>

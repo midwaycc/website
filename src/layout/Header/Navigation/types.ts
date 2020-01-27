@@ -1,6 +1,7 @@
 export interface NavItemWithLink {
   text: string
   link: string
+  sameWindow?: boolean
 }
 
 export interface NavItemWithSubitems {

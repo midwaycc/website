@@ -7,9 +7,11 @@ import {
   NavItemWithSubitems
 } from '~/layout/Header/Navigation/types'
 
-export const NavigationItem = ({ text, link }: NavItemWithLink) => (
+export const NavigationItem = ({ text, link, sameWindow }: NavItemWithLink) => (
   <Container>
-    <FullLink to={link}>{text}</FullLink>
+    <FullLink to={link} sameWindow={sameWindow}>
+      {text}
+    </FullLink>
   </Container>
 )
 
@@ -18,6 +20,7 @@ export const NavigationItemWithSubmenu = ({
   items
 }: NavItemWithSubitems) => {
   const [containerKey, setContainerKey] = useState(0)
+  console.log('Wide items:', text, items)
 
   return (
     <Container key={containerKey}>
@@ -25,7 +28,9 @@ export const NavigationItemWithSubmenu = ({
       <SubMenu>
         {items.map((item, i) => (
           <SubItem key={i} onClick={() => setContainerKey(k => k + 1)}>
-            <FullLink to={item.link}>{item.text}</FullLink>
+            <FullLink to={item.link} sameWindow={item.sameWindow}>
+              {item.text}
+            </FullLink>
           </SubItem>
         ))}
       </SubMenu>
