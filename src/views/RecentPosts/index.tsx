@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
-import RecentPost from './RecentPost'
 import { SquareButton } from '~/components/SquareButton'
+import { PostsContainer } from '~/components/PostsContainer'
+import { PostCard } from '~/components/PostCard'
 import paper from '~/../static/images/paper.jpg'
 import stamp from '~/../static/images/stamp.png'
 import { Title } from '~/components/Title'
@@ -29,9 +30,9 @@ export default ({ posts, withBanner }: Props) => {
         </Banner>
       )}
       <Content>
-        <Posts>
+        <PostsContainer>
           {postsToUse.map((post, i) => (
-            <RecentPost key={post._id || `post-${i}`} post={post} />
+            <PostCard key={post._id || `post-${i}`} post={post} />
           ))}
           <ViewAllRow>
             <Stamp />
@@ -41,7 +42,7 @@ export default ({ posts, withBanner }: Props) => {
               </SquareButton>
             </Link>
           </ViewAllRow>
-        </Posts>
+        </PostsContainer>
       </Content>
     </Container>
   )
@@ -111,14 +112,6 @@ const Subtitle = styled.h2`
   text-align: center;
   font-size: 1.5em;
   margin-top: 0;
-`
-
-const Posts = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  padding-top: 2em;
 `
 
 const ViewAllRow = styled.div`

@@ -2,8 +2,9 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { AllPostsQuery } from '~/types/graphqlTypes'
 import Section from '~/layout/Section'
-import PostSummary from '~/components/PostSummary'
 import { SquareButton } from '~/components/SquareButton'
+import { PostsContainer } from '~/components/PostsContainer'
+import { PostCard } from '~/components/PostCard'
 
 export type Props = {
   data: AllPostsQuery
@@ -34,19 +35,16 @@ export default ({
       <Link to="/">
         <SquareButton point="left">Home</SquareButton>
       </Link>
-      <h1>{title}</h1>
-      <hr css="color: #eee; margin: 2em 0" />
-      {posts.map((post, i) => (
-        <>
-          <PostSummary
+      <h1 css="margin-bottom: -0.5em">{title}</h1>
+      <PostsContainer>
+        {posts.map((post, i) => (
+          <PostCard
             key={post._id || `post-${i}`}
             post={post}
             addToUrl={addToUrl}
-            darkBackground
           />
-          <hr css="color: #eee; margin: 2em 0" />
-        </>
-      ))}
+        ))}
+      </PostsContainer>
       <div
         style={{
           width: '100%',

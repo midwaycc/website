@@ -8,12 +8,13 @@ type Props = {
   post: RecentPostsQuery['allSanityPost']['nodes'] extends Array<infer T>
     ? T
     : never
+  addToUrl?: string
 }
 
-export default ({ post }: Props) => {
+export const PostCard = ({ post, addToUrl }: Props) => {
   return (
     <Container>
-      <PostSummary post={post} />
+      <PostSummary post={post} addToUrl={addToUrl} />
     </Container>
   )
 }
