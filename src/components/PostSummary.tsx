@@ -35,7 +35,6 @@ export default ({ post, darkBackground, addToUrl = '' }: Props) => {
           <PostTitle to={postUrl} darkBackground={darkBackground}>
             {post.title}
           </PostTitle>
-          <PostDate date={post.date} />
         </div>
       </FlexRow>
       <RichContent blocks={post._rawSummary} />
