@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import PostSummary from '~/components/PostSummary'
 import media from '~/utils/media'
@@ -12,14 +13,18 @@ type Props = {
 }
 
 export const PostCard = ({ post, addToUrl }: Props) => {
+  if (!post.slug) return null
+
+  const postUrl = `/posts/${post.slug.current}${addToUrl}`
+
   return (
-    <Container>
-      <PostSummary post={post} addToUrl={addToUrl} />
-    </Container>
+    <LinkContainer to={postUrl}>
+      <PostSummary post={post} />
+    </LinkContainer>
   )
 }
 
-const Container = styled.div`
+const LinkContainer = styled(Link)`
   display: block;
   text-decoration: none;
   background-color: white;
@@ -28,7 +33,7 @@ const Container = styled.div`
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 
   :hover {
-    background-color: white;
+    background-color: #eee;
   }
 
   width: 100%;
