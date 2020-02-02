@@ -22,7 +22,7 @@ export type Props = {
 export default ({
   data,
   pageContext,
-  title = 'News',
+  title = 'Archive',
   addToUrl = ''
 }: Props) => {
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
@@ -69,6 +69,7 @@ export default ({
 export const query = graphql`
   query AllPosts($perPage: Int!, $offset: Int!) {
     allSanityPost(
+      filter: { featured: { eq: false } }
       sort: { fields: date, order: DESC }
       limit: $perPage
       skip: $offset
