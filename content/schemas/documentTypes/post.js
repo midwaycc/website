@@ -53,7 +53,8 @@ export default {
               { title: 'Bold', value: 'strong' },
               { title: 'Italic', value: 'em' },
               { title: 'Underline', value: 'underline' }
-            ]
+            ],
+            annotations: []
           }
         }
       ],
