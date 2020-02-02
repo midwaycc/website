@@ -4,7 +4,7 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import Head from './Head'
 import Header from './Header'
 import Footer from './Footer'
-// import MediaIndicator from '~/components/MediaIndicator'
+import MediaIndicator from '~/components/MediaIndicator'
 import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
 
@@ -26,9 +26,7 @@ export default ({ children }: Props) => (
         <Footer />
       </PageContainer>
     </ThemeProvider>
-    {/*}
     <MediaIndicator />
-    {*/}
   </>
 )
 

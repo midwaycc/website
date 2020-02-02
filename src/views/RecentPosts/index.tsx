@@ -60,8 +60,8 @@ const query = graphql`
         _rawSummary(resolveReferences: { maxDepth: 10 })
         thumbnail {
           asset {
-            fixed(width: 75, height: 75) {
-              ...GatsbySanityImageFixed
+            fluid(maxWidth: 400) {
+              ...GatsbySanityImageFluid
             }
           }
         }

@@ -5337,9 +5337,9 @@ export type GetInvolvedPostsQuery = (
         { __typename?: 'SanityImage' }
         & { asset: Maybe<(
           { __typename?: 'SanityImageAsset' }
-          & { fixed: Maybe<(
-            { __typename?: 'SanityImageFixed' }
-            & GatsbySanityImageFixedFragment
+          & { fluid: Maybe<(
+            { __typename?: 'SanityImageFluid' }
+            & GatsbySanityImageFluidFragment
           )> }
         )> }
       )>, slug: Maybe<(
@@ -5389,9 +5389,9 @@ export type MinistryPageQuery = (
         { __typename?: 'SanityImage' }
         & { asset: Maybe<(
           { __typename?: 'SanityImageAsset' }
-          & { fixed: Maybe<(
-            { __typename?: 'SanityImageFixed' }
-            & GatsbySanityImageFixedFragment
+          & { fluid: Maybe<(
+            { __typename?: 'SanityImageFluid' }
+            & GatsbySanityImageFluidFragment
           )> }
         )> }
       )>, slug: Maybe<(
@@ -5445,9 +5445,9 @@ export type AllPostsQuery = (
         { __typename?: 'SanityImage' }
         & { asset: Maybe<(
           { __typename?: 'SanityImageAsset' }
-          & { fixed: Maybe<(
-            { __typename?: 'SanityImageFixed' }
-            & GatsbySanityImageFixedFragment
+          & { fluid: Maybe<(
+            { __typename?: 'SanityImageFluid' }
+            & GatsbySanityImageFluidFragment
           )> }
         )> }
       )>, slug: Maybe<(
@@ -5500,9 +5500,9 @@ export type RecentPostsQuery = (
         { __typename?: 'SanityImage' }
         & { asset: Maybe<(
           { __typename?: 'SanityImageAsset' }
-          & { fixed: Maybe<(
-            { __typename?: 'SanityImageFixed' }
-            & GatsbySanityImageFixedFragment
+          & { fluid: Maybe<(
+            { __typename?: 'SanityImageFluid' }
+            & GatsbySanityImageFluidFragment
           )> }
         )> }
       )>, slug: Maybe<(

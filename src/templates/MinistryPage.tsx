@@ -176,8 +176,8 @@ export const query = graphql`
         date
         thumbnail {
           asset {
-            fixed(width: 75, height: 75) {
-              ...GatsbySanityImageFixed
+            fluid(maxWidth: 400) {
+              ...GatsbySanityImageFluid
             }
           }
         }

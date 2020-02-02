@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Image, { FixedObject } from 'gatsby-image'
+import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
 import RichContent from '~/components/RichContent'
-import { PostDate } from '~/templates/Post'
 import { SanityPost } from '~/types/graphqlTypes'
 
 type Props = {
@@ -22,29 +21,23 @@ export default ({ post, darkBackground, addToUrl = '' }: Props) => {
 
   return (
     <>
-      <FlexRow>
-        {post.thumbnail && post.thumbnail.asset && (
-          <Link to={postUrl}>
-            <Image
-              css="float: left; margin-right: 1em"
-              fixed={post.thumbnail.asset.fixed as FixedObject}
-            />
-          </Link>
-        )}
-        <div css="flex: 1; display: flex; flex-direction: column">
-          <PostTitle to={postUrl} darkBackground={darkBackground}>
-            {post.title}
-          </PostTitle>
-        </div>
-      </FlexRow>
+      {post.thumbnail && post.thumbnail.asset && (
+        <Link to={postUrl}>
+          <Image
+            css="margin-bottom: 1em"
+            fluid={
+              { ...post.thumbnail.asset.fluid, aspectRatio: 1 } as FluidObject
+            }
+          />
+        </Link>
+      )}
+      <PostTitle to={postUrl} darkBackground={darkBackground}>
+        {post.title}
+      </PostTitle>
       <RichContent blocks={post._rawSummary} />
     </>
   )
 }
-
-const FlexRow = styled.div`
-  display: flex;
-`
 
 const PostTitle = styled(({ darkBackground, ...otherProps }) => (
   <Link {...otherProps} />
