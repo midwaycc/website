@@ -71,7 +71,9 @@ export const SanityGatsbyImage = ({ node }: Props) => {
                 ? 'margin-right: 0; margin-top: 0.5em;'
                 : ''
             }
-            max-width: ${imageType.startsWith('centerImage') ? '100%' : '50%'};
+            max-width: ${
+              imageType.startsWith('centerImage') ? '100%' : 'calc(50% - 1em)'
+            };
             width: ${widthToUse}px;
             float: ${
               imageType.startsWith('leftImage')
