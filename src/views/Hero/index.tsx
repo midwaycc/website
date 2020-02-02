@@ -90,11 +90,7 @@ const OverlayContainer = styled.div`
   height: 100%;
   position: absolute;
   color: ${props => props.theme.hero.color};
-  background-image: linear-gradient(
-    90deg,
-    rgba(10, 76, 77, 0.5) 0%,
-    rgba(115, 134, 55, 0.5) 130%
-  );
+  background-color: rgba(0, 0, 0, 0.2);
 
   & > * {
     max-width: ${media.xl.width};
