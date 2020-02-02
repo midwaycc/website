@@ -57,7 +57,6 @@ export const SanityGatsbyImage = ({ node }: Props) => {
 
   return (
     <>
-      <div css="clear: both" />
       <div
         css={css`
           margin: 0 auto;
