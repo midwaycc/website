@@ -15,7 +15,7 @@ type Props = {
 export const PostCard = ({ post, addToUrl }: Props) => {
   if (!post.slug) return null
 
-  const postUrl = `/posts/${post.slug.current}${addToUrl}`
+  const postUrl = `/posts/${post.slug.current}${addToUrl || ''}`
 
   return (
     <LinkContainer to={postUrl}>
