@@ -1,3 +1,6 @@
+/* Brandon Grotesque font */
+@import url('https://use.typekit.net/lfp6vzo.css');
+
 html {
   font-size: 100%;
   letter-spacing: 0.03em;
@@ -35,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Brandon Grotesque';
+  font-family: 'brandon-grotesque';
   letter-spacing: 0px;
   color: white;
 }

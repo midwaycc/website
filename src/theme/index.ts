@@ -5,7 +5,7 @@ const theme: DefaultTheme = {
     background: '#2B6667',
     color: '#eaeaea',
     headerFont:
-      "'Brandon Grotesque', 'Avenir', 'Lucida Grande', Arial, sans-serif",
+      "'brandon-grotesque', 'Avenir', 'Lucida Grande', Arial, sans-serif",
     bodyFont: "'Proxima Nova Lt', 'Avenir', 'Lucida Grande', Arial, sans-serif"
   },
   header: {

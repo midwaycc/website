@@ -9,7 +9,6 @@ import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
 
 import './index.css'
-import './fonts.css'
 
 type Props = {
   children: React.ReactNode
