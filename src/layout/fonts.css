@@ -1,0 +1,11 @@
+/* Brandon Grotesque */
+@import url('https://use.typekit.net/lfp6vzo.css');
+
+@font-face {
+  font-family: 'Proxima Nova Lt';
+  src: local('Proxima Nova Light'), local('ProximaNova-Light'),
+    url('/fonts/ProximaNova-Light.woff2') format('woff2'),
+    url('/fonts/ProximaNova-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
