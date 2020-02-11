@@ -9,7 +9,6 @@ import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
 
 import './index.css'
-import './fonts.css'
 
 type Props = {
   children: React.ReactNode
@@ -33,11 +32,13 @@ export default ({ children }: Props) => (
 const GlobalStyles = createGlobalStyle`
   .ReactModalPortal {
     font-family: ${theme.page.bodyFont};
+    font-weight: 400;
   }
 `
 
 const PageContainer = styled.div`
   font-family: ${props => props.theme.page.bodyFont};
+  font-weight: 400;
   width: 100%;
   position: relative;
 

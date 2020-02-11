@@ -22,6 +22,7 @@ export default ({ navigationItems, className }: Props) => (
 
 const Container = styled.ul`
   font-family: ${props => props.theme.header.font};
+  font-weight: 400;
   font-size: 1.05em;
   color: ${props => props.theme.header.color};
   height: 100%;

@@ -6,13 +6,13 @@ const theme: DefaultTheme = {
     color: '#eaeaea',
     headerFont:
       "'brandon-grotesque', 'Avenir', 'Lucida Grande', Arial, sans-serif",
-    bodyFont: "'Proxima Nova Lt', 'Avenir', 'Lucida Grande', Arial, sans-serif"
+    bodyFont: "'proxima-nova', 'Avenir', 'Lucida Grande', Arial, sans-serif"
   },
   header: {
     background: 'white',
     color: '#524637',
     shadow: '0 0 15px rgba(0, 0, 0, 0.5)',
-    font: "'Proxima Nova Lt', 'Avenir', 'Lucida Grande', Arial, sans-serif",
+    font: "'proxima-nova', 'Avenir', 'Lucida Grande', Arial, sans-serif",
     height: 90,
     logo: 'final'
   },

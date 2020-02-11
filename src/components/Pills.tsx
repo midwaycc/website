@@ -25,6 +25,7 @@ export const secondaryColorButton = css`
 
 export const ActionButton = styled.button`
   font-family: ${props => props.theme.header.font};
+  font-weight: 400;
   width: 14em;
   height: 3em;
   border-radius: 1.5em;
