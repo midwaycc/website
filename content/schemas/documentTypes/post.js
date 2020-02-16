@@ -23,7 +23,12 @@ export default {
       options: {
         source: 'title'
       },
-      validation: Rule => Rule.required()
+      validation: Rule =>
+        Rule.required().custom(slug =>
+          slug.current.includes(' ')
+            ? 'Since this goes in the URL, it should not have any spaces or special characters. Clicking the "generate" button is usually the right thing to do here.'
+            : true
+        )
     },
     {
       name: 'date',
