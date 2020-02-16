@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
 import media from '~/utils/media'
-import buildingHorizontal from '~/../static/images/building_horizontal.jpg'
+import scheduleBackground from '~/../static/images/Footer_Image.jpg'
 import { useStaticQuery, graphql } from 'gatsby'
 import { ScheduleAlertQuery } from '~/types/graphqlTypes'
 import RichContent from '~/components/RichContent'
@@ -120,21 +120,17 @@ const Container = styled.div`
     right: 0;
     bottom: 0;
     opacity: 0.4;
-    background: url('${buildingHorizontal}');
+    background: url('${scheduleBackground}');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom left 18%;
+    background-position: center right -275px;
 
     ${media.sm} {
-      background-position: bottom left -50px;
+      background-position: center right -250px;
     }
 
     ${media.md} {
-      background-position: bottom left -50px;
-    }
-
-    ${media.lg} {
-      background-position: bottom left;
+      background-position: center right;
     }
   }
 `
