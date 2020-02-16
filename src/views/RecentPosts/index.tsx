@@ -34,15 +34,15 @@ export default ({ posts, withBanner }: Props) => {
           {postsToUse.map((post, i) => (
             <PostCard key={post._id || `post-${i}`} post={post} />
           ))}
-          <ViewAllRow>
-            <Stamp />
-            <Link to="/posts" css="z-index: 1; margin: 1rem 0">
-              <SquareButton thick dark point="right">
-                View all
-              </SquareButton>
-            </Link>
-          </ViewAllRow>
         </PostsContainer>
+        <ViewAllRow>
+          <Stamp />
+          <Link to="/posts" css="z-index: 1; margin: 1rem 0">
+            <SquareButton thick dark point="right">
+              View all
+            </SquareButton>
+          </Link>
+        </ViewAllRow>
       </Content>
     </Container>
   )

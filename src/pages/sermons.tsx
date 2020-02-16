@@ -4,6 +4,8 @@ import { SermonUploadQuery } from '~/types/graphqlTypes'
 import Section from '~/layout/Section'
 import { SquareButton } from '~/components/SquareButton'
 import { niceDate } from '~/utils/niceDate'
+import { PostsContainer } from '~/components/PostsContainer'
+import { css } from 'styled-components'
 
 type Props = {
   data: SermonUploadQuery
@@ -38,9 +40,11 @@ export default ({ data }: Props) => {
         <SquareButton point="left">Home</SquareButton>
       </Link>
       <h1>Sermons</h1>
-      {sermons.map(sermon =>
-        sermon._id ? <Sermon key={sermon._id} sermon={sermon} /> : null
-      )}
+      <PostsContainer big noHover>
+        {sermons.map(sermon =>
+          sermon._id ? <Sermon key={sermon._id} sermon={sermon} /> : null
+        )}
+      </PostsContainer>
     </Section>
   )
 }
@@ -51,7 +55,15 @@ const Sermon = ({ sermon }: { sermon: Sermon }) => {
 
   return (
     <div>
-      <h2>{title}</h2>
+      <h3
+        css={css`
+          margin: 0;
+          margin-bottom: 0.5em;
+          color: rgb(35, 74, 77);
+        `}
+      >
+        {title}
+      </h3>
       {src ? (
         <>
           <audio css="width: 100%; margin-bottom: 1rem" controls src={src} />
