@@ -4750,6 +4750,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
   pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
   pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
   pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
@@ -4951,6 +4952,7 @@ export enum SitePluginFieldsEnum {
   pluginOptions___watchMode = 'pluginOptions___watchMode',
   pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
   pluginOptions___token = 'pluginOptions___token',
+  pluginOptions___trackingId = 'pluginOptions___trackingId',
   pluginOptions___path = 'pluginOptions___path',
   pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
@@ -5083,6 +5085,7 @@ export type SitePluginPluginOptions = {
   watchMode?: Maybe<Scalars['Boolean']>,
   overlayDrafts?: Maybe<Scalars['Boolean']>,
   token?: Maybe<Scalars['String']>,
+  trackingId?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
@@ -5105,6 +5108,7 @@ export type SitePluginPluginOptionsFilterInput = {
   watchMode?: Maybe<BooleanQueryOperatorInput>,
   overlayDrafts?: Maybe<BooleanQueryOperatorInput>,
   token?: Maybe<StringQueryOperatorInput>,
+  trackingId?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
