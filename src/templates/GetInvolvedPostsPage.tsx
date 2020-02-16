@@ -14,7 +14,7 @@ export default ({ data, pageContext }: Props) => {
       title="Get Involved"
       data={data}
       pageContext={pageContext}
-      addToUrl="/?back=get-involved"
+      urlPrefix="get-involved"
     />
   )
 }

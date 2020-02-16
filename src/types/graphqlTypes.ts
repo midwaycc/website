@@ -4582,6 +4582,7 @@ export type SitePageContext = {
   offset?: Maybe<Scalars['Int']>,
   isFirst?: Maybe<Scalars['Boolean']>,
   isLast?: Maybe<Scalars['Boolean']>,
+  onlyOne?: Maybe<Scalars['Boolean']>,
 };
 
 export type SitePageContextFilterInput = {
@@ -4591,6 +4592,7 @@ export type SitePageContextFilterInput = {
   offset?: Maybe<IntQueryOperatorInput>,
   isFirst?: Maybe<BooleanQueryOperatorInput>,
   isLast?: Maybe<BooleanQueryOperatorInput>,
+  onlyOne?: Maybe<BooleanQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -4698,6 +4700,7 @@ export enum SitePageFieldsEnum {
   context___offset = 'context___offset',
   context___isFirst = 'context___isFirst',
   context___isLast = 'context___isLast',
+  context___onlyOne = 'context___onlyOne',
   pluginCreator___id = 'pluginCreator___id',
   pluginCreator___parent___id = 'pluginCreator___parent___id',
   pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',

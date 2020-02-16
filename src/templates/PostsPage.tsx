@@ -14,21 +14,22 @@ export type Props = {
     offset: number
     isFirst: boolean
     isLast: boolean
+    onlyOne: boolean
   }
   title?: string
-  addToUrl?: string
+  urlPrefix?: string
 }
 
 export default ({
   data,
   pageContext,
   title = 'Archive',
-  addToUrl = ''
+  urlPrefix = 'posts'
 }: Props) => {
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
 
   const { nodes: posts } = data.allSanityPost
-  const { page, isFirst, isLast } = pageContext
+  const { page, isFirst, isLast, onlyOne } = pageContext
 
   return (
     <Section css="padding: 2em">
@@ -41,7 +42,7 @@ export default ({
           <PostCard
             key={post._id || `post-${i}`}
             post={post}
-            addToUrl={addToUrl}
+            addToUrl={`?back=${urlPrefix}`}
           />
         ))}
       </PostsContainer>
@@ -53,13 +54,15 @@ export default ({
           textAlign: isFirst ? 'right' : 'left'
         }}
       >
-        {!isFirst && (
-          <Link to={page === 2 ? '/posts' : `/posts/page/${page - 1}`}>
-            &#8592; Newer Posts
+        {!isFirst && !onlyOne && (
+          <Link
+            to={page === 2 ? `/${urlPrefix}` : `/${urlPrefix}/page/${page - 1}`}
+          >
+            &#8592; Newer
           </Link>
         )}
-        {!isLast && (
-          <Link to={`/posts/page/${page + 1}`}>Older Posts &#8594;</Link>
+        {!isLast && !onlyOne && (
+          <Link to={`/${urlPrefix}/page/${page + 1}`}>Older &#8594;</Link>
         )}
       </div>
     </Section>

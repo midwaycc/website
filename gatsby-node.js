@@ -107,9 +107,13 @@ async function createMinistryPages(graphql, createPage) {
 }
 
 async function createAllPostPages(graphql, createPage) {
-  const perPage = 10
+  const perPage = 12
 
-  const [allPostsResult, getInvolvedPostsResult] = await Promise.all([
+  const [
+    allPostsResult,
+    archivePostsResult,
+    getInvolvedPostsResult
+  ] = await Promise.all([
     graphql(`
       {
         allSanityPost {
@@ -119,6 +123,13 @@ async function createAllPostPages(graphql, createPage) {
               current
             }
           }
+        }
+      }
+    `),
+    graphql(`
+      {
+        allSanityPost(filter: { featured: { eq: false } }) {
+          totalCount
         }
       }
     `),
@@ -139,11 +150,16 @@ async function createAllPostPages(graphql, createPage) {
     throw allPostsResult.errors
   }
 
+  if (archivePostsResult.errors) {
+    throw allPostsResult.errors
+  }
+
   if (getInvolvedPostsResult.errors) {
     throw getInvolvedPostsResult.errors
   }
 
   const allPosts = allPostsResult.data.allSanityPost.nodes || []
+  const numArchivePosts = archivePostsResult.data.allSanityPost.totalCount
   const numGetInvolvedPosts =
     getInvolvedPostsResult.data.allSanityPost.totalCount
 
@@ -159,7 +175,7 @@ async function createAllPostPages(graphql, createPage) {
 
   createPostPages(
     createPage,
-    allPosts.length,
+    numArchivePosts,
     perPage,
     'posts',
     require.resolve('./src/templates/PostsPage.tsx')
@@ -181,6 +197,8 @@ function createPostPages(
   component
 ) {
   const maxPage = Math.ceil(totalCount / perPage)
+  const onlyOne = totalCount <= perPage
+
   for (let page = 1; page <= maxPage; page++) {
     createPage({
       path: page === 1 ? urlPrefix : `${urlPrefix}/page/${page}`,
@@ -190,7 +208,8 @@ function createPostPages(
         perPage,
         offset: (page - 1) * perPage,
         isFirst: page === 1,
-        isLast: page === maxPage
+        isLast: page === maxPage,
+        onlyOne
       }
     })
   }
