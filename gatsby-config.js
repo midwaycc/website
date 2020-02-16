@@ -39,6 +39,12 @@ module.exports = {
             })
       }
     },
-    'gatsby-plugin-netlify'
+    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-158652076-1'
+      }
+    }
   ]
 }
