@@ -22,7 +22,7 @@ export default ({ data }: Props) => {
   const backLink =
     typeof window === 'undefined'
       ? '/posts'
-      : '/' + (queryString.parse(location.search).back || 'posts')
+      : '/' + (queryString.parse(location.search).back || '')
 
   return (
     <Container>
