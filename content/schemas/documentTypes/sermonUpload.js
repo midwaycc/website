@@ -16,7 +16,7 @@ export default {
       type: 'string',
       title: 'Extra Info',
       description:
-        'Scripture reference, speaker, or anything else to show up in the title'
+        'Scripture reference, speaker, or anything else to show up in the title. Do not include a manual date here.'
     },
     {
       name: 'audioFile',
@@ -44,7 +44,8 @@ export default {
       const [y, m, d] = date.split('-').map(Number)
       const niceDate = format(
         new Date(
-          Date.UTC(y, m - 1, d) + new Date().getTimezoneOffset() * 60 * 1000
+          // 720 = 12 hours in minutes
+          Date.UTC(y, m - 1, d) + 720 * 60 * 1000
         ),
         'MMMM do, yyyy'
       )
