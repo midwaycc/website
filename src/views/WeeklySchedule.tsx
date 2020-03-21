@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
+import { Alert } from '~/components/Alert'
 import media from '~/utils/media'
 import scheduleBackground from '~/../static/images/Footer_Image.jpg'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -179,21 +180,4 @@ const EventTime = styled.span`
 
 const EventName = styled.span`
   font-weight: bold;
-`
-
-const Alert = styled.div`
-  background-color: rgba(35, 74, 77, 0.75);
-  margin: 1rem;
-  padding: 1rem;
-  border: 3px solid #9fb94b;
-
-  p {
-    font-size: 1.2em;
-    line-height: 1.4em;
-    margin: 0;
-  }
-
-  p + p {
-    margin-top: 1em;
-  }
 `

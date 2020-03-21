@@ -854,8 +854,11 @@ export type QuerySanityHeroSectionArgs = {
   _key?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
   subtitle?: Maybe<StringQueryOperatorInput>,
+  alertActive?: Maybe<BooleanQueryOperatorInput>,
   video?: Maybe<SanityFileFilterInput>,
   poster?: Maybe<SanityImageFilterInput>,
+  alertMessage?: Maybe<SanityBlockFilterListInput>,
+  _rawAlertMessage?: Maybe<JsonQueryOperatorInput>,
   _rawVideo?: Maybe<JsonQueryOperatorInput>,
   _rawPoster?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
@@ -1546,8 +1549,11 @@ export type SanityHeroSection = SanityDocument & Node & {
   _key?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
   subtitle?: Maybe<Scalars['String']>,
+  alertActive?: Maybe<Scalars['Boolean']>,
   video?: Maybe<SanityFile>,
   poster?: Maybe<SanityImage>,
+  alertMessage?: Maybe<Array<Maybe<SanityBlock>>>,
+  _rawAlertMessage?: Maybe<Scalars['JSON']>,
   _rawVideo?: Maybe<Scalars['JSON']>,
   _rawPoster?: Maybe<Scalars['JSON']>,
   id: Scalars['ID'],
@@ -1570,6 +1576,11 @@ export type SanityHeroSection_UpdatedAtArgs = {
   fromNow?: Maybe<Scalars['Boolean']>,
   difference?: Maybe<Scalars['String']>,
   locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanityHeroSection_RawAlertMessageArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 };
 
 
@@ -1620,6 +1631,7 @@ export enum SanityHeroSectionFieldsEnum {
   _key = '_key',
   title = 'title',
   subtitle = 'subtitle',
+  alertActive = 'alertActive',
   video____key = 'video____key',
   video____type = 'video____type',
   video___asset____id = 'video___asset____id',
@@ -1731,6 +1743,17 @@ export enum SanityHeroSectionFieldsEnum {
   poster___crop___bottom = 'poster___crop___bottom',
   poster___crop___left = 'poster___crop___left',
   poster___crop___right = 'poster___crop___right',
+  alertMessage = 'alertMessage',
+  alertMessage____key = 'alertMessage____key',
+  alertMessage____type = 'alertMessage____type',
+  alertMessage___sanityChildren = 'alertMessage___sanityChildren',
+  alertMessage___sanityChildren____key = 'alertMessage___sanityChildren____key',
+  alertMessage___sanityChildren____type = 'alertMessage___sanityChildren____type',
+  alertMessage___sanityChildren___marks = 'alertMessage___sanityChildren___marks',
+  alertMessage___sanityChildren___text = 'alertMessage___sanityChildren___text',
+  alertMessage___style = 'alertMessage___style',
+  alertMessage___list = 'alertMessage___list',
+  _rawAlertMessage = '_rawAlertMessage',
   _rawVideo = '_rawVideo',
   _rawPoster = '_rawPoster',
   id = 'id',
@@ -1830,8 +1853,11 @@ export type SanityHeroSectionFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
   subtitle?: Maybe<StringQueryOperatorInput>,
+  alertActive?: Maybe<BooleanQueryOperatorInput>,
   video?: Maybe<SanityFileFilterInput>,
   poster?: Maybe<SanityImageFilterInput>,
+  alertMessage?: Maybe<SanityBlockFilterListInput>,
+  _rawAlertMessage?: Maybe<JsonQueryOperatorInput>,
   _rawVideo?: Maybe<JsonQueryOperatorInput>,
   _rawPoster?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
@@ -5493,7 +5519,7 @@ export type HeroSectionQuery = (
   { __typename?: 'Query' }
   & { sanityHeroSection: Maybe<(
     { __typename?: 'SanityHeroSection' }
-    & Pick<SanityHeroSection, 'subtitle' | 'title'>
+    & Pick<SanityHeroSection, 'subtitle' | 'title' | 'alertActive' | '_rawAlertMessage'>
   )> }
 );
 

@@ -5,11 +5,18 @@ import media from '~/utils/media'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/hero-optimized.mp4'
 import { SquareButton } from '~/components/SquareButton'
+import { Alert } from '~/components/Alert'
+import RichContent from '~/components/RichContent'
 
 export default () => {
   const data: HeroSectionQuery = useStaticQuery(query)
   if (!data.sanityHeroSection) return null
-  const { title, subtitle } = data.sanityHeroSection
+  const {
+    title,
+    subtitle,
+    alertActive,
+    _rawAlertMessage
+  } = data.sanityHeroSection
 
   return (
     <Container>
@@ -34,6 +41,11 @@ export default () => {
         <HeroContent>
           <Title>{title}</Title>
           <Subtitle>{subtitle}</Subtitle>
+          {alertActive && _rawAlertMessage && (
+            <Alert>
+              <RichContent blocks={_rawAlertMessage} />
+            </Alert>
+          )}
           <Link to="/new">
             <SquareButton
               dark
@@ -60,6 +72,8 @@ const query = graphql`
     sanityHeroSection {
       subtitle
       title
+      alertActive
+      _rawAlertMessage
     }
   }
 `
