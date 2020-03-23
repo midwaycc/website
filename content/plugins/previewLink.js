@@ -9,8 +9,16 @@ function path(document) {
       return document.url.current
     case 'heroSection':
     case 'navigation':
+    case 'scheduleAlert':
       return '/'
     case 'post':
       return `/posts/${document.slug.current}`
+    case 'newsletter':
+      return '/newsletter'
+    case 'sermonUpload':
+      return '/sermons'
+    default:
+      alert('Kevin needs to set up a preview link for this one!')
+      return '/'
   }
 }
