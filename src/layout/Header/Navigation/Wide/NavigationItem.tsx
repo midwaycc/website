@@ -20,7 +20,6 @@ export const NavigationItemWithSubmenu = ({
   items
 }: NavItemWithSubitems) => {
   const [containerKey, setContainerKey] = useState(0)
-  console.log('Wide items:', text, items)
 
   return (
     <Container key={containerKey}>

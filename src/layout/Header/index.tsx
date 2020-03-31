@@ -25,8 +25,6 @@ export default () => {
     throw new Error('Navigation items are not valid!')
   }
 
-  console.log({ navigationItems })
-
   return (
     <>
       <NarrowMenuToggle css={hiddenAbove(BREAKPOINT, 'block')} />

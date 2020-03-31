@@ -22,7 +22,6 @@ export const NavigationItemWithSubmenu = ({
   text,
   items
 }: NavItemWithSubitems) => {
-  console.log('Narrow items:', text, items)
   return (
     <Container>
       <Toggle
