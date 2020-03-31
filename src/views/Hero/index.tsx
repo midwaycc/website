@@ -21,19 +21,7 @@ export default () => {
   return (
     <Container>
       <VideoContainer>
-        <video
-          autoPlay
-          loop
-          preload=""
-          muted
-          playsInline
-          poster={
-            undefined
-            //poster && poster.asset && poster.asset.url
-            // ? poster.asset.url
-            // : undefined
-          }
-        >
+        <video autoPlay loop preload="" muted playsInline>
           <source src={heroVideo} type="video/mp4" />
         </video>
       </VideoContainer>

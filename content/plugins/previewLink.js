@@ -9,6 +9,7 @@ function path(document) {
       return document.url.current
     case 'heroSection':
     case 'navigation':
+    case 'generalAlert':
     case 'scheduleAlert':
       return '/'
     case 'post':

@@ -8,6 +8,7 @@ import heroSection from './documentTypes/heroSection'
 import navigation from './documentTypes/navigation'
 import post from './documentTypes/post'
 import scheduleAlert from './documentTypes/scheduleAlert'
+import generalAlert from './documentTypes/generalAlert'
 import sermonUpload from './documentTypes/sermonUpload'
 import newsletter from './documentTypes/newsletter'
 
@@ -37,6 +38,7 @@ export default createSchema({
     heroSection,
     navigation,
     post,
+    generalAlert,
     scheduleAlert,
     sermonUpload,
     newsletter,
@@ -53,9 +55,5 @@ export default createSchema({
     leftImageWithWidth,
     verticalSpace,
     videoEmbed
-    // Ideas:
-    //
-    // event,
-    // photoGallery
   ])
 })

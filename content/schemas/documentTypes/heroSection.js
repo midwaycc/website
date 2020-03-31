@@ -48,12 +48,6 @@ export default {
       title: 'Splash Video',
       description: 'Must be under 100MB',
       validation: Rule => Rule.required()
-    },
-    {
-      name: 'poster',
-      type: 'image',
-      title: 'Still Image',
-      description: 'Shown while the video is loading'
     }
   ]
 }

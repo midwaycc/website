@@ -1,6 +1,6 @@
 export default {
-  name: 'scheduleAlert',
-  title: 'Schedule Alert',
+  name: 'generalAlert',
+  title: 'General Alert',
   type: 'document',
   preview: {
     select: {},
@@ -16,7 +16,7 @@ export default {
       type: 'boolean',
       title: 'Active',
       description:
-        'Whether or not this alert will show under the Weekly Schedule'
+        'Whether or not this alert will show when loading the home page'
     },
     {
       name: 'message',
@@ -37,7 +37,7 @@ export default {
       ],
       title: 'Message',
       description:
-        'This will be displayed just above the weekly schedule, and should be used for weeks where the schedule differs from normal.'
+        'This will be shown as a full-screen popup when the home page is first loaded.'
     }
   ]
 }

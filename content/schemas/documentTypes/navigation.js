@@ -3,7 +3,6 @@ export default {
   title: 'Navigation',
   type: 'document',
   fields: [
-    { name: 'title', type: 'string', title: 'Title' },
     {
       name: 'items',
       title: 'Menu Items',

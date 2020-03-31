@@ -10,6 +10,16 @@ const singletons = [
     title: 'Hero Section',
     schema: 'heroSection',
     id: 'ec25ee54-245b-40e3-9876-cffd186f42ff'
+  },
+  {
+    title: 'General Alert',
+    schema: 'generalAlert',
+    id: '13f98916-0879-4734-9db9-af2e9b253597'
+  },
+  {
+    title: 'Schedule Alert',
+    schema: 'scheduleAlert',
+    id: 'd9104f8d-bbd8-4f63-9947-7cfb65f19808'
   }
 ]
 
@@ -30,6 +40,6 @@ export default () =>
     .items([
       ...singletons.map(singletonItem),
       ...S.documentTypeListItems().filter(
-        item => !schemasToFilterOut.includes(item.spec.schemaType.name)
+        item => !schemasToFilterOut.includes(item.getId())
       )
     ])
