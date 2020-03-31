@@ -722,6 +722,8 @@ export type Query = {
   allFile: FileConnection,
   directory?: Maybe<Directory>,
   allDirectory: DirectoryConnection,
+  sanityGeneralAlert?: Maybe<SanityGeneralAlert>,
+  allSanityGeneralAlert: SanityGeneralAlertConnection,
   sanityHeroSection?: Maybe<SanityHeroSection>,
   allSanityHeroSection: SanityHeroSectionConnection,
   sanityMinistryPage?: Maybe<SanityMinistryPage>,
@@ -845,6 +847,31 @@ export type QueryAllDirectoryArgs = {
 };
 
 
+export type QuerySanityGeneralAlertArgs = {
+  _id?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  _createdAt?: Maybe<DateQueryOperatorInput>,
+  _updatedAt?: Maybe<DateQueryOperatorInput>,
+  _rev?: Maybe<StringQueryOperatorInput>,
+  _key?: Maybe<StringQueryOperatorInput>,
+  active?: Maybe<BooleanQueryOperatorInput>,
+  message?: Maybe<SanityBlockFilterListInput>,
+  _rawMessage?: Maybe<JsonQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
+};
+
+
+export type QueryAllSanityGeneralAlertArgs = {
+  filter?: Maybe<SanityGeneralAlertFilterInput>,
+  sort?: Maybe<SanityGeneralAlertSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
 export type QuerySanityHeroSectionArgs = {
   _id?: Maybe<StringQueryOperatorInput>,
   _type?: Maybe<StringQueryOperatorInput>,
@@ -856,11 +883,9 @@ export type QuerySanityHeroSectionArgs = {
   subtitle?: Maybe<StringQueryOperatorInput>,
   alertActive?: Maybe<BooleanQueryOperatorInput>,
   video?: Maybe<SanityFileFilterInput>,
-  poster?: Maybe<SanityImageFilterInput>,
   alertMessage?: Maybe<SanityBlockFilterListInput>,
   _rawAlertMessage?: Maybe<JsonQueryOperatorInput>,
   _rawVideo?: Maybe<JsonQueryOperatorInput>,
-  _rawPoster?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -915,7 +940,6 @@ export type QuerySanityNavigationArgs = {
   _updatedAt?: Maybe<DateQueryOperatorInput>,
   _rev?: Maybe<StringQueryOperatorInput>,
   _key?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
   _rawItems?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
@@ -1522,6 +1546,211 @@ export type SanityFileFilterInput = {
   asset?: Maybe<SanityFileAssetFilterInput>,
 };
 
+export type SanityGeneralAlert = SanityDocument & Node & {
+   __typename?: 'SanityGeneralAlert',
+  _id?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  _createdAt?: Maybe<Scalars['Date']>,
+  _updatedAt?: Maybe<Scalars['Date']>,
+  _rev?: Maybe<Scalars['String']>,
+  _key?: Maybe<Scalars['String']>,
+  active?: Maybe<Scalars['Boolean']>,
+  message?: Maybe<Array<Maybe<SanityBlock>>>,
+  _rawMessage?: Maybe<Scalars['JSON']>,
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+};
+
+
+export type SanityGeneralAlert_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanityGeneralAlert_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanityGeneralAlert_RawMessageArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+export type SanityGeneralAlertConnection = {
+   __typename?: 'SanityGeneralAlertConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SanityGeneralAlertEdge>,
+  nodes: Array<SanityGeneralAlert>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<SanityGeneralAlertGroupConnection>,
+};
+
+
+export type SanityGeneralAlertConnectionDistinctArgs = {
+  field: SanityGeneralAlertFieldsEnum
+};
+
+
+export type SanityGeneralAlertConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: SanityGeneralAlertFieldsEnum
+};
+
+export type SanityGeneralAlertEdge = {
+   __typename?: 'SanityGeneralAlertEdge',
+  next?: Maybe<SanityGeneralAlert>,
+  node: SanityGeneralAlert,
+  previous?: Maybe<SanityGeneralAlert>,
+};
+
+export enum SanityGeneralAlertFieldsEnum {
+  _id = '_id',
+  _type = '_type',
+  _createdAt = '_createdAt',
+  _updatedAt = '_updatedAt',
+  _rev = '_rev',
+  _key = '_key',
+  active = 'active',
+  message = 'message',
+  message____key = 'message____key',
+  message____type = 'message____type',
+  message___sanityChildren = 'message___sanityChildren',
+  message___sanityChildren____key = 'message___sanityChildren____key',
+  message___sanityChildren____type = 'message___sanityChildren____type',
+  message___sanityChildren___marks = 'message___sanityChildren___marks',
+  message___sanityChildren___text = 'message___sanityChildren___text',
+  message___style = 'message___style',
+  message___list = 'message___list',
+  _rawMessage = '_rawMessage',
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type SanityGeneralAlertFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  _createdAt?: Maybe<DateQueryOperatorInput>,
+  _updatedAt?: Maybe<DateQueryOperatorInput>,
+  _rev?: Maybe<StringQueryOperatorInput>,
+  _key?: Maybe<StringQueryOperatorInput>,
+  active?: Maybe<BooleanQueryOperatorInput>,
+  message?: Maybe<SanityBlockFilterListInput>,
+  _rawMessage?: Maybe<JsonQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+};
+
+export type SanityGeneralAlertGroupConnection = {
+   __typename?: 'SanityGeneralAlertGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SanityGeneralAlertEdge>,
+  nodes: Array<SanityGeneralAlert>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type SanityGeneralAlertSortInput = {
+  fields?: Maybe<Array<Maybe<SanityGeneralAlertFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
 export type SanityGeopoint = {
    __typename?: 'SanityGeopoint',
   _key?: Maybe<Scalars['String']>,
@@ -1551,11 +1780,9 @@ export type SanityHeroSection = SanityDocument & Node & {
   subtitle?: Maybe<Scalars['String']>,
   alertActive?: Maybe<Scalars['Boolean']>,
   video?: Maybe<SanityFile>,
-  poster?: Maybe<SanityImage>,
   alertMessage?: Maybe<Array<Maybe<SanityBlock>>>,
   _rawAlertMessage?: Maybe<Scalars['JSON']>,
   _rawVideo?: Maybe<Scalars['JSON']>,
-  _rawPoster?: Maybe<Scalars['JSON']>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -1585,11 +1812,6 @@ export type SanityHeroSection_RawAlertMessageArgs = {
 
 
 export type SanityHeroSection_RawVideoArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
-};
-
-
-export type SanityHeroSection_RawPosterArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 };
 
@@ -1671,78 +1893,6 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset___internal___mediaType = 'video___asset___internal___mediaType',
   video___asset___internal___owner = 'video___asset___internal___owner',
   video___asset___internal___type = 'video___asset___internal___type',
-  poster____key = 'poster____key',
-  poster____type = 'poster____type',
-  poster___asset____id = 'poster___asset____id',
-  poster___asset____type = 'poster___asset____type',
-  poster___asset____createdAt = 'poster___asset____createdAt',
-  poster___asset____updatedAt = 'poster___asset____updatedAt',
-  poster___asset____rev = 'poster___asset____rev',
-  poster___asset____key = 'poster___asset____key',
-  poster___asset___originalFilename = 'poster___asset___originalFilename',
-  poster___asset___label = 'poster___asset___label',
-  poster___asset___title = 'poster___asset___title',
-  poster___asset___description = 'poster___asset___description',
-  poster___asset___sha1hash = 'poster___asset___sha1hash',
-  poster___asset___extension = 'poster___asset___extension',
-  poster___asset___mimeType = 'poster___asset___mimeType',
-  poster___asset___size = 'poster___asset___size',
-  poster___asset___assetId = 'poster___asset___assetId',
-  poster___asset___path = 'poster___asset___path',
-  poster___asset___url = 'poster___asset___url',
-  poster___asset___metadata____key = 'poster___asset___metadata____key',
-  poster___asset___metadata____type = 'poster___asset___metadata____type',
-  poster___asset___metadata___lqip = 'poster___asset___metadata___lqip',
-  poster___asset___metadata___hasAlpha = 'poster___asset___metadata___hasAlpha',
-  poster___asset___metadata___isOpaque = 'poster___asset___metadata___isOpaque',
-  poster___asset___source____key = 'poster___asset___source____key',
-  poster___asset___source____type = 'poster___asset___source____type',
-  poster___asset___source___name = 'poster___asset___source___name',
-  poster___asset___source___sanityId = 'poster___asset___source___sanityId',
-  poster___asset___source___url = 'poster___asset___source___url',
-  poster___asset___fixed___base64 = 'poster___asset___fixed___base64',
-  poster___asset___fixed___aspectRatio = 'poster___asset___fixed___aspectRatio',
-  poster___asset___fixed___width = 'poster___asset___fixed___width',
-  poster___asset___fixed___height = 'poster___asset___fixed___height',
-  poster___asset___fixed___src = 'poster___asset___fixed___src',
-  poster___asset___fixed___srcSet = 'poster___asset___fixed___srcSet',
-  poster___asset___fixed___srcWebp = 'poster___asset___fixed___srcWebp',
-  poster___asset___fixed___srcSetWebp = 'poster___asset___fixed___srcSetWebp',
-  poster___asset___fluid___base64 = 'poster___asset___fluid___base64',
-  poster___asset___fluid___aspectRatio = 'poster___asset___fluid___aspectRatio',
-  poster___asset___fluid___src = 'poster___asset___fluid___src',
-  poster___asset___fluid___srcSet = 'poster___asset___fluid___srcSet',
-  poster___asset___fluid___srcWebp = 'poster___asset___fluid___srcWebp',
-  poster___asset___fluid___srcSetWebp = 'poster___asset___fluid___srcSetWebp',
-  poster___asset___fluid___sizes = 'poster___asset___fluid___sizes',
-  poster___asset____rawMetadata = 'poster___asset____rawMetadata',
-  poster___asset____rawSource = 'poster___asset____rawSource',
-  poster___asset___id = 'poster___asset___id',
-  poster___asset___parent___id = 'poster___asset___parent___id',
-  poster___asset___parent___children = 'poster___asset___parent___children',
-  poster___asset___children = 'poster___asset___children',
-  poster___asset___children___id = 'poster___asset___children___id',
-  poster___asset___children___children = 'poster___asset___children___children',
-  poster___asset___internal___content = 'poster___asset___internal___content',
-  poster___asset___internal___contentDigest = 'poster___asset___internal___contentDigest',
-  poster___asset___internal___description = 'poster___asset___internal___description',
-  poster___asset___internal___fieldOwners = 'poster___asset___internal___fieldOwners',
-  poster___asset___internal___ignoreType = 'poster___asset___internal___ignoreType',
-  poster___asset___internal___mediaType = 'poster___asset___internal___mediaType',
-  poster___asset___internal___owner = 'poster___asset___internal___owner',
-  poster___asset___internal___type = 'poster___asset___internal___type',
-  poster___hotspot____key = 'poster___hotspot____key',
-  poster___hotspot____type = 'poster___hotspot____type',
-  poster___hotspot___x = 'poster___hotspot___x',
-  poster___hotspot___y = 'poster___hotspot___y',
-  poster___hotspot___height = 'poster___hotspot___height',
-  poster___hotspot___width = 'poster___hotspot___width',
-  poster___crop____key = 'poster___crop____key',
-  poster___crop____type = 'poster___crop____type',
-  poster___crop___top = 'poster___crop___top',
-  poster___crop___bottom = 'poster___crop___bottom',
-  poster___crop___left = 'poster___crop___left',
-  poster___crop___right = 'poster___crop___right',
   alertMessage = 'alertMessage',
   alertMessage____key = 'alertMessage____key',
   alertMessage____type = 'alertMessage____type',
@@ -1755,7 +1905,6 @@ export enum SanityHeroSectionFieldsEnum {
   alertMessage___list = 'alertMessage___list',
   _rawAlertMessage = '_rawAlertMessage',
   _rawVideo = '_rawVideo',
-  _rawPoster = '_rawPoster',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -1855,11 +2004,9 @@ export type SanityHeroSectionFilterInput = {
   subtitle?: Maybe<StringQueryOperatorInput>,
   alertActive?: Maybe<BooleanQueryOperatorInput>,
   video?: Maybe<SanityFileFilterInput>,
-  poster?: Maybe<SanityImageFilterInput>,
   alertMessage?: Maybe<SanityBlockFilterListInput>,
   _rawAlertMessage?: Maybe<JsonQueryOperatorInput>,
   _rawVideo?: Maybe<JsonQueryOperatorInput>,
-  _rawPoster?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -2765,7 +2912,6 @@ export type SanityNavigation = SanityDocument & Node & {
   _updatedAt?: Maybe<Scalars['Date']>,
   _rev?: Maybe<Scalars['String']>,
   _key?: Maybe<Scalars['String']>,
-  title?: Maybe<Scalars['String']>,
   items?: Maybe<Array<Maybe<SanityNestedMenuOrPageLinkOrPlainLink>>>,
   _rawItems?: Maybe<Scalars['JSON']>,
   id: Scalars['ID'],
@@ -2831,7 +2977,6 @@ export enum SanityNavigationFieldsEnum {
   _updatedAt = '_updatedAt',
   _rev = '_rev',
   _key = '_key',
-  title = 'title',
   _rawItems = '_rawItems',
   id = 'id',
   parent___id = 'parent___id',
@@ -2928,7 +3073,6 @@ export type SanityNavigationFilterInput = {
   _updatedAt?: Maybe<DateQueryOperatorInput>,
   _rev?: Maybe<StringQueryOperatorInput>,
   _key?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
   _rawItems?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
