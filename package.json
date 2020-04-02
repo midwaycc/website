@@ -65,7 +65,7 @@
     "node-fetch": "^2.6.0",
     "node-notifier-cli": "^1.1.2",
     "polished": "^3.3.0",
-    "prettier": "^1.17.0",
+    "prettier": "^2.0.0",
     "query-string": "^6.10.1",
     "react": "^16.13.0",
     "react-dom": "^16.12.0",
