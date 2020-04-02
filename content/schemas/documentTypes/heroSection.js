@@ -16,33 +16,6 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'alertActive',
-      type: 'boolean',
-      title: 'Splash Active',
-      description: 'Whether or not the splash message should display'
-    },
-    {
-      name: 'alertMessage',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
-          lists: [],
-          marks: {
-            decorators: [
-              { title: 'Bold', value: 'strong' },
-              { title: 'Italic', value: 'em' },
-              { title: 'Underline', value: 'underline' }
-            ]
-          }
-        }
-      ],
-      title: 'Splash Message',
-      description:
-        'This will be displayed just above the New Here button, for special alerts/messages.'
-    },
-    {
       name: 'video',
       type: 'file',
       title: 'Splash Video',

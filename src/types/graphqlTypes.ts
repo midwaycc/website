@@ -925,10 +925,7 @@ export type QuerySanityHeroSectionArgs = {
   _key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   subtitle?: Maybe<StringQueryOperatorInput>;
-  alertActive?: Maybe<BooleanQueryOperatorInput>;
   video?: Maybe<SanityFileFilterInput>;
-  alertMessage?: Maybe<SanityBlockFilterListInput>;
-  _rawAlertMessage?: Maybe<JsonQueryOperatorInput>;
   _rawVideo?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -1792,10 +1789,7 @@ export type SanityHeroSection = SanityDocument & Node & {
   _key?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   subtitle?: Maybe<Scalars['String']>;
-  alertActive?: Maybe<Scalars['Boolean']>;
   video?: Maybe<SanityFile>;
-  alertMessage?: Maybe<Array<Maybe<SanityBlock>>>;
-  _rawAlertMessage?: Maybe<Scalars['JSON']>;
   _rawVideo?: Maybe<Scalars['JSON']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -1817,11 +1811,6 @@ export type SanityHeroSection_UpdatedAtArgs = {
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SanityHeroSection_RawAlertMessageArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 
@@ -1867,7 +1856,6 @@ export enum SanityHeroSectionFieldsEnum {
   _key = '_key',
   title = 'title',
   subtitle = 'subtitle',
-  alertActive = 'alertActive',
   video____key = 'video____key',
   video____type = 'video____type',
   video___asset____id = 'video___asset____id',
@@ -1907,17 +1895,6 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset___internal___mediaType = 'video___asset___internal___mediaType',
   video___asset___internal___owner = 'video___asset___internal___owner',
   video___asset___internal___type = 'video___asset___internal___type',
-  alertMessage = 'alertMessage',
-  alertMessage____key = 'alertMessage____key',
-  alertMessage____type = 'alertMessage____type',
-  alertMessage___sanityChildren = 'alertMessage___sanityChildren',
-  alertMessage___sanityChildren____key = 'alertMessage___sanityChildren____key',
-  alertMessage___sanityChildren____type = 'alertMessage___sanityChildren____type',
-  alertMessage___sanityChildren___marks = 'alertMessage___sanityChildren___marks',
-  alertMessage___sanityChildren___text = 'alertMessage___sanityChildren___text',
-  alertMessage___style = 'alertMessage___style',
-  alertMessage___list = 'alertMessage___list',
-  _rawAlertMessage = '_rawAlertMessage',
   _rawVideo = '_rawVideo',
   id = 'id',
   parent___id = 'parent___id',
@@ -2016,10 +1993,7 @@ export type SanityHeroSectionFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   subtitle?: Maybe<StringQueryOperatorInput>;
-  alertActive?: Maybe<BooleanQueryOperatorInput>;
   video?: Maybe<SanityFileFilterInput>;
-  alertMessage?: Maybe<SanityBlockFilterListInput>;
-  _rawAlertMessage?: Maybe<JsonQueryOperatorInput>;
   _rawVideo?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
