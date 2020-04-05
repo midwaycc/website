@@ -2733,6 +2733,7 @@ export enum SanityMinistryPageFieldsEnum {
   sections____key = 'sections____key',
   sections____type = 'sections____type',
   sections___name = 'sections___name',
+  sections___hidden = 'sections___hidden',
   sections___urlSuffix____key = 'sections___urlSuffix____key',
   sections___urlSuffix____type = 'sections___urlSuffix____type',
   sections___urlSuffix___current = 'sections___urlSuffix___current',
@@ -3517,6 +3518,7 @@ export type SanityPageSection = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  hidden?: Maybe<Scalars['Boolean']>;
   urlSuffix?: Maybe<SanitySlug>;
   content?: Maybe<Array<Maybe<SanityBlock>>>;
 };
@@ -3525,6 +3527,7 @@ export type SanityPageSectionFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>;
   _type?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  hidden?: Maybe<BooleanQueryOperatorInput>;
   urlSuffix?: Maybe<SanitySlugFilterInput>;
   content?: Maybe<SanityBlockFilterListInput>;
 };
@@ -3790,6 +3793,7 @@ export enum SanityPostFieldsEnum {
   ministries___sections____key = 'ministries___sections____key',
   ministries___sections____type = 'ministries___sections____type',
   ministries___sections___name = 'ministries___sections___name',
+  ministries___sections___hidden = 'ministries___sections___hidden',
   ministries___sections___urlSuffix____key = 'ministries___sections___urlSuffix____key',
   ministries___sections___urlSuffix____type = 'ministries___sections___urlSuffix____type',
   ministries___sections___urlSuffix___current = 'ministries___sections___urlSuffix___current',

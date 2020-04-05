@@ -36,7 +36,9 @@ export default ({ data, path }: Props) => {
     _rawSections
   } = data.sanityMinistryPage
   const { nodes: relatedPosts } = data.allSanityPost
-  const sections = Array.isArray(_rawSections) ? _rawSections : []
+  const sections = Array.isArray(_rawSections)
+    ? _rawSections.filter((section: SanityPageSection) => !section.hidden)
+    : []
   const parentURL = url && url.current
   if (!url || !parentURL) return null
 

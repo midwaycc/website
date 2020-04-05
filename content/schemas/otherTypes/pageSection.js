@@ -4,6 +4,7 @@ export default {
   type: 'object',
   fields: [
     { name: 'name', title: 'Name', type: 'string' },
+    { name: 'hidden', title: 'Hidden', type: 'boolean' },
     {
       name: 'urlSuffix',
       title: 'URL Suffix',
