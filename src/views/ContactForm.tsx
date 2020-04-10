@@ -15,13 +15,13 @@ export default () => {
         method="POST"
         action="/contact/success"
         data-netlify="true"
-        netlify-honeypot="phone"
+        data-netlify-honeypot="phone"
         css="width: 100%; text-align: center"
       >
         <TextInput title="Name" name="name" value={name} set={setName} />
         <TextInput title="Email" name="email" value={email} set={setEmail} />
         <input type="hidden" name="form-name" value="contact" />
-        <input type="hidden" name="phone" value="" />
+        <input css="display:none" type="hidden" name="phone" value="" />
         <TextInput
           textarea
           title="Message"
