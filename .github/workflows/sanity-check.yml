@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Curl request
-        run: curl https://midwaycc.netlify.com/.netlify/functions/sanity-check
+        run: curl https://midwaycc.netlify.app/.netlify/functions/sanity-check
