@@ -29,7 +29,6 @@ export default () => {
             <Day name="Sundays">
               <Event time="9:30 AM" name="Bible Study" />
               <Event time="11:00 AM" name="Worship Service" />
-              <Event time="5:00 PM" name="AWANA" />
               <Event time="5:00 PM" name="Youth" />
               <Event time="5:15 PM" name="Adult Q&A" />
             </Day>
