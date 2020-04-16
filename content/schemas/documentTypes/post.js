@@ -43,7 +43,8 @@ export default {
       name: 'thumbnail',
       type: 'image',
       title: 'Thumbnail',
-      description: 'Should be square and relatively small (under 200px)'
+      description:
+        'Should be square and relatively small (preferably 400px by 400px)'
     },
     {
       name: 'summary',
