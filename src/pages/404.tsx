@@ -6,7 +6,7 @@ export default () => (
   <>
     <Section css="padding-top: 2em">
       Sorry, that page doesn't seem to exist (yet)! Do you want to&nbsp;
-      <Link to="/">go home</Link>?
+      <Link to="/">go Home</Link>?
     </Section>
   </>
 )
