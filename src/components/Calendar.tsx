@@ -31,7 +31,11 @@ export default () => {
     <>
       <StyleOverrides />
       <FullCalendar
-        defaultView="listMonth"
+        defaultView="list"
+        visibleRange={{
+          start: new Date(),
+          end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
+        }}
         plugins={[listPlugin, googleCalendarPlugin]}
         googleCalendarApiKey="AIzaSyDhddcpnZvFan-d1e7AOTI3UM6of2QdcOk"
         eventClick={info => {
