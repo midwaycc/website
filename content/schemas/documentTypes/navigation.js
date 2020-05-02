@@ -2,6 +2,9 @@ export default {
   name: 'navigation',
   title: 'Navigation',
   type: 'document',
+  preview: {
+    prepare: () => ({ title: 'Navigation' })
+  },
   fields: [
     {
       name: 'items',

@@ -2,6 +2,9 @@ export default {
   name: 'heroSection',
   title: 'Hero Section',
   type: 'document',
+  preview: {
+    prepare: () => ({ title: 'Hero Section' })
+  },
   fields: [
     {
       name: 'title',

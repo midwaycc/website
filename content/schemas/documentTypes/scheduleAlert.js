@@ -3,12 +3,7 @@ export default {
   title: 'Schedule Alert',
   type: 'document',
   preview: {
-    select: {},
-    prepare() {
-      return {
-        title: 'Message'
-      }
-    }
+    prepare: () => ({ title: 'Schedule Alert' })
   },
   fields: [
     {
