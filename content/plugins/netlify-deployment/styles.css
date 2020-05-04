@@ -1,0 +1,64 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.container * {
+  box-sizing: border-box;
+}
+
+.container {
+  composes: container from 'part:@sanity/dashboard/widget-styles';
+  max-width: 40rem;
+}
+
+.header {
+  composes: header from 'part:@sanity/dashboard/widget-styles';
+}
+
+.title {
+  composes: title from 'part:@sanity/dashboard/widget-styles';
+}
+
+.content {
+  composes: content from 'part:@sanity/dashboard/widget-styles';
+  border-top: 1px solid #eee;
+  padding: 1rem;
+}
+
+.actionButton {
+  font-variant: small-caps;
+  text-transform: uppercase;
+}
+
+.deploys {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  margin-top: 1rem;
+  user-select: none;
+  cursor: default;
+}
+
+.deploy {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+.deploy:hover {
+  background-color: #eee;
+}
+
+.deploy:last-of-type {
+  border-bottom: none;
+}
+
+.deployRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deemphasized {
+  color: #777;
+  font-size: 0.85em;
+}

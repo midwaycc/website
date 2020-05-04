@@ -32,6 +32,11 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./plugins/dashboard.js"
+    },
+    {
+      "name": "part:@sanity/dashboard/widget/netlify-deployment",
+      "implements": "part:@sanity/dashboard/widget",
+      "path": "./plugins/netlify-deployment/index.jsx"
     }
   ]
 }
