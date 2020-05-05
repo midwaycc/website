@@ -6,7 +6,7 @@
 
 .container {
   composes: container from 'part:@sanity/dashboard/widget-styles';
-  max-width: 40rem;
+  max-width: 50rem;
 }
 
 .header {
@@ -53,9 +53,31 @@
   border-bottom: none;
 }
 
+.deployStatus {
+  display: inline-block;
+  font-size: 0.85em;
+  padding: 0.25em 0.5em;
+  margin-left: 0.5em;
+  border-radius: 0.75em;
+  line-height: 1em;
+  background-color: #ddd;
+}
+
+.deployStatus.success {
+  background-color: #9d9;
+}
+
+.deployStatus.error {
+  background-color: #d99;
+}
+
 .deployRow {
   display: flex;
   justify-content: space-between;
+}
+
+.deployRow > *:last-child {
+  flex-shrink: 0;
 }
 
 .deemphasized {

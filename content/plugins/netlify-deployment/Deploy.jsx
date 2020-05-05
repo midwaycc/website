@@ -18,14 +18,38 @@ export function Deploy({
         <span>
           <strong>{context}</strong>: {branch}@
           {commit_ref ? commit_ref.slice(0, 7) : 'HEAD'}
+          <span
+            className={`${styles.deployStatus} ${
+              state === 'ready'
+                ? styles.success
+                : state === 'error'
+                ? styles.error
+                : ''
+            }`}
+          >
+            {state === 'ready'
+              ? 'Published'
+              : state === 'building'
+              ? 'Building...'
+              : error_message && error_message.toLowerCase().includes('failed')
+              ? 'Failed'
+              : error_message &&
+                error_message.toLowerCase().includes('canceled')
+              ? 'Cancelled'
+              : 'Unknown'}
+          </span>
         </span>
         <span>{formatRelative(Date.parse(created_at), Date.now())}</span>
       </div>
       <div className={styles.deployRow}>
-        <span className={styles.deemphasized}>{title}</span>
         <span className={styles.deemphasized}>
-          Deployed in {duration(deploy_time)}
+          {title || 'Manually triggered'}
         </span>
+        {state === 'ready' && (
+          <span className={styles.deemphasized}>
+            Deployed in {duration(deploy_time)}
+          </span>
+        )}
       </div>
     </div>
   )

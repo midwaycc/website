@@ -1,4 +1,5 @@
-import resolve from 'rollup-plugin-node-resolve'
+import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
 import fs from 'fs'
 
 export default {
@@ -13,6 +14,9 @@ export default {
   plugins: [
     resolve({
       preferBuiltins: true
+    }),
+    replace({
+      'process.env.DEVELOPMENT': !!process.env.DEVELOPMENT
     })
   ]
 }
