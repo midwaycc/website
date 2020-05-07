@@ -25,18 +25,19 @@ export const FullLink = styled(
     children: React.ReactNode
     sameWindow?: boolean
   }) => {
+    const { sameWindow, ...otherProps } = props
     if (props.to.indexOf('http') === 0) {
       return (
         <a
           className={props.className}
           href={props.to}
-          target={props.sameWindow ? undefined : '_blank norel noreferrer'}
+          target={sameWindow ? undefined : '_blank norel noreferrer'}
         >
           {props.children}
         </a>
       )
     }
-    return <Link {...props} />
+    return <Link {...otherProps} />
   }
 ).attrs({ className: 'navigation-link' })`
   ${styles};
