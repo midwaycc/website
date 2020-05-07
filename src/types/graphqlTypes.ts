@@ -6,7 +6,12 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /**
+   * A date string, such as 2007-12-03, compliant with the ISO 8601 standard for
+   * representation of dates and times using the Gregorian calendar.
+   */
   Date: any;
+  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
 };
 
@@ -682,6 +687,7 @@ export type JsonQueryOperatorInput = {
   glob?: Maybe<Scalars['JSON']>;
 };
 
+/** Node Interface */
 export type Node = {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -1306,6 +1312,7 @@ export type SanityCenterImageWithWidth = {
   width?: Maybe<Scalars['Float']>;
 };
 
+/** A Sanity document */
 export type SanityDocument = {
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
@@ -4010,6 +4017,7 @@ export type SanityPostSortInput = {
 };
 
 export type SanityResolveReferencesConfiguration = {
+  /** Max depth to resolve references to */
   maxDepth: Scalars['Int'];
 };
 
