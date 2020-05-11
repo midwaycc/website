@@ -24,7 +24,8 @@
     "@sanity/production-preview": "1.149.x",
     "date-fns": "^2.12.0",
     "react": "^16.12",
-    "react-dom": "^16.11"
+    "react-dom": "^16.11",
+    "react-markdown": "^4.3.1"
   },
   "devDependencies": {
     "@sanity/cli": "1.149.x"

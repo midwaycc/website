@@ -10,6 +10,9 @@ export default {
           buildHookId: '5eaf63e5fe9df1ed9f68ee6c'
         }
       }
+    },
+    {
+      name: 'documentation'
     }
   ]
 }
