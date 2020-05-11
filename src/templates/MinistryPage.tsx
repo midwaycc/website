@@ -125,12 +125,15 @@ export default ({ data, path }: Props) => {
 
       <Section css="padding: 2em 1em">
         {!activeSection ? (
-          <RichContent blocks={content} />
+          <RichContent key="parent" blocks={content} />
         ) : (
           <>
             <h2>{activeSection.name}</h2>
             {activeSection.content && (
-              <RichContent blocks={activeSection.content} />
+              <RichContent
+                key={activeSection.name}
+                blocks={activeSection.content}
+              />
             )}
           </>
         )}
