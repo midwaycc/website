@@ -11,6 +11,7 @@ function path(document) {
     case 'navigation':
     case 'generalAlert':
     case 'scheduleAlert':
+    case 'weeklySchedule':
       return '/'
     case 'post':
       return `/posts/${document.slug.current}`
