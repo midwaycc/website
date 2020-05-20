@@ -748,6 +748,8 @@ export type Query = {
   allSanityScheduleAlert: SanityScheduleAlertConnection;
   sanitySermonUpload?: Maybe<SanitySermonUpload>;
   allSanitySermonUpload: SanitySermonUploadConnection;
+  sanityWeeklySchedule?: Maybe<SanityWeeklySchedule>;
+  allSanityWeeklySchedule: SanityWeeklyScheduleConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -1209,6 +1211,32 @@ export type QuerySanitySermonUploadArgs = {
 export type QueryAllSanitySermonUploadArgs = {
   filter?: Maybe<SanitySermonUploadFilterInput>;
   sort?: Maybe<SanitySermonUploadSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QuerySanityWeeklyScheduleArgs = {
+  _id?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  _createdAt?: Maybe<DateQueryOperatorInput>;
+  _updatedAt?: Maybe<DateQueryOperatorInput>;
+  _rev?: Maybe<StringQueryOperatorInput>;
+  _key?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  active?: Maybe<BooleanQueryOperatorInput>;
+  days?: Maybe<SanityWeeklyScheduleDayFilterListInput>;
+  _rawDays?: Maybe<JsonQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllSanityWeeklyScheduleArgs = {
+  filter?: Maybe<SanityWeeklyScheduleFilterInput>;
+  sort?: Maybe<SanityWeeklyScheduleSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -4532,6 +4560,251 @@ export type SanityVideoEmbed = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   videoId?: Maybe<Scalars['String']>;
+};
+
+export type SanityWeeklySchedule = SanityDocument & Node & {
+   __typename?: 'SanityWeeklySchedule';
+  _id?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  _createdAt?: Maybe<Scalars['Date']>;
+  _updatedAt?: Maybe<Scalars['Date']>;
+  _rev?: Maybe<Scalars['String']>;
+  _key?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  active?: Maybe<Scalars['Boolean']>;
+  days?: Maybe<Array<Maybe<SanityWeeklyScheduleDay>>>;
+  _rawDays?: Maybe<Scalars['JSON']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+
+export type SanityWeeklySchedule_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SanityWeeklySchedule_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SanityWeeklySchedule_RawDaysArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+export type SanityWeeklyScheduleConnection = {
+   __typename?: 'SanityWeeklyScheduleConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<SanityWeeklyScheduleEdge>;
+  nodes: Array<SanityWeeklySchedule>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<SanityWeeklyScheduleGroupConnection>;
+};
+
+
+export type SanityWeeklyScheduleConnectionDistinctArgs = {
+  field: SanityWeeklyScheduleFieldsEnum;
+};
+
+
+export type SanityWeeklyScheduleConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: SanityWeeklyScheduleFieldsEnum;
+};
+
+export type SanityWeeklyScheduleDay = {
+   __typename?: 'SanityWeeklyScheduleDay';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  events?: Maybe<Array<Maybe<SanityWeeklyScheduleEvent>>>;
+};
+
+export type SanityWeeklyScheduleDayFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  events?: Maybe<SanityWeeklyScheduleEventFilterListInput>;
+};
+
+export type SanityWeeklyScheduleDayFilterListInput = {
+  elemMatch?: Maybe<SanityWeeklyScheduleDayFilterInput>;
+};
+
+export type SanityWeeklyScheduleEdge = {
+   __typename?: 'SanityWeeklyScheduleEdge';
+  next?: Maybe<SanityWeeklySchedule>;
+  node: SanityWeeklySchedule;
+  previous?: Maybe<SanityWeeklySchedule>;
+};
+
+export type SanityWeeklyScheduleEvent = {
+   __typename?: 'SanityWeeklyScheduleEvent';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  time?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type SanityWeeklyScheduleEventFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  time?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SanityWeeklyScheduleEventFilterListInput = {
+  elemMatch?: Maybe<SanityWeeklyScheduleEventFilterInput>;
+};
+
+export enum SanityWeeklyScheduleFieldsEnum {
+  _id = '_id',
+  _type = '_type',
+  _createdAt = '_createdAt',
+  _updatedAt = '_updatedAt',
+  _rev = '_rev',
+  _key = '_key',
+  label = 'label',
+  active = 'active',
+  days = 'days',
+  days____key = 'days____key',
+  days____type = 'days____type',
+  days___label = 'days___label',
+  days___events = 'days___events',
+  days___events____key = 'days___events____key',
+  days___events____type = 'days___events____type',
+  days___events___time = 'days___events___time',
+  days___events___description = 'days___events___description',
+  _rawDays = '_rawDays',
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type SanityWeeklyScheduleFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  _createdAt?: Maybe<DateQueryOperatorInput>;
+  _updatedAt?: Maybe<DateQueryOperatorInput>;
+  _rev?: Maybe<StringQueryOperatorInput>;
+  _key?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  active?: Maybe<BooleanQueryOperatorInput>;
+  days?: Maybe<SanityWeeklyScheduleDayFilterListInput>;
+  _rawDays?: Maybe<JsonQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type SanityWeeklyScheduleGroupConnection = {
+   __typename?: 'SanityWeeklyScheduleGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<SanityWeeklyScheduleEdge>;
+  nodes: Array<SanityWeeklySchedule>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type SanityWeeklyScheduleSortInput = {
+  fields?: Maybe<Array<Maybe<SanityWeeklyScheduleFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
 export type Site = Node & {
