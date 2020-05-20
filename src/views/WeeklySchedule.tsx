@@ -6,7 +6,10 @@ import { Alert } from '~/components/Alert'
 import media from '~/utils/media'
 import scheduleBackground from '~/../static/images/Footer_Image.jpg'
 import { useStaticQuery, graphql } from 'gatsby'
-import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
+import {
+  WeeklyScheduleQuery,
+  SanityWeeklyScheduleDay
+} from '~/types/graphqlTypes'
 import RichContent from '~/components/RichContent'
 
 // Based on previous em styles in the browser, for precise calculations
@@ -19,33 +22,14 @@ const EVENT_LINE_HEIGHT = 24
 const DAY_TOTAL_HEIGHT = DAY_MARGIN_TOP + DAY_LINE_HEIGHT
 const EVENT_TOTAL_HEIGHT = EVENT_MARGIN_TOP + EVENT_LINE_HEIGHT
 
-const schedule = [
-  {
-    name: 'Sundays',
-    events: [
-      { time: '9:30 AM', label: 'Bible Study' },
-      { time: '11:00 AM', label: 'Worship Service' },
-      { time: '5:00 PM', label: 'Youth' },
-      { time: '5:15 PM', label: 'Adult Q&A' }
-    ]
-  },
-  {
-    name: 'Wednesdays',
-    events: [
-      { time: '7:00 PM', label: 'Prayer Meeting' },
-      { time: '7:00 PM', label: 'Youth D-Groups' }
-    ]
-  },
-  {
-    name: 'Thursdays',
-    events: [{ time: '6:30 AM', label: "Men's Bible Study" }]
-  }
-]
+type SanityDays = WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes'][number]['days']
 
 export default () => {
   const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
   const alert = data.sanityScheduleAlert
-  const splitIndex = getSplitIndex(schedule)
+  const schedule = data.allSanityWeeklySchedule.nodes[0]
+  const days = (schedule && schedule.days) || []
+  const splitIndex = getSplitIndex(days)
 
   return (
     <Container>
@@ -58,10 +42,12 @@ export default () => {
             <RichContent blocks={alert._rawMessage} />
           </Alert>
         )}
-        <Horizontal>
-          <Column>{daysFor(schedule.slice(0, splitIndex))}</Column>
-          <Column>{daysFor(schedule.slice(splitIndex))}</Column>
-        </Horizontal>
+        {schedule && (
+          <Horizontal>
+            <Column>{daysFor(days.slice(0, splitIndex))}</Column>
+            <Column>{daysFor(days.slice(splitIndex))}</Column>
+          </Horizontal>
+        )}
       </Content>
     </Container>
   )
@@ -125,22 +111,31 @@ function Event(props: { name: string; time: string }) {
   )
 }
 
-function daysFor(days: typeof schedule) {
-  return days.map(section => (
-    <Day key={section.name} name={section.name}>
-      {section.events.map((event, i) => (
-        <Event key={i} time={event.time} name={event.label} />
-      ))}
-    </Day>
-  ))
+function daysFor(days: SanityDays) {
+  if (!days) return []
+  return days.map(section =>
+    section && section.label && section.events ? (
+      <Day key={section.label} name={section.label}>
+        {section.events.map((event, i) =>
+          event && event.time && event.description ? (
+            <Event key={i} time={event.time} name={event.description} />
+          ) : null
+        )}
+      </Day>
+    ) : null
+  )
 }
 
-function getSplitIndex(days: typeof schedule) {
+function getSplitIndex(days: SanityDays) {
+  if (!days) return 0
   const differences = []
   let split = 0
 
   while (split <= days.length) {
-    const [a, b] = [days.slice(0, split), days.slice(split)]
+    const [a, b] = [
+      days.slice(0, split) as SanityWeeklyScheduleDay[],
+      days.slice(split) as SanityWeeklyScheduleDay[]
+    ]
     const [aHeight, bHeight] = [sum(a.map(dayHeight)), sum(b.map(dayHeight))]
     differences.push(Math.abs(aHeight - bHeight))
     split++
@@ -158,7 +153,8 @@ function getSplitIndex(days: typeof schedule) {
   return split
 }
 
-function dayHeight(day: typeof schedule[0]) {
+function dayHeight(day: SanityWeeklyScheduleDay | void) {
+  if (!day || !day.events) return 0
   return DAY_TOTAL_HEIGHT + EVENT_TOTAL_HEIGHT * day.events.length
 }
 
