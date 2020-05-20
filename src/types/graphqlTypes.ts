@@ -5801,23 +5801,6 @@ export type AllPostsQuery = (
   ) }
 );
 
-export type ChurchLocationQueryVariables = {};
-
-
-export type ChurchLocationQuery = (
-  { __typename?: 'Query' }
-  & { site?: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata?: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & { church?: Maybe<(
-        { __typename?: 'SiteSiteMetadataChurch' }
-        & Pick<SiteSiteMetadataChurch, 'address' | 'googleMapsEmbedSrc'>
-      )> }
-    )> }
-  )> }
-);
-
 export type GeneralAlertQueryVariables = {};
 
 
