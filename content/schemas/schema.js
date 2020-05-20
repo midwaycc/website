@@ -11,7 +11,10 @@ import scheduleAlert from './documentTypes/scheduleAlert'
 import generalAlert from './documentTypes/generalAlert'
 import sermonUpload from './documentTypes/sermonUpload'
 import newsletter from './documentTypes/newsletter'
-import weeklySchedule from './documentTypes/weeklySchedule'
+import weeklySchedule, {
+  weeklyScheduleEvent,
+  weeklyScheduleDay
+} from './documentTypes/weeklySchedule'
 
 // Other custom types
 import plainLink from './otherTypes/plainLink'
@@ -43,6 +46,8 @@ export default createSchema({
     scheduleAlert,
     sermonUpload,
     newsletter,
+    weeklyScheduleEvent,
+    weeklyScheduleDay,
     weeklySchedule,
     plainLink,
     pageLink,
