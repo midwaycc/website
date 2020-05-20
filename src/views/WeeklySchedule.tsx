@@ -9,9 +9,43 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { ScheduleAlertQuery } from '~/types/graphqlTypes'
 import RichContent from '~/components/RichContent'
 
+// Based on previous em styles in the browser, for precise calculations
+const DAY_MARGIN_TOP = 26
+const DAY_FONT_SIZE = 26
+const DAY_LINE_HEIGHT = 39
+const EVENT_MARGIN_TOP = 11.5
+const EVENT_FONT_SIZE = 19.2
+const EVENT_LINE_HEIGHT = 24
+const DAY_TOTAL_HEIGHT = DAY_MARGIN_TOP + DAY_LINE_HEIGHT
+const EVENT_TOTAL_HEIGHT = EVENT_MARGIN_TOP + EVENT_LINE_HEIGHT
+
+const schedule = [
+  {
+    name: 'Sundays',
+    events: [
+      { time: '9:30 AM', label: 'Bible Study' },
+      { time: '11:00 AM', label: 'Worship Service' },
+      { time: '5:00 PM', label: 'Youth' },
+      { time: '5:15 PM', label: 'Adult Q&A' }
+    ]
+  },
+  {
+    name: 'Wednesdays',
+    events: [
+      { time: '7:00 PM', label: 'Prayer Meeting' },
+      { time: '7:00 PM', label: 'Youth D-Groups' }
+    ]
+  },
+  {
+    name: 'Thursdays',
+    events: [{ time: '6:30 AM', label: "Men's Bible Study" }]
+  }
+]
+
 export default () => {
   const data: ScheduleAlertQuery = useStaticQuery(QUERY)
   const alert = data.sanityScheduleAlert
+  const splitIndex = getSplitIndex(schedule)
 
   return (
     <Container>
@@ -25,23 +59,8 @@ export default () => {
           </Alert>
         )}
         <Horizontal>
-          <Column>
-            <Day name="Sundays">
-              <Event time="9:30 AM" name="Bible Study" />
-              <Event time="11:00 AM" name="Worship Service" />
-              <Event time="5:00 PM" name="Youth" />
-              <Event time="5:15 PM" name="Adult Q&A" />
-            </Day>
-          </Column>
-          <Column>
-            <Day name="Wednesdays">
-              <Event time="7:00 PM" name="Prayer Meeting" />
-              <Event time="7:00 PM" name="Youth D-Groups" />
-            </Day>
-            <Day name="Thursdays">
-              <Event time="6:30 AM" name="Men's Bible Study" />
-            </Day>
-          </Column>
+          <Column>{daysFor(schedule.slice(0, splitIndex))}</Column>
+          <Column>{daysFor(schedule.slice(splitIndex))}</Column>
         </Horizontal>
       </Content>
     </Container>
@@ -60,20 +79,22 @@ export const QUERY = graphql`
 
 function Day(props: { name: string; children: React.ReactNode }) {
   return (
-    <>
+    <div>
       <h2
         css={css`
           color: white;
           margin: 0;
           text-transform: lowercase;
           font-variant: small-caps;
-          margin-top: 1em;
+          margin-top: ${DAY_MARGIN_TOP}px;
+          font-size: ${DAY_FONT_SIZE}px;
+          line-height: ${DAY_LINE_HEIGHT}px;
         `}
       >
         {props.name}
       </h2>
       {props.children}
-    </>
+    </div>
   )
 }
 
@@ -82,14 +103,56 @@ function Event(props: { name: string; time: string }) {
     <div
       css={css`
         color: white;
-        font-size: 1.2em;
-        margin-top: 0.6em;
+        margin-top: ${EVENT_MARGIN_TOP}px;
+        font-size: ${EVENT_FONT_SIZE}px;
+        line-height: ${EVENT_LINE_HEIGHT}px;
       `}
     >
       <EventTime>{props.time}</EventTime>
       <EventName>{props.name}</EventName>
     </div>
   )
+}
+
+function daysFor(days: typeof schedule) {
+  return days.map(section => (
+    <Day key={section.name} name={section.name}>
+      {section.events.map((event, i) => (
+        <Event key={i} time={event.time} name={event.label} />
+      ))}
+    </Day>
+  ))
+}
+
+function getSplitIndex(days: typeof schedule) {
+  const differences = []
+  let split = 0
+
+  while (split <= days.length) {
+    const [a, b] = [days.slice(0, split), days.slice(split)]
+    const [aHeight, bHeight] = [sum(a.map(dayHeight)), sum(b.map(dayHeight))]
+    differences.push(Math.abs(aHeight - bHeight))
+    split++
+  }
+
+  let minimum = Infinity
+
+  for (let i = 0; i < differences.length; i++) {
+    if (minimum > differences[i]) {
+      minimum = differences[i]
+      split = i
+    }
+  }
+
+  return split
+}
+
+function dayHeight(day: typeof schedule[0]) {
+  return DAY_TOTAL_HEIGHT + EVENT_TOTAL_HEIGHT * day.events.length
+}
+
+function sum(a: number[]) {
+  return a.reduce((x, y) => x + y, 0)
 }
 
 const Container = styled.div`
