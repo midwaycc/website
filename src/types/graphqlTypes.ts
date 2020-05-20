@@ -6123,13 +6123,26 @@ export type RecentPostsQuery = (
   ) }
 );
 
-export type ScheduleAlertQueryVariables = {};
+export type WeeklyScheduleQueryVariables = {};
 
 
-export type ScheduleAlertQuery = (
+export type WeeklyScheduleQuery = (
   { __typename?: 'Query' }
   & { sanityScheduleAlert?: Maybe<(
     { __typename?: 'SanityScheduleAlert' }
     & Pick<SanityScheduleAlert, 'id' | 'active' | '_rawMessage'>
-  )> }
+  )>, allSanityWeeklySchedule: (
+    { __typename?: 'SanityWeeklyScheduleConnection' }
+    & { nodes: Array<(
+      { __typename?: 'SanityWeeklySchedule' }
+      & { days?: Maybe<Array<Maybe<(
+        { __typename?: 'SanityWeeklyScheduleDay' }
+        & Pick<SanityWeeklyScheduleDay, 'label'>
+        & { events?: Maybe<Array<Maybe<(
+          { __typename?: 'SanityWeeklyScheduleEvent' }
+          & Pick<SanityWeeklyScheduleEvent, 'time' | 'description'>
+        )>>> }
+      )>>> }
+    )> }
+  ) }
 );

@@ -6,7 +6,7 @@ import { Alert } from '~/components/Alert'
 import media from '~/utils/media'
 import scheduleBackground from '~/../static/images/Footer_Image.jpg'
 import { useStaticQuery, graphql } from 'gatsby'
-import { ScheduleAlertQuery } from '~/types/graphqlTypes'
+import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
 import RichContent from '~/components/RichContent'
 
 // Based on previous em styles in the browser, for precise calculations
@@ -43,7 +43,7 @@ const schedule = [
 ]
 
 export default () => {
-  const data: ScheduleAlertQuery = useStaticQuery(QUERY)
+  const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
   const alert = data.sanityScheduleAlert
   const splitIndex = getSplitIndex(schedule)
 
@@ -68,11 +68,22 @@ export default () => {
 }
 
 export const QUERY = graphql`
-  query ScheduleAlert {
+  query WeeklySchedule {
     sanityScheduleAlert {
       id
       active
       _rawMessage
+    }
+    allSanityWeeklySchedule(filter: { active: { eq: true } }, limit: 1) {
+      nodes {
+        days {
+          label
+          events {
+            time
+            description
+          }
+        }
+      }
     }
   }
 `
