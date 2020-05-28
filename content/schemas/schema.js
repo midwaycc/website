@@ -33,6 +33,7 @@ import {
 } from './otherTypes/imageWithWidth'
 import verticalSpace from './otherTypes/verticalSpace'
 import videoEmbed from './otherTypes/videoEmbed'
+import buttonLink from './otherTypes/buttonLink'
 
 export default createSchema({
   name: 'default',
@@ -61,6 +62,7 @@ export default createSchema({
     rightImageWithWidth,
     leftImageWithWidth,
     verticalSpace,
-    videoEmbed
+    videoEmbed,
+    buttonLink
   ])
 })

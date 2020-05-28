@@ -5,12 +5,12 @@ type Props = {
   mark?: {
     href?: string
   }
-  children?: Array<React.ReactNode>
+  children?: React.ReactNode
 }
 
 export const EnhancedLink = ({ mark, children }: Props) => {
   if (!mark || !mark.href) {
-    return children
+    return <>{children}</>
   }
 
   if (mark.href.startsWith('/')) {

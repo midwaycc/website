@@ -75,6 +75,7 @@ export default {
   of: [
     { type: 'block' },
     { type: 'verticalSpace', icon: icon('\u2195') },
+    { type: 'buttonLink' },
     centerImage,
     leftImage,
     rightImage,

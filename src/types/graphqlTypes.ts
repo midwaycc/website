@@ -1321,7 +1321,17 @@ export type SanityBlockFilterListInput = {
   elemMatch?: Maybe<SanityBlockFilterInput>;
 };
 
-export type SanityBlockOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityCenterImage | SanityCenterImageWithWidth | SanityLeftImage | SanityLeftImageWithWidth | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityCenterImage | SanityCenterImageWithWidth | SanityLeftImage | SanityLeftImageWithWidth | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
+
+export type SanityButtonLink = {
+   __typename?: 'SanityButtonLink';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  href?: Maybe<Scalars['String']>;
+  dark?: Maybe<Scalars['Boolean']>;
+  thick?: Maybe<Scalars['Boolean']>;
+};
 
 export type SanityCenterImage = {
    __typename?: 'SanityCenterImage';
