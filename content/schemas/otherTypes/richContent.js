@@ -12,6 +12,7 @@ export default {
     { type: 'centerImageWithWidth' },
     { type: 'leftImageWithWidth' },
     { type: 'rightImageWithWidth' },
+    { type: 'picture' },
     { type: 'videoEmbed' }
   ]
 }

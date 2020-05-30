@@ -30,6 +30,7 @@ import {
   rightImageWithWidth,
   leftImageWithWidth
 } from './otherTypes/images'
+import picture from './otherTypes/picture'
 import verticalSpace from './otherTypes/verticalSpace'
 import videoEmbed from './otherTypes/videoEmbed'
 import buttonLink from './otherTypes/buttonLink'
@@ -60,6 +61,7 @@ export default createSchema({
     centerImageWithWidth,
     rightImageWithWidth,
     leftImageWithWidth,
+    picture,
     verticalSpace,
     videoEmbed,
     buttonLink
