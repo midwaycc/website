@@ -21,16 +21,15 @@ import plainLink from './otherTypes/plainLink'
 import pageLink from './otherTypes/pageLink'
 import nestedMenu from './otherTypes/nestedMenu'
 import pageSection from './otherTypes/pageSection'
-import richContent, {
+import richContent from './otherTypes/richContent'
+import {
   centerImage,
   rightImage,
-  leftImage
-} from './otherTypes/richContent'
-import {
+  leftImage,
   centerImageWithWidth,
   rightImageWithWidth,
   leftImageWithWidth
-} from './otherTypes/imageWithWidth'
+} from './otherTypes/images'
 import verticalSpace from './otherTypes/verticalSpace'
 import videoEmbed from './otherTypes/videoEmbed'
 import buttonLink from './otherTypes/buttonLink'

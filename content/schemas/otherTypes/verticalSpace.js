@@ -1,3 +1,5 @@
+import { blockIcon } from '../helpers/blockIcon'
+
 export default {
   type: 'object',
   name: 'verticalSpace',
@@ -10,6 +12,7 @@ export default {
         'Vertical space in `em` units (one `em` is the height of one line of text)'
     }
   ],
+  icon: blockIcon('\u2195'),
   preview: {
     select: {
       height: 'height'
