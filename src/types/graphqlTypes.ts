@@ -1321,7 +1321,7 @@ export type SanityBlockFilterListInput = {
   elemMatch?: Maybe<SanityBlockFilterInput>;
 };
 
-export type SanityBlockOrButtonLinkOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityCenterImage | SanityCenterImageWithWidth | SanityLeftImage | SanityLeftImageWithWidth | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrPictureOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityCenterImage | SanityCenterImageWithWidth | SanityLeftImage | SanityLeftImageWithWidth | SanityPicture | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
    __typename?: 'SanityButtonLink';
@@ -3584,6 +3584,15 @@ export type SanityPageSectionFilterListInput = {
 export type SanityPageSortInput = {
   fields?: Maybe<Array<Maybe<SanityPageFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type SanityPicture = {
+   __typename?: 'SanityPicture';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  image?: Maybe<SanityImage>;
+  size?: Maybe<Scalars['String']>;
+  align?: Maybe<Scalars['String']>;
 };
 
 export type SanityPlainLink = {
