@@ -6,6 +6,7 @@ import { EnhancedLink } from '~/utils/blockSerializers/EnhancedLink'
 import { CustomBlock } from '~/utils/blockSerializers/CustomBlock'
 import { VideoEmbed } from '~/utils/blockSerializers/VideoEmbed'
 import { ButtonLink } from '~/utils/blockSerializers/ButtonLink'
+import { Picture } from '~/utils/blockSerializers/Picture'
 
 type Props = {
   blocks: unknown[]
@@ -27,7 +28,8 @@ export default ({ blocks }: Props) => {
             rightImageWithWidth: SanityGatsbyImage,
             verticalSpace: VerticalSpace,
             videoEmbed: VideoEmbed,
-            buttonLink: ButtonLink
+            buttonLink: ButtonLink,
+            picture: Picture
           },
           marks: {
             link: EnhancedLink

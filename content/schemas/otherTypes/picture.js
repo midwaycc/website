@@ -7,7 +7,7 @@ export default {
       type: 'string',
       name: 'size',
       title: 'Size',
-      description: 'If not set, the default is "Full"',
+      validation: Rule => Rule.required(),
       options: {
         list: [
           { title: 'Full', value: 'full' },
@@ -21,7 +21,7 @@ export default {
       type: 'string',
       name: 'align',
       title: 'Alignment',
-      description: 'If not set, the default is "Center"',
+      validation: Rule => Rule.required(),
       options: {
         list: [
           { title: 'Center', value: 'center' },
