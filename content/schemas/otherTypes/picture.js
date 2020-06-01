@@ -4,19 +4,24 @@ export default {
   fields: [
     { type: 'image', name: 'image', title: 'Image' },
     {
-      type: 'number',
+      type: 'string',
       name: 'size',
-      title: 'Width (optional)',
-      description:
-        'The percentage of a desktop-sized screen that the image will fill. It will go full-width at smaller screen sizes.',
-      validation: Rule => Rule.min(1).max(100)
+      title: 'Size',
+      description: 'If not set, the default is "Full"',
+      options: {
+        list: [
+          { title: 'Full', value: 'full' },
+          { title: 'Small', value: 'small' },
+          { title: 'Medium', value: 'medium' },
+          { title: 'Large', value: 'large' }
+        ]
+      }
     },
     {
       type: 'string',
       name: 'align',
-      title: 'Alignment (optional)',
-      description:
-        'Images without width will be full-width by default. If a width is specified, this controls how the image will be aligned.',
+      title: 'Alignment',
+      description: 'If not set, the default is "Center"',
       options: {
         list: [
           { title: 'Center', value: 'center' },
