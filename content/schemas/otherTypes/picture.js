@@ -13,7 +13,8 @@ export default {
           { title: 'Large', value: 'large' },
           { title: 'Medium', value: 'medium' },
           { title: 'Small', value: 'small' },
-          { title: 'Tiny', value: 'tiny' }
+          { title: 'Tiny', value: 'tiny' },
+          { title: 'Mini', value: 'mini' }
         ]
       }
     },
