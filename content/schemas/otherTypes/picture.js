@@ -7,13 +7,13 @@ export default {
       type: 'string',
       name: 'size',
       title: 'Size',
-      validation: Rule => Rule.required(),
       options: {
         list: [
           { title: 'Full', value: 'full' },
-          { title: 'Small', value: 'small' },
+          { title: 'Large', value: 'large' },
           { title: 'Medium', value: 'medium' },
-          { title: 'Large', value: 'large' }
+          { title: 'Small', value: 'small' },
+          { title: 'Tiny', value: 'tiny' }
         ]
       }
     },
@@ -21,7 +21,6 @@ export default {
       type: 'string',
       name: 'align',
       title: 'Alignment',
-      validation: Rule => Rule.required(),
       options: {
         list: [
           { title: 'Center', value: 'center' },
@@ -30,5 +29,18 @@ export default {
         ]
       }
     }
-  ]
+  ],
+  preview: {
+    select: {
+      name: 'image.asset.originalFilename',
+      size: 'size',
+      align: 'align',
+      media: 'image'
+    },
+    prepare: ({ name, size, align, media }) => {
+      const sizePart = (size || 'full') + ' width'
+      const alignPart = (align || 'center') + ' aligned'
+      return { title: `${name} (${sizePart}, ${alignPart})`, media }
+    }
+  }
 }
