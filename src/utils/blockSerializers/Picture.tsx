@@ -23,16 +23,17 @@ type Props = {
   }
 }
 
-type Size = 'full' | 'small' | 'medium' | 'large'
+type Size = 'full' | 'large' | 'medium' | 'small' | 'tiny'
 type Align = 'center' | 'left' | 'right'
 
 const MAX_WIDTH = parseInt(media.xl.width)
-const PERCENT_ARRAY = [100 / 3, 50, 200 / 3, 100]
+const PERCENT_ARRAY = [25, 100.0 / 3, 50, 200.0 / 3, 100]
 const PERCENTS: Record<Size, number> = {
   full: 100,
-  small: 100.0 / 3,
+  large: 200.0 / 3,
   medium: 50,
-  large: 200.0 / 3
+  small: 100.0 / 3,
+  tiny: 25
 }
 
 export function Picture({ node }: Props) {
