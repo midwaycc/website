@@ -22,6 +22,7 @@ import pageLink from './otherTypes/pageLink'
 import nestedMenu from './otherTypes/nestedMenu'
 import pageSection from './otherTypes/pageSection'
 import richContent from './otherTypes/richContent'
+import contentSection from './otherTypes/contentSection'
 import {
   centerImage,
   rightImage,
@@ -55,6 +56,7 @@ export default createSchema({
     nestedMenu,
     pageSection,
     richContent,
+    contentSection,
     centerImage,
     rightImage,
     leftImage,

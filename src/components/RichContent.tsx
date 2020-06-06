@@ -7,6 +7,7 @@ import { CustomBlock } from '~/utils/blockSerializers/CustomBlock'
 import { VideoEmbed } from '~/utils/blockSerializers/VideoEmbed'
 import { ButtonLink } from '~/utils/blockSerializers/ButtonLink'
 import { Picture } from '~/utils/blockSerializers/Picture'
+import { ContentSection } from '~/utils/blockSerializers/ContentSection'
 
 type Props = {
   blocks: unknown[]
@@ -29,7 +30,8 @@ export default ({ blocks }: Props) => {
             verticalSpace: VerticalSpace,
             videoEmbed: VideoEmbed,
             buttonLink: ButtonLink,
-            picture: Picture
+            picture: Picture,
+            contentSection: ContentSection
           },
           marks: {
             link: EnhancedLink
