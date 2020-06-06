@@ -4,6 +4,7 @@ export default {
   type: 'array',
   of: [
     { type: 'block' },
+    { type: 'contentSection' },
     { type: 'verticalSpace' },
     { type: 'buttonLink' },
     { type: 'centerImage' },
