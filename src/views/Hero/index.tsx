@@ -53,7 +53,25 @@ export default () => {
                     }
                   `}
                 >
-                  Help us get to know you!
+                  Help us get
+                  <br
+                    css={css`
+                      ${media.xs} {
+                        display: none;
+                      }
+                    `}
+                  />
+                  <span
+                    css={css`
+                      display: none;
+                      ${media.xs} {
+                        display: unset;
+                      }
+                    `}
+                  >
+                    {' '}
+                  </span>
+                  to know you!
                 </SquareButton>
               </Link>
             </div>
