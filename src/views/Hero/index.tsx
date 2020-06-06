@@ -23,21 +23,40 @@ export default () => {
           <HeroContent>
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
-            <Link to="/new">
-              <SquareButton
-                dark
-                thick
-                css={css`
-                  margin-top: 2em;
-                  background-color: rgba(255, 255, 255, 0.5);
-                  :hover {
-                    background-color: white;
-                  }
-                `}
-              >
-                New Here?
-              </SquareButton>
-            </Link>
+            <div>
+              <Link to="/new">
+                <SquareButton
+                  dark
+                  thick
+                  css={css`
+                    margin-top: 2em;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    :hover {
+                      background-color: white;
+                    }
+                  `}
+                >
+                  New Here?
+                </SquareButton>
+              </Link>
+            </div>
+            <div>
+              <Link to="/visitor-info">
+                <SquareButton
+                  dark
+                  thick
+                  css={css`
+                    margin-top: 2em;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    :hover {
+                      background-color: white;
+                    }
+                  `}
+                >
+                  Help us get to know you!
+                </SquareButton>
+              </Link>
+            </div>
           </HeroContent>
         </OverlayContainer>
       </Container>

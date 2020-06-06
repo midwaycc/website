@@ -1,3 +1,3 @@
 export function Picture() {
-  return null;
+  return null
 }
