@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import RichContent from '~/components/RichContent'
@@ -15,14 +15,6 @@ const query = graphql`
 `
 
 export default () => {
-  const [alertRenderable, setAlertRenderable] = useState(false)
-  const [alertExpanded, setAlertExpanded] = useState(false)
-
-  useLayoutEffect(() => {
-    setAlertRenderable(true)
-    setTimeout(() => setAlertExpanded(true), 1500)
-  }, [])
-
   const data: GeneralAlertQuery = useStaticQuery(query)
   if (!data.sanityGeneralAlert) return null
   const {
@@ -30,10 +22,8 @@ export default () => {
     _rawMessage: alertMessage
   } = data.sanityGeneralAlert
 
-  return alertRenderable && alertActive && alertMessage ? (
-    <AlertContainer
-      style={{ maxHeight: alertExpanded ? '75vh' : 0, marginTop: '-1em' }}
-    >
+  return alertActive && alertMessage ? (
+    <AlertContainer>
       <RichContent blocks={alertMessage} />
     </AlertContainer>
   ) : null
@@ -44,6 +34,7 @@ const AlertContainer = styled.div`
   padding: 1em;
   padding-bottom: 0;
   text-align: center;
+  margin-top: -1em;
 
   & > * {
     margin: 0 auto;
