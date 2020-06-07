@@ -69,6 +69,7 @@ export const TextInput = ({
     width: 100%;
     border: none;
     font-size: 1em;
+    line-height: 1.25em;
     padding: 0.5em;
     font-family: 'Proxima Nova', sans-serif;
     resize: vertical;
@@ -92,7 +93,7 @@ export const TextInput = ({
       `}
     >
       {textarea ? (
-        <textarea css={styles} {...inputProps} rows={10} />
+        <textarea css={styles} {...inputProps} rows={8} />
       ) : (
         <input css={styles} {...inputProps} />
       )}

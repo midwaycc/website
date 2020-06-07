@@ -32,13 +32,13 @@ export default () => {
         <TextInput
           textarea
           title="Preferred method of contact"
-          name="preferredContact"
+          name="preferred-contact"
           value={preferredContact}
           set={setPreferredContact}
         />
         <TextInput
           textarea
-          title="Additional message/info"
+          title="Additional info (optional): Tell us about yourself! How did you find us? What did you like about the service?"
           name="message"
           value={message}
           set={setMessage}
