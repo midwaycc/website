@@ -1321,7 +1321,7 @@ export type SanityBlockFilterListInput = {
   elemMatch?: Maybe<SanityBlockFilterInput>;
 };
 
-export type SanityBlockOrButtonLinkOrCenterImageOrCenterImageWithWidthOrContentSectionOrLeftImageOrLeftImageWithWidthOrPictureOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityCenterImage | SanityCenterImageWithWidth | SanityContentSection | SanityLeftImage | SanityLeftImageWithWidth | SanityPicture | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrPictureOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityCenterImage | SanityCenterImageWithWidth | SanityLeftImage | SanityLeftImageWithWidth | SanityPicture | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
    __typename?: 'SanityButtonLink';
@@ -1348,16 +1348,6 @@ export type SanityCenterImageWithWidth = {
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
   width?: Maybe<Scalars['Float']>;
-};
-
-export type SanityContentSection = {
-   __typename?: 'SanityContentSection';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  color?: Maybe<Scalars['String']>;
-  backgroundImage?: Maybe<SanityImage>;
-  parallax?: Maybe<Scalars['Boolean']>;
-  content?: Maybe<Array<Maybe<SanityBlock>>>;
 };
 
 /** A Sanity document */
@@ -3603,6 +3593,7 @@ export type SanityPicture = {
   image?: Maybe<SanityImage>;
   size?: Maybe<Scalars['String']>;
   align?: Maybe<Scalars['String']>;
+  caption?: Maybe<Scalars['String']>;
 };
 
 export type SanityPlainLink = {

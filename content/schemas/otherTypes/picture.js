@@ -29,6 +29,11 @@ export default {
           { title: 'Right', value: 'right' }
         ]
       }
+    },
+    {
+      type: 'string',
+      name: 'caption',
+      title: 'Caption (optional)'
     }
   ],
   preview: {

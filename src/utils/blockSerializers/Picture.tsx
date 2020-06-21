@@ -1,23 +1,11 @@
 import React from 'react'
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import Image from 'gatsby-image'
 import media from '~/utils/media'
+import { SanityPicture } from '~/types/graphqlTypes'
 
 type Props = {
-  node?: {
-    image?: {
-      asset: {
-        url: string
-        metadata: {
-          lqip: string
-          dimensions: {
-            aspectRatio: number
-            width: number
-            height: number
-          }
-        }
-      }
-    }
+  node?: SanityPicture & {
     size?: Size
     align?: Align
   }
@@ -38,13 +26,22 @@ const PERCENTS: Record<Size, number> = {
 }
 
 export function Picture({ node }: Props) {
-  if (!node || !node.image || !node.image.asset) return null
+  if (!node || !node.image) return null
 
-  const { image, size, align } = node
+  const { image, size, align, caption } = node
+
   const { asset } = image
+  if (!asset) return null
+
   const { url: src, metadata } = asset
+  if (!src || !metadata) return null
+
   const { dimensions, lqip: base64 } = metadata
+  if (!dimensions || !base64) return null
+
   const { aspectRatio, width: originalWidth } = dimensions
+  if (!aspectRatio || !originalWidth) return null
+
   const percentWidth = PERCENTS[size || 'full']
   const width = MAX_WIDTH * (percentWidth / 100.0)
   const webp = '&fm=webp'
@@ -57,9 +54,18 @@ export function Picture({ node }: Props) {
   return (
     <div css={getContainerStyles(percentWidth, align)}>
       <Image fluid={fluid} />
+      {caption && <CaptionArea>{caption}</CaptionArea>}
     </div>
   )
 }
+
+const CaptionArea = styled.div`
+  padding: 1em;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+`
 
 function getContainerStyles(percent: number, align?: Align) {
   const index = PERCENT_ARRAY.indexOf(percent)
