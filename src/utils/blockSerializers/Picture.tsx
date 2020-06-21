@@ -23,7 +23,7 @@ const PERCENTS: Record<Size, number> = {
   medium: 50,
   small: 100.0 / 3,
   tiny: 25,
-  mini: 15,
+  mini: 15
 }
 
 export function Picture({ node }: Props) {
@@ -58,18 +58,14 @@ function getContainerStyles(percent: number, align?: Align) {
     ${getCss(100, align)};
 
     ${media.sm} {
-      ${getCss(PERCENT_ARRAY[Math.min(maxIndex, index + 3)], align)};
-    }
-
-    ${media.md} {
       ${getCss(PERCENT_ARRAY[Math.min(maxIndex, index + 2)], align)};
     }
 
-    ${media.lg} {
+    ${media.md} {
       ${getCss(PERCENT_ARRAY[Math.min(maxIndex, index + 1)], align)};
     }
 
-    ${media.xl} {
+    ${media.lg} {
       ${getCss(percent, align)};
     }
   `
