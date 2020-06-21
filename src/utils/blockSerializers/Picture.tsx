@@ -2,11 +2,22 @@ import React from 'react'
 import { css } from 'styled-components'
 import Image from 'gatsby-image'
 import media from '~/utils/media'
-import { SanityImageProp } from '~/types/sanity-image'
 
 type Props = {
   node?: {
-    image?: SanityImageProp
+    image?: {
+      asset: {
+        url: string
+        metadata: {
+          lqip: string
+          dimensions: {
+            aspectRatio: number
+            width: number
+            height: number
+          }
+        }
+      }
+    }
     size?: Size
     align?: Align
   }
