@@ -15,8 +15,8 @@ type Size = 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'mini'
 type Align = 'center' | 'left' | 'right'
 
 const MAX_WIDTH = parseInt(media.xl.width)
-const PERCENT_ARRAY = [15, 25, 100.0 / 3, 50, 200.0 / 3, 100]
-const PERCENTS: Record<Size, number> = {
+export const PERCENT_ARRAY = [15, 25, 100.0 / 3, 50, 200.0 / 3, 100]
+export const PERCENTS: Record<Size, number> = {
   full: 100,
   large: 200.0 / 3,
   medium: 50,
