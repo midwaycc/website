@@ -14,7 +14,7 @@ type Props = {
 type Size = 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'mini'
 type Align = 'center' | 'left' | 'right'
 
-const MAX_WIDTH = parseInt(media.xl.width)
+const MAX_WIDTH = media.xl.pixelWidth
 export const PERCENT_ARRAY = [15, 25, 100.0 / 3, 50, 200.0 / 3, 100]
 export const PERCENTS: Record<Size, number> = {
   full: 100,
