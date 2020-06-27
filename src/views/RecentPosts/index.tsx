@@ -53,7 +53,7 @@ const query = graphql`
     allSanityPost(
       limit: 6
       sort: { fields: date, order: DESC }
-      filter: { featured: { eq: true } }
+      filter: { featured: { eq: true }, hidden: { ne: true } }
     ) {
       nodes {
         _id

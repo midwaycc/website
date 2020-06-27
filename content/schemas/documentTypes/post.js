@@ -17,6 +17,13 @@ export default {
         'The most recent featured posts will appear on the home page.'
     },
     {
+      name: 'hidden',
+      title: 'Hidden',
+      type: 'boolean',
+      description:
+        'Hidden posts will not show up anywhere on the site (though links will still be generated for them).'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
