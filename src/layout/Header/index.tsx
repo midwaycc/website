@@ -15,11 +15,16 @@ import {
   SanityNestedMenu
 } from '~/types/graphqlTypes'
 
+type SanityItems = SanityNavigation['items']
+
 export default () => {
   const data: HeaderQuery = useStaticQuery(query)
   if (!data.sanityNavigation) return null
   const sanityItems = data.sanityNavigation.items
-  const navigationItems = navigationItemsFromSanityItems(sanityItems)
+  if (!sanityItems) return null
+  const navigationItems = navigationItemsFromSanityItems(
+    sanityItems as SanityItems
+  )
 
   if (!validateNavigationItems(navigationItems)) {
     throw new Error('Navigation items are not valid!')
@@ -91,9 +96,7 @@ function validateNavigationItems(navigationItems: NavItem[]) {
   })
 }
 
-function navigationItemsFromSanityItems(
-  items: SanityNavigation['items']
-): NavItem[] {
+function navigationItemsFromSanityItems(items: SanityItems): NavItem[] {
   if (!items) return []
 
   return items

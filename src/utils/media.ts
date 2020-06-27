@@ -25,7 +25,7 @@ export class MediaQueryWithWidth {
     return `@media (${this.rule}: ${this.width})`
   }
 
-  plusEm(amount: number) {
+  plusEm(amount: number): StringCompatibleQuery {
     return new MediaQueryWithWidth(
       this._width + amount
     ) as StringCompatibleQuery
