@@ -73,7 +73,7 @@ export default {
       ],
       title: 'Short Summary',
       description:
-        'This appears where the thumbnail is displayed, before opening up the post. Can include basic formatting and links.'
+        'This appears where the thumbnail is displayed, before opening up the post. Can include basic formatting, but no links (since the entire card is clickable).'
     },
     {
       name: 'body',
