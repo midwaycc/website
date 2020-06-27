@@ -1145,10 +1145,10 @@ export type QuerySanityImageAssetArgs = {
   url?: Maybe<StringQueryOperatorInput>;
   metadata?: Maybe<SanityImageMetadataFilterInput>;
   source?: Maybe<SanityAssetSourceDataFilterInput>;
-  fixed?: Maybe<SanityImageFixedFilterInput>;
-  fluid?: Maybe<SanityImageFluidFilterInput>;
   _rawMetadata?: Maybe<JsonQueryOperatorInput>;
   _rawSource?: Maybe<JsonQueryOperatorInput>;
+  fixed?: Maybe<SanityImageFixedFilterInput>;
+  fluid?: Maybe<SanityImageFluidFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -1287,7 +1287,7 @@ export type SanityAssetSourceData = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  sanityId?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
 };
 
@@ -1295,7 +1295,7 @@ export type SanityAssetSourceDataFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>;
   _type?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  sanityId?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -1303,17 +1303,24 @@ export type SanityBlock = {
   __typename?: 'SanityBlock';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
-  sanityChildren?: Maybe<Array<Maybe<SanitySpan>>>;
+  children?: Maybe<Array<Maybe<SanitySpan>>>;
   style?: Maybe<Scalars['String']>;
   list?: Maybe<Scalars['String']>;
+  _rawChildren?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityBlock_RawChildrenArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityBlockFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>;
   _type?: Maybe<StringQueryOperatorInput>;
-  sanityChildren?: Maybe<SanitySpanFilterListInput>;
+  children?: Maybe<SanitySpanFilterListInput>;
   style?: Maybe<StringQueryOperatorInput>;
   list?: Maybe<StringQueryOperatorInput>;
+  _rawChildren?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type SanityBlockFilterListInput = {
@@ -1340,6 +1347,24 @@ export type SanityCenterImage = {
   asset?: Maybe<SanityImageAsset>;
   hotspot?: Maybe<SanityImageHotspot>;
   crop?: Maybe<SanityImageCrop>;
+  _rawAsset?: Maybe<Scalars['JSON']>;
+  _rawHotspot?: Maybe<Scalars['JSON']>;
+  _rawCrop?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityCenterImage_RawAssetArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityCenterImage_RawHotspotArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityCenterImage_RawCropArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityCenterImageWithWidth = {
@@ -1348,6 +1373,12 @@ export type SanityCenterImageWithWidth = {
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
   width?: Maybe<Scalars['Float']>;
+  _rawImage?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityCenterImageWithWidth_RawImageArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 /** A Sanity document */
@@ -1364,6 +1395,12 @@ export type SanityFile = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   asset?: Maybe<SanityFileAsset>;
+  _rawAsset?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityFile_RawAssetArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityFileAsset = SanityDocument & Node & {
@@ -1464,7 +1501,7 @@ export enum SanityFileAssetFieldsEnum {
   source____key = 'source____key',
   source____type = 'source____type',
   source___name = 'source___name',
-  source___sanityId = 'source___sanityId',
+  source___id = 'source___id',
   source___url = 'source___url',
   _rawSource = '_rawSource',
   id = 'id',
@@ -1600,6 +1637,7 @@ export type SanityFileFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>;
   _type?: Maybe<StringQueryOperatorInput>;
   asset?: Maybe<SanityFileAssetFilterInput>;
+  _rawAsset?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type SanityGeneralAlert = SanityDocument & Node & {
@@ -1680,13 +1718,14 @@ export enum SanityGeneralAlertFieldsEnum {
   message = 'message',
   message____key = 'message____key',
   message____type = 'message____type',
-  message___sanityChildren = 'message___sanityChildren',
-  message___sanityChildren____key = 'message___sanityChildren____key',
-  message___sanityChildren____type = 'message___sanityChildren____type',
-  message___sanityChildren___marks = 'message___sanityChildren___marks',
-  message___sanityChildren___text = 'message___sanityChildren___text',
+  message___children = 'message___children',
+  message___children____key = 'message___children____key',
+  message___children____type = 'message___children____type',
+  message___children___marks = 'message___children___marks',
+  message___children___text = 'message___children___text',
   message___style = 'message___style',
   message___list = 'message___list',
+  message____rawChildren = 'message____rawChildren',
   _rawMessage = '_rawMessage',
   id = 'id',
   parent___id = 'parent___id',
@@ -1923,7 +1962,7 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset___source____key = 'video___asset___source____key',
   video___asset___source____type = 'video___asset___source____type',
   video___asset___source___name = 'video___asset___source___name',
-  video___asset___source___sanityId = 'video___asset___source___sanityId',
+  video___asset___source___id = 'video___asset___source___id',
   video___asset___source___url = 'video___asset___source___url',
   video___asset____rawSource = 'video___asset____rawSource',
   video___asset___id = 'video___asset___id',
@@ -1940,6 +1979,7 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset___internal___mediaType = 'video___asset___internal___mediaType',
   video___asset___internal___owner = 'video___asset___internal___owner',
   video___asset___internal___type = 'video___asset___internal___type',
+  video____rawAsset = 'video____rawAsset',
   _rawVideo = '_rawVideo',
   id = 'id',
   parent___id = 'parent___id',
@@ -2068,6 +2108,24 @@ export type SanityImage = {
   asset?: Maybe<SanityImageAsset>;
   hotspot?: Maybe<SanityImageHotspot>;
   crop?: Maybe<SanityImageCrop>;
+  _rawAsset?: Maybe<Scalars['JSON']>;
+  _rawHotspot?: Maybe<Scalars['JSON']>;
+  _rawCrop?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityImage_RawAssetArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImage_RawHotspotArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImage_RawCropArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityImageAsset = SanityDocument & Node & {
@@ -2091,10 +2149,10 @@ export type SanityImageAsset = SanityDocument & Node & {
   url?: Maybe<Scalars['String']>;
   metadata?: Maybe<SanityImageMetadata>;
   source?: Maybe<SanityAssetSourceData>;
-  fixed?: Maybe<SanityImageFixed>;
-  fluid?: Maybe<SanityImageFluid>;
   _rawMetadata?: Maybe<Scalars['JSON']>;
   _rawSource?: Maybe<Scalars['JSON']>;
+  fixed?: Maybe<SanityImageFixed>;
+  fluid?: Maybe<SanityImageFluid>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -2118,6 +2176,16 @@ export type SanityImageAsset_UpdatedAtArgs = {
 };
 
 
+export type SanityImageAsset_RawMetadataArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImageAsset_RawSourceArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
 export type SanityImageAssetFixedArgs = {
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
@@ -2130,16 +2198,6 @@ export type SanityImageAssetFluidArgs = {
   maxHeight?: Maybe<Scalars['Int']>;
   sizes?: Maybe<Scalars['String']>;
   toFormat?: Maybe<SanityImageFormat>;
-};
-
-
-export type SanityImageAsset_RawMetadataArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityImageAsset_RawSourceArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityImageAssetConnection = {
@@ -2245,31 +2303,40 @@ export enum SanityImageAssetFieldsEnum {
   metadata___palette___muted___foreground = 'metadata___palette___muted___foreground',
   metadata___palette___muted___population = 'metadata___palette___muted___population',
   metadata___palette___muted___title = 'metadata___palette___muted___title',
+  metadata___palette____rawDarkMuted = 'metadata___palette____rawDarkMuted',
+  metadata___palette____rawLightVibrant = 'metadata___palette____rawLightVibrant',
+  metadata___palette____rawDarkVibrant = 'metadata___palette____rawDarkVibrant',
+  metadata___palette____rawVibrant = 'metadata___palette____rawVibrant',
+  metadata___palette____rawDominant = 'metadata___palette____rawDominant',
+  metadata___palette____rawLightMuted = 'metadata___palette____rawLightMuted',
+  metadata___palette____rawMuted = 'metadata___palette____rawMuted',
   metadata___lqip = 'metadata___lqip',
   metadata___hasAlpha = 'metadata___hasAlpha',
   metadata___isOpaque = 'metadata___isOpaque',
+  metadata____rawLocation = 'metadata____rawLocation',
+  metadata____rawDimensions = 'metadata____rawDimensions',
+  metadata____rawPalette = 'metadata____rawPalette',
   source____key = 'source____key',
   source____type = 'source____type',
   source___name = 'source___name',
-  source___sanityId = 'source___sanityId',
+  source___id = 'source___id',
   source___url = 'source___url',
-  fixed___base64 = 'fixed___base64',
-  fixed___aspectRatio = 'fixed___aspectRatio',
+  _rawMetadata = '_rawMetadata',
+  _rawSource = '_rawSource',
   fixed___width = 'fixed___width',
   fixed___height = 'fixed___height',
   fixed___src = 'fixed___src',
   fixed___srcSet = 'fixed___srcSet',
+  fixed___base64 = 'fixed___base64',
   fixed___srcWebp = 'fixed___srcWebp',
   fixed___srcSetWebp = 'fixed___srcSetWebp',
-  fluid___base64 = 'fluid___base64',
   fluid___aspectRatio = 'fluid___aspectRatio',
   fluid___src = 'fluid___src',
   fluid___srcSet = 'fluid___srcSet',
+  fluid___sizes = 'fluid___sizes',
+  fluid___base64 = 'fluid___base64',
   fluid___srcWebp = 'fluid___srcWebp',
   fluid___srcSetWebp = 'fluid___srcSetWebp',
-  fluid___sizes = 'fluid___sizes',
-  _rawMetadata = '_rawMetadata',
-  _rawSource = '_rawSource',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -2378,10 +2445,10 @@ export type SanityImageAssetFilterInput = {
   url?: Maybe<StringQueryOperatorInput>;
   metadata?: Maybe<SanityImageMetadataFilterInput>;
   source?: Maybe<SanityAssetSourceDataFilterInput>;
-  fixed?: Maybe<SanityImageFixedFilterInput>;
-  fluid?: Maybe<SanityImageFluidFilterInput>;
   _rawMetadata?: Maybe<JsonQueryOperatorInput>;
   _rawSource?: Maybe<JsonQueryOperatorInput>;
+  fixed?: Maybe<SanityImageFixedFilterInput>;
+  fluid?: Maybe<SanityImageFluidFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2445,50 +2512,51 @@ export type SanityImageFilterInput = {
   asset?: Maybe<SanityImageAssetFilterInput>;
   hotspot?: Maybe<SanityImageHotspotFilterInput>;
   crop?: Maybe<SanityImageCropFilterInput>;
+  _rawAsset?: Maybe<JsonQueryOperatorInput>;
+  _rawHotspot?: Maybe<JsonQueryOperatorInput>;
+  _rawCrop?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type SanityImageFixed = {
   __typename?: 'SanityImageFixed';
+  width: Scalars['Float'];
+  height: Scalars['Float'];
+  src: Scalars['String'];
+  srcSet: Scalars['String'];
   base64?: Maybe<Scalars['String']>;
-  aspectRatio?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  src?: Maybe<Scalars['String']>;
-  srcSet?: Maybe<Scalars['String']>;
   srcWebp?: Maybe<Scalars['String']>;
   srcSetWebp?: Maybe<Scalars['String']>;
 };
 
 export type SanityImageFixedFilterInput = {
-  base64?: Maybe<StringQueryOperatorInput>;
-  aspectRatio?: Maybe<FloatQueryOperatorInput>;
   width?: Maybe<FloatQueryOperatorInput>;
   height?: Maybe<FloatQueryOperatorInput>;
   src?: Maybe<StringQueryOperatorInput>;
   srcSet?: Maybe<StringQueryOperatorInput>;
+  base64?: Maybe<StringQueryOperatorInput>;
   srcWebp?: Maybe<StringQueryOperatorInput>;
   srcSetWebp?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SanityImageFluid = {
   __typename?: 'SanityImageFluid';
+  aspectRatio: Scalars['Float'];
+  src: Scalars['String'];
+  srcSet: Scalars['String'];
+  sizes: Scalars['String'];
   base64?: Maybe<Scalars['String']>;
-  aspectRatio?: Maybe<Scalars['Float']>;
-  src?: Maybe<Scalars['String']>;
-  srcSet?: Maybe<Scalars['String']>;
   srcWebp?: Maybe<Scalars['String']>;
   srcSetWebp?: Maybe<Scalars['String']>;
-  sizes?: Maybe<Scalars['String']>;
 };
 
 export type SanityImageFluidFilterInput = {
-  base64?: Maybe<StringQueryOperatorInput>;
   aspectRatio?: Maybe<FloatQueryOperatorInput>;
   src?: Maybe<StringQueryOperatorInput>;
   srcSet?: Maybe<StringQueryOperatorInput>;
+  sizes?: Maybe<StringQueryOperatorInput>;
+  base64?: Maybe<StringQueryOperatorInput>;
   srcWebp?: Maybe<StringQueryOperatorInput>;
   srcSetWebp?: Maybe<StringQueryOperatorInput>;
-  sizes?: Maybe<StringQueryOperatorInput>;
 };
 
 export enum SanityImageFormat {
@@ -2527,6 +2595,24 @@ export type SanityImageMetadata = {
   lqip?: Maybe<Scalars['String']>;
   hasAlpha?: Maybe<Scalars['Boolean']>;
   isOpaque?: Maybe<Scalars['Boolean']>;
+  _rawLocation?: Maybe<Scalars['JSON']>;
+  _rawDimensions?: Maybe<Scalars['JSON']>;
+  _rawPalette?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityImageMetadata_RawLocationArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImageMetadata_RawDimensionsArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImageMetadata_RawPaletteArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityImageMetadataFilterInput = {
@@ -2538,6 +2624,9 @@ export type SanityImageMetadataFilterInput = {
   lqip?: Maybe<StringQueryOperatorInput>;
   hasAlpha?: Maybe<BooleanQueryOperatorInput>;
   isOpaque?: Maybe<BooleanQueryOperatorInput>;
+  _rawLocation?: Maybe<JsonQueryOperatorInput>;
+  _rawDimensions?: Maybe<JsonQueryOperatorInput>;
+  _rawPalette?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type SanityImagePalette = {
@@ -2551,6 +2640,48 @@ export type SanityImagePalette = {
   dominant?: Maybe<SanityImagePaletteSwatch>;
   lightMuted?: Maybe<SanityImagePaletteSwatch>;
   muted?: Maybe<SanityImagePaletteSwatch>;
+  _rawDarkMuted?: Maybe<Scalars['JSON']>;
+  _rawLightVibrant?: Maybe<Scalars['JSON']>;
+  _rawDarkVibrant?: Maybe<Scalars['JSON']>;
+  _rawVibrant?: Maybe<Scalars['JSON']>;
+  _rawDominant?: Maybe<Scalars['JSON']>;
+  _rawLightMuted?: Maybe<Scalars['JSON']>;
+  _rawMuted?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityImagePalette_RawDarkMutedArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImagePalette_RawLightVibrantArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImagePalette_RawDarkVibrantArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImagePalette_RawVibrantArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImagePalette_RawDominantArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImagePalette_RawLightMutedArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityImagePalette_RawMutedArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityImagePaletteFilterInput = {
@@ -2563,6 +2694,13 @@ export type SanityImagePaletteFilterInput = {
   dominant?: Maybe<SanityImagePaletteSwatchFilterInput>;
   lightMuted?: Maybe<SanityImagePaletteSwatchFilterInput>;
   muted?: Maybe<SanityImagePaletteSwatchFilterInput>;
+  _rawDarkMuted?: Maybe<JsonQueryOperatorInput>;
+  _rawLightVibrant?: Maybe<JsonQueryOperatorInput>;
+  _rawDarkVibrant?: Maybe<JsonQueryOperatorInput>;
+  _rawVibrant?: Maybe<JsonQueryOperatorInput>;
+  _rawDominant?: Maybe<JsonQueryOperatorInput>;
+  _rawLightMuted?: Maybe<JsonQueryOperatorInput>;
+  _rawMuted?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -2591,6 +2729,24 @@ export type SanityLeftImage = {
   asset?: Maybe<SanityImageAsset>;
   hotspot?: Maybe<SanityImageHotspot>;
   crop?: Maybe<SanityImageCrop>;
+  _rawAsset?: Maybe<Scalars['JSON']>;
+  _rawHotspot?: Maybe<Scalars['JSON']>;
+  _rawCrop?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityLeftImage_RawAssetArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityLeftImage_RawHotspotArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityLeftImage_RawCropArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityLeftImageWithWidth = {
@@ -2599,6 +2755,12 @@ export type SanityLeftImageWithWidth = {
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
   width?: Maybe<Scalars['Float']>;
+  _rawImage?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityLeftImageWithWidth_RawImageArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityMinistryPage = SanityDocument & Node & {
@@ -2725,28 +2887,30 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___metadata___lqip = 'subLogo___asset___metadata___lqip',
   subLogo___asset___metadata___hasAlpha = 'subLogo___asset___metadata___hasAlpha',
   subLogo___asset___metadata___isOpaque = 'subLogo___asset___metadata___isOpaque',
+  subLogo___asset___metadata____rawLocation = 'subLogo___asset___metadata____rawLocation',
+  subLogo___asset___metadata____rawDimensions = 'subLogo___asset___metadata____rawDimensions',
+  subLogo___asset___metadata____rawPalette = 'subLogo___asset___metadata____rawPalette',
   subLogo___asset___source____key = 'subLogo___asset___source____key',
   subLogo___asset___source____type = 'subLogo___asset___source____type',
   subLogo___asset___source___name = 'subLogo___asset___source___name',
-  subLogo___asset___source___sanityId = 'subLogo___asset___source___sanityId',
+  subLogo___asset___source___id = 'subLogo___asset___source___id',
   subLogo___asset___source___url = 'subLogo___asset___source___url',
-  subLogo___asset___fixed___base64 = 'subLogo___asset___fixed___base64',
-  subLogo___asset___fixed___aspectRatio = 'subLogo___asset___fixed___aspectRatio',
+  subLogo___asset____rawMetadata = 'subLogo___asset____rawMetadata',
+  subLogo___asset____rawSource = 'subLogo___asset____rawSource',
   subLogo___asset___fixed___width = 'subLogo___asset___fixed___width',
   subLogo___asset___fixed___height = 'subLogo___asset___fixed___height',
   subLogo___asset___fixed___src = 'subLogo___asset___fixed___src',
   subLogo___asset___fixed___srcSet = 'subLogo___asset___fixed___srcSet',
+  subLogo___asset___fixed___base64 = 'subLogo___asset___fixed___base64',
   subLogo___asset___fixed___srcWebp = 'subLogo___asset___fixed___srcWebp',
   subLogo___asset___fixed___srcSetWebp = 'subLogo___asset___fixed___srcSetWebp',
-  subLogo___asset___fluid___base64 = 'subLogo___asset___fluid___base64',
   subLogo___asset___fluid___aspectRatio = 'subLogo___asset___fluid___aspectRatio',
   subLogo___asset___fluid___src = 'subLogo___asset___fluid___src',
   subLogo___asset___fluid___srcSet = 'subLogo___asset___fluid___srcSet',
+  subLogo___asset___fluid___sizes = 'subLogo___asset___fluid___sizes',
+  subLogo___asset___fluid___base64 = 'subLogo___asset___fluid___base64',
   subLogo___asset___fluid___srcWebp = 'subLogo___asset___fluid___srcWebp',
   subLogo___asset___fluid___srcSetWebp = 'subLogo___asset___fluid___srcSetWebp',
-  subLogo___asset___fluid___sizes = 'subLogo___asset___fluid___sizes',
-  subLogo___asset____rawMetadata = 'subLogo___asset____rawMetadata',
-  subLogo___asset____rawSource = 'subLogo___asset____rawSource',
   subLogo___asset___id = 'subLogo___asset___id',
   subLogo___asset___parent___id = 'subLogo___asset___parent___id',
   subLogo___asset___parent___children = 'subLogo___asset___parent___children',
@@ -2773,6 +2937,9 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___crop___bottom = 'subLogo___crop___bottom',
   subLogo___crop___left = 'subLogo___crop___left',
   subLogo___crop___right = 'subLogo___crop___right',
+  subLogo____rawAsset = 'subLogo____rawAsset',
+  subLogo____rawHotspot = 'subLogo____rawHotspot',
+  subLogo____rawCrop = 'subLogo____rawCrop',
   subLogoWidth = 'subLogoWidth',
   sections = 'sections',
   sections____key = 'sections____key',
@@ -2785,23 +2952,27 @@ export enum SanityMinistryPageFieldsEnum {
   sections___content = 'sections___content',
   sections___content____key = 'sections___content____key',
   sections___content____type = 'sections___content____type',
-  sections___content___sanityChildren = 'sections___content___sanityChildren',
-  sections___content___sanityChildren____key = 'sections___content___sanityChildren____key',
-  sections___content___sanityChildren____type = 'sections___content___sanityChildren____type',
-  sections___content___sanityChildren___marks = 'sections___content___sanityChildren___marks',
-  sections___content___sanityChildren___text = 'sections___content___sanityChildren___text',
+  sections___content___children = 'sections___content___children',
+  sections___content___children____key = 'sections___content___children____key',
+  sections___content___children____type = 'sections___content___children____type',
+  sections___content___children___marks = 'sections___content___children___marks',
+  sections___content___children___text = 'sections___content___children___text',
   sections___content___style = 'sections___content___style',
   sections___content___list = 'sections___content___list',
+  sections___content____rawChildren = 'sections___content____rawChildren',
+  sections____rawUrlSuffix = 'sections____rawUrlSuffix',
+  sections____rawContent = 'sections____rawContent',
   content = 'content',
   content____key = 'content____key',
   content____type = 'content____type',
-  content___sanityChildren = 'content___sanityChildren',
-  content___sanityChildren____key = 'content___sanityChildren____key',
-  content___sanityChildren____type = 'content___sanityChildren____type',
-  content___sanityChildren___marks = 'content___sanityChildren___marks',
-  content___sanityChildren___text = 'content___sanityChildren___text',
+  content___children = 'content___children',
+  content___children____key = 'content___children____key',
+  content___children____type = 'content___children____type',
+  content___children___marks = 'content___children___marks',
+  content___children___text = 'content___children___text',
   content___style = 'content___style',
   content___list = 'content___list',
+  content____rawChildren = 'content____rawChildren',
   _rawUrl = '_rawUrl',
   _rawSubLogo = '_rawSubLogo',
   _rawContent = '_rawContent',
@@ -3135,6 +3306,12 @@ export type SanityNestedMenu = {
   _type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   items?: Maybe<Array<Maybe<SanityPageLinkOrPlainLink>>>;
+  _rawItems?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityNestedMenu_RawItemsArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityNestedMenuOrPageLinkOrPlainLink = SanityNestedMenu | SanityPageLink | SanityPlainLink;
@@ -3423,13 +3600,14 @@ export enum SanityPageFieldsEnum {
   content = 'content',
   content____key = 'content____key',
   content____type = 'content____type',
-  content___sanityChildren = 'content___sanityChildren',
-  content___sanityChildren____key = 'content___sanityChildren____key',
-  content___sanityChildren____type = 'content___sanityChildren____type',
-  content___sanityChildren___marks = 'content___sanityChildren___marks',
-  content___sanityChildren___text = 'content___sanityChildren___text',
+  content___children = 'content___children',
+  content___children____key = 'content___children____key',
+  content___children____type = 'content___children____type',
+  content___children___marks = 'content___children___marks',
+  content___children___text = 'content___children___text',
   content___style = 'content___style',
   content___list = 'content___list',
+  content____rawChildren = 'content____rawChildren',
   _rawUrl = '_rawUrl',
   _rawContent = '_rawContent',
   id = 'id',
@@ -3554,6 +3732,12 @@ export type SanityPageLink = {
   _type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   page?: Maybe<SanityMinistryPageOrPage>;
+  _rawPage?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityPageLink_RawPageArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityPageLinkOrPlainLink = SanityPageLink | SanityPlainLink;
@@ -3566,6 +3750,18 @@ export type SanityPageSection = {
   hidden?: Maybe<Scalars['Boolean']>;
   urlSuffix?: Maybe<SanitySlug>;
   content?: Maybe<Array<Maybe<SanityBlock>>>;
+  _rawUrlSuffix?: Maybe<Scalars['JSON']>;
+  _rawContent?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityPageSection_RawUrlSuffixArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityPageSection_RawContentArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityPageSectionFilterInput = {
@@ -3575,6 +3771,8 @@ export type SanityPageSectionFilterInput = {
   hidden?: Maybe<BooleanQueryOperatorInput>;
   urlSuffix?: Maybe<SanitySlugFilterInput>;
   content?: Maybe<SanityBlockFilterListInput>;
+  _rawUrlSuffix?: Maybe<JsonQueryOperatorInput>;
+  _rawContent?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type SanityPageSectionFilterListInput = {
@@ -3594,6 +3792,12 @@ export type SanityPicture = {
   size?: Maybe<Scalars['String']>;
   align?: Maybe<Scalars['String']>;
   caption?: Maybe<Scalars['String']>;
+  _rawImage?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityPicture_RawImageArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityPlainLink = {
@@ -3751,28 +3955,30 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___metadata___lqip = 'thumbnail___asset___metadata___lqip',
   thumbnail___asset___metadata___hasAlpha = 'thumbnail___asset___metadata___hasAlpha',
   thumbnail___asset___metadata___isOpaque = 'thumbnail___asset___metadata___isOpaque',
+  thumbnail___asset___metadata____rawLocation = 'thumbnail___asset___metadata____rawLocation',
+  thumbnail___asset___metadata____rawDimensions = 'thumbnail___asset___metadata____rawDimensions',
+  thumbnail___asset___metadata____rawPalette = 'thumbnail___asset___metadata____rawPalette',
   thumbnail___asset___source____key = 'thumbnail___asset___source____key',
   thumbnail___asset___source____type = 'thumbnail___asset___source____type',
   thumbnail___asset___source___name = 'thumbnail___asset___source___name',
-  thumbnail___asset___source___sanityId = 'thumbnail___asset___source___sanityId',
+  thumbnail___asset___source___id = 'thumbnail___asset___source___id',
   thumbnail___asset___source___url = 'thumbnail___asset___source___url',
-  thumbnail___asset___fixed___base64 = 'thumbnail___asset___fixed___base64',
-  thumbnail___asset___fixed___aspectRatio = 'thumbnail___asset___fixed___aspectRatio',
+  thumbnail___asset____rawMetadata = 'thumbnail___asset____rawMetadata',
+  thumbnail___asset____rawSource = 'thumbnail___asset____rawSource',
   thumbnail___asset___fixed___width = 'thumbnail___asset___fixed___width',
   thumbnail___asset___fixed___height = 'thumbnail___asset___fixed___height',
   thumbnail___asset___fixed___src = 'thumbnail___asset___fixed___src',
   thumbnail___asset___fixed___srcSet = 'thumbnail___asset___fixed___srcSet',
+  thumbnail___asset___fixed___base64 = 'thumbnail___asset___fixed___base64',
   thumbnail___asset___fixed___srcWebp = 'thumbnail___asset___fixed___srcWebp',
   thumbnail___asset___fixed___srcSetWebp = 'thumbnail___asset___fixed___srcSetWebp',
-  thumbnail___asset___fluid___base64 = 'thumbnail___asset___fluid___base64',
   thumbnail___asset___fluid___aspectRatio = 'thumbnail___asset___fluid___aspectRatio',
   thumbnail___asset___fluid___src = 'thumbnail___asset___fluid___src',
   thumbnail___asset___fluid___srcSet = 'thumbnail___asset___fluid___srcSet',
+  thumbnail___asset___fluid___sizes = 'thumbnail___asset___fluid___sizes',
+  thumbnail___asset___fluid___base64 = 'thumbnail___asset___fluid___base64',
   thumbnail___asset___fluid___srcWebp = 'thumbnail___asset___fluid___srcWebp',
   thumbnail___asset___fluid___srcSetWebp = 'thumbnail___asset___fluid___srcSetWebp',
-  thumbnail___asset___fluid___sizes = 'thumbnail___asset___fluid___sizes',
-  thumbnail___asset____rawMetadata = 'thumbnail___asset____rawMetadata',
-  thumbnail___asset____rawSource = 'thumbnail___asset____rawSource',
   thumbnail___asset___id = 'thumbnail___asset___id',
   thumbnail___asset___parent___id = 'thumbnail___asset___parent___id',
   thumbnail___asset___parent___children = 'thumbnail___asset___parent___children',
@@ -3799,6 +4005,9 @@ export enum SanityPostFieldsEnum {
   thumbnail___crop___bottom = 'thumbnail___crop___bottom',
   thumbnail___crop___left = 'thumbnail___crop___left',
   thumbnail___crop___right = 'thumbnail___crop___right',
+  thumbnail____rawAsset = 'thumbnail____rawAsset',
+  thumbnail____rawHotspot = 'thumbnail____rawHotspot',
+  thumbnail____rawCrop = 'thumbnail____rawCrop',
   ministries = 'ministries',
   ministries____id = 'ministries____id',
   ministries____type = 'ministries____type',
@@ -3845,6 +4054,9 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___crop___bottom = 'ministries___subLogo___crop___bottom',
   ministries___subLogo___crop___left = 'ministries___subLogo___crop___left',
   ministries___subLogo___crop___right = 'ministries___subLogo___crop___right',
+  ministries___subLogo____rawAsset = 'ministries___subLogo____rawAsset',
+  ministries___subLogo____rawHotspot = 'ministries___subLogo____rawHotspot',
+  ministries___subLogo____rawCrop = 'ministries___subLogo____rawCrop',
   ministries___subLogoWidth = 'ministries___subLogoWidth',
   ministries___sections = 'ministries___sections',
   ministries___sections____key = 'ministries___sections____key',
@@ -3857,19 +4069,23 @@ export enum SanityPostFieldsEnum {
   ministries___sections___content = 'ministries___sections___content',
   ministries___sections___content____key = 'ministries___sections___content____key',
   ministries___sections___content____type = 'ministries___sections___content____type',
-  ministries___sections___content___sanityChildren = 'ministries___sections___content___sanityChildren',
+  ministries___sections___content___children = 'ministries___sections___content___children',
   ministries___sections___content___style = 'ministries___sections___content___style',
   ministries___sections___content___list = 'ministries___sections___content___list',
+  ministries___sections___content____rawChildren = 'ministries___sections___content____rawChildren',
+  ministries___sections____rawUrlSuffix = 'ministries___sections____rawUrlSuffix',
+  ministries___sections____rawContent = 'ministries___sections____rawContent',
   ministries___content = 'ministries___content',
   ministries___content____key = 'ministries___content____key',
   ministries___content____type = 'ministries___content____type',
-  ministries___content___sanityChildren = 'ministries___content___sanityChildren',
-  ministries___content___sanityChildren____key = 'ministries___content___sanityChildren____key',
-  ministries___content___sanityChildren____type = 'ministries___content___sanityChildren____type',
-  ministries___content___sanityChildren___marks = 'ministries___content___sanityChildren___marks',
-  ministries___content___sanityChildren___text = 'ministries___content___sanityChildren___text',
+  ministries___content___children = 'ministries___content___children',
+  ministries___content___children____key = 'ministries___content___children____key',
+  ministries___content___children____type = 'ministries___content___children____type',
+  ministries___content___children___marks = 'ministries___content___children___marks',
+  ministries___content___children___text = 'ministries___content___children___text',
   ministries___content___style = 'ministries___content___style',
   ministries___content___list = 'ministries___content___list',
+  ministries___content____rawChildren = 'ministries___content____rawChildren',
   ministries____rawUrl = 'ministries____rawUrl',
   ministries____rawSubLogo = 'ministries____rawSubLogo',
   ministries____rawContent = 'ministries____rawContent',
@@ -3915,23 +4131,25 @@ export enum SanityPostFieldsEnum {
   summary = 'summary',
   summary____key = 'summary____key',
   summary____type = 'summary____type',
-  summary___sanityChildren = 'summary___sanityChildren',
-  summary___sanityChildren____key = 'summary___sanityChildren____key',
-  summary___sanityChildren____type = 'summary___sanityChildren____type',
-  summary___sanityChildren___marks = 'summary___sanityChildren___marks',
-  summary___sanityChildren___text = 'summary___sanityChildren___text',
+  summary___children = 'summary___children',
+  summary___children____key = 'summary___children____key',
+  summary___children____type = 'summary___children____type',
+  summary___children___marks = 'summary___children___marks',
+  summary___children___text = 'summary___children___text',
   summary___style = 'summary___style',
   summary___list = 'summary___list',
+  summary____rawChildren = 'summary____rawChildren',
   body = 'body',
   body____key = 'body____key',
   body____type = 'body____type',
-  body___sanityChildren = 'body___sanityChildren',
-  body___sanityChildren____key = 'body___sanityChildren____key',
-  body___sanityChildren____type = 'body___sanityChildren____type',
-  body___sanityChildren___marks = 'body___sanityChildren___marks',
-  body___sanityChildren___text = 'body___sanityChildren___text',
+  body___children = 'body___children',
+  body___children____key = 'body___children____key',
+  body___children____type = 'body___children____type',
+  body___children___marks = 'body___children___marks',
+  body___children___text = 'body___children___text',
   body___style = 'body___style',
   body___list = 'body___list',
+  body____rawChildren = 'body____rawChildren',
   _rawSlug = '_rawSlug',
   _rawThumbnail = '_rawThumbnail',
   _rawSummary = '_rawSummary',
@@ -4079,6 +4297,24 @@ export type SanityRightImage = {
   asset?: Maybe<SanityImageAsset>;
   hotspot?: Maybe<SanityImageHotspot>;
   crop?: Maybe<SanityImageCrop>;
+  _rawAsset?: Maybe<Scalars['JSON']>;
+  _rawHotspot?: Maybe<Scalars['JSON']>;
+  _rawCrop?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityRightImage_RawAssetArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityRightImage_RawHotspotArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityRightImage_RawCropArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityRightImageWithWidth = {
@@ -4087,6 +4323,12 @@ export type SanityRightImageWithWidth = {
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
   width?: Maybe<Scalars['Float']>;
+  _rawImage?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityRightImageWithWidth_RawImageArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityScheduleAlert = SanityDocument & Node & {
@@ -4167,13 +4409,14 @@ export enum SanityScheduleAlertFieldsEnum {
   message = 'message',
   message____key = 'message____key',
   message____type = 'message____type',
-  message___sanityChildren = 'message___sanityChildren',
-  message___sanityChildren____key = 'message___sanityChildren____key',
-  message___sanityChildren____type = 'message___sanityChildren____type',
-  message___sanityChildren___marks = 'message___sanityChildren___marks',
-  message___sanityChildren___text = 'message___sanityChildren___text',
+  message___children = 'message___children',
+  message___children____key = 'message___children____key',
+  message___children____type = 'message___children____type',
+  message___children___marks = 'message___children___marks',
+  message___children___text = 'message___children___text',
   message___style = 'message___style',
   message___list = 'message___list',
+  message____rawChildren = 'message____rawChildren',
   _rawMessage = '_rawMessage',
   id = 'id',
   parent___id = 'parent___id',
@@ -4401,7 +4644,7 @@ export enum SanitySermonUploadFieldsEnum {
   audioFile___asset___source____key = 'audioFile___asset___source____key',
   audioFile___asset___source____type = 'audioFile___asset___source____type',
   audioFile___asset___source___name = 'audioFile___asset___source___name',
-  audioFile___asset___source___sanityId = 'audioFile___asset___source___sanityId',
+  audioFile___asset___source___id = 'audioFile___asset___source___id',
   audioFile___asset___source___url = 'audioFile___asset___source___url',
   audioFile___asset____rawSource = 'audioFile___asset____rawSource',
   audioFile___asset___id = 'audioFile___asset___id',
@@ -4418,6 +4661,7 @@ export enum SanitySermonUploadFieldsEnum {
   audioFile___asset___internal___mediaType = 'audioFile___asset___internal___mediaType',
   audioFile___asset___internal___owner = 'audioFile___asset___internal___owner',
   audioFile___asset___internal___type = 'audioFile___asset___internal___type',
+  audioFile____rawAsset = 'audioFile____rawAsset',
   _rawAudioFile = '_rawAudioFile',
   id = 'id',
   parent___id = 'parent___id',
@@ -4652,6 +4896,12 @@ export type SanityWeeklyScheduleDay = {
   _type?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   events?: Maybe<Array<Maybe<SanityWeeklyScheduleEvent>>>;
+  _rawEvents?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityWeeklyScheduleDay_RawEventsArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityWeeklyScheduleDayFilterInput = {
@@ -4659,6 +4909,7 @@ export type SanityWeeklyScheduleDayFilterInput = {
   _type?: Maybe<StringQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
   events?: Maybe<SanityWeeklyScheduleEventFilterListInput>;
+  _rawEvents?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type SanityWeeklyScheduleDayFilterListInput = {
@@ -4709,6 +4960,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   days___events____type = 'days___events____type',
   days___events___time = 'days___events___time',
   days___events___description = 'days___events___description',
+  days____rawEvents = 'days____rawEvents',
   _rawDays = '_rawDays',
   id = 'id',
   parent___id = 'parent___id',
