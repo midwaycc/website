@@ -1,4 +1,5 @@
 export type Maybe<T> = T | null;
+export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -6,10 +7,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /**
-   * A date string, such as 2007-12-03, compliant with the ISO 8601 standard for
-   * representation of dates and times using the Gregorian calendar.
-   */
+  /** A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
@@ -35,7 +33,7 @@ export type DateQueryOperatorInput = {
 };
 
 export type Directory = Node & {
-   __typename?: 'Directory';
+  __typename?: 'Directory';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -132,7 +130,7 @@ export type DirectoryCtimeArgs = {
 };
 
 export type DirectoryConnection = {
-   __typename?: 'DirectoryConnection';
+  __typename?: 'DirectoryConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -154,7 +152,7 @@ export type DirectoryConnectionGroupArgs = {
 };
 
 export type DirectoryEdge = {
-   __typename?: 'DirectoryEdge';
+  __typename?: 'DirectoryEdge';
   next?: Maybe<Directory>;
   node: Directory;
   previous?: Maybe<Directory>;
@@ -319,7 +317,7 @@ export type DirectoryFilterInput = {
 };
 
 export type DirectoryGroupConnection = {
-   __typename?: 'DirectoryGroupConnection';
+  __typename?: 'DirectoryGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -334,7 +332,7 @@ export type DirectorySortInput = {
 };
 
 export type File = Node & {
-   __typename?: 'File';
+  __typename?: 'File';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -431,7 +429,7 @@ export type FileCtimeArgs = {
 };
 
 export type FileConnection = {
-   __typename?: 'FileConnection';
+  __typename?: 'FileConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -453,7 +451,7 @@ export type FileConnectionGroupArgs = {
 };
 
 export type FileEdge = {
-   __typename?: 'FileEdge';
+  __typename?: 'FileEdge';
   next?: Maybe<File>;
   node: File;
   previous?: Maybe<File>;
@@ -618,7 +616,7 @@ export type FileFilterInput = {
 };
 
 export type FileGroupConnection = {
-   __typename?: 'FileGroupConnection';
+  __typename?: 'FileGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -644,7 +642,7 @@ export type FloatQueryOperatorInput = {
 };
 
 export type Internal = {
-   __typename?: 'Internal';
+  __typename?: 'Internal';
   content?: Maybe<Scalars['String']>;
   contentDigest: Scalars['String'];
   description?: Maybe<Scalars['String']>;
@@ -707,7 +705,7 @@ export type NodeFilterListInput = {
 };
 
 export type PageInfo = {
-   __typename?: 'PageInfo';
+  __typename?: 'PageInfo';
   currentPage: Scalars['Int'];
   hasPreviousPage: Scalars['Boolean'];
   hasNextPage: Scalars['Boolean'];
@@ -717,7 +715,7 @@ export type PageInfo = {
 };
 
 export type Query = {
-   __typename?: 'Query';
+  __typename?: 'Query';
   file?: Maybe<File>;
   allFile: FileConnection;
   directory?: Maybe<Directory>;
@@ -1285,7 +1283,7 @@ export type QueryAllSitePluginArgs = {
 };
 
 export type SanityAssetSourceData = {
-   __typename?: 'SanityAssetSourceData';
+  __typename?: 'SanityAssetSourceData';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
@@ -1302,7 +1300,7 @@ export type SanityAssetSourceDataFilterInput = {
 };
 
 export type SanityBlock = {
-   __typename?: 'SanityBlock';
+  __typename?: 'SanityBlock';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   sanityChildren?: Maybe<Array<Maybe<SanitySpan>>>;
@@ -1325,7 +1323,7 @@ export type SanityBlockFilterListInput = {
 export type SanityBlockOrButtonLinkOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrPictureOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityCenterImage | SanityCenterImageWithWidth | SanityLeftImage | SanityLeftImageWithWidth | SanityPicture | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
-   __typename?: 'SanityButtonLink';
+  __typename?: 'SanityButtonLink';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -1336,7 +1334,7 @@ export type SanityButtonLink = {
 };
 
 export type SanityCenterImage = {
-   __typename?: 'SanityCenterImage';
+  __typename?: 'SanityCenterImage';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   asset?: Maybe<SanityImageAsset>;
@@ -1345,7 +1343,7 @@ export type SanityCenterImage = {
 };
 
 export type SanityCenterImageWithWidth = {
-   __typename?: 'SanityCenterImageWithWidth';
+  __typename?: 'SanityCenterImageWithWidth';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
@@ -1362,14 +1360,14 @@ export type SanityDocument = {
 };
 
 export type SanityFile = {
-   __typename?: 'SanityFile';
+  __typename?: 'SanityFile';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   asset?: Maybe<SanityFileAsset>;
 };
 
 export type SanityFileAsset = SanityDocument & Node & {
-   __typename?: 'SanityFileAsset';
+  __typename?: 'SanityFileAsset';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -1417,7 +1415,7 @@ export type SanityFileAsset_RawSourceArgs = {
 };
 
 export type SanityFileAssetConnection = {
-   __typename?: 'SanityFileAssetConnection';
+  __typename?: 'SanityFileAssetConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityFileAssetEdge>;
   nodes: Array<SanityFileAsset>;
@@ -1439,7 +1437,7 @@ export type SanityFileAssetConnectionGroupArgs = {
 };
 
 export type SanityFileAssetEdge = {
-   __typename?: 'SanityFileAssetEdge';
+  __typename?: 'SanityFileAssetEdge';
   next?: Maybe<SanityFileAsset>;
   node: SanityFileAsset;
   previous?: Maybe<SanityFileAsset>;
@@ -1584,7 +1582,7 @@ export type SanityFileAssetFilterInput = {
 };
 
 export type SanityFileAssetGroupConnection = {
-   __typename?: 'SanityFileAssetGroupConnection';
+  __typename?: 'SanityFileAssetGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityFileAssetEdge>;
   nodes: Array<SanityFileAsset>;
@@ -1605,7 +1603,7 @@ export type SanityFileFilterInput = {
 };
 
 export type SanityGeneralAlert = SanityDocument & Node & {
-   __typename?: 'SanityGeneralAlert';
+  __typename?: 'SanityGeneralAlert';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -1643,7 +1641,7 @@ export type SanityGeneralAlert_RawMessageArgs = {
 };
 
 export type SanityGeneralAlertConnection = {
-   __typename?: 'SanityGeneralAlertConnection';
+  __typename?: 'SanityGeneralAlertConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityGeneralAlertEdge>;
   nodes: Array<SanityGeneralAlert>;
@@ -1665,7 +1663,7 @@ export type SanityGeneralAlertConnectionGroupArgs = {
 };
 
 export type SanityGeneralAlertEdge = {
-   __typename?: 'SanityGeneralAlertEdge';
+  __typename?: 'SanityGeneralAlertEdge';
   next?: Maybe<SanityGeneralAlert>;
   node: SanityGeneralAlert;
   previous?: Maybe<SanityGeneralAlert>;
@@ -1795,7 +1793,7 @@ export type SanityGeneralAlertFilterInput = {
 };
 
 export type SanityGeneralAlertGroupConnection = {
-   __typename?: 'SanityGeneralAlertGroupConnection';
+  __typename?: 'SanityGeneralAlertGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityGeneralAlertEdge>;
   nodes: Array<SanityGeneralAlert>;
@@ -1810,7 +1808,7 @@ export type SanityGeneralAlertSortInput = {
 };
 
 export type SanityGeopoint = {
-   __typename?: 'SanityGeopoint';
+  __typename?: 'SanityGeopoint';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   lat?: Maybe<Scalars['Float']>;
@@ -1827,7 +1825,7 @@ export type SanityGeopointFilterInput = {
 };
 
 export type SanityHeroSection = SanityDocument & Node & {
-   __typename?: 'SanityHeroSection';
+  __typename?: 'SanityHeroSection';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -1866,7 +1864,7 @@ export type SanityHeroSection_RawVideoArgs = {
 };
 
 export type SanityHeroSectionConnection = {
-   __typename?: 'SanityHeroSectionConnection';
+  __typename?: 'SanityHeroSectionConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityHeroSectionEdge>;
   nodes: Array<SanityHeroSection>;
@@ -1888,7 +1886,7 @@ export type SanityHeroSectionConnectionGroupArgs = {
 };
 
 export type SanityHeroSectionEdge = {
-   __typename?: 'SanityHeroSectionEdge';
+  __typename?: 'SanityHeroSectionEdge';
   next?: Maybe<SanityHeroSection>;
   node: SanityHeroSection;
   previous?: Maybe<SanityHeroSection>;
@@ -2049,7 +2047,7 @@ export type SanityHeroSectionFilterInput = {
 };
 
 export type SanityHeroSectionGroupConnection = {
-   __typename?: 'SanityHeroSectionGroupConnection';
+  __typename?: 'SanityHeroSectionGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityHeroSectionEdge>;
   nodes: Array<SanityHeroSection>;
@@ -2064,7 +2062,7 @@ export type SanityHeroSectionSortInput = {
 };
 
 export type SanityImage = {
-   __typename?: 'SanityImage';
+  __typename?: 'SanityImage';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   asset?: Maybe<SanityImageAsset>;
@@ -2073,7 +2071,7 @@ export type SanityImage = {
 };
 
 export type SanityImageAsset = SanityDocument & Node & {
-   __typename?: 'SanityImageAsset';
+  __typename?: 'SanityImageAsset';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -2145,7 +2143,7 @@ export type SanityImageAsset_RawSourceArgs = {
 };
 
 export type SanityImageAssetConnection = {
-   __typename?: 'SanityImageAssetConnection';
+  __typename?: 'SanityImageAssetConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityImageAssetEdge>;
   nodes: Array<SanityImageAsset>;
@@ -2167,7 +2165,7 @@ export type SanityImageAssetConnectionGroupArgs = {
 };
 
 export type SanityImageAssetEdge = {
-   __typename?: 'SanityImageAssetEdge';
+  __typename?: 'SanityImageAssetEdge';
   next?: Maybe<SanityImageAsset>;
   node: SanityImageAsset;
   previous?: Maybe<SanityImageAsset>;
@@ -2391,7 +2389,7 @@ export type SanityImageAssetFilterInput = {
 };
 
 export type SanityImageAssetGroupConnection = {
-   __typename?: 'SanityImageAssetGroupConnection';
+  __typename?: 'SanityImageAssetGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityImageAssetEdge>;
   nodes: Array<SanityImageAsset>;
@@ -2406,7 +2404,7 @@ export type SanityImageAssetSortInput = {
 };
 
 export type SanityImageCrop = {
-   __typename?: 'SanityImageCrop';
+  __typename?: 'SanityImageCrop';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   top?: Maybe<Scalars['Float']>;
@@ -2425,7 +2423,7 @@ export type SanityImageCropFilterInput = {
 };
 
 export type SanityImageDimensions = {
-   __typename?: 'SanityImageDimensions';
+  __typename?: 'SanityImageDimensions';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['Float']>;
@@ -2450,7 +2448,7 @@ export type SanityImageFilterInput = {
 };
 
 export type SanityImageFixed = {
-   __typename?: 'SanityImageFixed';
+  __typename?: 'SanityImageFixed';
   base64?: Maybe<Scalars['String']>;
   aspectRatio?: Maybe<Scalars['Float']>;
   width?: Maybe<Scalars['Float']>;
@@ -2473,7 +2471,7 @@ export type SanityImageFixedFilterInput = {
 };
 
 export type SanityImageFluid = {
-   __typename?: 'SanityImageFluid';
+  __typename?: 'SanityImageFluid';
   base64?: Maybe<Scalars['String']>;
   aspectRatio?: Maybe<Scalars['Float']>;
   src?: Maybe<Scalars['String']>;
@@ -2501,7 +2499,7 @@ export enum SanityImageFormat {
 }
 
 export type SanityImageHotspot = {
-   __typename?: 'SanityImageHotspot';
+  __typename?: 'SanityImageHotspot';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   x?: Maybe<Scalars['Float']>;
@@ -2520,7 +2518,7 @@ export type SanityImageHotspotFilterInput = {
 };
 
 export type SanityImageMetadata = {
-   __typename?: 'SanityImageMetadata';
+  __typename?: 'SanityImageMetadata';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   location?: Maybe<SanityGeopoint>;
@@ -2543,7 +2541,7 @@ export type SanityImageMetadataFilterInput = {
 };
 
 export type SanityImagePalette = {
-   __typename?: 'SanityImagePalette';
+  __typename?: 'SanityImagePalette';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   darkMuted?: Maybe<SanityImagePaletteSwatch>;
@@ -2568,7 +2566,7 @@ export type SanityImagePaletteFilterInput = {
 };
 
 export type SanityImagePaletteSwatch = {
-   __typename?: 'SanityImagePaletteSwatch';
+  __typename?: 'SanityImagePaletteSwatch';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   background?: Maybe<Scalars['String']>;
@@ -2587,7 +2585,7 @@ export type SanityImagePaletteSwatchFilterInput = {
 };
 
 export type SanityLeftImage = {
-   __typename?: 'SanityLeftImage';
+  __typename?: 'SanityLeftImage';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   asset?: Maybe<SanityImageAsset>;
@@ -2596,7 +2594,7 @@ export type SanityLeftImage = {
 };
 
 export type SanityLeftImageWithWidth = {
-   __typename?: 'SanityLeftImageWithWidth';
+  __typename?: 'SanityLeftImageWithWidth';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
@@ -2604,7 +2602,7 @@ export type SanityLeftImageWithWidth = {
 };
 
 export type SanityMinistryPage = SanityDocument & Node & {
-   __typename?: 'SanityMinistryPage';
+  __typename?: 'SanityMinistryPage';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -2664,7 +2662,7 @@ export type SanityMinistryPage_RawSectionsArgs = {
 };
 
 export type SanityMinistryPageConnection = {
-   __typename?: 'SanityMinistryPageConnection';
+  __typename?: 'SanityMinistryPageConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityMinistryPageEdge>;
   nodes: Array<SanityMinistryPage>;
@@ -2686,7 +2684,7 @@ export type SanityMinistryPageConnectionGroupArgs = {
 };
 
 export type SanityMinistryPageEdge = {
-   __typename?: 'SanityMinistryPageEdge';
+  __typename?: 'SanityMinistryPageEdge';
   next?: Maybe<SanityMinistryPage>;
   node: SanityMinistryPage;
   previous?: Maybe<SanityMinistryPage>;
@@ -2924,7 +2922,7 @@ export type SanityMinistryPageFilterListInput = {
 };
 
 export type SanityMinistryPageGroupConnection = {
-   __typename?: 'SanityMinistryPageGroupConnection';
+  __typename?: 'SanityMinistryPageGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityMinistryPageEdge>;
   nodes: Array<SanityMinistryPage>;
@@ -2941,7 +2939,7 @@ export type SanityMinistryPageSortInput = {
 };
 
 export type SanityNavigation = SanityDocument & Node & {
-   __typename?: 'SanityNavigation';
+  __typename?: 'SanityNavigation';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -2978,7 +2976,7 @@ export type SanityNavigation_RawItemsArgs = {
 };
 
 export type SanityNavigationConnection = {
-   __typename?: 'SanityNavigationConnection';
+  __typename?: 'SanityNavigationConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityNavigationEdge>;
   nodes: Array<SanityNavigation>;
@@ -3000,7 +2998,7 @@ export type SanityNavigationConnectionGroupArgs = {
 };
 
 export type SanityNavigationEdge = {
-   __typename?: 'SanityNavigationEdge';
+  __typename?: 'SanityNavigationEdge';
   next?: Maybe<SanityNavigation>;
   node: SanityNavigation;
   previous?: Maybe<SanityNavigation>;
@@ -3117,7 +3115,7 @@ export type SanityNavigationFilterInput = {
 };
 
 export type SanityNavigationGroupConnection = {
-   __typename?: 'SanityNavigationGroupConnection';
+  __typename?: 'SanityNavigationGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityNavigationEdge>;
   nodes: Array<SanityNavigation>;
@@ -3132,7 +3130,7 @@ export type SanityNavigationSortInput = {
 };
 
 export type SanityNestedMenu = {
-   __typename?: 'SanityNestedMenu';
+  __typename?: 'SanityNestedMenu';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -3142,7 +3140,7 @@ export type SanityNestedMenu = {
 export type SanityNestedMenuOrPageLinkOrPlainLink = SanityNestedMenu | SanityPageLink | SanityPlainLink;
 
 export type SanityNewsletter = SanityDocument & Node & {
-   __typename?: 'SanityNewsletter';
+  __typename?: 'SanityNewsletter';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -3182,7 +3180,7 @@ export type SanityNewsletterDateArgs = {
 };
 
 export type SanityNewsletterConnection = {
-   __typename?: 'SanityNewsletterConnection';
+  __typename?: 'SanityNewsletterConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityNewsletterEdge>;
   nodes: Array<SanityNewsletter>;
@@ -3204,7 +3202,7 @@ export type SanityNewsletterConnectionGroupArgs = {
 };
 
 export type SanityNewsletterEdge = {
-   __typename?: 'SanityNewsletterEdge';
+  __typename?: 'SanityNewsletterEdge';
   next?: Maybe<SanityNewsletter>;
   node: SanityNewsletter;
   previous?: Maybe<SanityNewsletter>;
@@ -3323,7 +3321,7 @@ export type SanityNewsletterFilterInput = {
 };
 
 export type SanityNewsletterGroupConnection = {
-   __typename?: 'SanityNewsletterGroupConnection';
+  __typename?: 'SanityNewsletterGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityNewsletterEdge>;
   nodes: Array<SanityNewsletter>;
@@ -3338,7 +3336,7 @@ export type SanityNewsletterSortInput = {
 };
 
 export type SanityPage = SanityDocument & Node & {
-   __typename?: 'SanityPage';
+  __typename?: 'SanityPage';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -3383,7 +3381,7 @@ export type SanityPage_RawContentArgs = {
 };
 
 export type SanityPageConnection = {
-   __typename?: 'SanityPageConnection';
+  __typename?: 'SanityPageConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityPageEdge>;
   nodes: Array<SanityPage>;
@@ -3405,7 +3403,7 @@ export type SanityPageConnectionGroupArgs = {
 };
 
 export type SanityPageEdge = {
-   __typename?: 'SanityPageEdge';
+  __typename?: 'SanityPageEdge';
   next?: Maybe<SanityPage>;
   node: SanityPage;
   previous?: Maybe<SanityPage>;
@@ -3541,7 +3539,7 @@ export type SanityPageFilterInput = {
 };
 
 export type SanityPageGroupConnection = {
-   __typename?: 'SanityPageGroupConnection';
+  __typename?: 'SanityPageGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityPageEdge>;
   nodes: Array<SanityPage>;
@@ -3551,7 +3549,7 @@ export type SanityPageGroupConnection = {
 };
 
 export type SanityPageLink = {
-   __typename?: 'SanityPageLink';
+  __typename?: 'SanityPageLink';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -3561,7 +3559,7 @@ export type SanityPageLink = {
 export type SanityPageLinkOrPlainLink = SanityPageLink | SanityPlainLink;
 
 export type SanityPageSection = {
-   __typename?: 'SanityPageSection';
+  __typename?: 'SanityPageSection';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
@@ -3589,7 +3587,7 @@ export type SanityPageSortInput = {
 };
 
 export type SanityPicture = {
-   __typename?: 'SanityPicture';
+  __typename?: 'SanityPicture';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
@@ -3599,7 +3597,7 @@ export type SanityPicture = {
 };
 
 export type SanityPlainLink = {
-   __typename?: 'SanityPlainLink';
+  __typename?: 'SanityPlainLink';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -3610,7 +3608,7 @@ export type SanityPlainLink = {
 export type SanityPlainOrPageLink = SanityPlainLink | SanityPageLink;
 
 export type SanityPost = SanityDocument & Node & {
-   __typename?: 'SanityPost';
+  __typename?: 'SanityPost';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -3687,7 +3685,7 @@ export type SanityPost_RawMinistriesArgs = {
 };
 
 export type SanityPostConnection = {
-   __typename?: 'SanityPostConnection';
+  __typename?: 'SanityPostConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityPostEdge>;
   nodes: Array<SanityPost>;
@@ -3709,7 +3707,7 @@ export type SanityPostConnectionGroupArgs = {
 };
 
 export type SanityPostEdge = {
-   __typename?: 'SanityPostEdge';
+  __typename?: 'SanityPostEdge';
   next?: Maybe<SanityPost>;
   node: SanityPost;
   previous?: Maybe<SanityPost>;
@@ -4055,7 +4053,7 @@ export type SanityPostFilterInput = {
 };
 
 export type SanityPostGroupConnection = {
-   __typename?: 'SanityPostGroupConnection';
+  __typename?: 'SanityPostGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityPostEdge>;
   nodes: Array<SanityPost>;
@@ -4075,7 +4073,7 @@ export type SanityResolveReferencesConfiguration = {
 };
 
 export type SanityRightImage = {
-   __typename?: 'SanityRightImage';
+  __typename?: 'SanityRightImage';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   asset?: Maybe<SanityImageAsset>;
@@ -4084,7 +4082,7 @@ export type SanityRightImage = {
 };
 
 export type SanityRightImageWithWidth = {
-   __typename?: 'SanityRightImageWithWidth';
+  __typename?: 'SanityRightImageWithWidth';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
@@ -4092,7 +4090,7 @@ export type SanityRightImageWithWidth = {
 };
 
 export type SanityScheduleAlert = SanityDocument & Node & {
-   __typename?: 'SanityScheduleAlert';
+  __typename?: 'SanityScheduleAlert';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -4130,7 +4128,7 @@ export type SanityScheduleAlert_RawMessageArgs = {
 };
 
 export type SanityScheduleAlertConnection = {
-   __typename?: 'SanityScheduleAlertConnection';
+  __typename?: 'SanityScheduleAlertConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityScheduleAlertEdge>;
   nodes: Array<SanityScheduleAlert>;
@@ -4152,7 +4150,7 @@ export type SanityScheduleAlertConnectionGroupArgs = {
 };
 
 export type SanityScheduleAlertEdge = {
-   __typename?: 'SanityScheduleAlertEdge';
+  __typename?: 'SanityScheduleAlertEdge';
   next?: Maybe<SanityScheduleAlert>;
   node: SanityScheduleAlert;
   previous?: Maybe<SanityScheduleAlert>;
@@ -4282,7 +4280,7 @@ export type SanityScheduleAlertFilterInput = {
 };
 
 export type SanityScheduleAlertGroupConnection = {
-   __typename?: 'SanityScheduleAlertGroupConnection';
+  __typename?: 'SanityScheduleAlertGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityScheduleAlertEdge>;
   nodes: Array<SanityScheduleAlert>;
@@ -4297,7 +4295,7 @@ export type SanityScheduleAlertSortInput = {
 };
 
 export type SanitySermonUpload = SanityDocument & Node & {
-   __typename?: 'SanitySermonUpload';
+  __typename?: 'SanitySermonUpload';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -4344,7 +4342,7 @@ export type SanitySermonUpload_RawAudioFileArgs = {
 };
 
 export type SanitySermonUploadConnection = {
-   __typename?: 'SanitySermonUploadConnection';
+  __typename?: 'SanitySermonUploadConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanitySermonUploadEdge>;
   nodes: Array<SanitySermonUpload>;
@@ -4366,7 +4364,7 @@ export type SanitySermonUploadConnectionGroupArgs = {
 };
 
 export type SanitySermonUploadEdge = {
-   __typename?: 'SanitySermonUploadEdge';
+  __typename?: 'SanitySermonUploadEdge';
   next?: Maybe<SanitySermonUpload>;
   node: SanitySermonUpload;
   previous?: Maybe<SanitySermonUpload>;
@@ -4527,7 +4525,7 @@ export type SanitySermonUploadFilterInput = {
 };
 
 export type SanitySermonUploadGroupConnection = {
-   __typename?: 'SanitySermonUploadGroupConnection';
+  __typename?: 'SanitySermonUploadGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanitySermonUploadEdge>;
   nodes: Array<SanitySermonUpload>;
@@ -4542,7 +4540,7 @@ export type SanitySermonUploadSortInput = {
 };
 
 export type SanitySlug = {
-   __typename?: 'SanitySlug';
+  __typename?: 'SanitySlug';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   current?: Maybe<Scalars['String']>;
@@ -4555,7 +4553,7 @@ export type SanitySlugFilterInput = {
 };
 
 export type SanitySpan = {
-   __typename?: 'SanitySpan';
+  __typename?: 'SanitySpan';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   marks?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -4574,21 +4572,21 @@ export type SanitySpanFilterListInput = {
 };
 
 export type SanityVerticalSpace = {
-   __typename?: 'SanityVerticalSpace';
+  __typename?: 'SanityVerticalSpace';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['Float']>;
 };
 
 export type SanityVideoEmbed = {
-   __typename?: 'SanityVideoEmbed';
+  __typename?: 'SanityVideoEmbed';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   videoId?: Maybe<Scalars['String']>;
 };
 
 export type SanityWeeklySchedule = SanityDocument & Node & {
-   __typename?: 'SanityWeeklySchedule';
+  __typename?: 'SanityWeeklySchedule';
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -4627,7 +4625,7 @@ export type SanityWeeklySchedule_RawDaysArgs = {
 };
 
 export type SanityWeeklyScheduleConnection = {
-   __typename?: 'SanityWeeklyScheduleConnection';
+  __typename?: 'SanityWeeklyScheduleConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityWeeklyScheduleEdge>;
   nodes: Array<SanityWeeklySchedule>;
@@ -4649,7 +4647,7 @@ export type SanityWeeklyScheduleConnectionGroupArgs = {
 };
 
 export type SanityWeeklyScheduleDay = {
-   __typename?: 'SanityWeeklyScheduleDay';
+  __typename?: 'SanityWeeklyScheduleDay';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
@@ -4668,14 +4666,14 @@ export type SanityWeeklyScheduleDayFilterListInput = {
 };
 
 export type SanityWeeklyScheduleEdge = {
-   __typename?: 'SanityWeeklyScheduleEdge';
+  __typename?: 'SanityWeeklyScheduleEdge';
   next?: Maybe<SanityWeeklySchedule>;
   node: SanityWeeklySchedule;
   previous?: Maybe<SanityWeeklySchedule>;
 };
 
 export type SanityWeeklyScheduleEvent = {
-   __typename?: 'SanityWeeklyScheduleEvent';
+  __typename?: 'SanityWeeklyScheduleEvent';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   time?: Maybe<Scalars['String']>;
@@ -4818,7 +4816,7 @@ export type SanityWeeklyScheduleFilterInput = {
 };
 
 export type SanityWeeklyScheduleGroupConnection = {
-   __typename?: 'SanityWeeklyScheduleGroupConnection';
+  __typename?: 'SanityWeeklyScheduleGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SanityWeeklyScheduleEdge>;
   nodes: Array<SanityWeeklySchedule>;
@@ -4833,7 +4831,7 @@ export type SanityWeeklyScheduleSortInput = {
 };
 
 export type Site = Node & {
-   __typename?: 'Site';
+  __typename?: 'Site';
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
   port?: Maybe<Scalars['Int']>;
@@ -4855,7 +4853,7 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteBuildMetadata = Node & {
-   __typename?: 'SiteBuildMetadata';
+  __typename?: 'SiteBuildMetadata';
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -4872,7 +4870,7 @@ export type SiteBuildMetadataBuildTimeArgs = {
 };
 
 export type SiteBuildMetadataConnection = {
-   __typename?: 'SiteBuildMetadataConnection';
+  __typename?: 'SiteBuildMetadataConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteBuildMetadataEdge>;
   nodes: Array<SiteBuildMetadata>;
@@ -4894,7 +4892,7 @@ export type SiteBuildMetadataConnectionGroupArgs = {
 };
 
 export type SiteBuildMetadataEdge = {
-   __typename?: 'SiteBuildMetadataEdge';
+  __typename?: 'SiteBuildMetadataEdge';
   next?: Maybe<SiteBuildMetadata>;
   node: SiteBuildMetadata;
   previous?: Maybe<SiteBuildMetadata>;
@@ -4999,7 +4997,7 @@ export type SiteBuildMetadataFilterInput = {
 };
 
 export type SiteBuildMetadataGroupConnection = {
-   __typename?: 'SiteBuildMetadataGroupConnection';
+  __typename?: 'SiteBuildMetadataGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteBuildMetadataEdge>;
   nodes: Array<SiteBuildMetadata>;
@@ -5014,7 +5012,7 @@ export type SiteBuildMetadataSortInput = {
 };
 
 export type SiteConnection = {
-   __typename?: 'SiteConnection';
+  __typename?: 'SiteConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -5036,7 +5034,7 @@ export type SiteConnectionGroupArgs = {
 };
 
 export type SiteEdge = {
-   __typename?: 'SiteEdge';
+  __typename?: 'SiteEdge';
   next?: Maybe<Site>;
   node: Site;
   previous?: Maybe<Site>;
@@ -5153,7 +5151,7 @@ export type SiteFilterInput = {
 };
 
 export type SiteGroupConnection = {
-   __typename?: 'SiteGroupConnection';
+  __typename?: 'SiteGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -5163,7 +5161,7 @@ export type SiteGroupConnection = {
 };
 
 export type SitePage = Node & {
-   __typename?: 'SitePage';
+  __typename?: 'SitePage';
   path: Scalars['String'];
   component: Scalars['String'];
   internalComponentName: Scalars['String'];
@@ -5181,7 +5179,7 @@ export type SitePage = Node & {
 };
 
 export type SitePageConnection = {
-   __typename?: 'SitePageConnection';
+  __typename?: 'SitePageConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -5203,7 +5201,7 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-   __typename?: 'SitePageContext';
+  __typename?: 'SitePageContext';
   _id?: Maybe<Scalars['String']>;
   page?: Maybe<Scalars['Int']>;
   perPage?: Maybe<Scalars['Int']>;
@@ -5224,7 +5222,7 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageEdge = {
-   __typename?: 'SitePageEdge';
+  __typename?: 'SitePageEdge';
   next?: Maybe<SitePage>;
   node: SitePage;
   previous?: Maybe<SitePage>;
@@ -5425,7 +5423,7 @@ export type SitePageFilterInput = {
 };
 
 export type SitePageGroupConnection = {
-   __typename?: 'SitePageGroupConnection';
+  __typename?: 'SitePageGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -5440,7 +5438,7 @@ export type SitePageSortInput = {
 };
 
 export type SitePlugin = Node & {
-   __typename?: 'SitePlugin';
+  __typename?: 'SitePlugin';
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -5457,7 +5455,7 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginConnection = {
-   __typename?: 'SitePluginConnection';
+  __typename?: 'SitePluginConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -5479,7 +5477,7 @@ export type SitePluginConnectionGroupArgs = {
 };
 
 export type SitePluginEdge = {
-   __typename?: 'SitePluginEdge';
+  __typename?: 'SitePluginEdge';
   next?: Maybe<SitePlugin>;
   node: SitePlugin;
   previous?: Maybe<SitePlugin>;
@@ -5626,7 +5624,7 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginGroupConnection = {
-   __typename?: 'SitePluginGroupConnection';
+  __typename?: 'SitePluginGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -5636,7 +5634,7 @@ export type SitePluginGroupConnection = {
 };
 
 export type SitePluginPackageJson = {
-   __typename?: 'SitePluginPackageJson';
+  __typename?: 'SitePluginPackageJson';
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
@@ -5650,7 +5648,7 @@ export type SitePluginPackageJson = {
 };
 
 export type SitePluginPackageJsonDependencies = {
-   __typename?: 'SitePluginPackageJsonDependencies';
+  __typename?: 'SitePluginPackageJsonDependencies';
   name?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
 };
@@ -5665,7 +5663,7 @@ export type SitePluginPackageJsonDependenciesFilterListInput = {
 };
 
 export type SitePluginPackageJsonDevDependencies = {
-   __typename?: 'SitePluginPackageJsonDevDependencies';
+  __typename?: 'SitePluginPackageJsonDevDependencies';
   name?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
 };
@@ -5693,7 +5691,7 @@ export type SitePluginPackageJsonFilterInput = {
 };
 
 export type SitePluginPackageJsonPeerDependencies = {
-   __typename?: 'SitePluginPackageJsonPeerDependencies';
+  __typename?: 'SitePluginPackageJsonPeerDependencies';
   name?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
 };
@@ -5708,7 +5706,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-   __typename?: 'SitePluginPluginOptions';
+  __typename?: 'SitePluginPluginOptions';
   root?: Maybe<Scalars['String']>;
   aliases?: Maybe<SitePluginPluginOptionsAliases>;
   component?: Maybe<Scalars['String']>;
@@ -5724,7 +5722,7 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsAliases = {
-   __typename?: 'SitePluginPluginOptionsAliases';
+  __typename?: 'SitePluginPluginOptionsAliases';
   _?: Maybe<Scalars['String']>;
 };
 
@@ -5753,12 +5751,12 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
-   __typename?: 'SiteSiteMetadata';
+  __typename?: 'SiteSiteMetadata';
   church?: Maybe<SiteSiteMetadataChurch>;
 };
 
 export type SiteSiteMetadataChurch = {
-   __typename?: 'SiteSiteMetadataChurch';
+  __typename?: 'SiteSiteMetadataChurch';
   address?: Maybe<Array<Maybe<Scalars['String']>>>;
   phone?: Maybe<Scalars['String']>;
   googleMapsEmbedSrc?: Maybe<Scalars['String']>;
@@ -5833,7 +5831,7 @@ export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = (
   & Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
-export type ChurchInfoQueryVariables = {};
+export type ChurchInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ChurchInfoQuery = (
@@ -5850,7 +5848,7 @@ export type ChurchInfoQuery = (
   )> }
 );
 
-export type HeaderQueryVariables = {};
+export type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HeaderQuery = (
@@ -5902,7 +5900,7 @@ type AnyNavLink_SanityPageLink_Fragment = (
 
 export type AnyNavLinkFragment = AnyNavLink_SanityPlainLink_Fragment | AnyNavLink_SanityPageLink_Fragment;
 
-export type NewsletterQueryVariables = {};
+export type NewsletterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type NewsletterQuery = (
@@ -5916,7 +5914,7 @@ export type NewsletterQuery = (
   ) }
 );
 
-export type SermonUploadQueryVariables = {};
+export type SermonUploadQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SermonUploadQuery = (
@@ -5937,7 +5935,7 @@ export type SermonUploadQuery = (
   ) }
 );
 
-export type AllSubLogosQueryVariables = {};
+export type AllSubLogosQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AllSubLogosQuery = (
@@ -5961,10 +5959,10 @@ export type AllSubLogosQuery = (
   ) }
 );
 
-export type GetInvolvedPostsQueryVariables = {
+export type GetInvolvedPostsQueryVariables = Exact<{
   perPage: Scalars['Int'];
   offset: Scalars['Int'];
-};
+}>;
 
 
 export type GetInvolvedPostsQuery = (
@@ -5991,9 +5989,9 @@ export type GetInvolvedPostsQuery = (
   ) }
 );
 
-export type MinistryPageQueryVariables = {
+export type MinistryPageQueryVariables = Exact<{
   _id: Scalars['String'];
-};
+}>;
 
 
 export type MinistryPageQuery = (
@@ -6043,9 +6041,9 @@ export type MinistryPageQuery = (
   ) }
 );
 
-export type PageQueryVariables = {
+export type PageQueryVariables = Exact<{
   _id: Scalars['String'];
-};
+}>;
 
 
 export type PageQuery = (
@@ -6056,9 +6054,9 @@ export type PageQuery = (
   )> }
 );
 
-export type PostQueryVariables = {
+export type PostQueryVariables = Exact<{
   _id: Scalars['String'];
-};
+}>;
 
 
 export type PostQuery = (
@@ -6069,10 +6067,10 @@ export type PostQuery = (
   )> }
 );
 
-export type AllPostsQueryVariables = {
+export type AllPostsQueryVariables = Exact<{
   perPage: Scalars['Int'];
   offset: Scalars['Int'];
-};
+}>;
 
 
 export type AllPostsQuery = (
@@ -6099,7 +6097,7 @@ export type AllPostsQuery = (
   ) }
 );
 
-export type GeneralAlertQueryVariables = {};
+export type GeneralAlertQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GeneralAlertQuery = (
@@ -6110,7 +6108,7 @@ export type GeneralAlertQuery = (
   )> }
 );
 
-export type HeroSectionQueryVariables = {};
+export type HeroSectionQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HeroSectionQuery = (
@@ -6121,7 +6119,7 @@ export type HeroSectionQuery = (
   )> }
 );
 
-export type RecentPostsQueryVariables = {};
+export type RecentPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type RecentPostsQuery = (
@@ -6148,7 +6146,7 @@ export type RecentPostsQuery = (
   ) }
 );
 
-export type WeeklyScheduleQueryVariables = {};
+export type WeeklyScheduleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type WeeklyScheduleQuery = (
