@@ -32,12 +32,19 @@ export default () => {
       <StyleOverrides />
       <FullCalendar
         defaultView="list"
-        visibleRange={{
-          start: new Date(),
-          end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
-        }}
+        defaultDate={new Date()}
+        dayCount={30}
+        dateIncrement={{ days: 30 }}
         plugins={[listPlugin, googleCalendarPlugin]}
         googleCalendarApiKey="AIzaSyDhddcpnZvFan-d1e7AOTI3UM6of2QdcOk"
+        customButtons={{
+          something: {
+            text: 'something',
+            click: () => {
+              alert('something')
+            }
+          }
+        }}
         eventClick={info => {
           info.jsEvent.preventDefault()
           info.jsEvent.stopPropagation()
