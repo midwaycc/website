@@ -39,7 +39,7 @@ export default ({ posts, withBanner }: Props) => {
           <Stamp />
           <Link to="/posts" css="z-index: 1; margin: 1rem 0">
             <SquareButton thick dark point="right">
-              View all
+              View Past Events
             </SquareButton>
           </Link>
         </ViewAllRow>
