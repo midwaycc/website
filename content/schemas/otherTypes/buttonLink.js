@@ -1,3 +1,5 @@
+import { alignment } from '../helpers/alignment'
+
 export default {
   type: 'object',
   name: 'buttonLink',
@@ -12,8 +14,22 @@ export default {
     {
       type: 'string',
       name: 'href',
-      title: 'destination',
+      title: 'Destination',
       description: 'The link/href the button should go to'
+    },
+    {
+      type: 'string',
+      name: 'align',
+      title: 'Alignment',
+      options: {
+        list: alignment
+      }
+    },
+    {
+      type: 'boolean',
+      name: 'thick',
+      title: 'Thick?',
+      description: 'Whether the button has a thick appearance'
     },
     {
       type: 'boolean',
@@ -21,12 +37,6 @@ export default {
       title: 'Dark?',
       description:
         'Whether the button has a dark appearance (rather than light)'
-    },
-    {
-      type: 'boolean',
-      name: 'thick',
-      title: 'Thick?',
-      description: 'Whether the button has a thick appearance'
     }
   ],
   preview: {

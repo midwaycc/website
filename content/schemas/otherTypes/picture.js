@@ -1,3 +1,5 @@
+import { alignment } from '../helpers/alignment'
+
 export default {
   type: 'object',
   name: 'picture',
@@ -23,11 +25,7 @@ export default {
       name: 'align',
       title: 'Alignment',
       options: {
-        list: [
-          { title: 'Center', value: 'center' },
-          { title: 'Left', value: 'left' },
-          { title: 'Right', value: 'right' }
-        ]
+        list: alignment
       }
     },
     {

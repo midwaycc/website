@@ -5,8 +5,8 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
   className?: string
   point?: 'left' | 'right'
-  dark?: boolean
-  thick?: boolean
+  dark?: boolean | null
+  thick?: boolean | null
 }
 
 export const SquareButton = ({

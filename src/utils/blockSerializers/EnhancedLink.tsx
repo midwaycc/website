@@ -6,19 +6,24 @@ type Props = {
     href?: string
   }
   children?: React.ReactNode
+  className?: string
 }
 
-export const EnhancedLink = ({ mark, children }: Props) => {
+export const EnhancedLink = ({ mark, children, className }: Props) => {
   if (!mark || !mark.href) {
     return <>{children}</>
   }
 
   if (mark.href.startsWith('/')) {
-    return <Link to={mark.href}>{children}</Link>
+    return (
+      <Link to={mark.href} className={className}>
+        {children}
+      </Link>
+    )
   }
 
   return (
-    <a href={mark.href} target="_blank">
+    <a href={mark.href} className={className} target="_blank">
       {children}
     </a>
   )

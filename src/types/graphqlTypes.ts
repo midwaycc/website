@@ -1330,8 +1330,9 @@ export type SanityButtonLink = {
   _type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
-  dark?: Maybe<Scalars['Boolean']>;
+  align?: Maybe<Scalars['String']>;
   thick?: Maybe<Scalars['Boolean']>;
+  dark?: Maybe<Scalars['Boolean']>;
 };
 
 export type SanityCenterImage = {

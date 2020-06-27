@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import Image from 'gatsby-image'
 import media from '~/utils/media'
 import { SanityPicture } from '~/types/graphqlTypes'
+import { Align } from '~/types/align'
 
 type Props = {
   node?: SanityPicture & {
@@ -12,7 +13,6 @@ type Props = {
 }
 
 type Size = 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'mini'
-type Align = 'center' | 'left' | 'right'
 
 const MAX_WIDTH = media.xl.pixelWidth
 export const PERCENT_ARRAY = [15, 25, 100.0 / 3, 50, 200.0 / 3, 100]
