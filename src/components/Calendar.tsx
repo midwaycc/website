@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
-import { createGlobalStyle } from 'styled-components'
 import FullCalendar, { EventApi } from '@fullcalendar/react'
 import listPlugin from '@fullcalendar/list'
 import googleCalendarPlugin from '@fullcalendar/google-calendar'
@@ -25,36 +24,21 @@ export default () => {
 
   return (
     <>
-      <StyleOverrides />
       <FullCalendar
         initialView="list"
-        visibleRange={{
-          start: new Date(),
-          end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
-        }}
+        initialDate={new Date()}
+        dayCount={30}
+        dateIncrement={{ days: 30 }}
         plugins={[listPlugin, googleCalendarPlugin]}
         googleCalendarApiKey="AIzaSyDhddcpnZvFan-d1e7AOTI3UM6of2QdcOk"
+        height="auto"
         eventClick={info => {
           info.jsEvent.preventDefault()
           info.jsEvent.stopPropagation()
           setEvent(info.event)
           setModalOpen(true)
         }}
-        eventSources={calendarIds.map(googleCalendarId => ({
-          googleCalendarId,
-          googleCalendarApiBase:
-            'https://www.googleapis.com/calendar/v3/calendars',
-          success: (value, index, array) => {
-            console.log('success', { value, index, array })
-          },
-          failure: (value, index, array) => {
-            console.log('failure', { value, index, array })
-          },
-          backgroundColor: 'white',
-          borderColor: 'white',
-          textColor: '#2b6667',
-          url: '#'
-        }))}
+        eventSources={calendars.map(googleCalendarId => ({ googleCalendarId }))}
       />
       <Modal
         isOpen={modalOpen}
@@ -90,7 +74,7 @@ export default () => {
   )
 }
 
-const calendarIds = [
+const calendars = [
   // Children's non-recurring
   'bmassey@midwaycommunitychurch.org',
   // Church-wide events
@@ -106,47 +90,6 @@ const calendarIds = [
   // Youth ministry
   'midwaycommunitychurch.org_jh1327qfohm33th4kgaig3anhg@group.calendar.google.com'
 ]
-
-const StyleOverrides = createGlobalStyle`
-  .fc-event-dot {
-    background-color: #9fb94b !important;
-  }
-  .fc-unthemed .fc-list-item td {
-    background-color: white !important;
-    color: #2b6667 !important;
-  }
-
-  .fc-unthemed .fc-list-item:hover td {
-    background-color: #5aa7a9 !important;
-    color: white !important;
-  }
-
-  .fc-widget-header {
-    background-color: #2b6667 !important;
-  }
-
-  .fc-list-heading span {
-    color: white;
-  }
-
-  .fc-ltr .fc-list-heading-alt {
-    float: unset !important;
-  }
-
-  .fc-ltr .fc-list-heading-alt:before {
-    content: '-';
-    margin: 0 0.5em;
-  }
-
-  .fc-today-button {
-    display: none !important;
-  }
-
-  .fc-scroller {
-    overflow: unset !important;
-    height: unset !important;
-  }
-`
 
 function toEST(date: Date) {
   const offset = date.getTimezoneOffset()
