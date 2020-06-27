@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 import { createGlobalStyle } from 'styled-components'
-import FullCalendar from '@fullcalendar/react'
-import { EventApi } from '@fullcalendar/core/api/EventApi'
+import FullCalendar, { EventApi } from '@fullcalendar/react'
 import listPlugin from '@fullcalendar/list'
 import googleCalendarPlugin from '@fullcalendar/google-calendar'
 import useWindowSize from '@rooks/use-window-size'
 import { format, addMinutes } from 'date-fns'
-
-import '@fullcalendar/core/main.css'
-import '@fullcalendar/list/main.css'
 
 Modal.setAppElement(document.body)
 
@@ -31,7 +27,7 @@ export default () => {
     <>
       <StyleOverrides />
       <FullCalendar
-        defaultView="list"
+        initialView="list"
         visibleRange={{
           start: new Date(),
           end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
@@ -46,6 +42,14 @@ export default () => {
         }}
         eventSources={calendarIds.map(googleCalendarId => ({
           googleCalendarId,
+          googleCalendarApiBase:
+            'https://www.googleapis.com/calendar/v3/calendars',
+          success: (value, index, array) => {
+            console.log('success', { value, index, array })
+          },
+          failure: (value, index, array) => {
+            console.log('failure', { value, index, array })
+          },
           backgroundColor: 'white',
           borderColor: 'white',
           textColor: '#2b6667',
