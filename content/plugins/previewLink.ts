@@ -1,12 +1,22 @@
-export default function resolveProductionUrl(document) {
+type Doc = {
+  _type: string
+  url?: {
+    current: string
+  }
+  slug?: {
+    current: string
+  }
+}
+
+export default function resolveProductionUrl(document: Doc) {
   return `https://midway-preview.herokuapp.com${path(document)}`
 }
 
-function path(document) {
+function path(document: Doc) {
   switch (document._type) {
     case 'page':
     case 'ministryPage':
-      return document.url.current
+      return document.url?.current
     case 'heroSection':
     case 'navigation':
     case 'generalAlert':
@@ -14,7 +24,7 @@ function path(document) {
     case 'weeklySchedule':
       return '/'
     case 'post':
-      return `/posts/${document.slug.current}`
+      return `/posts/${document.slug?.current}`
     case 'newsletter':
       return '/newsletter'
     case 'sermonUpload':

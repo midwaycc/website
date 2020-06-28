@@ -1,3 +1,4 @@
+import { Rule } from '@sanity/validation'
 import format from 'date-fns/format'
 
 export default {
@@ -9,7 +10,7 @@ export default {
       name: 'date',
       type: 'date',
       title: 'Service Date',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'extraInfo',
@@ -37,7 +38,7 @@ export default {
       date: 'date',
       extraInfo: 'extraInfo'
     },
-    prepare({ date, extraInfo }) {
+    prepare({ date, extraInfo }: any) {
       if (!date) {
         return { title: [`Message`, extraInfo].filter(Boolean).join(' - ') }
       }

@@ -23,7 +23,7 @@ const singletons = [
   }
 ]
 
-const singletonItem = singleton =>
+const singletonItem = (singleton: typeof singletons[number]) =>
   S.listItem()
     .title(singleton.title)
     .child(S.editor().schemaType(singleton.schema).documentId(singleton.id))
@@ -36,6 +36,6 @@ export default () =>
     .items([
       ...singletons.map(singletonItem),
       ...S.documentTypeListItems().filter(
-        item => !schemasToFilterOut.includes(item.getId())
+        (item: any) => !schemasToFilterOut.includes(item.getId())
       )
     ])

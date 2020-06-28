@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { ActionRow } from './ActionRow.jsx'
-import { Deploys } from './Deploys.jsx'
+import { ActionRow } from './ActionRow'
+import { Deploys } from './Deploys'
+import { DeployObject } from './types'
 import styles from './styles.css'
 
-const deploysUrl = siteId =>
-  `${
-    process.env.NODE_ENV === 'development'
-      ? 'http://localhost:34567'
-      : 'https://midwaycc.org'
-  }/.netlify/functions/deploys?siteId=${siteId}`
+type Props = {
+  site: {
+    title: string
+    name: string
+    id: string
+    buildHookId: string
+  }
+}
 
-function NetlifyDeployment({ site }) {
-  const [deploys, setDeploys] = useState([])
+function NetlifyDeployment({ site }: Props) {
+  const [deploys, setDeploys] = useState<DeployObject[]>([])
 
   useEffect(() => {
     fetch(deploysUrl(site.id))
@@ -34,6 +37,13 @@ function NetlifyDeployment({ site }) {
     </div>
   )
 }
+
+const deploysUrl = (siteId: string) =>
+  `${
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:34567'
+      : 'https://midwaycc.org'
+  }/.netlify/functions/deploys?siteId=${siteId}`
 
 export default {
   name: 'netlify-deployment',

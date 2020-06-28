@@ -19,29 +19,29 @@
   "parts": [
     {
       "name": "part:@sanity/base/schema",
-      "path": "./schemas/schema.js"
+      "path": "./schemas/schema"
     },
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",
-      "path": "./plugins/previewLink.js"
+      "path": "./plugins/previewLink"
     },
     {
       "name": "part:@sanity/desk-tool/structure",
-      "path": "./plugins/deskStructure.js"
+      "path": "./plugins/deskStructure"
     },
     {
       "implements": "part:@sanity/dashboard/config",
-      "path": "./plugins/dashboard.js"
+      "path": "./plugins/dashboard"
     },
     {
       "name": "part:@sanity/dashboard/widget/netlify-deployment",
       "implements": "part:@sanity/dashboard/widget",
-      "path": "./plugins/netlify-deployment/index.jsx"
+      "path": "./plugins/netlify-deployment/index"
     },
     {
       "name": "part:@sanity/dashboard/widget/documentation",
       "implements": "part:@sanity/dashboard/widget",
-      "path": "./plugins/documentation/index.jsx"
+      "path": "./plugins/documentation/index"
     }
   ]
 }

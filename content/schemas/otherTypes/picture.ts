@@ -41,7 +41,7 @@ export default {
       align: 'align',
       media: 'image'
     },
-    prepare: ({ name, size, align, media }) => {
+    prepare: ({ name, size, align, media }: any) => {
       const sizePart = (size || 'full') + ' width'
       const alignPart = (align || 'center') + ' aligned'
       return { title: `${name} (${sizePart}, ${alignPart})`, media }

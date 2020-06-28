@@ -3,8 +3,13 @@ import formatDistance from 'date-fns/formatDistance'
 import Button from 'part:@sanity/components/buttons/default'
 import styles from './styles.css'
 
-export function ActionRow({ lastDeployed, buildHookId }) {
-  const [message, setMessage] = useState('Loading...')
+type Props = {
+  lastDeployed: string | null
+  buildHookId: string
+}
+
+export function ActionRow({ lastDeployed, buildHookId }: Props) {
+  const [message, setMessage] = useState<React.ReactNode>('Loading...')
 
   useEffect(() => {
     if (lastDeployed) {

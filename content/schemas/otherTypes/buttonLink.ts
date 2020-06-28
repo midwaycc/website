@@ -44,7 +44,7 @@ export default {
       text: 'text',
       href: 'href'
     },
-    prepare({ text, href }) {
+    prepare({ text, href }: any) {
       return {
         title: `Button Link "${text}" -> ${href}`
       }

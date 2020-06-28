@@ -26,7 +26,7 @@ export default {
   ],
   preview: {
     select: { link: 'link', text: 'text', sameWindow: 'sameWindow' },
-    prepare(selection) {
+    prepare(selection: any) {
       return {
         title: `${selection.text} → ${
           selection.sameWindow ? '(same window) ' : ''

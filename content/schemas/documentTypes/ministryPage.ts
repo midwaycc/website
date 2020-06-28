@@ -1,3 +1,5 @@
+import { Rule } from '@sanity/validation'
+
 export default {
   name: 'ministryPage',
   title: 'Ministry Page',
@@ -9,7 +11,7 @@ export default {
       type: 'slug',
       title: 'URL',
       description: 'Should look like "/ministries/whatever"',
-      validation: Rule => [
+      validation: (Rule: Rule) => [
         Rule.required(),
         Rule.custom(url =>
           /\/ministries\/.+/.test(url.current)
@@ -29,7 +31,7 @@ export default {
       title: 'Sub-logo width',
       description:
         'In pixels. Used to display the sublogos at a consistent size. Must be less than 600.',
-      validation: Rule => Rule.required().max(600)
+      validation: (Rule: Rule) => Rule.required().max(600)
     },
     {
       name: 'content',

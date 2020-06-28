@@ -1,3 +1,5 @@
+import { Rule } from '@sanity/validation'
+
 export default {
   name: 'page',
   title: 'Page',
@@ -9,7 +11,7 @@ export default {
       title: 'URL',
       type: 'slug',
       description: 'Starts with "/"',
-      validation: Rule => [
+      validation: (Rule: Rule) => [
         Rule.required(),
         Rule.custom(url =>
           /\/.+/.test(url.current)

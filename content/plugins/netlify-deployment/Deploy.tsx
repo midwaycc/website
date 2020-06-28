@@ -2,6 +2,17 @@ import React from 'react'
 import formatRelative from 'date-fns/formatRelative'
 import styles from './styles.css'
 
+type Props = {
+  title: string
+  created_at: string
+  deploy_time: number
+  branch: string
+  state: 'ready' | 'error' | 'building'
+  context: string
+  commit_ref: string
+  error_message: string
+}
+
 export function Deploy({
   title,
   created_at,
@@ -11,7 +22,7 @@ export function Deploy({
   context,
   commit_ref,
   error_message
-}) {
+}: Props) {
   return (
     <div className={styles.deploy}>
       <div className={styles.deployRow}>
@@ -55,7 +66,7 @@ export function Deploy({
   )
 }
 
-function duration(seconds) {
+function duration(seconds: number) {
   const m = Math.floor(seconds / 60.0)
   const s = seconds - m * 60
 

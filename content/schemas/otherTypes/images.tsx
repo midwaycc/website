@@ -1,12 +1,12 @@
 import React from 'react'
 import { blockIcon } from '../helpers/blockIcon'
 
-const imagePreview = style => ({
+const imagePreview = (style: React.CSSProperties) => ({
   select: {
     filename: 'asset.originalFilename',
     imageUrl: 'asset.url'
   },
-  prepare({ filename, imageUrl }) {
+  prepare({ filename, imageUrl }: any) {
     return {
       title: filename,
       extendedPreview: <img src={imageUrl} style={style} />
@@ -14,13 +14,13 @@ const imagePreview = style => ({
   }
 })
 
-const imageWithWidthPreview = style => ({
+const imageWithWidthPreview = (style: React.CSSProperties) => ({
   select: {
     filename: 'image.asset.originalFilename',
     imageUrl: 'image.asset.url',
     width: 'width'
   },
-  prepare({ filename, imageUrl, width }) {
+  prepare({ filename, imageUrl, width }: any) {
     return {
       title: filename,
       extendedPreview: (

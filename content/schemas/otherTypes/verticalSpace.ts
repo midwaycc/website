@@ -17,7 +17,7 @@ export default {
     select: {
       height: 'height'
     },
-    prepare(selection) {
+    prepare(selection: any) {
       return {
         title: `\u2195 ${selection.height}em of vertical space`
       }

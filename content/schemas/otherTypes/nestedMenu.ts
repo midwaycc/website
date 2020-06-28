@@ -18,7 +18,7 @@ export default {
   ],
   preview: {
     select: { text: 'text', items: 'items' },
-    prepare(selection) {
+    prepare(selection: any) {
       const n = selection.items.length
       const items = n === 1 ? 'item' : 'items'
       return {

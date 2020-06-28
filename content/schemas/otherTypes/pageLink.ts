@@ -18,7 +18,7 @@ export default {
   ],
   preview: {
     select: { text: 'text', pageName: 'page.name' },
-    prepare(selection) {
+    prepare(selection: any) {
       return {
         title: `${selection.text} → "${selection.pageName}" page`
       }

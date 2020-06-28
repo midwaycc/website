@@ -1,3 +1,5 @@
+import { Rule } from '@sanity/validation'
+
 export default {
   name: 'post',
   title: 'Post',
@@ -7,7 +9,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'featured',
@@ -30,7 +32,7 @@ export default {
       options: {
         source: 'title'
       },
-      validation: Rule =>
+      validation: (Rule: Rule) =>
         Rule.required().custom(slug =>
           slug.current.includes(' ')
             ? 'Since this goes in the URL, it should not have any spaces or special characters. Clicking the "generate" button is usually the right thing to do here.'
@@ -44,7 +46,7 @@ export default {
       options: {
         default: 'today'
       },
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'thumbnail',

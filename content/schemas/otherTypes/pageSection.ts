@@ -1,3 +1,5 @@
+import { Rule } from '@sanity/validation'
+
 export default {
   name: 'pageSection',
   title: 'Page Section',
@@ -10,7 +12,7 @@ export default {
       title: 'URL Suffix',
       type: 'slug',
       description: `Appended to the end of the page URL. For example, if you enter "preschool" in this field for a section in a page with the URL "/ministries/children", this section would live at "/ministries/children/preschool".`,
-      validation: Rule => [
+      validation: (Rule: Rule) => [
         Rule.required(),
         Rule.custom(url =>
           url.current.indexOf('/') === 0
@@ -29,7 +31,7 @@ export default {
   ],
   preview: {
     select: { name: 'name', urlSuffix: 'urlSuffix' },
-    prepare(selection) {
+    prepare(selection: any) {
       return {
         title: `${selection.name} (.../${selection.urlSuffix.current})`
       }

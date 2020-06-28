@@ -1,4 +1,5 @@
 import format from 'date-fns/format'
+import { Rule } from '@sanity/validation'
 
 export default {
   name: 'newsletter',
@@ -9,7 +10,7 @@ export default {
       name: 'date',
       type: 'date',
       title: 'Date',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'link',
@@ -29,7 +30,7 @@ export default {
     select: {
       date: 'date'
     },
-    prepare({ date }) {
+    prepare({ date }: any) {
       if (!date) {
         return { title: '(no date)' }
       }

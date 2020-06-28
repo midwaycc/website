@@ -35,7 +35,7 @@ export const weeklyScheduleDay = {
       label: 'label',
       events: 'events'
     },
-    prepare({ label, events }) {
+    prepare({ label, events }: any) {
       const pluralEvents = pluralize('event', events ? events.length : 0)
       return {
         title: `${label} (${events ? events.length : 0} ${pluralEvents})`
@@ -67,7 +67,7 @@ export const weeklyScheduleEvent = {
       time: 'time',
       description: 'description'
     },
-    prepare({ time, description }) {
+    prepare({ time, description }: any) {
       return { title: `${time} - ${description}` }
     }
   },
@@ -86,6 +86,6 @@ export const weeklyScheduleEvent = {
   ]
 }
 
-function pluralize(base, length) {
+function pluralize(base: string, length: number) {
   return length === 1 ? base : base + 's'
 }
