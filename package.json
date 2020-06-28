@@ -24,7 +24,7 @@
     "ci": "yarn test && yarn codegen && yarn tsc && yarn functions:tsc && yarn format:check",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "check-upgrades": "yarn outdated && cd content && yarn outdated",
+    "check-upgrades": "echo \"\\nRoot:\\n\" && yarn outdated; echo \"\\n\\nSanity:\\n\" && cd content && yarn outdated; echo",
     "test": "jest",
     "heroku-postbuild": "echo 'No build step.'"
   },
