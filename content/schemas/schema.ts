@@ -22,14 +22,6 @@ import pageLink from './otherTypes/pageLink'
 import nestedMenu from './otherTypes/nestedMenu'
 import pageSection from './otherTypes/pageSection'
 import richContent from './otherTypes/richContent'
-import {
-  centerImage,
-  rightImage,
-  leftImage,
-  centerImageWithWidth,
-  rightImageWithWidth,
-  leftImageWithWidth
-} from './otherTypes/images'
 import picture from './otherTypes/picture'
 import verticalSpace from './otherTypes/verticalSpace'
 import videoEmbed from './otherTypes/videoEmbed'
@@ -55,12 +47,6 @@ export default createSchema({
     nestedMenu,
     pageSection,
     richContent,
-    centerImage,
-    rightImage,
-    leftImage,
-    centerImageWithWidth,
-    rightImageWithWidth,
-    leftImageWithWidth,
     picture,
     verticalSpace,
     videoEmbed,

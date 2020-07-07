@@ -5884,7 +5884,7 @@ export type SitePluginGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type SanityBlockOrButtonLinkOrCenterImageOrCenterImageWithWidthOrLeftImageOrLeftImageWithWidthOrPictureOrRightImageOrRightImageWithWidthOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityCenterImage | SanityCenterImageWithWidth | SanityLeftImage | SanityLeftImageWithWidth | SanityPicture | SanityRightImage | SanityRightImageWithWidth | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
   __typename?: 'SanityButtonLink';
@@ -5895,88 +5895,6 @@ export type SanityButtonLink = {
   align?: Maybe<Scalars['String']>;
   thick?: Maybe<Scalars['Boolean']>;
   dark?: Maybe<Scalars['Boolean']>;
-};
-
-export type SanityCenterImage = {
-  __typename?: 'SanityCenterImage';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  asset?: Maybe<SanityImageAsset>;
-  hotspot?: Maybe<SanityImageHotspot>;
-  crop?: Maybe<SanityImageCrop>;
-  _rawAsset?: Maybe<Scalars['JSON']>;
-  _rawHotspot?: Maybe<Scalars['JSON']>;
-  _rawCrop?: Maybe<Scalars['JSON']>;
-};
-
-
-export type SanityCenterImage_RawAssetArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityCenterImage_RawHotspotArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityCenterImage_RawCropArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-export type SanityCenterImageWithWidth = {
-  __typename?: 'SanityCenterImageWithWidth';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  image?: Maybe<SanityImage>;
-  width?: Maybe<Scalars['Float']>;
-  _rawImage?: Maybe<Scalars['JSON']>;
-};
-
-
-export type SanityCenterImageWithWidth_RawImageArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-export type SanityLeftImage = {
-  __typename?: 'SanityLeftImage';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  asset?: Maybe<SanityImageAsset>;
-  hotspot?: Maybe<SanityImageHotspot>;
-  crop?: Maybe<SanityImageCrop>;
-  _rawAsset?: Maybe<Scalars['JSON']>;
-  _rawHotspot?: Maybe<Scalars['JSON']>;
-  _rawCrop?: Maybe<Scalars['JSON']>;
-};
-
-
-export type SanityLeftImage_RawAssetArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityLeftImage_RawHotspotArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityLeftImage_RawCropArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-export type SanityLeftImageWithWidth = {
-  __typename?: 'SanityLeftImageWithWidth';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  image?: Maybe<SanityImage>;
-  width?: Maybe<Scalars['Float']>;
-  _rawImage?: Maybe<Scalars['JSON']>;
-};
-
-
-export type SanityLeftImageWithWidth_RawImageArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityPicture = {
@@ -5992,47 +5910,6 @@ export type SanityPicture = {
 
 
 export type SanityPicture_RawImageArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-export type SanityRightImage = {
-  __typename?: 'SanityRightImage';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  asset?: Maybe<SanityImageAsset>;
-  hotspot?: Maybe<SanityImageHotspot>;
-  crop?: Maybe<SanityImageCrop>;
-  _rawAsset?: Maybe<Scalars['JSON']>;
-  _rawHotspot?: Maybe<Scalars['JSON']>;
-  _rawCrop?: Maybe<Scalars['JSON']>;
-};
-
-
-export type SanityRightImage_RawAssetArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityRightImage_RawHotspotArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityRightImage_RawCropArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-export type SanityRightImageWithWidth = {
-  __typename?: 'SanityRightImageWithWidth';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  image?: Maybe<SanityImage>;
-  width?: Maybe<Scalars['Float']>;
-  _rawImage?: Maybe<Scalars['JSON']>;
-};
-
-
-export type SanityRightImageWithWidth_RawImageArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 

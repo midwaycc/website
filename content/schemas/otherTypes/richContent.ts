@@ -6,12 +6,6 @@ export default {
     { type: 'block' },
     { type: 'verticalSpace' },
     { type: 'buttonLink' },
-    { type: 'centerImage' },
-    { type: 'leftImage' },
-    { type: 'rightImage' },
-    { type: 'centerImageWithWidth' },
-    { type: 'leftImageWithWidth' },
-    { type: 'rightImageWithWidth' },
     { type: 'picture' },
     { type: 'videoEmbed' }
   ]

@@ -3,6 +3,7 @@ import { alignment } from '../helpers/alignment'
 export default {
   type: 'object',
   name: 'picture',
+  title: 'Picture',
   fields: [
     { type: 'image', name: 'image', title: 'Image' },
     {
