@@ -14905,6 +14905,11 @@ react-modal@^3.11.1:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
+react-parallax@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-parallax/-/react-parallax-3.0.3.tgz#5550f1e81bf040b240045348cb3b039b73a735ef"
+  integrity sha512-kdoMjg5B9nQFh3mTFrnzkr7AoG89L/tq1c98ho3g+11UwfeYePji9D3oeqN/oDtJemWKypnB8OYrzQ/BTazrNA==
+
 react-plyr@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-plyr/-/react-plyr-2.2.0.tgz#94b0b2f815411d1af65de9694059eaab8a726c75"
