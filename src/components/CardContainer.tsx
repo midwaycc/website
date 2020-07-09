@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components'
 import media from '~/utils/media'
 
-export const PostsContainer = styled.div<{ big?: boolean; noHover?: boolean }>`
+export const CardContainer = styled.div<{ big?: boolean; noHover?: boolean }>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1em;
   justify-content: flex-start;
   margin-top: 2em;
 

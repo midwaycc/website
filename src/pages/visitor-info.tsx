@@ -10,7 +10,7 @@ export default () => {
   const [message, setMessage] = useState('')
 
   return (
-    <Section css="padding: 2em">
+    <Section>
       <Greeting>Help us get to know you!</Greeting>
       <form
         name="visitor-info"

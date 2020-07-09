@@ -109,59 +109,34 @@ async function createMinistryPages(graphql, createPage) {
 async function createAllPostPages(graphql, createPage) {
   const perPage = 12
 
-  const [
-    allPostsResult,
-    archivePostsResult,
-    getInvolvedPostsResult
-  ] = await Promise.all([
-    graphql(`
-      {
-        allSanityPost {
-          nodes {
-            _id
-            slug {
-              current
-            }
+  const result = await graphql(`
+    {
+      allPosts: allSanityPost {
+        nodes {
+          _id
+          slug {
+            current
           }
         }
       }
-    `),
-    graphql(`
-      {
-        allSanityPost(filter: { featured: { eq: false } }) {
-          totalCount
-        }
+      archivePosts: allSanityPost(filter: { featured: { eq: false } }) {
+        totalCount
       }
-    `),
-    graphql(`
-      {
-        allSanityPost(
-          filter: {
-            ministries: { elemMatch: { name: { eq: "Get Involved" } } }
-          }
-        ) {
-          totalCount
-        }
+      getInvolvedPosts: allSanityPost(
+        filter: { ministries: { elemMatch: { name: { eq: "Get Involved" } } } }
+      ) {
+        totalCount
       }
-    `)
-  ])
+    }
+  `)
 
-  if (allPostsResult.errors) {
-    throw allPostsResult.errors
+  if (result.errors) {
+    throw result.errors
   }
 
-  if (archivePostsResult.errors) {
-    throw allPostsResult.errors
-  }
-
-  if (getInvolvedPostsResult.errors) {
-    throw getInvolvedPostsResult.errors
-  }
-
-  const allPosts = allPostsResult.data.allSanityPost.nodes || []
-  const numArchivePosts = archivePostsResult.data.allSanityPost.totalCount
-  const numGetInvolvedPosts =
-    getInvolvedPostsResult.data.allSanityPost.totalCount
+  const allPosts = result.data.allPosts.nodes || []
+  const numArchivePosts = result.data.archivePosts.totalCount
+  const numGetInvolvedPosts = result.data.getInvolvedPosts.totalCount
 
   allPosts.forEach(post => {
     if (post.slug) {

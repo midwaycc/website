@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { AllPostsQuery } from '~/types/graphqlTypes'
 import Section from '~/layout/Section'
 import { SquareButton } from '~/components/SquareButton'
-import { PostsContainer } from '~/components/PostsContainer'
+import { CardContainer } from '~/components/CardContainer'
 import { PostCard } from '~/components/PostCard'
 
 export type Props = {
@@ -32,12 +32,12 @@ export default ({
   const { page, isFirst, isLast, onlyOne } = pageContext
 
   return (
-    <Section css="padding: 2em">
+    <Section>
       <Link to="/">
         <SquareButton point="left">Home</SquareButton>
       </Link>
       <h1 css="margin-bottom: -0.5em">{title}</h1>
-      <PostsContainer>
+      <CardContainer>
         {posts.map((post, i) => (
           <PostCard
             key={post._id || `post-${i}`}
@@ -45,7 +45,7 @@ export default ({
             addToUrl={`?back=${urlPrefix}`}
           />
         ))}
-      </PostsContainer>
+      </CardContainer>
       <div
         style={{
           width: '100%',

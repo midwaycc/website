@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 export default () => (
   <>
-    <Section css="padding-top: 2em">
+    <Section>
       Sorry, that page doesn't seem to exist (yet)! Do you want to&nbsp;
       <Link to="/">go Home</Link>?
     </Section>

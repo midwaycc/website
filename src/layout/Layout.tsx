@@ -2,11 +2,11 @@ import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import Head from './Head'
-import Header from './Header'
-import Footer from './Footer'
+import Header from '~/views/Header'
+import Footer from '~/views/Footer'
 // import MediaIndicator from '~/components/MediaIndicator'
 import theme from '~/theme'
-import { hiddenWhenMenuOpen } from '~/layout/Header/Navigation/Narrow'
+import { hiddenWhenMenuOpen } from '~/views/Header/Navigation/Narrow'
 
 import './index.css'
 

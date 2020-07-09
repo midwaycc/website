@@ -123,7 +123,7 @@ export default ({ data, path }: Props) => {
         )}
       </TopNav>
 
-      <Section css="padding: 2em 1em">
+      <Section>
         {!activeSection ? (
           <RichContent key="parent" blocks={content} />
         ) : (

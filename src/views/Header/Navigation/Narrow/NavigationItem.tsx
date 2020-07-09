@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components'
 import {
   NavItemWithSubitems,
   NavItemWithLink
-} from '~/layout/Header/Navigation/types'
-import { FullLink, FullText } from '~/layout/Header/FullLink'
+} from '~/views/Header/Navigation/types'
+import { FullLink, FullText } from '~/views/Header/FullLink'
 import BaseToggle from '~/components/BaseToggle'
 import { darken, lighten } from 'polished'
 

@@ -15,7 +15,7 @@ export default ({ data }: Props) => {
   const { name, _rawContent: content } = data.sanityPage
 
   return (
-    <Section css="padding: 2em">
+    <Section>
       <Link to="/">
         <SquareButton point="left">Home</SquareButton>
       </Link>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import { SquareButton } from '~/components/SquareButton'
-import { PostsContainer } from '~/components/PostsContainer'
+import { CardContainer } from '~/components/CardContainer'
 import { PostCard } from '~/components/PostCard'
 import paper from '~/../static/images/paper.jpg'
 import stamp from '~/../static/images/stamp.png'
@@ -29,12 +29,12 @@ export default ({ posts, withBanner }: Props) => {
           <Subtitle>Find out what's happening.</Subtitle>
         </Banner>
       )}
-      <Content>
-        <PostsContainer>
+      <Content css="padding: 1em">
+        <CardContainer>
           {postsToUse.map((post, i) => (
             <PostCard key={post._id || `post-${i}`} post={post} />
           ))}
-        </PostsContainer>
+        </CardContainer>
         <ViewAllRow>
           <Stamp />
           <Link to="/posts" css="z-index: 1; margin: 1rem 0">

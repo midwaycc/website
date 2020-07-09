@@ -7,7 +7,7 @@ export default ({ data }: { data: any }) => {
   const ministries = data.allSanityMinistryPage.nodes
 
   return (
-    <Section css="padding: 2em 1.5em">
+    <Section>
       {ministries.map((ministry: any) =>
         ministry && ministry.subLogo && ministry.subLogo.asset ? (
           <SubLogo

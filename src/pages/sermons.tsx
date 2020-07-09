@@ -4,7 +4,7 @@ import { SermonUploadQuery } from '~/types/graphqlTypes'
 import Section from '~/layout/Section'
 import { SquareButton } from '~/components/SquareButton'
 import { niceDate } from '~/utils/niceDate'
-import { PostsContainer } from '~/components/PostsContainer'
+import { CardContainer } from '~/components/CardContainer'
 import { css } from 'styled-components'
 
 type Props = {
@@ -35,16 +35,16 @@ export default ({ data }: Props) => {
   const sermons = data.allSanitySermonUpload.nodes
 
   return (
-    <Section css="padding: 2em">
+    <Section>
       <Link to="/">
         <SquareButton point="left">Home</SquareButton>
       </Link>
       <h1>Sermons</h1>
-      <PostsContainer big noHover>
+      <CardContainer big noHover>
         {sermons.map(sermon =>
           sermon._id ? <Sermon key={sermon._id} sermon={sermon} /> : null
         )}
-      </PostsContainer>
+      </CardContainer>
     </Section>
   )
 }
