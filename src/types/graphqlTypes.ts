@@ -5969,75 +5969,6 @@ export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = (
   & Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
-export type ChurchInfoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ChurchInfoQuery = (
-  { __typename?: 'Query' }
-  & { site?: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata?: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & { church?: Maybe<(
-        { __typename?: 'SiteSiteMetadataChurch' }
-        & Pick<SiteSiteMetadataChurch, 'address' | 'phone'>
-      )> }
-    )> }
-  )> }
-);
-
-export type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HeaderQuery = (
-  { __typename?: 'Query' }
-  & { sanityNavigation?: Maybe<(
-    { __typename?: 'SanityNavigation' }
-    & { items?: Maybe<Array<Maybe<(
-      { __typename: 'SanityNestedMenu' }
-      & Pick<SanityNestedMenu, 'text'>
-      & { items?: Maybe<Array<Maybe<(
-        { __typename?: 'SanityPageLink' }
-        & AnyNavLink_SanityPageLink_Fragment
-      ) | (
-        { __typename?: 'SanityPlainLink' }
-        & AnyNavLink_SanityPlainLink_Fragment
-      )>>> }
-    ) | (
-      { __typename: 'SanityPageLink' }
-      & AnyNavLink_SanityPageLink_Fragment
-    ) | (
-      { __typename: 'SanityPlainLink' }
-      & AnyNavLink_SanityPlainLink_Fragment
-    )>>> }
-  )> }
-);
-
-type AnyNavLink_SanityPlainLink_Fragment = (
-  { __typename: 'SanityPlainLink' }
-  & Pick<SanityPlainLink, 'text' | 'link' | 'sameWindow'>
-);
-
-type AnyNavLink_SanityPageLink_Fragment = (
-  { __typename: 'SanityPageLink' }
-  & Pick<SanityPageLink, 'text'>
-  & { page?: Maybe<(
-    { __typename?: 'SanityMinistryPage' }
-    & { url?: Maybe<(
-      { __typename?: 'SanitySlug' }
-      & Pick<SanitySlug, 'current'>
-    )> }
-  ) | (
-    { __typename?: 'SanityPage' }
-    & { url?: Maybe<(
-      { __typename?: 'SanitySlug' }
-      & Pick<SanitySlug, 'current'>
-    )> }
-  )> }
-);
-
-export type AnyNavLinkFragment = AnyNavLink_SanityPlainLink_Fragment | AnyNavLink_SanityPageLink_Fragment;
-
 export type NewsletterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -6235,6 +6166,23 @@ export type AllPostsQuery = (
   ) }
 );
 
+export type ChurchInfoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ChurchInfoQuery = (
+  { __typename?: 'Query' }
+  & { site?: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata?: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & { church?: Maybe<(
+        { __typename?: 'SiteSiteMetadataChurch' }
+        & Pick<SiteSiteMetadataChurch, 'address' | 'phone'>
+      )> }
+    )> }
+  )> }
+);
+
 export type GeneralAlertQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -6245,6 +6193,58 @@ export type GeneralAlertQuery = (
     & Pick<SanityGeneralAlert, 'active' | '_rawMessage'>
   )> }
 );
+
+export type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HeaderQuery = (
+  { __typename?: 'Query' }
+  & { sanityNavigation?: Maybe<(
+    { __typename?: 'SanityNavigation' }
+    & { items?: Maybe<Array<Maybe<(
+      { __typename: 'SanityNestedMenu' }
+      & Pick<SanityNestedMenu, 'text'>
+      & { items?: Maybe<Array<Maybe<(
+        { __typename?: 'SanityPageLink' }
+        & AnyNavLink_SanityPageLink_Fragment
+      ) | (
+        { __typename?: 'SanityPlainLink' }
+        & AnyNavLink_SanityPlainLink_Fragment
+      )>>> }
+    ) | (
+      { __typename: 'SanityPageLink' }
+      & AnyNavLink_SanityPageLink_Fragment
+    ) | (
+      { __typename: 'SanityPlainLink' }
+      & AnyNavLink_SanityPlainLink_Fragment
+    )>>> }
+  )> }
+);
+
+type AnyNavLink_SanityPlainLink_Fragment = (
+  { __typename: 'SanityPlainLink' }
+  & Pick<SanityPlainLink, 'text' | 'link' | 'sameWindow'>
+);
+
+type AnyNavLink_SanityPageLink_Fragment = (
+  { __typename: 'SanityPageLink' }
+  & Pick<SanityPageLink, 'text'>
+  & { page?: Maybe<(
+    { __typename?: 'SanityMinistryPage' }
+    & { url?: Maybe<(
+      { __typename?: 'SanitySlug' }
+      & Pick<SanitySlug, 'current'>
+    )> }
+  ) | (
+    { __typename?: 'SanityPage' }
+    & { url?: Maybe<(
+      { __typename?: 'SanitySlug' }
+      & Pick<SanitySlug, 'current'>
+    )> }
+  )> }
+);
+
+export type AnyNavLinkFragment = AnyNavLink_SanityPlainLink_Fragment | AnyNavLink_SanityPageLink_Fragment;
 
 export type HeroSectionQueryVariables = Exact<{ [key: string]: never; }>;
 

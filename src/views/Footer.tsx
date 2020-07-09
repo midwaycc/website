@@ -10,17 +10,8 @@ import footerLogo from '~/../static/logos/rgb/icon/mcc_icon_rgb.png'
 
 export default () => {
   const data: ChurchInfoQuery = useStaticQuery(query)
-  if (
-    !data.site ||
-    !data.site.siteMetadata ||
-    !data.site.siteMetadata.church ||
-    !data.site.siteMetadata.church.address ||
-    !data.site.siteMetadata.church.phone
-  ) {
-    return null
-  }
-
-  const { address, phone } = data.site.siteMetadata.church
+  const { address, phone } = data.site?.siteMetadata?.church || {}
+  if (!address || !phone) return null
 
   return (
     <Container>
@@ -142,8 +133,7 @@ const Container = styled.footer`
   background-color: ${props => props.theme.footer.background};
   color: ${props => props.theme.footer.color};
   margin: 0;
-  padding-top: 4em;
-  padding-bottom: 1em;
+  padding: 4em 0 1em 0;
   ${hiddenWhenMenuOpen};
 `
 
@@ -158,8 +148,6 @@ const FooterBlocks = styled(Content)`
 
 const FooterBlock = styled.div`
   width: 100%;
-  padding: 0 1em;
-
   & ~ & {
     padding-top: 2em;
   }

@@ -33,7 +33,7 @@ export default () => {
 
   return (
     <Container>
-      <Content css="z-index: 2; position: relative">
+      <Content css="position: relative">
         <Title left color="white">
           Weekly Schedule
         </Title>
@@ -217,22 +217,22 @@ const Horizontal = styled.div`
 const Column = styled.div`
   flex: 1;
   width: 100%;
-  padding-left: 2rem;
+  padding-left: 1rem;
 
   ${media.sm} {
-    padding-left: 4rem;
+    padding-left: 3rem;
   }
 
   & + & {
-    margin-top: 1.5em;
+    margin-top: 1.5rem;
   }
 
   ${media.md} {
     width: 50%;
-    padding-left: 0;
+    padding-left: 1rem;
 
     :first-of-type {
-      padding-left: 4rem;
+      padding-left: 3rem;
     }
 
     & + & {

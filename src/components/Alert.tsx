@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const Alert = styled.div`
   background-color: rgba(35, 74, 77, 0.75);
-  margin: 1rem;
-  padding: 1rem;
+  margin: 1rem 0;
   border: 3px solid #9fb94b;
 
   p {
@@ -12,7 +11,7 @@ export const Alert = styled.div`
     margin: 0;
   }
 
-  p + p {
+  p {
     margin-top: 1em;
   }
 `

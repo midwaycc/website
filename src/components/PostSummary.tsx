@@ -30,7 +30,9 @@ export default ({ post }: Props) => {
       )}
       <PostTitle>{post.title}</PostTitle>
       <div onClick={handleClick}>
-        {post._rawSummary && <RichContent blocks={post._rawSummary} />}
+        {post._rawSummary && (
+          <RichContent fullWidth blocks={post._rawSummary} />
+        )}
       </div>
     </>
   )

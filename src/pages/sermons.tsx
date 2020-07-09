@@ -6,6 +6,7 @@ import { SquareButton } from '~/components/SquareButton'
 import { niceDate } from '~/utils/niceDate'
 import { CardContainer } from '~/components/CardContainer'
 import { css } from 'styled-components'
+import Content from '~/layout/Content'
 
 type Props = {
   data: SermonUploadQuery
@@ -36,15 +37,17 @@ export default ({ data }: Props) => {
 
   return (
     <Section>
-      <Link to="/">
-        <SquareButton point="left">Home</SquareButton>
-      </Link>
-      <h1>Sermons</h1>
-      <CardContainer big noHover>
-        {sermons.map(sermon =>
-          sermon._id ? <Sermon key={sermon._id} sermon={sermon} /> : null
-        )}
-      </CardContainer>
+      <Content>
+        <Link to="/">
+          <SquareButton point="left">Home</SquareButton>
+        </Link>
+        <h1>Sermons</h1>
+        <CardContainer big noHover>
+          {sermons.map(sermon =>
+            sermon._id ? <Sermon key={sermon._id} sermon={sermon} /> : null
+          )}
+        </CardContainer>
+      </Content>
     </Section>
   )
 }

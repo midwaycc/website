@@ -3,6 +3,7 @@ import media from '~/utils/media'
 
 export default styled.div`
   width: 100%;
+  padding: 0 1em;
 
   ${media.xl} {
     margin: 0 auto;

@@ -6,6 +6,7 @@ import Section from '~/layout/Section'
 import { SquareButton } from '~/components/SquareButton'
 import { CardContainer } from '~/components/CardContainer'
 import { niceDate } from '~/utils/niceDate'
+import Content from '~/layout/Content'
 
 type Props = {
   data: NewsletterQuery
@@ -28,34 +29,36 @@ export default ({ data }: Props) => {
   const newsletters = data.allSanityNewsletter.nodes
   return (
     <Section>
-      <Link to="/">
-        <SquareButton point="left">Home</SquareButton>
-      </Link>
-      <h1>Newsletter</h1>
-      <CardContainer big noHover>
-        {newsletters.map(newsletter =>
-          newsletter._id && newsletter.link && newsletter.date ? (
-            <div key={newsletter._id}>
-              <h2
-                css={css`
-                  margin: 0;
-                  margin-bottom: 0.5em;
-                  color: rgb(35, 74, 77);
-                `}
-              >
-                {niceDate(newsletter.date)}
-              </h2>
-              <a
-                href={newsletter.link}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                View in browser
-              </a>
-            </div>
-          ) : null
-        )}
-      </CardContainer>
+      <Content>
+        <Link to="/">
+          <SquareButton point="left">Home</SquareButton>
+        </Link>
+        <h1>Newsletter</h1>
+        <CardContainer big noHover>
+          {newsletters.map(newsletter =>
+            newsletter._id && newsletter.link && newsletter.date ? (
+              <div key={newsletter._id}>
+                <h2
+                  css={css`
+                    margin: 0;
+                    margin-bottom: 0.5em;
+                    color: rgb(35, 74, 77);
+                  `}
+                >
+                  {niceDate(newsletter.date)}
+                </h2>
+                <a
+                  href={newsletter.link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  View in browser
+                </a>
+              </div>
+            ) : null
+          )}
+        </CardContainer>
+      </Content>
     </Section>
   )
 }

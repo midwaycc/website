@@ -82,6 +82,7 @@ const Columns = styled(Content)`
   display: flex;
   flex-direction: column;
   position: relative;
+  padding: 0;
 
   ${media.md} {
     flex-direction: row;

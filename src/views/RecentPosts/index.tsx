@@ -115,7 +115,7 @@ const Subtitle = styled.h2`
 `
 
 const ViewAllRow = styled.div`
-  margin-top: 2.5em;
+  margin-top: 4rem;
   text-align: center;
   width: 100%;
   display: flex;

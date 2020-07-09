@@ -17,7 +17,6 @@ export const Title = styled.h1<{ color?: string; left?: boolean }>`
       ? css`
           ${media.lg} {
             text-align: left;
-            margin-left: 0.5rem;
           }
         `
       : ''};

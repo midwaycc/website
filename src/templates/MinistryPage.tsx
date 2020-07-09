@@ -13,6 +13,7 @@ import {
 import styled, { css } from 'styled-components'
 import { raggedEdgeGradient } from '~/views/QuickInfo'
 import { SquareButton } from '~/components/SquareButton'
+import Content from '~/layout/Content'
 
 type Props = {
   data: MinistryPageQuery
@@ -209,18 +210,23 @@ const hijackURL = (e: React.MouseEvent, url: string) => {
   window.history.pushState(window.history.state, document.title, url)
 }
 
-const TopNav = styled(Section).attrs({
-  outerCss: css`
-    ${raggedEdgeGradient(
-      [255, 255, 255],
-      [239, 239, 239],
-      'rgb(43, 102, 103)'
-    )};
-  `
-})`
-  padding: 2em 1em;
-  padding-bottom: 3em;
-`
+const TopNav: React.FC<{ children: React.ReactNode; color?: string }> = ({
+  children,
+  color
+}) => (
+  <Section
+    color={color}
+    css={css`
+      ${raggedEdgeGradient(
+        [255, 255, 255],
+        [239, 239, 239],
+        'rgb(43, 102, 103)'
+      )};
+    `}
+  >
+    <Content css="padding-bottom: 1em">{children}</Content>
+  </Section>
+)
 
 export const SubLogo = styled(Image)<{ width: number }>`
   width: ${props => props.width || 0}px;
