@@ -11,8 +11,23 @@ import { Picture } from '~/sanity/blockSerializers/Picture'
 
 type Props = {
   blocks: unknown[]
-  fullWidth?: boolean
+  noPadding?: boolean
 }
+
+export default ({ blocks, noPadding }: Props) => {
+  return (
+    <div css={noPadding ? noPaddingStyles : ''}>
+      <BlockContent blocks={blocks} serializers={serializers} />
+      <div css="clear: both" />
+    </div>
+  )
+}
+
+const noPaddingStyles = css`
+  ${Content} {
+    padding: 0;
+  }
+`
 
 const {
   defaultSerializers: {
@@ -21,54 +36,34 @@ const {
   }
 } = BlockContent
 
-const ContentWrapper = ({
-  serializer,
-  fullWidth
-}: {
-  serializer: any
-  fullWidth?: boolean
-}) => (props: any) => {
+const ContentWrapper = (serializer: (props: any) => any) => (props: any) => {
   const unmodifiedOutput = serializer(props)
 
-  if (props.node && props.node._type === 'fullWidthSection') {
+  if (
+    props.node &&
+    props.node._type === 'contentSection' &&
+    props.node.fullWidth
+  ) {
     return unmodifiedOutput
   }
 
-  return (
-    <Content
-      css={css`
-        ${fullWidth ? 'padding: 0' : ''};
-      `}
-    >
-      {unmodifiedOutput}
-    </Content>
-  )
+  return <Content>{unmodifiedOutput}</Content>
 }
 
-export default ({ blocks, fullWidth }: Props) => {
-  return (
-    <>
-      <BlockContent
-        blocks={blocks}
-        serializers={{
-          types: {
-            block: CustomBlock,
-            verticalSpace: VerticalSpace,
-            videoEmbed: VideoEmbed,
-            buttonLink: ButtonLink,
-            picture: Picture
-          },
-          marks: {
-            link: EnhancedLink
-          },
-          block: ContentWrapper({
-            serializer: DefaultBlockSerializer,
-            fullWidth
-          }),
-          list: ContentWrapper({ serializer: DefaultListSerializer, fullWidth })
-        }}
-      />
-      <div css="clear: both" />
-    </>
-  )
+const BlockSerializer = ContentWrapper(DefaultBlockSerializer)
+const ListSerializer = ContentWrapper(DefaultListSerializer)
+
+const serializers = {
+  types: {
+    block: CustomBlock,
+    verticalSpace: VerticalSpace,
+    videoEmbed: VideoEmbed,
+    buttonLink: ButtonLink,
+    picture: Picture
+  },
+  marks: {
+    link: EnhancedLink
+  },
+  block: BlockSerializer,
+  list: ListSerializer
 }
