@@ -10,7 +10,7 @@ import {
   WeeklyScheduleQuery,
   SanityWeeklyScheduleDay
 } from '~/types/graphqlTypes'
-import RichContent from '~/components/RichContent'
+import RichContent from '~/sanity/RichContent'
 
 // Based on previous em styles in the browser, for precise calculations
 const DAY_MARGIN_TOP = 26

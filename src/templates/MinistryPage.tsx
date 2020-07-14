@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
-import RichContent from '~/components/RichContent'
+import RichContent from '~/sanity/RichContent'
 import Section from '~/layout/Section'
 import RecentPosts from '~/views/RecentPosts'
 import { PillLinkContainer, PillLink } from '~/components/Pills'

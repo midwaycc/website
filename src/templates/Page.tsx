@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import RichContent from '~/components/RichContent'
+import RichContent from '~/sanity/RichContent'
 import Section from '~/layout/Section'
 import { PageQuery } from '~/types/graphqlTypes'
 import { SquareButton } from '~/components/SquareButton'

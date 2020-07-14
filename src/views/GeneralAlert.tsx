@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import RichContent from '~/components/RichContent'
+import RichContent from '~/sanity/RichContent'
 import media from '~/utils/media'
 import { GeneralAlertQuery } from '~/types/graphqlTypes'
 

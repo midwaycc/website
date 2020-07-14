@@ -2,12 +2,12 @@ import React from 'react'
 import { css } from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import Content from '~/layout/Content'
-import { VerticalSpace } from '~/utils/blockSerializers/VerticalSpace'
-import { EnhancedLink } from '~/utils/blockSerializers/EnhancedLink'
-import { CustomBlock } from '~/utils/blockSerializers/CustomBlock'
-import { VideoEmbed } from '~/utils/blockSerializers/VideoEmbed'
-import { ButtonLink } from '~/utils/blockSerializers/ButtonLink'
-import { Picture } from '~/utils/blockSerializers/Picture'
+import { VerticalSpace } from '~/sanity/blockSerializers/VerticalSpace'
+import { EnhancedLink } from '~/sanity/blockSerializers/EnhancedLink'
+import { CustomBlock } from '~/sanity/blockSerializers/CustomBlock'
+import { VideoEmbed } from '~/sanity/blockSerializers/VideoEmbed'
+import { ButtonLink } from '~/sanity/blockSerializers/ButtonLink'
+import { Picture } from '~/sanity/blockSerializers/Picture'
 
 type Props = {
   blocks: unknown[]

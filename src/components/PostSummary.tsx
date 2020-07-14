@@ -1,7 +1,7 @@
 import React from 'react'
 import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
-import RichContent from '~/components/RichContent'
+import RichContent from '~/sanity/RichContent'
 import { SanityPost } from '~/types/graphqlTypes'
 
 type Props = {
