@@ -21,11 +21,14 @@ import plainLink from './otherTypes/plainLink'
 import pageLink from './otherTypes/pageLink'
 import nestedMenu from './otherTypes/nestedMenu'
 import pageSection from './otherTypes/pageSection'
-import richContent from './otherTypes/richContent'
 import picture from './otherTypes/picture'
 import verticalSpace from './otherTypes/verticalSpace'
 import videoEmbed from './otherTypes/videoEmbed'
 import buttonLink from './otherTypes/buttonLink'
+import contentSection from './otherTypes/contentSection'
+import richContent, {
+  richContentWithoutContentSections
+} from './otherTypes/richContent'
 
 export default createSchema({
   name: 'default',
@@ -47,9 +50,11 @@ export default createSchema({
     nestedMenu,
     pageSection,
     richContent,
+    richContentWithoutContentSections,
     picture,
     verticalSpace,
     videoEmbed,
-    buttonLink
+    buttonLink,
+    contentSection
   ])
 })

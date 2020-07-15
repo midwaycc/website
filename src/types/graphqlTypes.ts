@@ -1317,15 +1317,15 @@ export type SitePluginPluginOptionsFilterInput = {
   root?: Maybe<StringQueryOperatorInput>;
   aliases?: Maybe<SitePluginPluginOptionsAliasesFilterInput>;
   component?: Maybe<StringQueryOperatorInput>;
+  trackingId?: Maybe<StringQueryOperatorInput>;
+  head?: Maybe<BooleanQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
   projectId?: Maybe<StringQueryOperatorInput>;
   dataset?: Maybe<StringQueryOperatorInput>;
   watchMode?: Maybe<BooleanQueryOperatorInput>;
   overlayDrafts?: Maybe<BooleanQueryOperatorInput>;
   token?: Maybe<StringQueryOperatorInput>;
-  trackingId?: Maybe<StringQueryOperatorInput>;
-  head?: Maybe<BooleanQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsAliasesFilterInput = {
@@ -1423,15 +1423,15 @@ export type SitePluginPluginOptions = {
   root?: Maybe<Scalars['String']>;
   aliases?: Maybe<SitePluginPluginOptionsAliases>;
   component?: Maybe<Scalars['String']>;
+  trackingId?: Maybe<Scalars['String']>;
+  head?: Maybe<Scalars['Boolean']>;
+  path?: Maybe<Scalars['String']>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
   projectId?: Maybe<Scalars['String']>;
   dataset?: Maybe<Scalars['String']>;
   watchMode?: Maybe<Scalars['Boolean']>;
   overlayDrafts?: Maybe<Scalars['Boolean']>;
   token?: Maybe<Scalars['String']>;
-  trackingId?: Maybe<Scalars['String']>;
-  head?: Maybe<Scalars['Boolean']>;
-  path?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsAliases = {
@@ -1637,15 +1637,15 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
   pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
   pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
+  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
+  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
   pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
   pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
   pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
   pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
-  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
-  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
   pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
@@ -5814,15 +5814,15 @@ export enum SitePluginFieldsEnum {
   pluginOptions___root = 'pluginOptions___root',
   pluginOptions___aliases____ = 'pluginOptions___aliases____',
   pluginOptions___component = 'pluginOptions___component',
+  pluginOptions___trackingId = 'pluginOptions___trackingId',
+  pluginOptions___head = 'pluginOptions___head',
+  pluginOptions___path = 'pluginOptions___path',
+  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   pluginOptions___projectId = 'pluginOptions___projectId',
   pluginOptions___dataset = 'pluginOptions___dataset',
   pluginOptions___watchMode = 'pluginOptions___watchMode',
   pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
   pluginOptions___token = 'pluginOptions___token',
-  pluginOptions___trackingId = 'pluginOptions___trackingId',
-  pluginOptions___head = 'pluginOptions___head',
-  pluginOptions___path = 'pluginOptions___path',
-  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
   ssrAPIs = 'ssrAPIs',
@@ -5884,7 +5884,7 @@ export type SitePluginGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type SanityBlockOrButtonLinkOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrContentSectionOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityContentSection | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
   __typename?: 'SanityButtonLink';
@@ -5895,6 +5895,21 @@ export type SanityButtonLink = {
   align?: Maybe<Scalars['String']>;
   thick?: Maybe<Scalars['Boolean']>;
   dark?: Maybe<Scalars['Boolean']>;
+};
+
+export type SanityContentSection = {
+  __typename?: 'SanityContentSection';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  squished?: Maybe<Scalars['Boolean']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  content?: Maybe<Array<Maybe<SanityBlock>>>;
+  _rawContent?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityContentSection_RawContentArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityPicture = {
@@ -5926,6 +5941,8 @@ export type SanityVideoEmbed = {
   _type?: Maybe<Scalars['String']>;
   videoId?: Maybe<Scalars['String']>;
 };
+
+export type SanityBlockOrButtonLinkOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityPlainOrPageLink = SanityPlainLink | SanityPageLink;
 
