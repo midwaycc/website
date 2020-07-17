@@ -68,14 +68,13 @@ export default {
               { title: 'Bold', value: 'strong' },
               { title: 'Italic', value: 'em' },
               { title: 'Underline', value: 'underline' }
-            ],
-            annotations: []
+            ]
           }
         }
       ],
       title: 'Short Summary',
       description:
-        'This appears where the thumbnail is displayed, before opening up the post. Can include basic formatting, but no links (since the entire card is clickable).'
+        'This appears where the thumbnail is displayed, before opening up the post. Can include basic formatting and links.'
     },
     {
       name: 'body',

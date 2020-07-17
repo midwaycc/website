@@ -12,6 +12,12 @@ type Props = {
 }
 
 export default ({ post }: Props) => {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    if (e.target && (e.target as HTMLElement).tagName.toLowerCase() === 'a') {
+      e.stopPropagation()
+    }
+  }
+
   return (
     <>
       {post.thumbnail && post.thumbnail.asset && (
@@ -23,7 +29,9 @@ export default ({ post }: Props) => {
         />
       )}
       <PostTitle>{post.title}</PostTitle>
-      {post._rawSummary && <RichContent blocks={post._rawSummary} />}
+      <div onClick={handleClick}>
+        {post._rawSummary && <RichContent blocks={post._rawSummary} />}
+      </div>
     </>
   )
 }
