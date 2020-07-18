@@ -3,6 +3,7 @@ declare module 'part:@sanity/base/schema-creator'
 declare module 'all:part:@sanity/base/schema-type'
 declare module 'part:@sanity/components/buttons/default'
 declare module '*.css'
+declare module '*.svg'
 
 declare module '@sanity/validation' {
   declare class Rule {

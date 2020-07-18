@@ -1,4 +1,6 @@
 import { alignment } from '../helpers/alignment'
+import { blockIcon } from '../helpers/blockIcon'
+import link from '../../icons/link.svg'
 
 export default {
   type: 'object',
@@ -39,6 +41,7 @@ export default {
         'Whether the button has a dark appearance (rather than light)'
     }
   ],
+  icon: blockIcon(link),
   preview: {
     select: {
       text: 'text',

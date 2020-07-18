@@ -1,7 +1,7 @@
 import React from 'react'
 import { Align } from './alignment'
 
-export const blockIcon = (text: string, align?: Align) => () => (
+export const blockIcon = (svg: string, align?: Align) => () => (
   <div
     style={{
       width: 24,
@@ -10,7 +10,6 @@ export const blockIcon = (text: string, align?: Align) => () => (
       textAlign: align || 'center'
     }}
   >
-    {text}
+    <img src={svg} />
   </div>
 )
-

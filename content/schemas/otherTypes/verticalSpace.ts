@@ -1,4 +1,5 @@
 import { blockIcon } from '../helpers/blockIcon'
+import arrowsVertical from '../../icons/arrows-vertical.svg'
 
 export default {
   type: 'object',
@@ -12,7 +13,7 @@ export default {
         'Vertical space in `em` units (one `em` is the height of one line of text)'
     }
   ],
-  icon: blockIcon('\u2195'),
+  icon: blockIcon(arrowsVertical),
   preview: {
     select: {
       height: 'height'

@@ -1,4 +1,6 @@
 import { alignment } from '../helpers/alignment'
+import { blockIcon } from '../helpers/blockIcon'
+import image from '../../icons/image.svg'
 
 export default {
   type: 'object',
@@ -35,6 +37,7 @@ export default {
       title: 'Caption (optional)'
     }
   ],
+  icon: blockIcon(image),
   preview: {
     select: {
       name: 'image.asset.originalFilename',
