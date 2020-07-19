@@ -26,9 +26,9 @@ import verticalSpace from './otherTypes/verticalSpace'
 import videoEmbed from './otherTypes/videoEmbed'
 import buttonLink from './otherTypes/buttonLink'
 import contentSection from './otherTypes/contentSection'
-import richContent, {
-  richContentWithoutContentSections
-} from './otherTypes/richContent'
+import contentColumn from './otherTypes/contentColumn'
+import columnRow from './otherTypes/columnRow'
+import richContent, { simpleRichContent } from './otherTypes/richContent'
 
 export default createSchema({
   name: 'default',
@@ -50,11 +50,13 @@ export default createSchema({
     nestedMenu,
     pageSection,
     richContent,
-    richContentWithoutContentSections,
+    simpleRichContent,
     picture,
     verticalSpace,
     videoEmbed,
     buttonLink,
-    contentSection
+    contentSection,
+    contentColumn,
+    columnRow
   ])
 })

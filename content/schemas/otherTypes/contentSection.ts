@@ -7,13 +7,11 @@ export default {
   title: 'Content Section',
   icon: blockIcon(box),
   preview: {
-    prepare() {
-      return { title: 'Click Edit to see content' }
-    }
+    prepare: () => ({ title: 'Section (open to edit)' })
   },
   fields: [
     {
-      type: 'richContentWithoutContentSections',
+      type: 'simpleRichContent',
       name: 'content',
       title: 'Content',
       description: 'The content will always be centered and not full width.'

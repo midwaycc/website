@@ -10,7 +10,7 @@ type Props = {
   node?: SanityContentSection
 }
 
-const serializers = getSerializers({ nested: true, ContentSection })
+const serializers = getSerializers({ nested: true })
 
 export function ContentSection(props: Props) {
   const { node } = props

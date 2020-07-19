@@ -7,6 +7,7 @@ import { CustomBlock } from '~/sanity/blockSerializers/CustomBlock'
 import { VideoEmbed } from '~/sanity/blockSerializers/VideoEmbed'
 import { ButtonLink } from '~/sanity/blockSerializers/ButtonLink'
 import { Picture } from '~/sanity/blockSerializers/Picture'
+import { ColumnRow } from '~/sanity/blockSerializers/ColumnRow'
 
 const {
   defaultSerializers: {
@@ -35,7 +36,7 @@ export function getSerializers({
   ContentSection
 }: {
   nested?: boolean
-  ContentSection: unknown
+  ContentSection?: unknown
 }) {
   return {
     types: {
@@ -44,9 +45,10 @@ export function getSerializers({
       videoEmbed: VideoEmbed,
       buttonLink: ButtonLink,
       picture: Picture,
-      // Content sections can't nest, so no need to define a serializer for them
+      // These types can't nest, so no need to define a serializer for them
       // if we are in a nested context.
-      contentSection: nested ? undefined : ContentSection
+      contentSection: nested ? undefined : ContentSection,
+      columnRow: nested ? undefined : ColumnRow
     },
     marks: {
       link: EnhancedLink

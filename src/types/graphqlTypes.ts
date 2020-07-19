@@ -5884,7 +5884,7 @@ export type SitePluginGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type SanityBlockOrButtonLinkOrContentSectionOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityContentSection | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrColumnRowOrContentSectionOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityColumnRow | SanityContentSection | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
   __typename?: 'SanityButtonLink';
@@ -5895,6 +5895,32 @@ export type SanityButtonLink = {
   align?: Maybe<Scalars['String']>;
   thick?: Maybe<Scalars['Boolean']>;
   dark?: Maybe<Scalars['Boolean']>;
+};
+
+export type SanityColumnRow = {
+  __typename?: 'SanityColumnRow';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  columns?: Maybe<Array<Maybe<SanityContentColumn>>>;
+  _rawColumns?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityColumnRow_RawColumnsArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+export type SanityContentColumn = {
+  __typename?: 'SanityContentColumn';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  content?: Maybe<Array<Maybe<SanityBlock>>>;
+  _rawContent?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityContentColumn_RawContentArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
 export type SanityContentSection = {

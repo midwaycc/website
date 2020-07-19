@@ -8,14 +8,17 @@ const richContent = {
     { type: 'buttonLink' },
     { type: 'picture' },
     { type: 'videoEmbed' },
-    { type: 'contentSection' }
+    { type: 'contentSection' },
+    { type: 'columnRow' }
   ]
 }
 
 export default richContent
 
-export const richContentWithoutContentSections = {
+const disallowedTypes = ['contentSection', 'columnRow']
+
+export const simpleRichContent = {
   ...richContent,
-  name: 'richContentWithoutContentSections',
-  of: richContent.of.filter(element => element.type !== 'contentSection')
+  name: 'simpleRichContent',
+  of: richContent.of.filter(element => !disallowedTypes.includes(element.type))
 }
