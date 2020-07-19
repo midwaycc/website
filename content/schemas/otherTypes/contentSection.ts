@@ -1,11 +1,11 @@
 import { blockIcon } from '../helpers/blockIcon'
-import square from '../../icons/square.svg'
+import box from '../../icons/box.svg'
 
 export default {
   type: 'object',
   name: 'contentSection',
   title: 'Content Section',
-  icon: blockIcon(square),
+  icon: blockIcon(box),
   preview: {
     prepare() {
       return { title: 'Click Edit to see content' }
