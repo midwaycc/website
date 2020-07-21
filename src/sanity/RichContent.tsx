@@ -10,7 +10,7 @@ type Props = {
   noPadding?: boolean
 }
 
-const serializers = getSerializers({ ContentSection })
+const serializers = getSerializers({ BlockContent, ContentSection })
 
 export default ({ blocks, noPadding }: Props) => {
   return (

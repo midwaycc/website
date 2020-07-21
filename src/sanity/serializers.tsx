@@ -1,5 +1,5 @@
 import React from 'react'
-import BlockContent from '@sanity/block-content-to-react'
+import SanityBlockContent from '@sanity/block-content-to-react'
 import Content from '~/layout/Content'
 import { VerticalSpace } from '~/sanity/blockSerializers/VerticalSpace'
 import { EnhancedLink } from '~/sanity/blockSerializers/EnhancedLink'
@@ -9,35 +9,37 @@ import { ButtonLink } from '~/sanity/blockSerializers/ButtonLink'
 import { Picture } from '~/sanity/blockSerializers/Picture'
 import { ColumnRow } from '~/sanity/blockSerializers/ColumnRow'
 
-const {
-  defaultSerializers: {
-    block: DefaultBlockSerializer,
-    list: DefaultListSerializer
-  }
-} = BlockContent
-
-const ContentWrapper = (serializer: (props: any) => any) => (props: any) => {
-  const unmodifiedOutput = serializer(props)
-
-  if (props.node && props.node._type === 'contentSection') {
-    console.log('unmodified is', unmodifiedOutput)
-    return unmodifiedOutput
-  }
-
-  return <Content>{unmodifiedOutput}</Content>
-}
-
-const BlockSerializer = ContentWrapper(DefaultBlockSerializer)
-const ListSerializer = ContentWrapper(DefaultListSerializer)
-
 export function getSerializers({
+  BlockContent,
   nested,
   // Need to pass this in to avoid circular dependency
   ContentSection
 }: {
+  BlockContent: typeof SanityBlockContent
   nested?: boolean
   ContentSection?: unknown
 }) {
+  const {
+    defaultSerializers: {
+      block: DefaultBlockSerializer,
+      list: DefaultListSerializer
+    }
+  } = BlockContent
+
+  const ContentWrapper = (serializer: (props: any) => any) => (props: any) => {
+    const unmodifiedOutput = serializer(props)
+
+    if (props.node && props.node._type === 'contentSection') {
+      console.log('unmodified is', unmodifiedOutput)
+      return unmodifiedOutput
+    }
+
+    return <Content>{unmodifiedOutput}</Content>
+  }
+
+  const BlockSerializer = ContentWrapper(DefaultBlockSerializer)
+  const ListSerializer = ContentWrapper(DefaultListSerializer)
+
   return {
     types: {
       block: CustomBlock,

@@ -8,7 +8,7 @@ type Props = {
   node?: SanityColumnRow
 }
 
-const serializers = getSerializers({ nested: true })
+const serializers = getSerializers({ BlockContent, nested: true })
 
 export function ColumnRow({ node }: Props) {
   if (!node) return null
