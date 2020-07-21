@@ -129,7 +129,9 @@ export default ({ data, path }: Props) => {
           <RichContent key="parent" blocks={content} />
         ) : (
           <>
-            <h2>{activeSection.name}</h2>
+            <Content>
+              <h2>{activeSection.name}</h2>
+            </Content>
             {activeSection.content && (
               <RichContent
                 key={activeSection.name}
