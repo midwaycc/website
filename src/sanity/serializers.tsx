@@ -30,11 +30,16 @@ export function getSerializers({
     const unmodifiedOutput = serializer(props)
 
     if (props.node && props.node._type === 'contentSection') {
-      console.log('unmodified is', unmodifiedOutput)
       return unmodifiedOutput
     }
 
-    return <Content>{unmodifiedOutput}</Content>
+    const { _type, style } = props.node || {}
+    const topLevelProps = {
+      'data-block-type': _type,
+      'data-block-style': style
+    }
+
+    return <Content {...topLevelProps}>{unmodifiedOutput}</Content>
   }
 
   const BlockSerializer = ContentWrapper(DefaultBlockSerializer)

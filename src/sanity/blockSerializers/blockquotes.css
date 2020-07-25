@@ -33,18 +33,26 @@ blockquote em {
   font-style: normal;
 }
 
-blockquote + blockquote {
+blockquote + blockquote,
+[data-block-style='blockquote'] + [data-block-style='blockquote'] blockquote {
   margin-top: -2.5em;
   transform: translateX(2em);
   font-size: 1.5em;
   color: #ddd;
 }
 
-blockquote + blockquote em {
+blockquote + blockquote em,
+[data-block-style='blockquote'] + [data-block-style='blockquote'] em {
   font-style: italic;
 }
 
 blockquote + blockquote::before,
-blockquote + blockquote::after {
+blockquote + blockquote::after,
+[data-block-style='blockquote']
+  + [data-block-style='blockquote']
+  blockquote::before,
+[data-block-style='blockquote']
+  + [data-block-style='blockquote']
+  blockquote::after {
   display: none;
 }
