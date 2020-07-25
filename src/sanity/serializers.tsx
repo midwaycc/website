@@ -35,8 +35,8 @@ export function getSerializers({
 
     const { _type, style } = props.node || {}
     const topLevelProps = {
-      'data-block-type': _type,
-      'data-block-style': style
+      'data-t': _type,
+      'data-s': style
     }
 
     return <Content {...topLevelProps}>{unmodifiedOutput}</Content>
