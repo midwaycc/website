@@ -46,7 +46,7 @@ export function ContentSection(props: Props) {
   return (
     <Parallax
       bgImage={backgroundImageUrl}
-      strength={backgroundParallax ? 400 : 0}
+      strength={backgroundParallax ? 600 : 0}
       blur={backgroundBlurStrength || 0}
       renderLayer={
         backgroundColor
