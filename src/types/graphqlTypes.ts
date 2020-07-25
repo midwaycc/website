@@ -204,8 +204,8 @@ export type QuerySanityGeneralAlertArgs = {
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
   active?: Maybe<BooleanQueryOperatorInput>;
-  message?: Maybe<SanityBlockFilterListInput>;
-  _rawMessage?: Maybe<JsonQueryOperatorInput>;
+  content?: Maybe<SanityBlockFilterListInput>;
+  _rawContent?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -1317,15 +1317,15 @@ export type SitePluginPluginOptionsFilterInput = {
   root?: Maybe<StringQueryOperatorInput>;
   aliases?: Maybe<SitePluginPluginOptionsAliasesFilterInput>;
   component?: Maybe<StringQueryOperatorInput>;
+  trackingId?: Maybe<StringQueryOperatorInput>;
+  head?: Maybe<BooleanQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
   projectId?: Maybe<StringQueryOperatorInput>;
   dataset?: Maybe<StringQueryOperatorInput>;
   watchMode?: Maybe<BooleanQueryOperatorInput>;
   overlayDrafts?: Maybe<BooleanQueryOperatorInput>;
   token?: Maybe<StringQueryOperatorInput>;
-  trackingId?: Maybe<StringQueryOperatorInput>;
-  head?: Maybe<BooleanQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsAliasesFilterInput = {
@@ -1423,15 +1423,15 @@ export type SitePluginPluginOptions = {
   root?: Maybe<Scalars['String']>;
   aliases?: Maybe<SitePluginPluginOptionsAliases>;
   component?: Maybe<Scalars['String']>;
+  trackingId?: Maybe<Scalars['String']>;
+  head?: Maybe<Scalars['Boolean']>;
+  path?: Maybe<Scalars['String']>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
   projectId?: Maybe<Scalars['String']>;
   dataset?: Maybe<Scalars['String']>;
   watchMode?: Maybe<Scalars['Boolean']>;
   overlayDrafts?: Maybe<Scalars['Boolean']>;
   token?: Maybe<Scalars['String']>;
-  trackingId?: Maybe<Scalars['String']>;
-  head?: Maybe<Scalars['Boolean']>;
-  path?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsAliases = {
@@ -1637,15 +1637,15 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
   pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
   pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
+  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
+  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
   pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
   pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
   pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
   pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
-  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
-  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
   pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
@@ -1958,8 +1958,8 @@ export type SanityGeneralAlert = SanityDocument & Node & {
   _rev?: Maybe<Scalars['String']>;
   _key?: Maybe<Scalars['String']>;
   active?: Maybe<Scalars['Boolean']>;
-  message?: Maybe<Array<Maybe<SanityBlock>>>;
-  _rawMessage?: Maybe<Scalars['JSON']>;
+  content?: Maybe<Array<Maybe<SanityBlock>>>;
+  _rawContent?: Maybe<Scalars['JSON']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -1983,7 +1983,7 @@ export type SanityGeneralAlert_UpdatedAtArgs = {
 };
 
 
-export type SanityGeneralAlert_RawMessageArgs = {
+export type SanityGeneralAlert_RawContentArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
@@ -2032,8 +2032,8 @@ export type SanityGeneralAlertFilterInput = {
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
   active?: Maybe<BooleanQueryOperatorInput>;
-  message?: Maybe<SanityBlockFilterListInput>;
-  _rawMessage?: Maybe<JsonQueryOperatorInput>;
+  content?: Maybe<SanityBlockFilterListInput>;
+  _rawContent?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2053,18 +2053,18 @@ export enum SanityGeneralAlertFieldsEnum {
   _rev = '_rev',
   _key = '_key',
   active = 'active',
-  message = 'message',
-  message____key = 'message____key',
-  message____type = 'message____type',
-  message___children = 'message___children',
-  message___children____key = 'message___children____key',
-  message___children____type = 'message___children____type',
-  message___children___marks = 'message___children___marks',
-  message___children___text = 'message___children___text',
-  message___style = 'message___style',
-  message___list = 'message___list',
-  message____rawChildren = 'message____rawChildren',
-  _rawMessage = '_rawMessage',
+  content = 'content',
+  content____key = 'content____key',
+  content____type = 'content____type',
+  content___children = 'content___children',
+  content___children____key = 'content___children____key',
+  content___children____type = 'content___children____type',
+  content___children___marks = 'content___children___marks',
+  content___children___text = 'content___children___text',
+  content___style = 'content___style',
+  content___list = 'content___list',
+  content____rawChildren = 'content____rawChildren',
+  _rawContent = '_rawContent',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -5814,15 +5814,15 @@ export enum SitePluginFieldsEnum {
   pluginOptions___root = 'pluginOptions___root',
   pluginOptions___aliases____ = 'pluginOptions___aliases____',
   pluginOptions___component = 'pluginOptions___component',
+  pluginOptions___trackingId = 'pluginOptions___trackingId',
+  pluginOptions___head = 'pluginOptions___head',
+  pluginOptions___path = 'pluginOptions___path',
+  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   pluginOptions___projectId = 'pluginOptions___projectId',
   pluginOptions___dataset = 'pluginOptions___dataset',
   pluginOptions___watchMode = 'pluginOptions___watchMode',
   pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
   pluginOptions___token = 'pluginOptions___token',
-  pluginOptions___trackingId = 'pluginOptions___trackingId',
-  pluginOptions___head = 'pluginOptions___head',
-  pluginOptions___path = 'pluginOptions___path',
-  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
   ssrAPIs = 'ssrAPIs',
@@ -6244,7 +6244,7 @@ export type GeneralAlertQuery = (
   { __typename?: 'Query' }
   & { sanityGeneralAlert?: Maybe<(
     { __typename?: 'SanityGeneralAlert' }
-    & Pick<SanityGeneralAlert, 'active' | '_rawMessage'>
+    & Pick<SanityGeneralAlert, 'active' | '_rawContent'>
   )> }
 );
 

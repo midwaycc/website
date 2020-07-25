@@ -9,7 +9,7 @@ const query = graphql`
   query GeneralAlert {
     sanityGeneralAlert {
       active
-      _rawMessage
+      _rawContent
     }
   }
 `
@@ -19,12 +19,12 @@ export default () => {
   if (!data.sanityGeneralAlert) return null
   const {
     active: alertActive,
-    _rawMessage: alertMessage
+    _rawContent: alertContent
   } = data.sanityGeneralAlert
 
-  return alertActive && alertMessage ? (
+  return alertActive && alertContent ? (
     <AlertContainer>
-      <RichContent blocks={alertMessage} />
+      <RichContent blocks={alertContent} />
     </AlertContainer>
   ) : null
 }
