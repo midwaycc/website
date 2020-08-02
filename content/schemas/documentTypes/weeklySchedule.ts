@@ -18,6 +18,11 @@ export default {
         "Make sure only one schedule is marked as active. If there's more than one, a random one will be picked."
     },
     {
+      name: 'weekOf',
+      title: 'Week Of',
+      type: 'date'
+    },
+    {
       name: 'days',
       title: 'Days',
       type: 'array',
