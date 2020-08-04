@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import styled from 'styled-components'
+import { navigate } from 'gatsby'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import PostSummary from '~/components/PostSummary'
 
@@ -13,9 +14,15 @@ type Props = {
 export const PostCard = ({ post, addToUrl }: Props) => {
   if (!post.slug) return null
 
+  const postUrl = `/posts/${post.slug.current}${addToUrl || ''}`
+
   return (
-    <Link to={`/posts/${post.slug.current}${addToUrl || ''}`}>
+    <Container onClick={() => navigate(postUrl)}>
       <PostSummary post={post} />
-    </Link>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  cursor: pointer;
+`
