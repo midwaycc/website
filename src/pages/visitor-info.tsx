@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Section from '~/layout/Section'
+import Content from '~/layout/Content'
 import { Greeting, TextInput } from '~/views/ContactForm'
 import { SquareButton } from '~/components/SquareButton'
 
@@ -11,42 +12,49 @@ export default () => {
 
   return (
     <Section>
-      <Greeting>Help us get to know you!</Greeting>
-      <form
-        name="visitor-info"
-        method="POST"
-        action="/contact/success"
-        data-netlify="true"
-        data-netlify-honeypot="phone"
-        css="width: 100%; max-width: 40em"
-      >
-        <TextInput title="Name(s)" name="names" value={names} set={setNames} />
-        <TextInput
-          title="Children (names and ages)"
-          name="children"
-          value={children}
-          set={setChildren}
-        />
-        <input type="hidden" name="form-name" value="visitor-info" />
-        <input css="display:none" type="hidden" name="phone" value="" />
-        <TextInput
-          textarea
-          title="Preferred method of contact"
-          name="preferred-contact"
-          value={preferredContact}
-          set={setPreferredContact}
-        />
-        <TextInput
-          textarea
-          title="Additional info (optional): Tell us about yourself! How did you find us? What did you like about the service?"
-          name="message"
-          value={message}
-          set={setMessage}
-        />
-        <SquareButton type="submit" css="margin-top: 1em">
-          Submit
-        </SquareButton>
-      </form>
+      <Content>
+        <Greeting>Help us get to know you!</Greeting>
+        <form
+          name="visitor-info"
+          method="POST"
+          action="/contact/success"
+          data-netlify="true"
+          data-netlify-honeypot="phone"
+          css="width: 100%; max-width: 40em"
+        >
+          <TextInput
+            title="Name(s)"
+            name="names"
+            value={names}
+            set={setNames}
+          />
+          <TextInput
+            title="Children (names and ages)"
+            name="children"
+            value={children}
+            set={setChildren}
+          />
+          <input type="hidden" name="form-name" value="visitor-info" />
+          <input css="display:none" type="hidden" name="phone" value="" />
+          <TextInput
+            textarea
+            title="Preferred method of contact"
+            name="preferred-contact"
+            value={preferredContact}
+            set={setPreferredContact}
+          />
+          <TextInput
+            textarea
+            title="Additional info (optional): Tell us about yourself! How did you find us? What did you like about the service?"
+            name="message"
+            value={message}
+            set={setMessage}
+          />
+          <SquareButton type="submit" css="margin-top: 1em">
+            Submit
+          </SquareButton>
+        </form>
+      </Content>
     </Section>
   )
 }
