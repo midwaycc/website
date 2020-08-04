@@ -109,10 +109,6 @@ export default () => {
       >
         <Scroller>
           <RichContent blocks={shortcutsContent} />
-          <RichContent blocks={shortcutsContent} />
-          <RichContent blocks={shortcutsContent} />
-          <RichContent blocks={shortcutsContent} />
-          <RichContent blocks={shortcutsContent} />
         </Scroller>
         <CloseButton onClick={closeShortcuts}>
           <img src={X} />
