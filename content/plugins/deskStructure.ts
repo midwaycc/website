@@ -7,6 +7,11 @@ const singletons = [
     id: '39e3e2cd-f904-4c55-aa97-df25ee541932'
   },
   {
+    title: 'Shortcuts',
+    schema: 'shortcuts',
+    id: '3b561e1f-6190-4d39-bd79-c150b1235703'
+  },
+  {
     title: 'General Alert',
     schema: 'generalAlert',
     id: '13f98916-0879-4734-9db9-af2e9b253597'

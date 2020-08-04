@@ -1,15 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import Modal from 'react-modal'
 import media from '~/utils/media'
+import RichContent from '~/sanity/RichContent'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/hero-optimized.mp4'
 import { SquareButton } from '~/components/SquareButton'
+import X from '~/../static/images/x.svg'
+
+if (typeof document !== 'undefined') {
+  Modal.setAppElement(document.body)
+}
+
+const query = graphql`
+  query HeroSection {
+    sanityHeroSection {
+      subtitle
+      title
+    }
+    sanityShortcuts {
+      active
+      _rawContent
+    }
+  }
+`
 
 export default () => {
+  const [shortcutsOpen, setShortcutsOpen] = useState(true)
   const data: HeroSectionQuery = useStaticQuery(query)
-  if (!data.sanityHeroSection) return null
-  const { title, subtitle } = data.sanityHeroSection
+  if (!data.sanityHeroSection || !data.sanityShortcuts) {
+    return null
+  }
+
+  const {
+    sanityHeroSection: { title, subtitle },
+    sanityShortcuts: { active: shortcutsActive, _rawContent: shortcutsContent }
+  } = data
+
+  const closeShortcuts = () => setShortcutsOpen(false)
 
   return (
     <>
@@ -23,38 +52,75 @@ export default () => {
           <HeroContent>
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
+            {shortcutsActive && (
+              <div>
+                <HeroButton
+                  thick
+                  background="#099799"
+                  hover="#2b6667"
+                  border="#9fb94b"
+                  onClick={() => setShortcutsOpen(true)}
+                >
+                  Shortcuts
+                </HeroButton>
+              </div>
+            )}
             <div>
               <Link to="/new">
-                <SquareButton
+                <HeroButton
                   dark
                   thick
-                  css={css`
-                    margin-top: 2em;
-                    background-color: rgba(255, 255, 255, 0.5);
-                    :hover {
-                      background-color: white;
-                    }
-                  `}
+                  background="rgba(255, 255, 255, 0.5)"
+                  hover="white"
                 >
                   New Here?
-                </SquareButton>
+                </HeroButton>
               </Link>
             </div>
           </HeroContent>
         </OverlayContainer>
       </Container>
+      <Modal
+        isOpen={shortcutsOpen}
+        onRequestClose={closeShortcuts}
+        closeTimeoutMS={300}
+        style={{
+          overlay: {
+            zIndex: 4,
+            backgroundColor: 'rgba(0,0,0,0.45)',
+            pointerEvents: 'auto'
+          },
+          content: {
+            width: 800,
+            maxWidth: 'calc(100vw - 2rem)',
+            maxHeight: 'calc(70vh)',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            overflow: 'hidden',
+            border: '5px solid #9fb94b',
+            borderRadius: 0,
+            backgroundColor: '#2b6667',
+            color: 'white',
+            position: 'relative',
+            padding: 0
+          }
+        }}
+      >
+        <Scroller>
+          <RichContent blocks={shortcutsContent} />
+          <RichContent blocks={shortcutsContent} />
+          <RichContent blocks={shortcutsContent} />
+          <RichContent blocks={shortcutsContent} />
+          <RichContent blocks={shortcutsContent} />
+        </Scroller>
+        <CloseButton onClick={closeShortcuts}>
+          <img src={X} />
+        </CloseButton>
+      </Modal>
     </>
   )
 }
-
-const query = graphql`
-  query HeroSection {
-    sanityHeroSection {
-      subtitle
-      title
-    }
-  }
-`
 
 const Container = styled.section`
   width: 100%;
@@ -130,4 +196,37 @@ const Subtitle = styled.p`
   ${media.md} {
     font-size: 1.5em;
   }
+`
+
+const HeroButton = styled<
+  React.FC<
+    React.ComponentProps<typeof SquareButton> & {
+      background: string
+      hover: string
+      border?: string
+    }
+  >
+>(({ background, hover, border, ...rest }) => <SquareButton {...rest} />)`
+  margin-top: 2em;
+  background-color: ${props => props.background};
+  ${props => (props.border ? `border-color: ${props.border};` : '')}
+  :hover {
+    background-color: ${props => props.hover};
+  }
+`
+
+const Scroller = styled.div`
+  max-height: inherit;
+  overflow: auto;
+  padding: 1rem;
+  text-align: center;
+`
+
+const CloseButton = styled.button`
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0;
+  background: none;
+  border: none;
 `

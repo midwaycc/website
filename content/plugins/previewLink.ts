@@ -19,6 +19,7 @@ function path(document: Doc) {
       return document.url?.current
     case 'heroSection':
     case 'navigation':
+    case 'shortcuts':
     case 'generalAlert':
     case 'scheduleAlert':
     case 'weeklySchedule':

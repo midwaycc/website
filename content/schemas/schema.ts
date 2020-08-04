@@ -7,6 +7,7 @@ import ministryPage from './documentTypes/ministryPage'
 import heroSection from './documentTypes/heroSection'
 import navigation from './documentTypes/navigation'
 import post from './documentTypes/post'
+import shortcuts from './documentTypes/shortcuts'
 import scheduleAlert from './documentTypes/scheduleAlert'
 import generalAlert from './documentTypes/generalAlert'
 import sermonUpload from './documentTypes/sermonUpload'
@@ -38,6 +39,7 @@ export default createSchema({
     heroSection,
     navigation,
     post,
+    shortcuts,
     generalAlert,
     scheduleAlert,
     sermonUpload,
