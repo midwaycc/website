@@ -61,7 +61,7 @@ export default () => {
                   border="#9fb94b"
                   onClick={() => setShortcutsOpen(true)}
                 >
-                  Shortcuts
+                  Quick Links
                 </HeroButton>
               </div>
             )}
