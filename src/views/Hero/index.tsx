@@ -40,41 +40,6 @@ export default () => {
                 </SquareButton>
               </Link>
             </div>
-            <div>
-              <Link to="/visitor-info">
-                <SquareButton
-                  dark
-                  thick
-                  css={css`
-                    margin-top: 2em;
-                    background-color: rgba(255, 255, 255, 0.5);
-                    :hover {
-                      background-color: white;
-                    }
-                  `}
-                >
-                  Help us get
-                  <br
-                    css={css`
-                      ${media.xs} {
-                        display: none;
-                      }
-                    `}
-                  />
-                  <span
-                    css={css`
-                      display: none;
-                      ${media.xs} {
-                        display: unset;
-                      }
-                    `}
-                  >
-                    {' '}
-                  </span>
-                  to know you!
-                </SquareButton>
-              </Link>
-            </div>
           </HeroContent>
         </OverlayContainer>
       </Container>
