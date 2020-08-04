@@ -27,7 +27,7 @@ const query = graphql`
 `
 
 export default () => {
-  const [shortcutsOpen, setShortcutsOpen] = useState(true)
+  const [shortcutsOpen, setShortcutsOpen] = useState(false)
   const data: HeroSectionQuery = useStaticQuery(query)
   if (!data.sanityHeroSection || !data.sanityShortcuts) {
     return null
