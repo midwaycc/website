@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import { getSerializers } from '~/sanity/serializers'
 import { SanityColumnRow } from '~/types/graphqlTypes'
+import media from '~/utils/media'
 
 type Props = {
   node?: SanityColumnRow
@@ -17,24 +18,33 @@ export function ColumnRow({ node }: Props) {
   if (!columns) return null
 
   const renderedColumns = columns.map((column, i) => (
-    <div key={i}>
+    <Column key={i} ncols={columns.length}>
       <BlockContent blocks={column?.content || []} serializers={serializers} />
-    </div>
+    </Column>
   ))
 
-  return <Container>{renderedColumns}</Container>
+  return (
+    <Container>
+      <Columns>{renderedColumns}</Columns>
+    </Container>
+  )
 }
 
 const Container = styled.div`
+  overflow: hidden;
+`
+
+const Columns = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-contents: space-between;
+  flex-wrap: wrap;
+  margin: -0.5rem;
+`
 
-  & > div {
-    flex: 1;
-
-    & + div {
-      margin-left: 1rem;
-    }
-  }
+const Column = styled(({ ncols, ...rest }) => <div {...rest} />)`
+  flex: 1 0
+    calc(
+      (${media.lg.width} - 2rem - ${props => props.ncols - 1} * 1rem) /
+        ${props => props.ncols}
+    );
+  margin: 0.5rem;
 `
