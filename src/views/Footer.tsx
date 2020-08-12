@@ -81,8 +81,8 @@ const query = graphql`
     site {
       siteMetadata {
         church {
-          address
           phone
+          address
         }
       }
     }

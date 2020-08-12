@@ -57,8 +57,8 @@ export const QUERY = graphql`
   query WeeklySchedule {
     sanityScheduleAlert {
       id
-      active
       _rawMessage
+      active
     }
     allSanityWeeklySchedule(filter: { active: { eq: true } }, limit: 1) {
       nodes {

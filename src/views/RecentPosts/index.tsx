@@ -57,6 +57,8 @@ const query = graphql`
     ) {
       nodes {
         _id
+        date
+        title
         _rawSummary(resolveReferences: { maxDepth: 10 })
         thumbnail {
           asset {
@@ -65,11 +67,9 @@ const query = graphql`
             }
           }
         }
-        date
         slug {
           current
         }
-        title
       }
     }
   }

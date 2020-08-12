@@ -8,8 +8,8 @@ import { GeneralAlertQuery } from '~/types/graphqlTypes'
 const query = graphql`
   query GeneralAlert {
     sanityGeneralAlert {
-      active
       _rawContent
+      active
     }
   }
 `

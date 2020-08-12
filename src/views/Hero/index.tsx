@@ -16,8 +16,8 @@ if (typeof document !== 'undefined') {
 const query = graphql`
   query HeroSection {
     sanityHeroSection {
-      subtitle
       title
+      subtitle
     }
     sanityShortcuts {
       active

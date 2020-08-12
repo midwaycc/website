@@ -65,8 +65,8 @@ const query = graphql`
   fragment AnyNavLink on SanityPlainOrPageLink {
     __typename
     ... on SanityPlainLink {
-      text
       link
+      text
       sameWindow
     }
     ... on SanityPageLink {
