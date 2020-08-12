@@ -1,21 +1,34 @@
+import { Rule } from '@sanity/validation'
+
 export default {
   name: 'weeklySchedule',
   title: 'Weekly Schedule',
   type: 'document',
+  preview: {
+    select: {
+      label: 'label',
+      weekOf: 'weekOf'
+    },
+    prepare({ label, weekOf }: any) {
+      return {
+        title: `${weekOf}${label ? ` (${label})` : ''}`
+      }
+    }
+  },
   fields: [
     {
       name: 'label',
-      title: 'Label',
+      title: 'Optional Label',
       type: 'string',
       description:
-        "This is just for reference so it's clear which schedule this is (normal, summer, COVID, etc)"
+        "This is just for reference (only shows up here in Sanity) so it's easier to tell which schedule this is (normal, summer, COVID, etc)"
     },
     {
       name: 'active',
       title: 'Active?',
       type: 'boolean',
       description:
-        "Make sure only one schedule is marked as active. If there's more than one, a random one will be picked."
+        "If turned on, this schedule will be shown on the home page as long as it's in the future."
     },
     {
       name: 'weekOf',
@@ -81,7 +94,15 @@ export const weeklyScheduleEvent = {
       name: 'time',
       title: 'Time',
       type: 'string',
-      description: '"9:30 AM", "7:00 PM", etc.'
+      description: '"9:30 AM", "7:00 PM", etc.',
+      validation: (Rule: Rule) =>
+        Rule.custom((time: string) => {
+          if (/\d\d?:\d\d (A|P)M/.test(time)) {
+            return true
+          }
+
+          return 'Expected format: H:MM AM/PM (example: 5:00 PM, not 5 PM or 5:00 pm)'
+        })
     },
     {
       name: 'description',

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
@@ -25,11 +25,15 @@ const EVENT_TOTAL_HEIGHT = EVENT_MARGIN_TOP + EVENT_LINE_HEIGHT
 type SanityDays = WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes'][number]['days']
 
 export default () => {
+  const [navIndex, setNavIndex] = useState(0)
   const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
-  const alert = data.sanityScheduleAlert
   const schedule = data.allSanityWeeklySchedule.nodes[0]
-  const days = (schedule && schedule.days) || []
+  if (!schedule) return null
+
+  const scheduleAlert = data.sanityScheduleAlert
+  const { weekOf, days = [] } = schedule || {}
   const splitIndex = getSplitIndex(days)
+  console.log(schedule)
 
   return (
     <Container>
@@ -37,11 +41,21 @@ export default () => {
         <Title left color="white">
           Weekly Schedule
         </Title>
-        {alert && alert.active && alert._rawMessage && (
-          <Alert>
-            <RichContent blocks={alert._rawMessage} />
-          </Alert>
-        )}
+        <NavigationRow>
+          <BigArrow
+            onClick={() => setNavIndex(i => i - 1)}
+            visible={navIndex > 0}
+          >
+            &lsaquo;
+          </BigArrow>
+          <Subtitle>Week of {weekOf}</Subtitle>
+          <BigArrow onClick={() => setNavIndex(i => i + 1)}>&rsaquo;</BigArrow>
+        </NavigationRow>
+        {/* {scheduleAlert && scheduleAlert.active && scheduleAlert._rawMessage && ( */}
+        {/*   <Alert> */}
+        {/*     <RichContent blocks={scheduleAlert._rawMessage} /> */}
+        {/*   </Alert> */}
+        {/* )} */}
         {schedule && (
           <Horizontal>
             <Column>{daysFor(days.slice(0, splitIndex))}</Column>
@@ -62,6 +76,7 @@ export const QUERY = graphql`
     }
     allSanityWeeklySchedule(filter: { active: { eq: true } }, limit: 1) {
       nodes {
+        weekOf
         days {
           label
           events {
@@ -205,6 +220,28 @@ const Container = styled.div`
   }
 `
 
+const NavigationRow = styled.span`
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+
+  ${media.lg} {
+    text-align: left;
+  }
+`
+
+const Subtitle = styled.h2`
+  display: inline-block;
+  opacity: 0.8;
+  font-size: calc(2rem * 0.625);
+  font-variant: small-caps;
+  text-transform: lowercase;
+
+  ${media.sm} {
+    font-size: calc(2.5rem * 0.625);
+  }
+`
+
 const Horizontal = styled.div`
   display: flex;
   flex-direction: column;
@@ -249,4 +286,27 @@ const EventTime = styled.span`
 
 const EventName = styled.span`
   font-weight: bold;
+`
+
+const BigArrow = styled.span<{ visible?: boolean }>`
+  display: inline-block;
+  transform: scale(3) translateY(-0.1em);
+  margin: 0 2em;
+  color: #9fb94b;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  visibility: ${props => (props.visible === false ? 'hidden' : 'visible')};
+
+  ::before {
+    content: ' ';
+    position: absolute;
+    border-radius: 0.5ch;
+    top: 0.4em;
+    left: -2px;
+    width: 1ch;
+    height: 1ch;
+    background-color: #2b6667;
+    z-index: -1;
+  }
 `
