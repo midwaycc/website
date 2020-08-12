@@ -29,7 +29,11 @@ export default () => {
           value={message}
           set={setMessage}
         />
-        <SquareButton type="submit" css="margin-top: 1em">
+        <SquareButton
+          type="submit"
+          css="margin-top: 1em"
+          disabled={message.split(' ').length < 3}
+        >
           Submit
         </SquareButton>
       </form>

@@ -47,11 +47,16 @@ const Button = styled(({ dark, thick, ...buttonProps }) => (
   user-select: none;
   ${props => (props.thick ? 'font-weight: bold' : '')};
 
-  :hover {
+  :hover:not(:disabled) {
     background-color: ${props =>
       props.dark
         ? DARK_COLOR.replace('rgb', 'rgba').replace(')', ',0.25)')
         : 'rgba(255,255,255,0.15)'};
+  }
+
+  :disabled {
+    opacity: 50%;
+    cursor: not-allowed;
   }
 `
 
