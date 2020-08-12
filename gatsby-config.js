@@ -39,14 +39,7 @@ module.exports = {
             })
       }
     },
-    {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        headers: {
-          '/static/d/*': ['Cache-Control: public, max-age=0, must-revalidate']
-        }
-      }
-    },
+    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
