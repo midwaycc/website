@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { format } from 'date-fns'
 import RichContent from '~/sanity/RichContent'
 import Section from '~/layout/Section'
+import Content from '~/layout/Content'
 import { PostQuery } from '~/types/graphqlTypes'
 import { SquareButton } from '~/components/SquareButton'
 import queryString from 'query-string'
@@ -25,14 +26,16 @@ export default ({ data }: Props) => {
       : '/' + (queryString.parse(location.search).back || '')
 
   return (
-    <Container>
-      <Link to={backLink}>
-        <SquareButton point="left">Back</SquareButton>
-      </Link>
-      <PostTitle>{title}</PostTitle>
-      <PostDate date={date} />
+    <Section>
+      <Content>
+        <Link to={backLink}>
+          <SquareButton point="left">Back</SquareButton>
+        </Link>
+        <PostTitle>{title}</PostTitle>
+        <PostDate date={date} />
+      </Content>
       <RichContent blocks={body || summary} />
-    </Container>
+    </Section>
   )
 }
 
@@ -56,10 +59,6 @@ export const PostDate = ({ date }: { date: string }) => (
 function formatDate(date: string) {
   return format(new Date(date), 'MMMM do, y')
 }
-
-const Container = styled(Section)`
-  padding: 2em;
-`
 
 const PostTitle = styled.h1`
   margin-bottom: 0.25em;
