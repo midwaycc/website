@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
+import format from 'date-fns/format'
 import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
 import { Alert } from '~/components/Alert'
@@ -11,6 +12,7 @@ import {
   SanityWeeklyScheduleDay
 } from '~/types/graphqlTypes'
 import RichContent from '~/sanity/RichContent'
+import { Arrow } from '~/components/Arrow'
 
 // Based on previous em styles in the browser, for precise calculations
 const DAY_MARGIN_TOP = 26
@@ -27,13 +29,19 @@ type SanityDays = WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes'][number
 export default () => {
   const [navIndex, setNavIndex] = useState(0)
   const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
-  const schedule = data.allSanityWeeklySchedule.nodes[0]
+  const schedules = filterSchedules(data.allSanityWeeklySchedule.nodes)
+  if (!schedules.length) {
+    const defaultSchedule = data.defaultSchedule.nodes[0]
+    if (!defaultSchedule) return null
+    schedules.push(defaultSchedule)
+  }
+  const schedule =
+    schedules[Math.max(0, Math.min(navIndex, schedules.length - 1))]
   if (!schedule) return null
 
   const scheduleAlert = data.sanityScheduleAlert
-  const { weekOf, days = [] } = schedule || {}
+  const { weekOf, days } = schedule || {}
   const splitIndex = getSplitIndex(days)
-  console.log(schedule)
 
   return (
     <Container>
@@ -41,25 +49,34 @@ export default () => {
         <Title left color="white">
           Weekly Schedule
         </Title>
-        <NavigationRow>
-          <BigArrow
-            onClick={() => setNavIndex(i => i - 1)}
-            visible={navIndex > 0}
-          >
-            &lsaquo;
-          </BigArrow>
-          <Subtitle>Week of {weekOf}</Subtitle>
-          <BigArrow onClick={() => setNavIndex(i => i + 1)}>&rsaquo;</BigArrow>
-        </NavigationRow>
-        {/* {scheduleAlert && scheduleAlert.active && scheduleAlert._rawMessage && ( */}
-        {/*   <Alert> */}
-        {/*     <RichContent blocks={scheduleAlert._rawMessage} /> */}
-        {/*   </Alert> */}
-        {/* )} */}
+        {weekOf && (
+          <NavigationRow>
+            <Arrow
+              direction="left"
+              background="#2b6667"
+              color="#9fb94b"
+              onClick={() => setNavIndex(i => i - 1)}
+              visible={navIndex > 0}
+            />
+            <Subtitle>Week of {weekOf}</Subtitle>
+            <Arrow
+              direction="right"
+              background="#2b6667"
+              color="#9fb94b"
+              onClick={() => setNavIndex(i => i + 1)}
+              visible={navIndex < schedules.length - 1}
+            />
+          </NavigationRow>
+        )}
+        {scheduleAlert && scheduleAlert.active && scheduleAlert._rawMessage && (
+          <Alert>
+            <RichContent blocks={scheduleAlert._rawMessage} />
+          </Alert>
+        )}
         {schedule && (
           <Horizontal>
-            <Column>{daysFor(days.slice(0, splitIndex))}</Column>
-            <Column>{daysFor(days.slice(splitIndex))}</Column>
+            <Column>{daysFor((days || []).slice(0, splitIndex))}</Column>
+            <Column>{daysFor((days || []).slice(splitIndex))}</Column>
           </Horizontal>
         )}
       </Content>
@@ -68,23 +85,33 @@ export default () => {
 }
 
 export const QUERY = graphql`
+  fragment ScheduleStuff on SanityWeeklyScheduleConnection {
+    nodes {
+      weekOf
+      days {
+        label
+        events {
+          time
+          description
+        }
+      }
+    }
+  }
+
   query WeeklySchedule {
     sanityScheduleAlert {
       id
       _rawMessage
       active
     }
-    allSanityWeeklySchedule(filter: { active: { eq: true } }, limit: 1) {
-      nodes {
-        weekOf
-        days {
-          label
-          events {
-            time
-            description
-          }
-        }
-      }
+    allSanityWeeklySchedule(filter: { active: { eq: true } }) {
+      ...ScheduleStuff
+    }
+    defaultSchedule: allSanityWeeklySchedule(
+      filter: { active: { eq: true }, weekOf: { eq: null } }
+      limit: 1
+    ) {
+      ...ScheduleStuff
     }
   }
 `
@@ -124,6 +151,23 @@ function Event(props: { name: string; time: string }) {
       <EventName>{props.name}</EventName>
     </div>
   )
+}
+
+function filterSchedules(
+  schedules: WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes']
+) {
+  const mostRecentSunday = getMostRecentSunday()
+  const sundayFormatted = format(mostRecentSunday, 'yyyy-MM-dd')
+  const earliest = Date.parse(sundayFormatted)
+  return schedules.filter(
+    schedule => schedule.weekOf && Date.parse(schedule.weekOf) >= earliest
+  )
+}
+
+function getMostRecentSunday() {
+  const t = new Date()
+  t.setDate(t.getDate() - t.getDay())
+  return t
 }
 
 function daysFor(days: SanityDays) {
@@ -232,7 +276,7 @@ const NavigationRow = styled.span`
 
 const Subtitle = styled.h2`
   display: inline-block;
-  opacity: 0.8;
+  opacity: 0.75;
   font-size: calc(2rem * 0.625);
   font-variant: small-caps;
   text-transform: lowercase;
@@ -286,27 +330,4 @@ const EventTime = styled.span`
 
 const EventName = styled.span`
   font-weight: bold;
-`
-
-const BigArrow = styled.span<{ visible?: boolean }>`
-  display: inline-block;
-  transform: scale(3) translateY(-0.1em);
-  margin: 0 2em;
-  color: #9fb94b;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-  visibility: ${props => (props.visible === false ? 'hidden' : 'visible')};
-
-  ::before {
-    content: ' ';
-    position: absolute;
-    border-radius: 0.5ch;
-    top: 0.4em;
-    left: -2px;
-    width: 1ch;
-    height: 1ch;
-    background-color: #2b6667;
-    z-index: -1;
-  }
 `

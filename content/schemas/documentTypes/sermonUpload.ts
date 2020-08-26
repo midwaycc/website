@@ -5,6 +5,14 @@ export default {
   name: 'sermonUpload',
   title: 'Sermon Upload',
   type: 'document',
+  orderings: [
+    {
+      title: 'Chronological',
+      name: 'chronological',
+      customDefault: true,
+      by: [{ field: 'date', direction: 'desc' }]
+    }
+  ],
   fields: [
     {
       name: 'date',
@@ -24,13 +32,6 @@ export default {
       type: 'file',
       title: 'Audio File',
       description: '.mp3 only'
-    }
-  ],
-  orderings: [
-    {
-      title: 'Chronological',
-      name: 'chronological',
-      by: [{ field: 'date', direction: 'desc' }]
     }
   ],
   preview: {

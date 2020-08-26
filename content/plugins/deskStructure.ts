@@ -40,7 +40,19 @@ export default () =>
     .title('Content')
     .items([
       ...singletons.map(singletonItem),
-      ...S.documentTypeListItems().filter(
-        (item: any) => !schemasToFilterOut.includes(item.getId())
-      )
+      ...S.documentTypeListItems()
+        .filter((item: any) => !schemasToFilterOut.includes(item.getId()))
+        .map((item: any) => {
+          const customDefaultOrdering = item.spec.schemaType.orderings.find(
+            (ordering: any) => ordering.customDefault
+          )
+
+          return customDefaultOrdering
+            ? item.child(
+                S.documentTypeList(item.spec.schemaType.name).defaultOrdering(
+                  customDefaultOrdering.by
+                )
+              )
+            : item
+        })
     ])
