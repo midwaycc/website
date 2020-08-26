@@ -39,11 +39,10 @@ const Button = styled(({ dark, thick, ...buttonProps }) => (
   color: ${props => (props.dark ? DARK_COLOR : 'white')};
   border: ${props => (props.thick ? 3 : 2)}px solid
     ${props => (props.dark ? DARK_COLOR : 'white')};
-  font-size: 1.25em;
-  padding: 0.25em 2em;
+  font-size: 14px;
+  padding: 8px 14px;
   padding-bottom: 0.4em;
-  text-transform: lowercase;
-  font-variant: small-caps;
+  text-transform: uppercase;
   user-select: none;
   ${props => (props.thick ? 'font-weight: bold' : '')};
 
