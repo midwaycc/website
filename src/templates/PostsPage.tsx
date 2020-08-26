@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { AllPostsQuery } from '~/types/graphqlTypes'
 import Section from '~/layout/Section'
+import Content from '~/layout/Content'
 import { SquareButton } from '~/components/SquareButton'
 import { CardContainer } from '~/components/CardContainer'
 import { PostCard } from '~/components/PostCard'
@@ -33,38 +34,45 @@ export default ({
 
   return (
     <Section>
-      <Link to="/">
-        <SquareButton point="left">Home</SquareButton>
-      </Link>
-      <h1 css="margin-bottom: -0.5em">{title}</h1>
-      <CardContainer>
-        {posts.map((post, i) => (
-          <PostCard
-            key={post._id || `post-${i}`}
-            post={post}
-            addToUrl={`?back=${urlPrefix}`}
-          />
-        ))}
-      </CardContainer>
-      <div
-        style={{
-          width: '100%',
-          display: isFirst ? 'block' : 'flex',
-          justifyContent: 'space-between',
-          textAlign: isFirst ? 'right' : 'left'
-        }}
-      >
-        {!isFirst && !onlyOne && (
-          <Link
-            to={page === 2 ? `/${urlPrefix}` : `/${urlPrefix}/page/${page - 1}`}
-          >
-            &#8592; Newer
-          </Link>
-        )}
-        {!isLast && !onlyOne && (
-          <Link to={`/${urlPrefix}/page/${page + 1}`}>Older &#8594;</Link>
-        )}
-      </div>
+      <Content>
+        <Link to="/">
+          <SquareButton point="left">Home</SquareButton>
+        </Link>
+        <h1 css="margin-bottom: -0.5em">{title}</h1>
+        <CardContainer>
+          {posts.map((post, i) => (
+            <PostCard
+              key={post._id || `post-${i}`}
+              post={post}
+              addToUrl={`?back=${urlPrefix}`}
+            />
+          ))}
+        </CardContainer>
+        <div
+          style={{
+            width: '100%',
+            display: isFirst ? 'block' : 'flex',
+            justifyContent: 'space-between',
+            textAlign: isFirst ? 'right' : 'left',
+            marginTop: '2em'
+          }}
+        >
+          {!isFirst && !onlyOne && (
+            <Link
+              to={
+                page === 2 ? `/${urlPrefix}` : `/${urlPrefix}/page/${page - 1}`
+              }
+            >
+              <SquareButton point="left">Newer</SquareButton>
+            </Link>
+          )}
+          {!isLast && !onlyOne && (
+            <Link to={`/${urlPrefix}/page/${page + 1}`}>
+              <SquareButton point="right">Older</SquareButton>
+            </Link>
+          )}
+        </div>
+      </Content>
     </Section>
   )
 }
