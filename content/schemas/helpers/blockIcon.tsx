@@ -10,6 +10,6 @@ export const blockIcon = (svg: string, align?: Align) => () => (
       textAlign: align || 'center'
     }}
   >
-    <img src={svg} />
+    <img src={svg} style={{ width: 'unset', height: 'unset' }} />
   </div>
 )

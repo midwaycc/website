@@ -6,6 +6,7 @@ import { EnhancedLink } from '~/sanity/blockSerializers/EnhancedLink'
 import { CustomBlock } from '~/sanity/blockSerializers/CustomBlock'
 import { VideoEmbed } from '~/sanity/blockSerializers/VideoEmbed'
 import { ButtonLink } from '~/sanity/blockSerializers/ButtonLink'
+import { ButtonRow } from '~/sanity/blockSerializers/ButtonRow'
 import { Picture } from '~/sanity/blockSerializers/Picture'
 import { ColumnRow } from '~/sanity/blockSerializers/ColumnRow'
 
@@ -51,6 +52,7 @@ export function getSerializers({
       verticalSpace: VerticalSpace,
       videoEmbed: VideoEmbed,
       buttonLink: ButtonLink,
+      buttonRow: ButtonRow,
       picture: Picture,
       // These types can't nest, so no need to define a serializer for them
       // if we are in a nested context.

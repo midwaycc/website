@@ -5,13 +5,16 @@ import { EnhancedLink } from './EnhancedLink'
 import { SanityButtonLink } from '~/types/graphqlTypes'
 import { Align } from '~/types/align'
 
-type Props = {
-  node?: SanityButtonLink & {
-    align?: Align | null
-  }
+export type ProperButtonLink = SanityButtonLink & {
+  align?: Align | null
 }
 
-export function ButtonLink({ node }: Props) {
+type Props = {
+  node?: ProperButtonLink
+  inButtonRow?: boolean
+}
+
+export function ButtonLink({ node, inButtonRow }: Props) {
   if (!node || !node.text || !node.href) return null
 
   const { text, href, align, dark, thick } = node
@@ -20,8 +23,9 @@ export function ButtonLink({ node }: Props) {
     <EnhancedLink
       mark={{ href }}
       css={css`
-        display: block;
+        display: inline-block;
         text-align: ${align || 'left'};
+        margin: ${inButtonRow ? '0.5em' : '0'};
       `}
     >
       <SquareButton dark={dark} thick={thick}>

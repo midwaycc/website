@@ -29,6 +29,7 @@ import buttonLink from './otherTypes/buttonLink'
 import contentSection from './otherTypes/contentSection'
 import contentColumn from './otherTypes/contentColumn'
 import columnRow from './otherTypes/columnRow'
+import buttonRow from './otherTypes/buttonRow'
 import richContent, { simpleRichContent } from './otherTypes/richContent'
 
 export default createSchema({
@@ -59,6 +60,7 @@ export default createSchema({
     buttonLink,
     contentSection,
     contentColumn,
-    columnRow
+    columnRow,
+    buttonRow
   ])
 })

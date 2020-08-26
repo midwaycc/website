@@ -6,6 +6,7 @@ const richContent = {
     { type: 'block' },
     { type: 'verticalSpace' },
     { type: 'buttonLink' },
+    { type: 'buttonRow' },
     { type: 'picture' },
     { type: 'videoEmbed' },
     { type: 'contentSection' },
