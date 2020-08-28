@@ -12,9 +12,9 @@ export function ButtonRow({ node }: Props) {
 
   return (
     <Container>
-      {node.buttons.map(button =>
+      {node.buttons.map((button, i) =>
         button ? (
-          <ButtonLink node={button as ProperButtonLink} inButtonRow />
+          <ButtonLink key={i} node={button as ProperButtonLink} inButtonRow />
         ) : null
       )}
     </Container>
