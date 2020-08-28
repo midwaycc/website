@@ -1,10 +1,19 @@
+import { Rule } from '@sanity/validation'
+import { ensureOnlyOne } from '../helpers/ensureOnlyOne'
+
 export default {
   name: 'shortcuts',
-  title: 'Shortcuts',
+  title: 'Quick Links',
   type: 'document',
   preview: {
-    prepare: () => ({ title: 'Shortcuts' })
+    select: {
+      active: 'active'
+    },
+    prepare: ({ active }: any) => ({
+      title: `Quick Links${active ? ' (active)' : ''}`
+    })
   },
+  validation: (Rule: Rule) => Rule.custom(ensureOnlyOne('active')),
   fields: [
     {
       name: 'active',

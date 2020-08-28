@@ -9,6 +9,11 @@ declare module '@sanity/validation' {
   declare class Rule {
     required(): Rule
     max(arg: number): Rule
-    custom(arg: (arg: any) => boolean | string): Rule
+    custom(
+      arg: (
+        arg: any,
+        context: any
+      ) => boolean | string | Promise<boolean | string>
+    ): Rule
   }
 }

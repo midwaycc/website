@@ -19,8 +19,7 @@ const query = graphql`
       title
       subtitle
     }
-    sanityShortcuts {
-      active
+    sanityShortcuts(active: { eq: true }) {
       _rawContent
     }
   }
@@ -29,14 +28,17 @@ const query = graphql`
 export default () => {
   const [shortcutsOpen, setShortcutsOpen] = useState(false)
   const data: HeroSectionQuery = useStaticQuery(query)
-  if (!data.sanityHeroSection || !data.sanityShortcuts) {
+  if (!data.sanityHeroSection) {
     return null
   }
 
   const {
     sanityHeroSection: { title, subtitle },
-    sanityShortcuts: { active: shortcutsActive, _rawContent: shortcutsContent }
+    sanityShortcuts
   } = data
+  const shortcutsActive = Boolean(sanityShortcuts)
+  const shortcutsContent = sanityShortcuts ? sanityShortcuts._rawContent : []
+  console.log({ sanityShortcuts, shortcutsActive, shortcutsContent })
 
   const closeShortcuts = () => setShortcutsOpen(false)
 
@@ -80,40 +82,42 @@ export default () => {
           </HeroContent>
         </OverlayContainer>
       </Container>
-      <Modal
-        isOpen={shortcutsOpen}
-        onRequestClose={closeShortcuts}
-        closeTimeoutMS={300}
-        style={{
-          overlay: {
-            zIndex: 4,
-            backgroundColor: 'rgba(0,0,0,0.45)',
-            pointerEvents: 'auto'
-          },
-          content: {
-            width: 800,
-            maxWidth: 'calc(100vw - 2rem)',
-            maxHeight: 'calc(70vh)',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            overflow: 'hidden',
-            border: '5px solid #9fb94b',
-            borderRadius: 0,
-            backgroundColor: '#2b6667',
-            color: 'white',
-            position: 'relative',
-            padding: 0
-          }
-        }}
-      >
-        <Scroller>
-          <RichContent blocks={shortcutsContent} />
-        </Scroller>
-        <CloseButton onClick={closeShortcuts}>
-          <img src={X} />
-        </CloseButton>
-      </Modal>
+      {shortcutsActive && (
+        <Modal
+          isOpen={shortcutsOpen}
+          onRequestClose={closeShortcuts}
+          closeTimeoutMS={300}
+          style={{
+            overlay: {
+              zIndex: 4,
+              backgroundColor: 'rgba(0,0,0,0.45)',
+              pointerEvents: 'auto'
+            },
+            content: {
+              width: 800,
+              maxWidth: 'calc(100vw - 2rem)',
+              maxHeight: 'calc(70vh)',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              overflow: 'hidden',
+              border: '5px solid #9fb94b',
+              borderRadius: 0,
+              backgroundColor: '#2b6667',
+              color: 'white',
+              position: 'relative',
+              padding: 0
+            }
+          }}
+        >
+          <Scroller>
+            <RichContent blocks={shortcutsContent} />
+          </Scroller>
+          <CloseButton onClick={closeShortcuts}>
+            <img src={X} />
+          </CloseButton>
+        </Modal>
+      )}
     </>
   )
 }

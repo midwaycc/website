@@ -6560,7 +6560,7 @@ export type HeroSectionQuery = (
     & Pick<SanityHeroSection, 'title' | 'subtitle'>
   )>, sanityShortcuts?: Maybe<(
     { __typename?: 'SanityShortcuts' }
-    & Pick<SanityShortcuts, 'active' | '_rawContent'>
+    & Pick<SanityShortcuts, '_rawContent'>
   )> }
 );
 
