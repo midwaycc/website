@@ -1,36 +1,68 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
+import { darken } from 'polished'
 import media from '~/utils/media'
 import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
 import { SquareButton } from '~/components/SquareButton'
 import mapPin from '~/../static/images/map_pin.png'
 import leaves from '~/../static/images/leaves.png'
-import { darken } from 'polished'
+import { ChurchLocationQuery } from '~/types/graphqlTypes'
 
-export default () => (
-  <Container>
-    <Columns>
-      <Leaves />
-      <Column>
-        <Title color="#9fb94b">Welcome</Title>
-        <Subtitle>You're invited! Sunday mornings.</Subtitle>
-        <a href="http://midwaycc.sermon.net/" target="_blank">
-          <Button>Stream Live</Button>
+const query = graphql`
+  query ChurchLocation {
+    site {
+      siteMetadata {
+        church {
+          address
+          googleMapsLink
+        }
+      }
+    }
+  }
+`
+
+export default () => {
+  const data: ChurchLocationQuery = useStaticQuery(query)
+  const { address, googleMapsLink } = data.site?.siteMetadata?.church || {}
+  if (!address || !googleMapsLink) return null
+
+  return (
+    <Container>
+      <Columns>
+        <Leaves />
+        <Column>
+          <Title color="#9fb94b">Welcome</Title>
+          <Subtitle>You're invited! Sunday mornings.</Subtitle>
+          <a href="http://midwaycc.sermon.net/" target="_blank">
+            <Button>Stream Live</Button>
+          </a>
+          <Link to="/sermons">
+            <Button>Past Sermons</Button>
+          </Link>
+        </Column>
+        <a
+          href={googleMapsLink}
+          target="_blank"
+          css={css`
+            :not(:hover) {
+              text-decoration: none;
+              color: white;
+            }
+          `}
+        >
+          <Column>
+            <MapPin />
+            {address.map((line, i) => (
+              <AddressLine key={i}>{line}</AddressLine>
+            ))}
+          </Column>
         </a>
-        <Link to="/sermons">
-          <Button>Past Sermons</Button>
-        </Link>
-      </Column>
-      <Column>
-        <MapPin />
-        <AddressLine>3365 Francis Road</AddressLine>
-        <AddressLine>Alpharetta, GA 30004</AddressLine>
-      </Column>
-    </Columns>
-  </Container>
-)
+      </Columns>
+    </Container>
+  )
+}
 
 export const raggedEdgeGradient = (
   [r0, g0, b0]: number[],

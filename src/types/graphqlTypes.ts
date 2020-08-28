@@ -1744,6 +1744,7 @@ export type SiteSiteMetadataFilterInput = {
 export type SiteSiteMetadataChurchFilterInput = {
   address?: Maybe<StringQueryOperatorInput>;
   phone?: Maybe<StringQueryOperatorInput>;
+  googleMapsLink?: Maybe<StringQueryOperatorInput>;
   googleMapsEmbedSrc?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -1778,6 +1779,7 @@ export type SiteSiteMetadataChurch = {
   __typename?: 'SiteSiteMetadataChurch';
   address?: Maybe<Array<Maybe<Scalars['String']>>>;
   phone?: Maybe<Scalars['String']>;
+  googleMapsLink?: Maybe<Scalars['String']>;
   googleMapsEmbedSrc?: Maybe<Scalars['String']>;
 };
 
@@ -1803,6 +1805,7 @@ export enum SiteFieldsEnum {
   buildTime = 'buildTime',
   siteMetadata___church___address = 'siteMetadata___church___address',
   siteMetadata___church___phone = 'siteMetadata___church___phone',
+  siteMetadata___church___googleMapsLink = 'siteMetadata___church___googleMapsLink',
   siteMetadata___church___googleMapsEmbedSrc = 'siteMetadata___church___googleMapsEmbedSrc',
   port = 'port',
   host = 'host',
@@ -6561,6 +6564,23 @@ export type HeroSectionQuery = (
   )>, sanityShortcuts?: Maybe<(
     { __typename?: 'SanityShortcuts' }
     & Pick<SanityShortcuts, '_rawContent'>
+  )> }
+);
+
+export type ChurchLocationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ChurchLocationQuery = (
+  { __typename?: 'Query' }
+  & { site?: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata?: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & { church?: Maybe<(
+        { __typename?: 'SiteSiteMetadataChurch' }
+        & Pick<SiteSiteMetadataChurch, 'address' | 'googleMapsLink'>
+      )> }
+    )> }
   )> }
 );
 
