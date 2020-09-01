@@ -1,9 +1,11 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Image from 'gatsby-image'
 import media from '~/utils/media'
 import { SanityPicture } from '~/types/graphqlTypes'
 import { Align } from '~/types/align'
+import { Size } from '~/types/size'
+import { getContainerStyles, PERCENTS } from '~/utils/boxSizeHelpers'
 
 type Props = {
   node?: SanityPicture & {
@@ -12,18 +14,7 @@ type Props = {
   }
 }
 
-type Size = 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'mini'
-
 const MAX_WIDTH = media.xl.pixelWidth
-export const PERCENT_ARRAY = [15, 25, 100.0 / 3, 50, 200.0 / 3, 100]
-export const PERCENTS: Record<Size, number> = {
-  full: 100,
-  large: 200.0 / 3,
-  medium: 50,
-  small: 100.0 / 3,
-  tiny: 25,
-  mini: 15
-}
 
 export function Picture({ node }: Props) {
   if (!node || !node.image) return null
@@ -66,66 +57,6 @@ const CaptionArea = styled.div`
   font-style: italic;
   opacity: 0.8;
 `
-
-function getContainerStyles(percent: number, align?: Align) {
-  const index = PERCENT_ARRAY.indexOf(percent)
-  const maxIndex = PERCENT_ARRAY.length - 1
-
-  return css`
-    ${getCss(100, align)};
-
-    ${media.sm} {
-      ${getCss(PERCENT_ARRAY[Math.min(maxIndex, index + 2)], align)};
-    }
-
-    ${media.md} {
-      ${getCss(PERCENT_ARRAY[Math.min(maxIndex, index + 1)], align)};
-    }
-
-    ${media.lg} {
-      ${getCss(percent, align)};
-    }
-  `
-}
-
-function getCss(percent: number, align?: Align) {
-  const common = css`
-    width: ${percent}%;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  `
-
-  if (percent === 100) {
-    return css`
-      ${common};
-      float: none;
-      padding-left: 0;
-      padding-right: 0;
-    `
-  }
-
-  switch (align) {
-    case 'left':
-      return css`
-        ${common};
-        float: left;
-        padding-right: 1em;
-      `
-    case 'right':
-      return css`
-        ${common};
-        float: right;
-        padding-left: 1em;
-      `
-    case 'center':
-    default:
-      return css`
-        ${common};
-        margin-left: auto;
-        margin-right: auto;
-      `
-  }
-}
 
 function getSrcSet(
   src: string,

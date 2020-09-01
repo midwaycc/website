@@ -1,4 +1,4 @@
-import { PERCENTS, PERCENT_ARRAY } from './Picture'
+import { PERCENTS, PERCENT_ARRAY } from './boxSizeHelpers'
 
 const ascending = (a: number, b: number) => (a > b ? 1 : -1)
 
