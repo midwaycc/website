@@ -19,8 +19,10 @@ const query = graphql`
       title
       subtitle
     }
-    sanityShortcuts(active: { eq: true }) {
-      _rawContent
+    allSanityShortcuts(filter: { active: { eq: true } }) {
+      nodes {
+        _rawContent
+      }
     }
   }
 `
@@ -34,11 +36,12 @@ export default () => {
 
   const {
     sanityHeroSection: { title, subtitle },
-    sanityShortcuts
+    allSanityShortcuts
   } = data
-  const shortcutsActive = Boolean(sanityShortcuts)
-  const shortcutsContent = sanityShortcuts ? sanityShortcuts._rawContent : []
-  console.log({ sanityShortcuts, shortcutsActive, shortcutsContent })
+  const activeShortcuts = allSanityShortcuts
+    ? allSanityShortcuts.nodes || []
+    : []
+  const shortcutToUse = activeShortcuts.length ? activeShortcuts[0] : null
 
   const closeShortcuts = () => setShortcutsOpen(false)
 
@@ -54,7 +57,7 @@ export default () => {
           <HeroContent>
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
-            {shortcutsActive && (
+            {shortcutToUse && (
               <div>
                 <HeroButton
                   thick
@@ -82,7 +85,7 @@ export default () => {
           </HeroContent>
         </OverlayContainer>
       </Container>
-      {shortcutsActive && (
+      {shortcutToUse && (
         <Modal
           isOpen={shortcutsOpen}
           onRequestClose={closeShortcuts}
@@ -111,7 +114,7 @@ export default () => {
           }}
         >
           <Scroller>
-            <RichContent blocks={shortcutsContent} />
+            <RichContent blocks={shortcutToUse._rawContent || []} />
           </Scroller>
           <CloseButton onClick={closeShortcuts}>
             <img src={X} />
