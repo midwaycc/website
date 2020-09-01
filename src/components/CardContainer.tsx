@@ -1,12 +1,54 @@
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import styled, { css } from 'styled-components'
+import { PostTitle } from '~/components/PostSummary'
 import media from '~/utils/media'
 
-export const CardContainer = styled.div<{ big?: boolean; noHover?: boolean }>`
+type Props = ContainerProps & {
+  className?: string
+  children?: React.ReactNode
+}
+
+type ContainerProps = {
+  $titleHeight?: number
+  big?: boolean
+  noHover?: boolean
+}
+
+export function CardContainer({ children, ...containerProps }: Props) {
+  const [titleHeight, setTitleHeight] = useState(0)
+  const outer = useRef<HTMLDivElement>(null)
+
+  useLayoutEffect(() => {
+    ;(document as any).fonts.ready.then(() => {
+      if (outer.current) {
+        const titles = outer.current.querySelectorAll(PostTitle.toString())
+        const heights = Array.prototype.map.call(
+          titles,
+          (title: Element) => title.clientHeight
+        ) as number[]
+        const maxHeight = Math.max(...heights)
+        setTitleHeight(maxHeight)
+      }
+    })
+  }, [])
+
+  return (
+    <Container ref={outer} $titleHeight={titleHeight} {...containerProps}>
+      {children}
+    </Container>
+  )
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 2em;
+
+  ${PostTitle} {
+    min-height: ${props => props.$titleHeight}px;
+  }
 
   & > * {
     display: block;

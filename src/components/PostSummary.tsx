@@ -38,7 +38,7 @@ export default ({ post }: Props) => {
   )
 }
 
-const PostTitle = styled.h3`
+export const PostTitle = styled.h3`
   text-decoration: none;
   color: rgb(35, 74, 77);
 `
