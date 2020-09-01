@@ -104,7 +104,10 @@ export const QUERY = graphql`
       _rawMessage
       active
     }
-    allSanityWeeklySchedule(filter: { active: { eq: true } }) {
+    allSanityWeeklySchedule(
+      filter: { active: { eq: true } }
+      sort: { fields: weekOf, order: ASC }
+    ) {
       ...ScheduleStuff
     }
     defaultSchedule: allSanityWeeklySchedule(
