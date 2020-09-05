@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import format from 'date-fns/format'
+import addDays from 'date-fns/addDays'
 import Content from '~/layout/Content'
 import { Title } from '~/components/Title'
 import { Alert } from '~/components/Alert'
@@ -27,9 +28,9 @@ const EVENT_TOTAL_HEIGHT = EVENT_MARGIN_TOP + EVENT_LINE_HEIGHT
 type SanityDays = WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes'][number]['days']
 
 export default () => {
-  const [navIndex, setNavIndex] = useState(0)
   const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
-  const schedules = filterSchedules(data.allSanityWeeklySchedule.nodes)
+  const [schedules, index] = filterSchedules(data.allSanityWeeklySchedule.nodes)
+  const [navIndex, setNavIndex] = useState(index)
   if (!schedules.length) {
     const defaultSchedule = data.defaultSchedule.nodes[0]
     if (!defaultSchedule) return null
@@ -162,9 +163,15 @@ function filterSchedules(
   const mostRecentSunday = getMostRecentSunday()
   const sundayFormatted = format(mostRecentSunday, 'yyyy-MM-dd')
   const earliest = Date.parse(sundayFormatted)
-  return schedules.filter(
+  const schedulesToShow = schedules.filter(
     schedule => schedule.weekOf && Date.parse(schedule.weekOf) >= earliest
   )
+
+  const now = new Date()
+  const fridayRollover = addDays(mostRecentSunday, 5)
+  const shouldRollover = now >= fridayRollover
+
+  return [schedulesToShow, shouldRollover ? 1 : 0] as const
 }
 
 function getMostRecentSunday() {
