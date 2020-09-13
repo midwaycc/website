@@ -16,6 +16,7 @@ import weeklySchedule, {
   weeklyScheduleEvent,
   weeklyScheduleDay
 } from './documentTypes/weeklySchedule'
+import poster from './documentTypes/poster'
 
 // Other custom types
 import plainLink from './otherTypes/plainLink'
@@ -31,6 +32,7 @@ import contentColumn from './otherTypes/contentColumn'
 import columnRow from './otherTypes/columnRow'
 import buttonRow from './otherTypes/buttonRow'
 import richContent, { simpleRichContent } from './otherTypes/richContent'
+import posterLine from './otherTypes/posterLine'
 
 export default createSchema({
   name: 'default',
@@ -61,6 +63,8 @@ export default createSchema({
     contentSection,
     contentColumn,
     columnRow,
-    buttonRow
+    buttonRow,
+    poster,
+    posterLine
   ])
 })

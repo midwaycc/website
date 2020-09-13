@@ -23,6 +23,7 @@ function path(document: Doc) {
     case 'generalAlert':
     case 'scheduleAlert':
     case 'weeklySchedule':
+    case 'poster':
       return '/'
     case 'post':
       return `/posts/${document.slug?.current}`

@@ -37,6 +37,8 @@ export type Query = {
   allSanityPage: SanityPageConnection;
   sanityPost?: Maybe<SanityPost>;
   allSanityPost: SanityPostConnection;
+  sanityPoster?: Maybe<SanityPoster>;
+  allSanityPoster: SanityPosterConnection;
   sanityFileAsset?: Maybe<SanityFileAsset>;
   allSanityFileAsset: SanityFileAssetConnection;
   sanityImageAsset?: Maybe<SanityImageAsset>;
@@ -156,15 +158,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -386,6 +388,35 @@ export type QuerySanityPostArgs = {
 export type QueryAllSanityPostArgs = {
   filter?: Maybe<SanityPostFilterInput>;
   sort?: Maybe<SanityPostSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QuerySanityPosterArgs = {
+  _id?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  _createdAt?: Maybe<DateQueryOperatorInput>;
+  _updatedAt?: Maybe<DateQueryOperatorInput>;
+  _rev?: Maybe<StringQueryOperatorInput>;
+  _key?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  lines?: Maybe<SanityPosterLineFilterListInput>;
+  background?: Maybe<SanityImageFilterInput>;
+  overlayColor?: Maybe<StringQueryOperatorInput>;
+  overlayOpacity?: Maybe<FloatQueryOperatorInput>;
+  _rawLines?: Maybe<JsonQueryOperatorInput>;
+  _rawBackground?: Maybe<JsonQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllSanityPosterArgs = {
+  filter?: Maybe<SanityPosterFilterInput>;
+  sort?: Maybe<SanityPosterSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -1407,15 +1438,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
 };
 
 export type SitePageContext = {
@@ -1505,15 +1536,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageSortInput = {
@@ -1527,89 +1558,6 @@ export enum SitePageFieldsEnum {
   internalComponentName = 'internalComponentName',
   componentChunkName = 'componentChunkName',
   matchPath = 'matchPath',
-  isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
-  context____id = 'context____id',
-  context___page = 'context___page',
-  context___perPage = 'context___perPage',
-  context___offset = 'context___offset',
-  context___isFirst = 'context___isFirst',
-  context___isLast = 'context___isLast',
-  context___onlyOne = 'context___onlyOne',
-  pluginCreator___id = 'pluginCreator___id',
-  pluginCreator___parent___id = 'pluginCreator___parent___id',
-  pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',
-  pluginCreator___parent___parent___children = 'pluginCreator___parent___parent___children',
-  pluginCreator___parent___children = 'pluginCreator___parent___children',
-  pluginCreator___parent___children___id = 'pluginCreator___parent___children___id',
-  pluginCreator___parent___children___children = 'pluginCreator___parent___children___children',
-  pluginCreator___parent___internal___content = 'pluginCreator___parent___internal___content',
-  pluginCreator___parent___internal___contentDigest = 'pluginCreator___parent___internal___contentDigest',
-  pluginCreator___parent___internal___description = 'pluginCreator___parent___internal___description',
-  pluginCreator___parent___internal___fieldOwners = 'pluginCreator___parent___internal___fieldOwners',
-  pluginCreator___parent___internal___ignoreType = 'pluginCreator___parent___internal___ignoreType',
-  pluginCreator___parent___internal___mediaType = 'pluginCreator___parent___internal___mediaType',
-  pluginCreator___parent___internal___owner = 'pluginCreator___parent___internal___owner',
-  pluginCreator___parent___internal___type = 'pluginCreator___parent___internal___type',
-  pluginCreator___children = 'pluginCreator___children',
-  pluginCreator___children___id = 'pluginCreator___children___id',
-  pluginCreator___children___parent___id = 'pluginCreator___children___parent___id',
-  pluginCreator___children___parent___children = 'pluginCreator___children___parent___children',
-  pluginCreator___children___children = 'pluginCreator___children___children',
-  pluginCreator___children___children___id = 'pluginCreator___children___children___id',
-  pluginCreator___children___children___children = 'pluginCreator___children___children___children',
-  pluginCreator___children___internal___content = 'pluginCreator___children___internal___content',
-  pluginCreator___children___internal___contentDigest = 'pluginCreator___children___internal___contentDigest',
-  pluginCreator___children___internal___description = 'pluginCreator___children___internal___description',
-  pluginCreator___children___internal___fieldOwners = 'pluginCreator___children___internal___fieldOwners',
-  pluginCreator___children___internal___ignoreType = 'pluginCreator___children___internal___ignoreType',
-  pluginCreator___children___internal___mediaType = 'pluginCreator___children___internal___mediaType',
-  pluginCreator___children___internal___owner = 'pluginCreator___children___internal___owner',
-  pluginCreator___children___internal___type = 'pluginCreator___children___internal___type',
-  pluginCreator___internal___content = 'pluginCreator___internal___content',
-  pluginCreator___internal___contentDigest = 'pluginCreator___internal___contentDigest',
-  pluginCreator___internal___description = 'pluginCreator___internal___description',
-  pluginCreator___internal___fieldOwners = 'pluginCreator___internal___fieldOwners',
-  pluginCreator___internal___ignoreType = 'pluginCreator___internal___ignoreType',
-  pluginCreator___internal___mediaType = 'pluginCreator___internal___mediaType',
-  pluginCreator___internal___owner = 'pluginCreator___internal___owner',
-  pluginCreator___internal___type = 'pluginCreator___internal___type',
-  pluginCreator___resolve = 'pluginCreator___resolve',
-  pluginCreator___name = 'pluginCreator___name',
-  pluginCreator___version = 'pluginCreator___version',
-  pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
-  pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
-  pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
-  pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
-  pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
-  pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
-  pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
-  pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
-  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
-  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
-  pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
-  pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
-  pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
-  pluginCreator___pluginFilepath = 'pluginCreator___pluginFilepath',
-  pluginCreator___packageJson___name = 'pluginCreator___packageJson___name',
-  pluginCreator___packageJson___description = 'pluginCreator___packageJson___description',
-  pluginCreator___packageJson___version = 'pluginCreator___packageJson___version',
-  pluginCreator___packageJson___main = 'pluginCreator___packageJson___main',
-  pluginCreator___packageJson___author = 'pluginCreator___packageJson___author',
-  pluginCreator___packageJson___license = 'pluginCreator___packageJson___license',
-  pluginCreator___packageJson___dependencies = 'pluginCreator___packageJson___dependencies',
-  pluginCreator___packageJson___dependencies___name = 'pluginCreator___packageJson___dependencies___name',
-  pluginCreator___packageJson___dependencies___version = 'pluginCreator___packageJson___dependencies___version',
-  pluginCreator___packageJson___devDependencies = 'pluginCreator___packageJson___devDependencies',
-  pluginCreator___packageJson___devDependencies___name = 'pluginCreator___packageJson___devDependencies___name',
-  pluginCreator___packageJson___devDependencies___version = 'pluginCreator___packageJson___devDependencies___version',
-  pluginCreator___packageJson___peerDependencies = 'pluginCreator___packageJson___peerDependencies',
-  pluginCreator___packageJson___peerDependencies___name = 'pluginCreator___packageJson___peerDependencies___name',
-  pluginCreator___packageJson___peerDependencies___version = 'pluginCreator___packageJson___peerDependencies___version',
-  pluginCreator___packageJson___keywords = 'pluginCreator___packageJson___keywords',
-  pluginCreatorId = 'pluginCreatorId',
-  componentPath = 'componentPath',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -1695,7 +1643,90 @@ export enum SitePageFieldsEnum {
   internal___ignoreType = 'internal___ignoreType',
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
-  internal___type = 'internal___type'
+  internal___type = 'internal___type',
+  isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  context____id = 'context____id',
+  context___page = 'context___page',
+  context___perPage = 'context___perPage',
+  context___offset = 'context___offset',
+  context___isFirst = 'context___isFirst',
+  context___isLast = 'context___isLast',
+  context___onlyOne = 'context___onlyOne',
+  pluginCreator___id = 'pluginCreator___id',
+  pluginCreator___parent___id = 'pluginCreator___parent___id',
+  pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',
+  pluginCreator___parent___parent___children = 'pluginCreator___parent___parent___children',
+  pluginCreator___parent___children = 'pluginCreator___parent___children',
+  pluginCreator___parent___children___id = 'pluginCreator___parent___children___id',
+  pluginCreator___parent___children___children = 'pluginCreator___parent___children___children',
+  pluginCreator___parent___internal___content = 'pluginCreator___parent___internal___content',
+  pluginCreator___parent___internal___contentDigest = 'pluginCreator___parent___internal___contentDigest',
+  pluginCreator___parent___internal___description = 'pluginCreator___parent___internal___description',
+  pluginCreator___parent___internal___fieldOwners = 'pluginCreator___parent___internal___fieldOwners',
+  pluginCreator___parent___internal___ignoreType = 'pluginCreator___parent___internal___ignoreType',
+  pluginCreator___parent___internal___mediaType = 'pluginCreator___parent___internal___mediaType',
+  pluginCreator___parent___internal___owner = 'pluginCreator___parent___internal___owner',
+  pluginCreator___parent___internal___type = 'pluginCreator___parent___internal___type',
+  pluginCreator___children = 'pluginCreator___children',
+  pluginCreator___children___id = 'pluginCreator___children___id',
+  pluginCreator___children___parent___id = 'pluginCreator___children___parent___id',
+  pluginCreator___children___parent___children = 'pluginCreator___children___parent___children',
+  pluginCreator___children___children = 'pluginCreator___children___children',
+  pluginCreator___children___children___id = 'pluginCreator___children___children___id',
+  pluginCreator___children___children___children = 'pluginCreator___children___children___children',
+  pluginCreator___children___internal___content = 'pluginCreator___children___internal___content',
+  pluginCreator___children___internal___contentDigest = 'pluginCreator___children___internal___contentDigest',
+  pluginCreator___children___internal___description = 'pluginCreator___children___internal___description',
+  pluginCreator___children___internal___fieldOwners = 'pluginCreator___children___internal___fieldOwners',
+  pluginCreator___children___internal___ignoreType = 'pluginCreator___children___internal___ignoreType',
+  pluginCreator___children___internal___mediaType = 'pluginCreator___children___internal___mediaType',
+  pluginCreator___children___internal___owner = 'pluginCreator___children___internal___owner',
+  pluginCreator___children___internal___type = 'pluginCreator___children___internal___type',
+  pluginCreator___internal___content = 'pluginCreator___internal___content',
+  pluginCreator___internal___contentDigest = 'pluginCreator___internal___contentDigest',
+  pluginCreator___internal___description = 'pluginCreator___internal___description',
+  pluginCreator___internal___fieldOwners = 'pluginCreator___internal___fieldOwners',
+  pluginCreator___internal___ignoreType = 'pluginCreator___internal___ignoreType',
+  pluginCreator___internal___mediaType = 'pluginCreator___internal___mediaType',
+  pluginCreator___internal___owner = 'pluginCreator___internal___owner',
+  pluginCreator___internal___type = 'pluginCreator___internal___type',
+  pluginCreator___resolve = 'pluginCreator___resolve',
+  pluginCreator___name = 'pluginCreator___name',
+  pluginCreator___version = 'pluginCreator___version',
+  pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
+  pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
+  pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
+  pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
+  pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
+  pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
+  pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
+  pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
+  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
+  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
+  pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
+  pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
+  pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
+  pluginCreator___pluginFilepath = 'pluginCreator___pluginFilepath',
+  pluginCreator___packageJson___name = 'pluginCreator___packageJson___name',
+  pluginCreator___packageJson___description = 'pluginCreator___packageJson___description',
+  pluginCreator___packageJson___version = 'pluginCreator___packageJson___version',
+  pluginCreator___packageJson___main = 'pluginCreator___packageJson___main',
+  pluginCreator___packageJson___author = 'pluginCreator___packageJson___author',
+  pluginCreator___packageJson___license = 'pluginCreator___packageJson___license',
+  pluginCreator___packageJson___dependencies = 'pluginCreator___packageJson___dependencies',
+  pluginCreator___packageJson___dependencies___name = 'pluginCreator___packageJson___dependencies___name',
+  pluginCreator___packageJson___dependencies___version = 'pluginCreator___packageJson___dependencies___version',
+  pluginCreator___packageJson___devDependencies = 'pluginCreator___packageJson___devDependencies',
+  pluginCreator___packageJson___devDependencies___name = 'pluginCreator___packageJson___devDependencies___name',
+  pluginCreator___packageJson___devDependencies___version = 'pluginCreator___packageJson___devDependencies___version',
+  pluginCreator___packageJson___peerDependencies = 'pluginCreator___packageJson___peerDependencies',
+  pluginCreator___packageJson___peerDependencies___name = 'pluginCreator___packageJson___peerDependencies___name',
+  pluginCreator___packageJson___peerDependencies___version = 'pluginCreator___packageJson___peerDependencies___version',
+  pluginCreator___packageJson___keywords = 'pluginCreator___packageJson___keywords',
+  pluginCreatorId = 'pluginCreatorId',
+  componentPath = 'componentPath'
 }
 
 export type SitePageConnection = {
@@ -4479,6 +4510,321 @@ export type SanityPostGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
+export type SanityPosterLineFilterListInput = {
+  elemMatch?: Maybe<SanityPosterLineFilterInput>;
+};
+
+export type SanityPosterLineFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  fontSize?: Maybe<FloatQueryOperatorInput>;
+  position?: Maybe<FloatQueryOperatorInput>;
+};
+
+export type SanityPoster = SanityDocument & Node & {
+  __typename?: 'SanityPoster';
+  _id?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  _createdAt?: Maybe<Scalars['Date']>;
+  _updatedAt?: Maybe<Scalars['Date']>;
+  _rev?: Maybe<Scalars['String']>;
+  _key?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  lines?: Maybe<Array<Maybe<SanityPosterLine>>>;
+  background?: Maybe<SanityImage>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['Float']>;
+  _rawLines?: Maybe<Scalars['JSON']>;
+  _rawBackground?: Maybe<Scalars['JSON']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+
+export type SanityPoster_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SanityPoster_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SanityPoster_RawLinesArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityPoster_RawBackgroundArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+export type SanityPosterLine = {
+  __typename?: 'SanityPosterLine';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  fontSize?: Maybe<Scalars['Float']>;
+  position?: Maybe<Scalars['Float']>;
+};
+
+export type SanityPosterFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  _createdAt?: Maybe<DateQueryOperatorInput>;
+  _updatedAt?: Maybe<DateQueryOperatorInput>;
+  _rev?: Maybe<StringQueryOperatorInput>;
+  _key?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  lines?: Maybe<SanityPosterLineFilterListInput>;
+  background?: Maybe<SanityImageFilterInput>;
+  overlayColor?: Maybe<StringQueryOperatorInput>;
+  overlayOpacity?: Maybe<FloatQueryOperatorInput>;
+  _rawLines?: Maybe<JsonQueryOperatorInput>;
+  _rawBackground?: Maybe<JsonQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type SanityPosterSortInput = {
+  fields?: Maybe<Array<Maybe<SanityPosterFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export enum SanityPosterFieldsEnum {
+  _id = '_id',
+  _type = '_type',
+  _createdAt = '_createdAt',
+  _updatedAt = '_updatedAt',
+  _rev = '_rev',
+  _key = '_key',
+  name = 'name',
+  lines = 'lines',
+  lines____key = 'lines____key',
+  lines____type = 'lines____type',
+  lines___text = 'lines___text',
+  lines___fontSize = 'lines___fontSize',
+  lines___position = 'lines___position',
+  background____key = 'background____key',
+  background____type = 'background____type',
+  background___asset____id = 'background___asset____id',
+  background___asset____type = 'background___asset____type',
+  background___asset____createdAt = 'background___asset____createdAt',
+  background___asset____updatedAt = 'background___asset____updatedAt',
+  background___asset____rev = 'background___asset____rev',
+  background___asset____key = 'background___asset____key',
+  background___asset___originalFilename = 'background___asset___originalFilename',
+  background___asset___label = 'background___asset___label',
+  background___asset___title = 'background___asset___title',
+  background___asset___description = 'background___asset___description',
+  background___asset___sha1hash = 'background___asset___sha1hash',
+  background___asset___extension = 'background___asset___extension',
+  background___asset___mimeType = 'background___asset___mimeType',
+  background___asset___size = 'background___asset___size',
+  background___asset___assetId = 'background___asset___assetId',
+  background___asset___path = 'background___asset___path',
+  background___asset___url = 'background___asset___url',
+  background___asset___metadata____key = 'background___asset___metadata____key',
+  background___asset___metadata____type = 'background___asset___metadata____type',
+  background___asset___metadata___lqip = 'background___asset___metadata___lqip',
+  background___asset___metadata___hasAlpha = 'background___asset___metadata___hasAlpha',
+  background___asset___metadata___isOpaque = 'background___asset___metadata___isOpaque',
+  background___asset___metadata____rawLocation = 'background___asset___metadata____rawLocation',
+  background___asset___metadata____rawDimensions = 'background___asset___metadata____rawDimensions',
+  background___asset___metadata____rawPalette = 'background___asset___metadata____rawPalette',
+  background___asset___source____key = 'background___asset___source____key',
+  background___asset___source____type = 'background___asset___source____type',
+  background___asset___source___name = 'background___asset___source___name',
+  background___asset___source___id = 'background___asset___source___id',
+  background___asset___source___url = 'background___asset___source___url',
+  background___asset____rawMetadata = 'background___asset____rawMetadata',
+  background___asset____rawSource = 'background___asset____rawSource',
+  background___asset___fixed___width = 'background___asset___fixed___width',
+  background___asset___fixed___height = 'background___asset___fixed___height',
+  background___asset___fixed___src = 'background___asset___fixed___src',
+  background___asset___fixed___srcSet = 'background___asset___fixed___srcSet',
+  background___asset___fixed___base64 = 'background___asset___fixed___base64',
+  background___asset___fixed___srcWebp = 'background___asset___fixed___srcWebp',
+  background___asset___fixed___srcSetWebp = 'background___asset___fixed___srcSetWebp',
+  background___asset___fluid___aspectRatio = 'background___asset___fluid___aspectRatio',
+  background___asset___fluid___src = 'background___asset___fluid___src',
+  background___asset___fluid___srcSet = 'background___asset___fluid___srcSet',
+  background___asset___fluid___sizes = 'background___asset___fluid___sizes',
+  background___asset___fluid___base64 = 'background___asset___fluid___base64',
+  background___asset___fluid___srcWebp = 'background___asset___fluid___srcWebp',
+  background___asset___fluid___srcSetWebp = 'background___asset___fluid___srcSetWebp',
+  background___asset___id = 'background___asset___id',
+  background___asset___parent___id = 'background___asset___parent___id',
+  background___asset___parent___children = 'background___asset___parent___children',
+  background___asset___children = 'background___asset___children',
+  background___asset___children___id = 'background___asset___children___id',
+  background___asset___children___children = 'background___asset___children___children',
+  background___asset___internal___content = 'background___asset___internal___content',
+  background___asset___internal___contentDigest = 'background___asset___internal___contentDigest',
+  background___asset___internal___description = 'background___asset___internal___description',
+  background___asset___internal___fieldOwners = 'background___asset___internal___fieldOwners',
+  background___asset___internal___ignoreType = 'background___asset___internal___ignoreType',
+  background___asset___internal___mediaType = 'background___asset___internal___mediaType',
+  background___asset___internal___owner = 'background___asset___internal___owner',
+  background___asset___internal___type = 'background___asset___internal___type',
+  background___hotspot____key = 'background___hotspot____key',
+  background___hotspot____type = 'background___hotspot____type',
+  background___hotspot___x = 'background___hotspot___x',
+  background___hotspot___y = 'background___hotspot___y',
+  background___hotspot___height = 'background___hotspot___height',
+  background___hotspot___width = 'background___hotspot___width',
+  background___crop____key = 'background___crop____key',
+  background___crop____type = 'background___crop____type',
+  background___crop___top = 'background___crop___top',
+  background___crop___bottom = 'background___crop___bottom',
+  background___crop___left = 'background___crop___left',
+  background___crop___right = 'background___crop___right',
+  background____rawAsset = 'background____rawAsset',
+  background____rawHotspot = 'background____rawHotspot',
+  background____rawCrop = 'background____rawCrop',
+  overlayColor = 'overlayColor',
+  overlayOpacity = 'overlayOpacity',
+  _rawLines = '_rawLines',
+  _rawBackground = '_rawBackground',
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type SanityPosterConnection = {
+  __typename?: 'SanityPosterConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<SanityPosterEdge>;
+  nodes: Array<SanityPoster>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<SanityPosterGroupConnection>;
+};
+
+
+export type SanityPosterConnectionDistinctArgs = {
+  field: SanityPosterFieldsEnum;
+};
+
+
+export type SanityPosterConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: SanityPosterFieldsEnum;
+};
+
+export type SanityPosterEdge = {
+  __typename?: 'SanityPosterEdge';
+  next?: Maybe<SanityPoster>;
+  node: SanityPoster;
+  previous?: Maybe<SanityPoster>;
+};
+
+export type SanityPosterGroupConnection = {
+  __typename?: 'SanityPosterGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<SanityPosterEdge>;
+  nodes: Array<SanityPoster>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
 export type SanityFileAssetSortInput = {
   fields?: Maybe<Array<Maybe<SanityFileAssetFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
@@ -6274,6 +6620,37 @@ export type GatsbySanityImageFluid_WithWebpFragment = (
 export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = (
   { __typename?: 'SanityImageFluid' }
   & Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
+);
+
+export type AllPostersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllPostersQuery = (
+  { __typename?: 'Query' }
+  & { allSanityPoster: (
+    { __typename?: 'SanityPosterConnection' }
+    & { nodes: Array<(
+      { __typename?: 'SanityPoster' }
+      & Pick<SanityPoster, '_id' | 'name' | 'overlayColor' | 'overlayOpacity'>
+      & { lines?: Maybe<Array<Maybe<(
+        { __typename?: 'SanityPosterLine' }
+        & Pick<SanityPosterLine, 'text' | 'fontSize' | 'position'>
+      )>>>, background?: Maybe<(
+        { __typename?: 'SanityImage' }
+        & { asset?: Maybe<(
+          { __typename?: 'SanityImageAsset' }
+          & Pick<SanityImageAsset, 'url'>
+          & { metadata?: Maybe<(
+            { __typename?: 'SanityImageMetadata' }
+            & { dimensions?: Maybe<(
+              { __typename?: 'SanityImageDimensions' }
+              & Pick<SanityImageDimensions, 'width' | 'height'>
+            )> }
+          )> }
+        )> }
+      )> }
+    )> }
+  ) }
 );
 
 export type NewsletterQueryVariables = Exact<{ [key: string]: never; }>;
