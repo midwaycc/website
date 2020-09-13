@@ -171,7 +171,10 @@ function filterSchedules(
   const fridayRollover = addDays(mostRecentSunday, 5)
   const shouldRollover = now >= fridayRollover
 
-  return [schedulesToShow, shouldRollover ? 1 : 0] as const
+  return [schedulesToShow, shouldRollover ? 1 : 0] as [
+    typeof schedulesToShow,
+    number
+  ]
 }
 
 function getMostRecentSunday() {
