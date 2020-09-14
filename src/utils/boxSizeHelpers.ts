@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 import { Align } from '~/types/align'
 import { Size } from '~/types/size'
-import media from '~/utils/media'
+import media from '../utils/media'
 
 export const PERCENT_ARRAY = [15, 25, 100.0 / 3, 50, 200.0 / 3, 100]
 export const PERCENTS: Record<Size, number> = {

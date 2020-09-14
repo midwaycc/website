@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getContainerStyles } from '~/utils/boxSizeHelpers'
+import { getContainerStyles } from '../utils/boxSizeHelpers'
 import { SanityPoster } from '~/types/graphqlTypes'
 import { DeepPartial } from '~/types/DeepPartial'
 import { Size } from '~/types/size'
