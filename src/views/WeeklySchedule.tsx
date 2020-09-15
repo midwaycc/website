@@ -149,6 +149,8 @@ function Event(props: { name: string; time: string }) {
         margin-top: ${EVENT_MARGIN_TOP}px;
         font-size: ${EVENT_FONT_SIZE}px;
         line-height: ${EVENT_LINE_HEIGHT}px;
+        display: flex;
+        width: 100%;
       `}
     >
       <EventTime>{props.time}</EventTime>
@@ -336,11 +338,14 @@ const Column = styled.div`
 `
 
 const EventTime = styled.span`
-  display: inline-block;
-  width: 5em;
+  flex-grow: 0;
+  width: 8em;
+  margin-right: 1em;
+  text-align: right;
   opacity: 0.8;
 `
 
 const EventName = styled.span`
+  width: 100%;
   font-weight: bold;
 `
