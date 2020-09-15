@@ -400,6 +400,7 @@ export type QuerySanityPosterArgs = {
   _updatedAt?: Maybe<DateQueryOperatorInput>;
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
+  previewDisplay?: Maybe<FloatQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   lines?: Maybe<SanityPosterLineFilterListInput>;
   background?: Maybe<SanityImageFilterInput>;
@@ -4530,6 +4531,7 @@ export type SanityPoster = SanityDocument & Node & {
   _updatedAt?: Maybe<Scalars['Date']>;
   _rev?: Maybe<Scalars['String']>;
   _key?: Maybe<Scalars['String']>;
+  previewDisplay?: Maybe<Scalars['Float']>;
   name?: Maybe<Scalars['String']>;
   lines?: Maybe<Array<Maybe<SanityPosterLine>>>;
   background?: Maybe<SanityImage>;
@@ -4585,6 +4587,7 @@ export type SanityPosterFilterInput = {
   _updatedAt?: Maybe<DateQueryOperatorInput>;
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
+  previewDisplay?: Maybe<FloatQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   lines?: Maybe<SanityPosterLineFilterListInput>;
   background?: Maybe<SanityImageFilterInput>;
@@ -4610,6 +4613,7 @@ export enum SanityPosterFieldsEnum {
   _updatedAt = '_updatedAt',
   _rev = '_rev',
   _key = '_key',
+  previewDisplay = 'previewDisplay',
   name = 'name',
   lines = 'lines',
   lines____key = 'lines____key',
@@ -6470,7 +6474,7 @@ export type SitePluginGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type SanityBlockOrButtonLinkOrButtonRowOrColumnRowOrContentSectionOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityButtonRow | SanityColumnRow | SanityContentSection | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrButtonRowOrColumnRowOrContentSectionOrPictureOrPosterInContentOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityButtonRow | SanityColumnRow | SanityContentSection | SanityPicture | SanityPosterInContent | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
   __typename?: 'SanityButtonLink';
@@ -6564,6 +6568,22 @@ export type SanityPicture_RawImageArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
 
+export type SanityPosterInContent = {
+  __typename?: 'SanityPosterInContent';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  poster?: Maybe<SanityPoster>;
+  size?: Maybe<Scalars['String']>;
+  align?: Maybe<Scalars['String']>;
+  caption?: Maybe<Scalars['String']>;
+  _rawPoster?: Maybe<Scalars['JSON']>;
+};
+
+
+export type SanityPosterInContent_RawPosterArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
 export type SanityVerticalSpace = {
   __typename?: 'SanityVerticalSpace';
   _key?: Maybe<Scalars['String']>;
@@ -6578,7 +6598,7 @@ export type SanityVideoEmbed = {
   videoId?: Maybe<Scalars['String']>;
 };
 
-export type SanityBlockOrButtonLinkOrButtonRowOrPictureOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityButtonRow | SanityPicture | SanityVerticalSpace | SanityVideoEmbed;
+export type SanityBlockOrButtonLinkOrButtonRowOrPictureOrPosterInContentOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityButtonRow | SanityPicture | SanityPosterInContent | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityPlainOrPageLink = SanityPlainLink | SanityPageLink;
 

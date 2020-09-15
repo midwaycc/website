@@ -87,6 +87,7 @@ function PosterRendered({
   return (
     <StyledSvg
       viewBox={`0 0 ${BASE_WIDTH} ${aspectHeight}`}
+      // @ts-ignore
       css={getContainerStyles(size, align)}
     >
       <defs>

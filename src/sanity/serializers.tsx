@@ -8,6 +8,7 @@ import { VideoEmbed } from '~/sanity/blockSerializers/VideoEmbed'
 import { ButtonLink } from '~/sanity/blockSerializers/ButtonLink'
 import { ButtonRow } from '~/sanity/blockSerializers/ButtonRow'
 import { Picture } from '~/sanity/blockSerializers/Picture'
+import { PosterInContent } from '~/sanity/blockSerializers/PosterInContent'
 import { ColumnRow } from '~/sanity/blockSerializers/ColumnRow'
 
 export function getSerializers({
@@ -54,6 +55,7 @@ export function getSerializers({
       buttonLink: ButtonLink,
       buttonRow: ButtonRow,
       picture: Picture,
+      posterInContent: PosterInContent,
       // These types can't nest, so no need to define a serializer for them
       // if we are in a nested context.
       contentSection: nested ? undefined : ContentSection,

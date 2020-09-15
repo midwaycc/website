@@ -33,6 +33,7 @@ import columnRow from './otherTypes/columnRow'
 import buttonRow from './otherTypes/buttonRow'
 import richContent, { simpleRichContent } from './otherTypes/richContent'
 import posterLine from './otherTypes/posterLine'
+import posterInContent from './otherTypes/posterInContent'
 
 export default createSchema({
   name: 'default',
@@ -65,6 +66,7 @@ export default createSchema({
     columnRow,
     buttonRow,
     poster,
+    posterInContent,
     posterLine
   ])
 })

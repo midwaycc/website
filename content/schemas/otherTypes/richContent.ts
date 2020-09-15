@@ -8,6 +8,7 @@ const richContent = {
     { type: 'buttonLink' },
     { type: 'buttonRow' },
     { type: 'picture' },
+    { type: 'posterInContent' },
     { type: 'videoEmbed' },
     { type: 'contentSection' },
     { type: 'columnRow' }

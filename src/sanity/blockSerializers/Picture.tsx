@@ -50,7 +50,7 @@ export function Picture({ node }: Props) {
   )
 }
 
-const CaptionArea = styled.div`
+export const CaptionArea = styled.div`
   padding: 1em;
   color: white;
   text-align: center;
