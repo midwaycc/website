@@ -17,14 +17,11 @@ const query = graphql`
 export default () => {
   const data: GeneralAlertQuery = useStaticQuery(query)
   if (!data.sanityGeneralAlert) return null
-  const {
-    active: alertActive,
-    _rawContent: alertContent
-  } = data.sanityGeneralAlert
+  const { active, _rawContent } = data.sanityGeneralAlert
 
-  return alertActive && alertContent ? (
+  return active ? (
     <AlertContainer>
-      <RichContent blocks={alertContent} />
+      <RichContent blocks={_rawContent || []} />
     </AlertContainer>
   ) : null
 }
