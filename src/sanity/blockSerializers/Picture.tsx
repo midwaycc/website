@@ -92,5 +92,7 @@ function getSrcSet(
 }
 
 function srcSetLine(src: string, width: number, height: number, extra: string) {
-  return `${src}?w=${width}&h=${height}&fit=crop${extra} ${width}w,\n`
+  return `${src}?w=${Math.round(width)}&h=${Math.round(
+    height
+  )}&fit=crop${extra} ${Math.round(width)}w,\n`
 }
