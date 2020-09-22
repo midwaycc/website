@@ -57,7 +57,7 @@ export const PostDate = ({ date }: { date: string }) => (
 )
 
 function formatDate(date: string) {
-  return format(new Date(date), 'MMMM do, y')
+  return format(new Date(Date.parse(date) + 1000 * 60 * 60 * 12), 'MMMM do, y')
 }
 
 const PostTitle = styled.h1`
