@@ -48,7 +48,7 @@ export default () => {
 
 const query = graphql`
   query Header {
-    sanityNavigation(_id: { eq: "39e3e2cd-f904-4c55-aa97-df25ee541932" }) {
+    sanityNavigation {
       items {
         __typename
         ...AnyNavLink
