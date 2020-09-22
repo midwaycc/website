@@ -68,7 +68,7 @@
     "gatsby-source-sanity": "^6.0.1",
     "graphql": "^15.1.0",
     "netlify-cli": "^2.11.23",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "node-notifier-cli": "^1.1.2",
     "patch-package": "^6.2.2",
     "polished": "^3.3.0",
