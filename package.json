@@ -67,6 +67,7 @@
     "gatsby-plugin-typescript": "^2.0.13",
     "gatsby-source-sanity": "^6.0.1",
     "graphql": "^15.1.0",
+    "md5-slim": "^1.0.0",
     "netlify-cli": "^2.11.23",
     "node-fetch": "^2.6.1",
     "node-notifier-cli": "^1.1.2",

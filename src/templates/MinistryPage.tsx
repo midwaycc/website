@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
+import md5 from 'md5-slim'
 import RichContent from '~/sanity/RichContent'
 import Section from '~/layout/Section'
 import RecentPosts from '~/views/RecentPosts'
@@ -43,12 +44,18 @@ export default ({ data, path }: Props) => {
   const parentURL = url && url.current
   if (!url || !parentURL) return null
 
-  const getActiveSection = () =>
+  const getActiveSection = (pathname: string = path) =>
     sections.find(
       (section: SanityPageSection) =>
-        section && path === ministryPageSectionURL(url, section)
+        section && pathname === ministryPageSectionURL(url, section)
     )
   const [activeSection, setActiveSection] = useState(getActiveSection())
+
+  useEffect(() => {
+    setActiveSection(
+      getActiveSection(typeof window != null ? window.location.pathname : path)
+    )
+  }, [sections])
 
   return (
     <>
@@ -134,7 +141,11 @@ export default ({ data, path }: Props) => {
             </Content>
             {activeSection.content && (
               <RichContent
-                key={activeSection.name}
+                key={
+                  process.env.NODE_ENV === 'production'
+                    ? activeSection._key
+                    : md5(JSON.stringify(activeSection))
+                }
                 blocks={activeSection.content}
               />
             )}

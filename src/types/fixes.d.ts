@@ -17,3 +17,7 @@ declare module '*.svg' {
   const value: any
   export = value
 }
+
+declare module 'md5-slim' {
+  export default function md5(message: string): string
+}
