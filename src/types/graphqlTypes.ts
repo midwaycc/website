@@ -158,15 +158,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -370,11 +370,14 @@ export type QuerySanityPostArgs = {
   slug?: Maybe<SanitySlugFilterInput>;
   date?: Maybe<DateQueryOperatorInput>;
   thumbnail?: Maybe<SanityImageFilterInput>;
+  thumbnailPoster?: Maybe<SanityPosterFilterInput>;
+  thumbnailPosterPreview?: Maybe<FloatQueryOperatorInput>;
   ministries?: Maybe<SanityMinistryPageFilterListInput>;
   summary?: Maybe<SanityBlockFilterListInput>;
   body?: Maybe<SanityBlockFilterListInput>;
   _rawSlug?: Maybe<JsonQueryOperatorInput>;
   _rawThumbnail?: Maybe<JsonQueryOperatorInput>;
+  _rawThumbnailPoster?: Maybe<JsonQueryOperatorInput>;
   _rawSummary?: Maybe<JsonQueryOperatorInput>;
   _rawBody?: Maybe<JsonQueryOperatorInput>;
   _rawMinistries?: Maybe<JsonQueryOperatorInput>;
@@ -1439,15 +1442,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
 };
 
 export type SitePageContext = {
@@ -1537,15 +1540,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageSortInput = {
@@ -1559,6 +1562,89 @@ export enum SitePageFieldsEnum {
   internalComponentName = 'internalComponentName',
   componentChunkName = 'componentChunkName',
   matchPath = 'matchPath',
+  isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  context____id = 'context____id',
+  context___page = 'context___page',
+  context___perPage = 'context___perPage',
+  context___offset = 'context___offset',
+  context___isFirst = 'context___isFirst',
+  context___isLast = 'context___isLast',
+  context___onlyOne = 'context___onlyOne',
+  pluginCreator___id = 'pluginCreator___id',
+  pluginCreator___parent___id = 'pluginCreator___parent___id',
+  pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',
+  pluginCreator___parent___parent___children = 'pluginCreator___parent___parent___children',
+  pluginCreator___parent___children = 'pluginCreator___parent___children',
+  pluginCreator___parent___children___id = 'pluginCreator___parent___children___id',
+  pluginCreator___parent___children___children = 'pluginCreator___parent___children___children',
+  pluginCreator___parent___internal___content = 'pluginCreator___parent___internal___content',
+  pluginCreator___parent___internal___contentDigest = 'pluginCreator___parent___internal___contentDigest',
+  pluginCreator___parent___internal___description = 'pluginCreator___parent___internal___description',
+  pluginCreator___parent___internal___fieldOwners = 'pluginCreator___parent___internal___fieldOwners',
+  pluginCreator___parent___internal___ignoreType = 'pluginCreator___parent___internal___ignoreType',
+  pluginCreator___parent___internal___mediaType = 'pluginCreator___parent___internal___mediaType',
+  pluginCreator___parent___internal___owner = 'pluginCreator___parent___internal___owner',
+  pluginCreator___parent___internal___type = 'pluginCreator___parent___internal___type',
+  pluginCreator___children = 'pluginCreator___children',
+  pluginCreator___children___id = 'pluginCreator___children___id',
+  pluginCreator___children___parent___id = 'pluginCreator___children___parent___id',
+  pluginCreator___children___parent___children = 'pluginCreator___children___parent___children',
+  pluginCreator___children___children = 'pluginCreator___children___children',
+  pluginCreator___children___children___id = 'pluginCreator___children___children___id',
+  pluginCreator___children___children___children = 'pluginCreator___children___children___children',
+  pluginCreator___children___internal___content = 'pluginCreator___children___internal___content',
+  pluginCreator___children___internal___contentDigest = 'pluginCreator___children___internal___contentDigest',
+  pluginCreator___children___internal___description = 'pluginCreator___children___internal___description',
+  pluginCreator___children___internal___fieldOwners = 'pluginCreator___children___internal___fieldOwners',
+  pluginCreator___children___internal___ignoreType = 'pluginCreator___children___internal___ignoreType',
+  pluginCreator___children___internal___mediaType = 'pluginCreator___children___internal___mediaType',
+  pluginCreator___children___internal___owner = 'pluginCreator___children___internal___owner',
+  pluginCreator___children___internal___type = 'pluginCreator___children___internal___type',
+  pluginCreator___internal___content = 'pluginCreator___internal___content',
+  pluginCreator___internal___contentDigest = 'pluginCreator___internal___contentDigest',
+  pluginCreator___internal___description = 'pluginCreator___internal___description',
+  pluginCreator___internal___fieldOwners = 'pluginCreator___internal___fieldOwners',
+  pluginCreator___internal___ignoreType = 'pluginCreator___internal___ignoreType',
+  pluginCreator___internal___mediaType = 'pluginCreator___internal___mediaType',
+  pluginCreator___internal___owner = 'pluginCreator___internal___owner',
+  pluginCreator___internal___type = 'pluginCreator___internal___type',
+  pluginCreator___resolve = 'pluginCreator___resolve',
+  pluginCreator___name = 'pluginCreator___name',
+  pluginCreator___version = 'pluginCreator___version',
+  pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
+  pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
+  pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
+  pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
+  pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
+  pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
+  pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
+  pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
+  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
+  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
+  pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
+  pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
+  pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
+  pluginCreator___pluginFilepath = 'pluginCreator___pluginFilepath',
+  pluginCreator___packageJson___name = 'pluginCreator___packageJson___name',
+  pluginCreator___packageJson___description = 'pluginCreator___packageJson___description',
+  pluginCreator___packageJson___version = 'pluginCreator___packageJson___version',
+  pluginCreator___packageJson___main = 'pluginCreator___packageJson___main',
+  pluginCreator___packageJson___author = 'pluginCreator___packageJson___author',
+  pluginCreator___packageJson___license = 'pluginCreator___packageJson___license',
+  pluginCreator___packageJson___dependencies = 'pluginCreator___packageJson___dependencies',
+  pluginCreator___packageJson___dependencies___name = 'pluginCreator___packageJson___dependencies___name',
+  pluginCreator___packageJson___dependencies___version = 'pluginCreator___packageJson___dependencies___version',
+  pluginCreator___packageJson___devDependencies = 'pluginCreator___packageJson___devDependencies',
+  pluginCreator___packageJson___devDependencies___name = 'pluginCreator___packageJson___devDependencies___name',
+  pluginCreator___packageJson___devDependencies___version = 'pluginCreator___packageJson___devDependencies___version',
+  pluginCreator___packageJson___peerDependencies = 'pluginCreator___packageJson___peerDependencies',
+  pluginCreator___packageJson___peerDependencies___name = 'pluginCreator___packageJson___peerDependencies___name',
+  pluginCreator___packageJson___peerDependencies___version = 'pluginCreator___packageJson___peerDependencies___version',
+  pluginCreator___packageJson___keywords = 'pluginCreator___packageJson___keywords',
+  pluginCreatorId = 'pluginCreatorId',
+  componentPath = 'componentPath',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -1644,90 +1730,7 @@ export enum SitePageFieldsEnum {
   internal___ignoreType = 'internal___ignoreType',
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
-  internal___type = 'internal___type',
-  isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
-  context____id = 'context____id',
-  context___page = 'context___page',
-  context___perPage = 'context___perPage',
-  context___offset = 'context___offset',
-  context___isFirst = 'context___isFirst',
-  context___isLast = 'context___isLast',
-  context___onlyOne = 'context___onlyOne',
-  pluginCreator___id = 'pluginCreator___id',
-  pluginCreator___parent___id = 'pluginCreator___parent___id',
-  pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',
-  pluginCreator___parent___parent___children = 'pluginCreator___parent___parent___children',
-  pluginCreator___parent___children = 'pluginCreator___parent___children',
-  pluginCreator___parent___children___id = 'pluginCreator___parent___children___id',
-  pluginCreator___parent___children___children = 'pluginCreator___parent___children___children',
-  pluginCreator___parent___internal___content = 'pluginCreator___parent___internal___content',
-  pluginCreator___parent___internal___contentDigest = 'pluginCreator___parent___internal___contentDigest',
-  pluginCreator___parent___internal___description = 'pluginCreator___parent___internal___description',
-  pluginCreator___parent___internal___fieldOwners = 'pluginCreator___parent___internal___fieldOwners',
-  pluginCreator___parent___internal___ignoreType = 'pluginCreator___parent___internal___ignoreType',
-  pluginCreator___parent___internal___mediaType = 'pluginCreator___parent___internal___mediaType',
-  pluginCreator___parent___internal___owner = 'pluginCreator___parent___internal___owner',
-  pluginCreator___parent___internal___type = 'pluginCreator___parent___internal___type',
-  pluginCreator___children = 'pluginCreator___children',
-  pluginCreator___children___id = 'pluginCreator___children___id',
-  pluginCreator___children___parent___id = 'pluginCreator___children___parent___id',
-  pluginCreator___children___parent___children = 'pluginCreator___children___parent___children',
-  pluginCreator___children___children = 'pluginCreator___children___children',
-  pluginCreator___children___children___id = 'pluginCreator___children___children___id',
-  pluginCreator___children___children___children = 'pluginCreator___children___children___children',
-  pluginCreator___children___internal___content = 'pluginCreator___children___internal___content',
-  pluginCreator___children___internal___contentDigest = 'pluginCreator___children___internal___contentDigest',
-  pluginCreator___children___internal___description = 'pluginCreator___children___internal___description',
-  pluginCreator___children___internal___fieldOwners = 'pluginCreator___children___internal___fieldOwners',
-  pluginCreator___children___internal___ignoreType = 'pluginCreator___children___internal___ignoreType',
-  pluginCreator___children___internal___mediaType = 'pluginCreator___children___internal___mediaType',
-  pluginCreator___children___internal___owner = 'pluginCreator___children___internal___owner',
-  pluginCreator___children___internal___type = 'pluginCreator___children___internal___type',
-  pluginCreator___internal___content = 'pluginCreator___internal___content',
-  pluginCreator___internal___contentDigest = 'pluginCreator___internal___contentDigest',
-  pluginCreator___internal___description = 'pluginCreator___internal___description',
-  pluginCreator___internal___fieldOwners = 'pluginCreator___internal___fieldOwners',
-  pluginCreator___internal___ignoreType = 'pluginCreator___internal___ignoreType',
-  pluginCreator___internal___mediaType = 'pluginCreator___internal___mediaType',
-  pluginCreator___internal___owner = 'pluginCreator___internal___owner',
-  pluginCreator___internal___type = 'pluginCreator___internal___type',
-  pluginCreator___resolve = 'pluginCreator___resolve',
-  pluginCreator___name = 'pluginCreator___name',
-  pluginCreator___version = 'pluginCreator___version',
-  pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
-  pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
-  pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
-  pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
-  pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
-  pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
-  pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
-  pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
-  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
-  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
-  pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
-  pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
-  pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
-  pluginCreator___pluginFilepath = 'pluginCreator___pluginFilepath',
-  pluginCreator___packageJson___name = 'pluginCreator___packageJson___name',
-  pluginCreator___packageJson___description = 'pluginCreator___packageJson___description',
-  pluginCreator___packageJson___version = 'pluginCreator___packageJson___version',
-  pluginCreator___packageJson___main = 'pluginCreator___packageJson___main',
-  pluginCreator___packageJson___author = 'pluginCreator___packageJson___author',
-  pluginCreator___packageJson___license = 'pluginCreator___packageJson___license',
-  pluginCreator___packageJson___dependencies = 'pluginCreator___packageJson___dependencies',
-  pluginCreator___packageJson___dependencies___name = 'pluginCreator___packageJson___dependencies___name',
-  pluginCreator___packageJson___dependencies___version = 'pluginCreator___packageJson___dependencies___version',
-  pluginCreator___packageJson___devDependencies = 'pluginCreator___packageJson___devDependencies',
-  pluginCreator___packageJson___devDependencies___name = 'pluginCreator___packageJson___devDependencies___name',
-  pluginCreator___packageJson___devDependencies___version = 'pluginCreator___packageJson___devDependencies___version',
-  pluginCreator___packageJson___peerDependencies = 'pluginCreator___packageJson___peerDependencies',
-  pluginCreator___packageJson___peerDependencies___name = 'pluginCreator___packageJson___peerDependencies___name',
-  pluginCreator___packageJson___peerDependencies___version = 'pluginCreator___packageJson___peerDependencies___version',
-  pluginCreator___packageJson___keywords = 'pluginCreator___packageJson___keywords',
-  pluginCreatorId = 'pluginCreatorId',
-  componentPath = 'componentPath'
+  internal___type = 'internal___type'
 }
 
 export type SitePageConnection = {
@@ -4033,6 +4036,39 @@ export type SanityPageGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
+export type SanityPosterFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  _createdAt?: Maybe<DateQueryOperatorInput>;
+  _updatedAt?: Maybe<DateQueryOperatorInput>;
+  _rev?: Maybe<StringQueryOperatorInput>;
+  _key?: Maybe<StringQueryOperatorInput>;
+  previewDisplay?: Maybe<FloatQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  lines?: Maybe<SanityPosterLineFilterListInput>;
+  background?: Maybe<SanityImageFilterInput>;
+  overlayColor?: Maybe<StringQueryOperatorInput>;
+  overlayOpacity?: Maybe<FloatQueryOperatorInput>;
+  _rawLines?: Maybe<JsonQueryOperatorInput>;
+  _rawBackground?: Maybe<JsonQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type SanityPosterLineFilterListInput = {
+  elemMatch?: Maybe<SanityPosterLineFilterInput>;
+};
+
+export type SanityPosterLineFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>;
+  _type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  fontSize?: Maybe<FloatQueryOperatorInput>;
+  position?: Maybe<FloatQueryOperatorInput>;
+};
+
 export type SanityMinistryPageFilterListInput = {
   elemMatch?: Maybe<SanityMinistryPageFilterInput>;
 };
@@ -4051,11 +4087,14 @@ export type SanityPost = SanityDocument & Node & {
   slug?: Maybe<SanitySlug>;
   date?: Maybe<Scalars['Date']>;
   thumbnail?: Maybe<SanityImage>;
+  thumbnailPoster?: Maybe<SanityPoster>;
+  thumbnailPosterPreview?: Maybe<Scalars['Float']>;
   ministries?: Maybe<Array<Maybe<SanityMinistryPage>>>;
   summary?: Maybe<Array<Maybe<SanityBlock>>>;
   body?: Maybe<Array<Maybe<SanityBlock>>>;
   _rawSlug?: Maybe<Scalars['JSON']>;
   _rawThumbnail?: Maybe<Scalars['JSON']>;
+  _rawThumbnailPoster?: Maybe<Scalars['JSON']>;
   _rawSummary?: Maybe<Scalars['JSON']>;
   _rawBody?: Maybe<Scalars['JSON']>;
   _rawMinistries?: Maybe<Scalars['JSON']>;
@@ -4100,6 +4139,11 @@ export type SanityPost_RawThumbnailArgs = {
 };
 
 
+export type SanityPost_RawThumbnailPosterArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
 export type SanityPost_RawSummaryArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
 };
@@ -4112,6 +4156,63 @@ export type SanityPost_RawBodyArgs = {
 
 export type SanityPost_RawMinistriesArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+export type SanityPoster = SanityDocument & Node & {
+  __typename?: 'SanityPoster';
+  _id?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  _createdAt?: Maybe<Scalars['Date']>;
+  _updatedAt?: Maybe<Scalars['Date']>;
+  _rev?: Maybe<Scalars['String']>;
+  _key?: Maybe<Scalars['String']>;
+  previewDisplay?: Maybe<Scalars['Float']>;
+  name?: Maybe<Scalars['String']>;
+  lines?: Maybe<Array<Maybe<SanityPosterLine>>>;
+  background?: Maybe<SanityImage>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['Float']>;
+  _rawLines?: Maybe<Scalars['JSON']>;
+  _rawBackground?: Maybe<Scalars['JSON']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+
+export type SanityPoster_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SanityPoster_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SanityPoster_RawLinesArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+
+export type SanityPoster_RawBackgroundArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
+};
+
+export type SanityPosterLine = {
+  __typename?: 'SanityPosterLine';
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  fontSize?: Maybe<Scalars['Float']>;
+  position?: Maybe<Scalars['Float']>;
 };
 
 export type SanityPostFilterInput = {
@@ -4127,11 +4228,14 @@ export type SanityPostFilterInput = {
   slug?: Maybe<SanitySlugFilterInput>;
   date?: Maybe<DateQueryOperatorInput>;
   thumbnail?: Maybe<SanityImageFilterInput>;
+  thumbnailPoster?: Maybe<SanityPosterFilterInput>;
+  thumbnailPosterPreview?: Maybe<FloatQueryOperatorInput>;
   ministries?: Maybe<SanityMinistryPageFilterListInput>;
   summary?: Maybe<SanityBlockFilterListInput>;
   body?: Maybe<SanityBlockFilterListInput>;
   _rawSlug?: Maybe<JsonQueryOperatorInput>;
   _rawThumbnail?: Maybe<JsonQueryOperatorInput>;
+  _rawThumbnailPoster?: Maybe<JsonQueryOperatorInput>;
   _rawSummary?: Maybe<JsonQueryOperatorInput>;
   _rawBody?: Maybe<JsonQueryOperatorInput>;
   _rawMinistries?: Maybe<JsonQueryOperatorInput>;
@@ -4237,6 +4341,101 @@ export enum SanityPostFieldsEnum {
   thumbnail____rawAsset = 'thumbnail____rawAsset',
   thumbnail____rawHotspot = 'thumbnail____rawHotspot',
   thumbnail____rawCrop = 'thumbnail____rawCrop',
+  thumbnailPoster____id = 'thumbnailPoster____id',
+  thumbnailPoster____type = 'thumbnailPoster____type',
+  thumbnailPoster____createdAt = 'thumbnailPoster____createdAt',
+  thumbnailPoster____updatedAt = 'thumbnailPoster____updatedAt',
+  thumbnailPoster____rev = 'thumbnailPoster____rev',
+  thumbnailPoster____key = 'thumbnailPoster____key',
+  thumbnailPoster___previewDisplay = 'thumbnailPoster___previewDisplay',
+  thumbnailPoster___name = 'thumbnailPoster___name',
+  thumbnailPoster___lines = 'thumbnailPoster___lines',
+  thumbnailPoster___lines____key = 'thumbnailPoster___lines____key',
+  thumbnailPoster___lines____type = 'thumbnailPoster___lines____type',
+  thumbnailPoster___lines___text = 'thumbnailPoster___lines___text',
+  thumbnailPoster___lines___fontSize = 'thumbnailPoster___lines___fontSize',
+  thumbnailPoster___lines___position = 'thumbnailPoster___lines___position',
+  thumbnailPoster___background____key = 'thumbnailPoster___background____key',
+  thumbnailPoster___background____type = 'thumbnailPoster___background____type',
+  thumbnailPoster___background___asset____id = 'thumbnailPoster___background___asset____id',
+  thumbnailPoster___background___asset____type = 'thumbnailPoster___background___asset____type',
+  thumbnailPoster___background___asset____createdAt = 'thumbnailPoster___background___asset____createdAt',
+  thumbnailPoster___background___asset____updatedAt = 'thumbnailPoster___background___asset____updatedAt',
+  thumbnailPoster___background___asset____rev = 'thumbnailPoster___background___asset____rev',
+  thumbnailPoster___background___asset____key = 'thumbnailPoster___background___asset____key',
+  thumbnailPoster___background___asset___originalFilename = 'thumbnailPoster___background___asset___originalFilename',
+  thumbnailPoster___background___asset___label = 'thumbnailPoster___background___asset___label',
+  thumbnailPoster___background___asset___title = 'thumbnailPoster___background___asset___title',
+  thumbnailPoster___background___asset___description = 'thumbnailPoster___background___asset___description',
+  thumbnailPoster___background___asset___sha1hash = 'thumbnailPoster___background___asset___sha1hash',
+  thumbnailPoster___background___asset___extension = 'thumbnailPoster___background___asset___extension',
+  thumbnailPoster___background___asset___mimeType = 'thumbnailPoster___background___asset___mimeType',
+  thumbnailPoster___background___asset___size = 'thumbnailPoster___background___asset___size',
+  thumbnailPoster___background___asset___assetId = 'thumbnailPoster___background___asset___assetId',
+  thumbnailPoster___background___asset___path = 'thumbnailPoster___background___asset___path',
+  thumbnailPoster___background___asset___url = 'thumbnailPoster___background___asset___url',
+  thumbnailPoster___background___asset____rawMetadata = 'thumbnailPoster___background___asset____rawMetadata',
+  thumbnailPoster___background___asset____rawSource = 'thumbnailPoster___background___asset____rawSource',
+  thumbnailPoster___background___asset___id = 'thumbnailPoster___background___asset___id',
+  thumbnailPoster___background___asset___children = 'thumbnailPoster___background___asset___children',
+  thumbnailPoster___background___hotspot____key = 'thumbnailPoster___background___hotspot____key',
+  thumbnailPoster___background___hotspot____type = 'thumbnailPoster___background___hotspot____type',
+  thumbnailPoster___background___hotspot___x = 'thumbnailPoster___background___hotspot___x',
+  thumbnailPoster___background___hotspot___y = 'thumbnailPoster___background___hotspot___y',
+  thumbnailPoster___background___hotspot___height = 'thumbnailPoster___background___hotspot___height',
+  thumbnailPoster___background___hotspot___width = 'thumbnailPoster___background___hotspot___width',
+  thumbnailPoster___background___crop____key = 'thumbnailPoster___background___crop____key',
+  thumbnailPoster___background___crop____type = 'thumbnailPoster___background___crop____type',
+  thumbnailPoster___background___crop___top = 'thumbnailPoster___background___crop___top',
+  thumbnailPoster___background___crop___bottom = 'thumbnailPoster___background___crop___bottom',
+  thumbnailPoster___background___crop___left = 'thumbnailPoster___background___crop___left',
+  thumbnailPoster___background___crop___right = 'thumbnailPoster___background___crop___right',
+  thumbnailPoster___background____rawAsset = 'thumbnailPoster___background____rawAsset',
+  thumbnailPoster___background____rawHotspot = 'thumbnailPoster___background____rawHotspot',
+  thumbnailPoster___background____rawCrop = 'thumbnailPoster___background____rawCrop',
+  thumbnailPoster___overlayColor = 'thumbnailPoster___overlayColor',
+  thumbnailPoster___overlayOpacity = 'thumbnailPoster___overlayOpacity',
+  thumbnailPoster____rawLines = 'thumbnailPoster____rawLines',
+  thumbnailPoster____rawBackground = 'thumbnailPoster____rawBackground',
+  thumbnailPoster___id = 'thumbnailPoster___id',
+  thumbnailPoster___parent___id = 'thumbnailPoster___parent___id',
+  thumbnailPoster___parent___parent___id = 'thumbnailPoster___parent___parent___id',
+  thumbnailPoster___parent___parent___children = 'thumbnailPoster___parent___parent___children',
+  thumbnailPoster___parent___children = 'thumbnailPoster___parent___children',
+  thumbnailPoster___parent___children___id = 'thumbnailPoster___parent___children___id',
+  thumbnailPoster___parent___children___children = 'thumbnailPoster___parent___children___children',
+  thumbnailPoster___parent___internal___content = 'thumbnailPoster___parent___internal___content',
+  thumbnailPoster___parent___internal___contentDigest = 'thumbnailPoster___parent___internal___contentDigest',
+  thumbnailPoster___parent___internal___description = 'thumbnailPoster___parent___internal___description',
+  thumbnailPoster___parent___internal___fieldOwners = 'thumbnailPoster___parent___internal___fieldOwners',
+  thumbnailPoster___parent___internal___ignoreType = 'thumbnailPoster___parent___internal___ignoreType',
+  thumbnailPoster___parent___internal___mediaType = 'thumbnailPoster___parent___internal___mediaType',
+  thumbnailPoster___parent___internal___owner = 'thumbnailPoster___parent___internal___owner',
+  thumbnailPoster___parent___internal___type = 'thumbnailPoster___parent___internal___type',
+  thumbnailPoster___children = 'thumbnailPoster___children',
+  thumbnailPoster___children___id = 'thumbnailPoster___children___id',
+  thumbnailPoster___children___parent___id = 'thumbnailPoster___children___parent___id',
+  thumbnailPoster___children___parent___children = 'thumbnailPoster___children___parent___children',
+  thumbnailPoster___children___children = 'thumbnailPoster___children___children',
+  thumbnailPoster___children___children___id = 'thumbnailPoster___children___children___id',
+  thumbnailPoster___children___children___children = 'thumbnailPoster___children___children___children',
+  thumbnailPoster___children___internal___content = 'thumbnailPoster___children___internal___content',
+  thumbnailPoster___children___internal___contentDigest = 'thumbnailPoster___children___internal___contentDigest',
+  thumbnailPoster___children___internal___description = 'thumbnailPoster___children___internal___description',
+  thumbnailPoster___children___internal___fieldOwners = 'thumbnailPoster___children___internal___fieldOwners',
+  thumbnailPoster___children___internal___ignoreType = 'thumbnailPoster___children___internal___ignoreType',
+  thumbnailPoster___children___internal___mediaType = 'thumbnailPoster___children___internal___mediaType',
+  thumbnailPoster___children___internal___owner = 'thumbnailPoster___children___internal___owner',
+  thumbnailPoster___children___internal___type = 'thumbnailPoster___children___internal___type',
+  thumbnailPoster___internal___content = 'thumbnailPoster___internal___content',
+  thumbnailPoster___internal___contentDigest = 'thumbnailPoster___internal___contentDigest',
+  thumbnailPoster___internal___description = 'thumbnailPoster___internal___description',
+  thumbnailPoster___internal___fieldOwners = 'thumbnailPoster___internal___fieldOwners',
+  thumbnailPoster___internal___ignoreType = 'thumbnailPoster___internal___ignoreType',
+  thumbnailPoster___internal___mediaType = 'thumbnailPoster___internal___mediaType',
+  thumbnailPoster___internal___owner = 'thumbnailPoster___internal___owner',
+  thumbnailPoster___internal___type = 'thumbnailPoster___internal___type',
+  thumbnailPosterPreview = 'thumbnailPosterPreview',
   ministries = 'ministries',
   ministries____id = 'ministries____id',
   ministries____type = 'ministries____type',
@@ -4381,6 +4580,7 @@ export enum SanityPostFieldsEnum {
   body____rawChildren = 'body____rawChildren',
   _rawSlug = '_rawSlug',
   _rawThumbnail = '_rawThumbnail',
+  _rawThumbnailPoster = '_rawThumbnailPoster',
   _rawSummary = '_rawSummary',
   _rawBody = '_rawBody',
   _rawMinistries = '_rawMinistries',
@@ -4509,96 +4709,6 @@ export type SanityPostGroupConnection = {
   pageInfo: PageInfo;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type SanityPosterLineFilterListInput = {
-  elemMatch?: Maybe<SanityPosterLineFilterInput>;
-};
-
-export type SanityPosterLineFilterInput = {
-  _key?: Maybe<StringQueryOperatorInput>;
-  _type?: Maybe<StringQueryOperatorInput>;
-  text?: Maybe<StringQueryOperatorInput>;
-  fontSize?: Maybe<FloatQueryOperatorInput>;
-  position?: Maybe<FloatQueryOperatorInput>;
-};
-
-export type SanityPoster = SanityDocument & Node & {
-  __typename?: 'SanityPoster';
-  _id?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  _createdAt?: Maybe<Scalars['Date']>;
-  _updatedAt?: Maybe<Scalars['Date']>;
-  _rev?: Maybe<Scalars['String']>;
-  _key?: Maybe<Scalars['String']>;
-  previewDisplay?: Maybe<Scalars['Float']>;
-  name?: Maybe<Scalars['String']>;
-  lines?: Maybe<Array<Maybe<SanityPosterLine>>>;
-  background?: Maybe<SanityImage>;
-  overlayColor?: Maybe<Scalars['String']>;
-  overlayOpacity?: Maybe<Scalars['Float']>;
-  _rawLines?: Maybe<Scalars['JSON']>;
-  _rawBackground?: Maybe<Scalars['JSON']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-};
-
-
-export type SanityPoster_CreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SanityPoster_UpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SanityPoster_RawLinesArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-
-export type SanityPoster_RawBackgroundArgs = {
-  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>;
-};
-
-export type SanityPosterLine = {
-  __typename?: 'SanityPosterLine';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  fontSize?: Maybe<Scalars['Float']>;
-  position?: Maybe<Scalars['Float']>;
-};
-
-export type SanityPosterFilterInput = {
-  _id?: Maybe<StringQueryOperatorInput>;
-  _type?: Maybe<StringQueryOperatorInput>;
-  _createdAt?: Maybe<DateQueryOperatorInput>;
-  _updatedAt?: Maybe<DateQueryOperatorInput>;
-  _rev?: Maybe<StringQueryOperatorInput>;
-  _key?: Maybe<StringQueryOperatorInput>;
-  previewDisplay?: Maybe<FloatQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  lines?: Maybe<SanityPosterLineFilterListInput>;
-  background?: Maybe<SanityImageFilterInput>;
-  overlayColor?: Maybe<StringQueryOperatorInput>;
-  overlayOpacity?: Maybe<FloatQueryOperatorInput>;
-  _rawLines?: Maybe<JsonQueryOperatorInput>;
-  _rawBackground?: Maybe<JsonQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SanityPosterSortInput = {
@@ -6744,7 +6854,7 @@ export type GetInvolvedPostsQuery = (
     { __typename?: 'SanityPostConnection' }
     & { nodes: Array<(
       { __typename?: 'SanityPost' }
-      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawSummary'>
+      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawThumbnailPoster' | '_rawSummary'>
       & { thumbnail?: Maybe<(
         { __typename?: 'SanityImage' }
         & { asset?: Maybe<(
@@ -6796,7 +6906,7 @@ export type MinistryPageQuery = (
     { __typename?: 'SanityPostConnection' }
     & { nodes: Array<(
       { __typename?: 'SanityPost' }
-      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawSummary'>
+      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawThumbnailPoster' | '_rawSummary'>
       & { thumbnail?: Maybe<(
         { __typename?: 'SanityImage' }
         & { asset?: Maybe<(
@@ -6852,7 +6962,7 @@ export type AllPostsQuery = (
     { __typename?: 'SanityPostConnection' }
     & { nodes: Array<(
       { __typename?: 'SanityPost' }
-      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawSummary'>
+      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawThumbnailPoster' | '_rawSummary'>
       & { thumbnail?: Maybe<(
         { __typename?: 'SanityImage' }
         & { asset?: Maybe<(
@@ -6993,7 +7103,7 @@ export type RecentPostsQuery = (
     { __typename?: 'SanityPostConnection' }
     & { nodes: Array<(
       { __typename?: 'SanityPost' }
-      & Pick<SanityPost, '_id' | 'date' | 'title' | '_rawSummary'>
+      & Pick<SanityPost, '_id' | 'date' | 'title' | '_rawSummary' | '_rawThumbnailPoster'>
       & { thumbnail?: Maybe<(
         { __typename?: 'SanityImage' }
         & { asset?: Maybe<(

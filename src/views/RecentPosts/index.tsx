@@ -67,6 +67,7 @@ const query = graphql`
             }
           }
         }
+        _rawThumbnailPoster(resolveReferences: { maxDepth: 10 })
         slug {
           current
         }

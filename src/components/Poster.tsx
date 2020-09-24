@@ -8,9 +8,11 @@ import { Align } from '~/types/align'
 
 type Props = {
   poster: DeepPartial<SanityPoster>
+  aspectRatio?: number
+  className?: string
 }
 
-export function Poster({ poster }: Props) {
+export function Poster({ poster, aspectRatio, className }: Props) {
   const { lines, overlayColor, overlayOpacity, background } = poster
   const { url, metadata } = background?.asset || {}
   const { width, height } = metadata?.dimensions || {}
@@ -41,9 +43,10 @@ export function Poster({ poster }: Props) {
   return (
     <PosterRendered
       key={poster._id}
+      className={className}
       lines={linesToUse}
       imageUrl={url}
-      aspectRatio={width / height}
+      aspectRatio={aspectRatio ?? width / height}
       size="full"
       align="left"
       fillColor={overlayColor ?? undefined}
@@ -66,6 +69,7 @@ type RenderedProps = {
   aspectRatio?: number
   fillColor?: string
   fillOpacity?: number
+  className?: string
 }
 
 const BASE_WIDTH = 200
@@ -80,7 +84,8 @@ function PosterRendered({
   imageUrl,
   aspectRatio = 4 / 3,
   fillColor = 'transparent',
-  fillOpacity = 0
+  fillOpacity = 0,
+  className
 }: RenderedProps) {
   const aspectHeight = BASE_WIDTH / aspectRatio
 
@@ -89,6 +94,7 @@ function PosterRendered({
       viewBox={`0 0 ${BASE_WIDTH} ${aspectHeight}`}
       // @ts-ignore
       css={getContainerStyles(size, align)}
+      className={className}
     >
       <defs>
         <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">

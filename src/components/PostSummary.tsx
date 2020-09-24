@@ -3,11 +3,17 @@ import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
 import RichContent from '~/sanity/RichContent'
 import { SanityPost } from '~/types/graphqlTypes'
+import { Poster } from './Poster'
 
 type Props = {
   post: Pick<
     SanityPost,
-    'thumbnail' | 'title' | 'slug' | 'date' | '_rawSummary'
+    | 'thumbnail'
+    | '_rawThumbnailPoster'
+    | 'title'
+    | 'slug'
+    | 'date'
+    | '_rawSummary'
   >
 }
 
@@ -18,15 +24,28 @@ export default ({ post }: Props) => {
     }
   }
 
+  if (post._rawThumbnailPoster) {
+    console.log('THUMBNAIL_POSTER', post)
+  }
+
   return (
     <>
-      {post.thumbnail && post.thumbnail.asset && (
-        <Image
-          css="margin-bottom: 1em"
-          fluid={
-            { ...post.thumbnail.asset.fluid, aspectRatio: 1 } as FluidObject
-          }
+      {post._rawThumbnailPoster ? (
+        <Poster
+          css="margin: 0"
+          aspectRatio={1}
+          poster={post._rawThumbnailPoster}
         />
+      ) : (
+        post.thumbnail &&
+        post.thumbnail.asset && (
+          <Image
+            css="margin-bottom: 1em"
+            fluid={
+              { ...post.thumbnail.asset.fluid, aspectRatio: 1 } as FluidObject
+            }
+          />
+        )
       )}
       <PostTitle>{post.title}</PostTitle>
       <div onClick={handleClick}>

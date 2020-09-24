@@ -1,3 +1,4 @@
+import { posterPreviewForField } from '../helpers/PosterPreview'
 import { Rule } from '@sanity/validation'
 
 export default {
@@ -54,6 +55,20 @@ export default {
       title: 'Thumbnail',
       description:
         'Should be square and relatively small (preferably 400px by 400px)'
+    },
+    {
+      name: 'thumbnailPoster',
+      title: 'Thumbnail Poster',
+      description:
+        'If present, this takes precedence over the image field above.',
+      type: 'reference',
+      to: [{ type: 'poster' }]
+    },
+    {
+      name: 'thumbnailPosterPreview',
+      title: 'Thumbnail Poster Preview',
+      type: 'number',
+      inputComponent: posterPreviewForField('thumbnailPoster')
     },
     {
       name: 'summary',

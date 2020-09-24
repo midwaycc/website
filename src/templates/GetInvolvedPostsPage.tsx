@@ -38,6 +38,7 @@ export const query = graphql`
             }
           }
         }
+        _rawThumbnailPoster(resolveReferences: { maxDepth: 10 })
         _rawSummary
         slug {
           current
