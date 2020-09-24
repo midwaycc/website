@@ -114,7 +114,10 @@ export default () => {
           }}
         >
           <Scroller>
-            <RichContent blocks={shortcutToUse._rawContent || []} />
+            <RichContent
+              css="padding-bottom: 2rem"
+              blocks={shortcutToUse._rawContent || []}
+            />
           </Scroller>
           <CloseButton onClick={closeShortcuts}>
             <img src={X} />
@@ -222,6 +225,7 @@ const Scroller = styled.div`
   max-height: inherit;
   overflow: auto;
   padding: 1rem;
+  padding-bottom: 0;
   text-align: center;
 `
 

@@ -8,13 +8,14 @@ import { getSerializers } from '~/sanity/serializers'
 type Props = {
   blocks: unknown[]
   noPadding?: boolean
+  className?: string
 }
 
 const serializers = getSerializers({ BlockContent, ContentSection })
 
-export default ({ blocks, noPadding }: Props) => {
+export default ({ blocks, noPadding, className }: Props) => {
   return (
-    <div css={noPadding ? noPaddingStyles : ''}>
+    <div className={className} css={noPadding ? noPaddingStyles : ''}>
       <BlockContent blocks={blocks} serializers={serializers} />
       <div css="clear: both" />
     </div>
