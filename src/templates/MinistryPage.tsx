@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
-import md5 from 'md5-slim'
 import RichContent from '~/sanity/RichContent'
 import Section from '~/layout/Section'
 import RecentPosts from '~/views/RecentPosts'
@@ -140,14 +139,7 @@ export default ({ data, path }: Props) => {
               <h2>{activeSection.name}</h2>
             </Content>
             {activeSection.content && (
-              <RichContent
-                key={
-                  process.env.NODE_ENV === 'production'
-                    ? activeSection._key
-                    : md5(JSON.stringify(activeSection))
-                }
-                blocks={activeSection.content}
-              />
+              <RichContent blocks={activeSection.content} />
             )}
           </>
         )}
