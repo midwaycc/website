@@ -14,6 +14,7 @@ import {
 } from '~/types/graphqlTypes'
 import RichContent from '~/sanity/RichContent'
 import { Arrow } from '~/components/Arrow'
+import { getMostRecentMonday } from '~/utils/dateUtils'
 
 // Based on previous em styles in the browser, for precise calculations
 const DAY_MARGIN_TOP = 26
@@ -29,8 +30,10 @@ type SanityDays = WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes'][number
 
 export default () => {
   const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
-  const [schedules, index] = filterSchedules(data.allSanityWeeklySchedule.nodes)
-  const [navIndex, setNavIndex] = useState(index)
+  const [schedules, startDay] = filterSchedules(
+    data.allSanityWeeklySchedule.nodes
+  )
+  const [navIndex, setNavIndex] = useState(0)
   if (!schedules.length) {
     const defaultSchedule = data.defaultSchedule.nodes[0]
     if (!defaultSchedule) return null
@@ -76,8 +79,10 @@ export default () => {
         )}
         {schedule && (
           <Horizontal>
-            <Column>{daysFor((days || []).slice(0, splitIndex))}</Column>
-            <Column>{daysFor((days || []).slice(splitIndex))}</Column>
+            <Column>
+              {daysFor(startDay, (days || []).slice(0, splitIndex))}
+            </Column>
+            <Column>{daysFor(startDay, (days || []).slice(splitIndex))}</Column>
           </Horizontal>
         )}
       </Content>
@@ -162,34 +167,40 @@ function Event(props: { name: string; time: string }) {
 function filterSchedules(
   schedules: WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes']
 ) {
-  const mostRecentSunday = getMostRecentSunday()
-  const sundayFormatted = format(mostRecentSunday, 'yyyy-MM-dd')
-  const earliest = Date.parse(sundayFormatted)
+  const mostRecentMonday = getMostRecentMonday()
+  const mondayFormatted = format(mostRecentMonday, 'yyyy-MM-dd')
+  const earliest = Date.parse(mondayFormatted)
   const schedulesToShow = schedules.filter(
     schedule => schedule.weekOf && Date.parse(schedule.weekOf) >= earliest
   )
 
-  const now = new Date()
-  const fridayRollover = addDays(mostRecentSunday, 5)
-  const shouldRollover = now >= fridayRollover
-
-  return [schedulesToShow, shouldRollover ? 1 : 0] as [
-    typeof schedulesToShow,
-    number
-  ]
+  return [schedulesToShow, mostRecentMonday] as const
 }
 
-function getMostRecentSunday() {
-  const t = new Date()
-  t.setDate(t.getDate() - t.getDay())
-  return t
-}
-
-function daysFor(days: SanityDays) {
+function daysFor(startDay: Date, days: SanityDays) {
   if (!days) return []
+
+  const daysToAdd: Record<string, number> = {
+    Monday: 0,
+    Tuesday: 1,
+    Wednesday: 2,
+    Thursday: 3,
+    Friday: 4,
+    Saturday: 5,
+    Sunday: 6
+  }
+
   return days.map(section =>
     section && section.label && section.events ? (
-      <Day key={section.label} name={section.label}>
+      <Day
+        key={section.label}
+        name={
+          section.label +
+          (section.label && daysToAdd[section.label]
+            ? ` (${format(addDays(startDay, daysToAdd[section.label]), 'M/d')})`
+            : '')
+        }
+      >
         {section.events.map((event, i) =>
           event && event.time && event.description ? (
             <Event key={i} time={event.time} name={event.description} />

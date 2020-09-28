@@ -1,5 +1,5 @@
 import { Rule } from '@sanity/validation'
-import isSunday from 'date-fns/isSunday'
+import isMonday from 'date-fns/isMonday'
 import parseISO from 'date-fns/parseISO'
 
 export default {
@@ -38,17 +38,17 @@ export default {
       title: 'Active?',
       type: 'boolean',
       description:
-        "If turned on, this schedule will be shown on the home page as long as it's dated to this week or a future week (past weeks will always be hidden)"
+        "If turned on, this schedule will be shown on the home page as long as it's either a default or dated to this week or a future week (past weeks will always be hidden)"
     },
     {
       name: 'weekOf',
       title: 'Week Of',
       type: 'date',
       description:
-        'The Sunday at the start of the week this applies to. Leave this blank if this schedule should be treated as a "fallback"/default when one isn\'t found with a current or future date.',
+        'The Monday at the start of the week this applies to. Leave this blank if this schedule should be treated as a "fallback"/default when one isn\'t found with a current or future date.',
       validation: (Rule: Rule) =>
         Rule.custom(
-          weekOf => !weekOf || isSunday(parseISO(weekOf)) || 'Must be a Sunday'
+          weekOf => !weekOf || isMonday(parseISO(weekOf)) || 'Must be a Monday'
         )
     },
     {
