@@ -1,6 +1,5 @@
 import { Rule } from '@sanity/validation'
-import isMonday from 'date-fns/isMonday'
-import parseISO from 'date-fns/parseISO'
+import { ensureOnlyOne } from '../helpers/ensureOnlyOne'
 
 export default {
   name: 'weeklySchedule',
@@ -8,30 +7,22 @@ export default {
   type: 'document',
   preview: {
     select: {
-      label: 'label',
-      weekOf: 'weekOf'
+      label: 'label'
     },
-    prepare({ label, weekOf }: any) {
+    prepare({ label }: any) {
       return {
-        title: `${weekOf || 'Default'}${label ? ` (${label})` : ''}`
+        title: label
       }
     }
   },
-  orderings: [
-    {
-      title: 'Chronological',
-      name: 'chronological',
-      customDefault: true,
-      by: [{ field: 'weekOf', direction: 'desc' }]
-    }
-  ],
+  validation: (Rule: Rule) => Rule.custom(ensureOnlyOne('active')),
   fields: [
     {
       name: 'label',
-      title: 'Optional Label',
+      title: 'Label',
       type: 'string',
       description:
-        "This is just for reference (only shows up here in Sanity) so it's easier to tell which schedule this is (normal, summer, COVID, etc)"
+        "This is just for reference (only shows up here in Sanity) so it's easier to tell which schedule this is"
     },
     {
       name: 'active',
@@ -39,17 +30,6 @@ export default {
       type: 'boolean',
       description:
         "If turned on, this schedule will be shown on the home page as long as it's either a default or dated to this week or a future week (past weeks will always be hidden)"
-    },
-    {
-      name: 'weekOf',
-      title: 'Week Of',
-      type: 'date',
-      description:
-        'The Monday at the start of the week this applies to. Leave this blank if this schedule should be treated as a "fallback"/default when one isn\'t found with a current or future date.',
-      validation: (Rule: Rule) =>
-        Rule.custom(
-          weekOf => !weekOf || isMonday(parseISO(weekOf)) || 'Must be a Monday'
-        )
     },
     {
       name: 'days',

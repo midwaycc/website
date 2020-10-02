@@ -585,7 +585,6 @@ export type QuerySanityWeeklyScheduleArgs = {
   _key?: Maybe<StringQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
   active?: Maybe<BooleanQueryOperatorInput>;
-  weekOf?: Maybe<DateQueryOperatorInput>;
   days?: Maybe<SanityWeeklyScheduleDayFilterListInput>;
   _rawDays?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -6026,7 +6025,6 @@ export type SanityWeeklySchedule = SanityDocument & Node & {
   _key?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   active?: Maybe<Scalars['Boolean']>;
-  weekOf?: Maybe<Scalars['Date']>;
   days?: Maybe<Array<Maybe<SanityWeeklyScheduleDay>>>;
   _rawDays?: Maybe<Scalars['JSON']>;
   id: Scalars['ID'];
@@ -6045,14 +6043,6 @@ export type SanityWeeklySchedule_CreatedAtArgs = {
 
 
 export type SanityWeeklySchedule_UpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SanityWeeklyScheduleWeekOfArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -6095,7 +6085,6 @@ export type SanityWeeklyScheduleFilterInput = {
   _key?: Maybe<StringQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
   active?: Maybe<BooleanQueryOperatorInput>;
-  weekOf?: Maybe<DateQueryOperatorInput>;
   days?: Maybe<SanityWeeklyScheduleDayFilterListInput>;
   _rawDays?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -6118,7 +6107,6 @@ export enum SanityWeeklyScheduleFieldsEnum {
   _key = '_key',
   label = 'label',
   active = 'active',
-  weekOf = 'weekOf',
   days = 'days',
   days____key = 'days____key',
   days____type = 'days____type',
@@ -7122,11 +7110,16 @@ export type RecentPostsQuery = (
   ) }
 );
 
-export type ScheduleStuffFragment = (
-  { __typename?: 'SanityWeeklyScheduleConnection' }
-  & { nodes: Array<(
+export type WeeklyScheduleQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type WeeklyScheduleQuery = (
+  { __typename?: 'Query' }
+  & { sanityScheduleAlert?: Maybe<(
+    { __typename?: 'SanityScheduleAlert' }
+    & Pick<SanityScheduleAlert, 'id' | '_rawMessage' | 'active'>
+  )>, sanityWeeklySchedule?: Maybe<(
     { __typename?: 'SanityWeeklySchedule' }
-    & Pick<SanityWeeklySchedule, 'weekOf'>
     & { days?: Maybe<Array<Maybe<(
       { __typename?: 'SanityWeeklyScheduleDay' }
       & Pick<SanityWeeklyScheduleDay, 'label'>
@@ -7136,21 +7129,4 @@ export type ScheduleStuffFragment = (
       )>>> }
     )>>> }
   )> }
-);
-
-export type WeeklyScheduleQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type WeeklyScheduleQuery = (
-  { __typename?: 'Query' }
-  & { sanityScheduleAlert?: Maybe<(
-    { __typename?: 'SanityScheduleAlert' }
-    & Pick<SanityScheduleAlert, 'id' | '_rawMessage' | 'active'>
-  )>, allSanityWeeklySchedule: (
-    { __typename?: 'SanityWeeklyScheduleConnection' }
-    & ScheduleStuffFragment
-  ), defaultSchedule: (
-    { __typename?: 'SanityWeeklyScheduleConnection' }
-    & ScheduleStuffFragment
-  ) }
 );

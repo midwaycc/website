@@ -8,7 +8,6 @@ export function getMostRecentMonday() {
   }
 
   t.setDate(t.getDate() - t.getDay() + 1)
-  t.setTime(t.getTime() + 12 * 60 * 60 * 1000)
 
   return t
 }
