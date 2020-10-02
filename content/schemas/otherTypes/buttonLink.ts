@@ -8,6 +8,11 @@ export default {
   title: 'Button Link',
   fields: [
     {
+      type: 'boolean',
+      name: 'hidden',
+      title: 'Hidden?'
+    },
+    {
       type: 'string',
       name: 'text',
       title: 'Text',

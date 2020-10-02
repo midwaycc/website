@@ -6590,6 +6590,7 @@ export type SanityButtonLink = {
   __typename?: 'SanityButtonLink';
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
+  hidden?: Maybe<Scalars['Boolean']>;
   text?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
   align?: Maybe<Scalars['String']>;

@@ -13,7 +13,7 @@ export function ButtonRow({ node }: Props) {
   return (
     <Container>
       {node.buttons.map((button, i) =>
-        button ? (
+        button && !button.hidden ? (
           <ButtonLink key={i} node={button as ProperButtonLink} inButtonRow />
         ) : null
       )}
