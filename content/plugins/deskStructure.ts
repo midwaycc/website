@@ -1,4 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
+import './wakeUpPreview'
 
 const singletons = [
   {
