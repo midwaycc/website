@@ -8,6 +8,11 @@ type Props = {
   buildHookId: string
 }
 
+const HEROKU_APP =
+  window.location.pathname.split('/')[1] === 'staging'
+    ? 'midway-preview-staging'
+    : 'midway-preview'
+
 export function ActionRow({ lastDeployed, buildHookId }: Props) {
   const [message, setMessage] = useState<React.ReactNode>('Loading...')
 
@@ -36,7 +41,7 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
 
   const refreshPreview = () => {
     setMessage('Refreshing...')
-    fetch('https://midway-preview.herokuapp.com/__refresh', {
+    fetch(`https://${HEROKU_APP}.herokuapp.com/__refresh`, {
       method: 'POST'
     }).then(() => {
       setMessage('Preview data refreshed. Wait 10 seconds and refresh preview.')
@@ -45,7 +50,7 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
 
   const restartPreview = () => {
     setMessage('Restarting...')
-    fetch('https://api.heroku.com/apps/midway-preview/dynos', {
+    fetch(`https://api.heroku.com/apps/${HEROKU_APP}/dynos`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
