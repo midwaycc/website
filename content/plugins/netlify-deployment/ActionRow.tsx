@@ -25,7 +25,7 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
     }
   }, [lastDeployed])
 
-  const handleClick = () => {
+  const startDeployment = () => {
     setMessage('Deploying...')
     fetch(`https://api.netlify.com/build_hooks/${buildHookId}`, {
       method: 'POST'
@@ -34,14 +34,30 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
     })
   }
 
+  const refreshPreview = () => {
+    setMessage('Refreshing...')
+    fetch('https://midway-preview.herokuapp.com/__refresh', {
+      method: 'POST'
+    }).then(() => {
+      setMessage('Preview data refreshed. Wait 10 seconds and refresh preview.')
+    })
+  }
+
   return (
     <>
       <Button
         className={styles.actionButton}
         color="primary"
-        onClick={handleClick}
+        onClick={startDeployment}
       >
         Deploy now
+      </Button>
+      <Button
+        className={styles.actionButton}
+        color="secondary"
+        onClick={refreshPreview}
+      >
+        Refresh Preview
       </Button>
       <span style={{ marginLeft: '1em' }}>{message}</span>
     </>

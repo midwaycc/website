@@ -18,7 +18,7 @@
     "prod": "yarn build && serve -s public -p 5001",
     "deploy": "./deploy.sh",
     "develop": "gatsby develop -H 0.0.0.0",
-    "preview-server": "NODE_ENV=development forever node_modules/.bin/gatsby develop -H 0.0.0.0 -p ${PORT}",
+    "preview-server": "NODE_ENV=development ENABLE_GATSBY_REFRESH_ENDPOINT=true forever node_modules/.bin/gatsby develop -H 0.0.0.0 -p ${PORT}",
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
     "list-pages": "echo \"pages.forEach(p => console.log(p[0]))\" | gatsby repl",
