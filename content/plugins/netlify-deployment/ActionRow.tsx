@@ -43,6 +43,22 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
     })
   }
 
+  const restartPreview = () => {
+    setMessage('Restarting...')
+    fetch('https://api.heroku.com/apps/midway-preview/dynos', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/vnd.heroku+json; version=3',
+        Authorization: `Bearer ${process.env.SANITY_STUDIO_HEROKU_TOKEN}`
+      }
+    }).then(() => {
+      setMessage(
+        'Preview site restarted. Wait 1-2 minutes and refresh preview.'
+      )
+    })
+  }
+
   return (
     <>
       <Button
@@ -59,7 +75,15 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
       >
         Refresh Preview
       </Button>
-      <span style={{ marginLeft: '1em' }}>{message}</span>
+      <Button
+        className={styles.actionButton}
+        style={{ background: '#dd5555', borderColor: '#662a2a' }}
+        color="secondary"
+        onClick={restartPreview}
+      >
+        Restart Preview
+      </Button>
+      <div style={{ marginTop: '1em' }}>{message}</div>
     </>
   )
 }
