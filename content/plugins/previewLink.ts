@@ -9,7 +9,15 @@ type Doc = {
 }
 
 export default function resolveProductionUrl(document: Doc) {
-  return `https://midway-preview.herokuapp.com${path(document)}`
+  const dataset = window.location.pathname.split('/')[1] as
+    | 'production'
+    | 'staging'
+
+  if (dataset === 'production') {
+    return `https://midway-preview.herokuapp.com${path(document)}`
+  }
+
+  return `https://midway-preview-staging.herokuapp.com${path(document)}`
 }
 
 function path(document: Doc) {

@@ -1,4 +1,5 @@
-const QUERY_BASE = 'https://iq9kxmf9.api.sanity.io/v1/data/query/production'
+const DATASET = window.location.pathname.split('/')[1]
+const QUERY_BASE = `https://iq9kxmf9.api.sanity.io/v1/data/query/${DATASET}`
 
 export function ensureOnlyOne(uniqueBool: string) {
   return async (doc: any) => {
