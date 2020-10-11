@@ -7,6 +7,26 @@
     "projectId": "iq9kxmf9",
     "dataset": "production"
   },
+  "__experimental_spaces": [
+    {
+      "name": "production",
+      "title": "Production",
+      "default": true,
+      "api": {
+        "projectId": "iq9kxmf9",
+        "dataset": "production"
+      }
+    },
+    {
+      "name": "test",
+      "title": "Test",
+      "default": false,
+      "api": {
+        "projectId": "iq9kxmf9",
+        "dataset": "test"
+      }
+    }
+  ],
   "plugins": [
     "@sanity/base",
     "@sanity/components",
