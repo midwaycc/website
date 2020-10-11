@@ -10,5 +10,8 @@ if [[ $(git diff --stat) ]]; then
 else
   git push
   yarn netlify watch
-  yarn notify -t Midway Website -m 'The site is deployed!'
+  yarn notify -t Midway Website -m 'Production is deployed!'
+  ./sync.sh
+  yarn netlify watch
+  yarn notify -t Midway Website -m 'Staging is deployed!'
 fi
