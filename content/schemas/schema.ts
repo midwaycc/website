@@ -34,6 +34,7 @@ import buttonRow from './otherTypes/buttonRow'
 import richContent, { simpleRichContent } from './otherTypes/richContent'
 import posterLine from './otherTypes/posterLine'
 import posterInContent from './otherTypes/posterInContent'
+import scriptureReference from './otherTypes/scriptureReference'
 
 export default createSchema({
   name: 'default',
@@ -67,6 +68,7 @@ export default createSchema({
     buttonRow,
     poster,
     posterInContent,
-    posterLine
+    posterLine,
+    scriptureReference
   ])
 })

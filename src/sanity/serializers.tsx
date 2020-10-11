@@ -1,6 +1,7 @@
 import React from 'react'
 import SanityBlockContent from '@sanity/block-content-to-react'
 import Content from '~/layout/Content'
+import { ScriptureReference } from '~/sanity/blockSerializers/ScriptureReference'
 import { VerticalSpace } from '~/sanity/blockSerializers/VerticalSpace'
 import { EnhancedLink } from '~/sanity/blockSerializers/EnhancedLink'
 import { CustomBlock } from '~/sanity/blockSerializers/CustomBlock'
@@ -35,13 +36,7 @@ export function getSerializers({
       return unmodifiedOutput
     }
 
-    const { _type, style } = props.node || {}
-    const topLevelProps = {
-      'data-t': _type,
-      'data-s': style
-    }
-
-    return <Content {...topLevelProps}>{unmodifiedOutput}</Content>
+    return <Content>{unmodifiedOutput}</Content>
   }
 
   const BlockSerializer = ContentWrapper(DefaultBlockSerializer)
@@ -56,6 +51,7 @@ export function getSerializers({
       buttonRow: ButtonRow,
       picture: Picture,
       posterInContent: PosterInContent,
+      scriptureReference: ScriptureReference,
       // These types can't nest, so no need to define a serializer for them
       // if we are in a nested context.
       contentSection: nested ? undefined : ContentSection,

@@ -11,7 +11,8 @@ const richContent = {
     { type: 'posterInContent' },
     { type: 'videoEmbed' },
     { type: 'contentSection' },
-    { type: 'columnRow' }
+    { type: 'columnRow' },
+    { type: 'scriptureReference' }
   ]
 }
 

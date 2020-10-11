@@ -11,7 +11,7 @@
     "functions:types": "rm -rf functions/compiled && yarn tsc -p functions/tsconfig.json",
     "functions:rollup": "rm -rf functions/dist && yarn rollup -c functions/rollup.config.js",
     "sanity": "cd content && yarn sanity",
-    "sanity:deploy": "yarn sanity graphql deploy && yarn sanity deploy",
+    "sanity:deploy": "yarn sanity graphql deploy && SANITY_STUDIO_API_DATASET=staging yarn sanity graphql deploy && yarn sanity deploy",
     "sanity:start": "yarn sanity start --port 4444",
     "sanity:types": "yarn tsc -p content/tsconfig.json",
     "codegen": "graphql-codegen",
