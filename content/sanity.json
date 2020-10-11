@@ -18,12 +18,12 @@
       }
     },
     {
-      "name": "test",
-      "title": "Test",
+      "name": "staging",
+      "title": "Staging",
       "default": false,
       "api": {
         "projectId": "iq9kxmf9",
-        "dataset": "test"
+        "dataset": "staging"
       }
     }
   ],
