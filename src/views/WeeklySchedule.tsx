@@ -136,10 +136,6 @@ function daysFor(start: Date, days: SanityDays) {
     Sunday: 6
   }
 
-  for (let i = 0; i < 7; i++) {
-    console.log('ADD', i, addDays(start, i))
-  }
-
   return days.map(section =>
     section && section.label && section.events ? (
       <Day
