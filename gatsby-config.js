@@ -29,7 +29,7 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: 'iq9kxmf9',
-        dataset: 'production',
+        dataset: process.env.USE_STAGING === 'true' ? 'staging' : 'production',
         ...(process.env.NODE_ENV === 'production'
           ? {}
           : {
