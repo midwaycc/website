@@ -59,7 +59,8 @@ module.exports = {
         title: 'Midway Community Church Sermons',
         description:
           'The weekly sermons preached by Pastor Dean Ropp of Midway Community Church in Alpharetta, GA',
-        link: 'https://midwaycc.org',
+        site_url: 'https://midwaycc.org',
+        feed_url: 'https://midwaycc.org/rss.xml',
         query: `
           {
             allSanitySermonUpload(sort: {order: DESC, fields: date}) {
