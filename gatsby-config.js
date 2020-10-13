@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
+const podcastFeed = require('./podcast-feed')
+
 const siteMetadata = require('./siteMetadata')
 
 module.exports = {
@@ -46,6 +48,7 @@ module.exports = {
         trackingId: 'UA-158652076-1',
         head: true
       }
-    }
+    },
+    podcastFeed
   ]
 }
