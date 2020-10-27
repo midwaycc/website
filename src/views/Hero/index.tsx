@@ -180,6 +180,7 @@ const Title = styled.h1`
   font-family: ${props => props.theme.page.headerFont};
   font-size: 3em;
   text-align: center;
+  text-shadow: 3px 3px 8px black;
 
   ${media.md} {
     font-size: 4em;
@@ -194,6 +195,7 @@ const Subtitle = styled.p`
   max-width: calc(100vw - 4em);
   margin: 1em auto;
   font-size: 1.4em;
+  text-shadow: 2px 2px 6px black;
 
   ${media.sm} {
     font-size: 1.25em;
