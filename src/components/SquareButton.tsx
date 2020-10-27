@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
@@ -46,12 +46,16 @@ const Button = styled(({ dark, thick, ...buttonProps }) => (
   user-select: none;
   ${props => (props.thick ? 'font-weight: bold' : '')};
 
-  :hover:not(:disabled) {
-    background-color: ${props =>
-      props.dark
-        ? DARK_COLOR.replace('rgb', 'rgba').replace(')', ',0.25)')
-        : 'rgba(255,255,255,0.15)'};
-  }
+  ${props =>
+    !props.hover
+      ? css`
+          :hover:not(:disabled) {
+            background-color: ${props.dark
+              ? DARK_COLOR.replace('rgb', 'rgba').replace(')', ',0.25)')
+              : 'rgba(255,255,255,0.15)'};
+          }
+        `
+      : ''}
 
   :disabled {
     opacity: 50%;

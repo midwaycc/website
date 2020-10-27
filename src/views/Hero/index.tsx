@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Modal from 'react-modal'
 import media from '~/utils/media'
 import RichContent from '~/sanity/RichContent'
@@ -61,9 +61,10 @@ export default () => {
               <div>
                 <HeroButton
                   thick
-                  background="#099799"
-                  hover="#2b6667"
-                  border="#9fb94b"
+                  background="rgba(9, 151, 153, 0.5)"
+                  hover="rgba(9, 151, 153, 1)"
+                  border="rgb(35,74,77)"
+                  secondaryBorder="white"
                   onClick={() => setShortcutsOpen(true)}
                 >
                   Quick Links
@@ -212,12 +213,36 @@ const HeroButton = styled<
       background: string
       hover: string
       border?: string
+      secondaryBorder?: string
     }
   >
->(({ background, hover, border, ...rest }) => <SquareButton {...rest} />)`
+>(({ background, border, secondaryBorder, ...rest }) => (
+  <SquareButton {...rest} />
+))`
   margin-top: 2em;
   background-color: ${props => props.background};
+
   ${props => (props.border ? `border-color: ${props.border};` : '')}
+
+  ${props =>
+    props.border && props.secondaryBorder
+      ? css`
+          position: relative;
+
+          ::after {
+            content: ' ';
+            pointer-events: none;
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: -5px;
+            bottom: -5px;
+            right: -5px;
+            border: 2px solid ${props.secondaryBorder};
+          }
+        `
+      : ''}
+
   :hover {
     background-color: ${props => props.hover};
   }
