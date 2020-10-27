@@ -37,7 +37,6 @@ export default () => {
   if (!schedule) return null
 
   const start = getMostRecentMonday()
-  console.log('START', start)
   const scheduleAlert = data.sanityScheduleAlert
   const { days } = schedule || {}
   const splitIndex = getSplitIndex(days)
@@ -84,26 +83,32 @@ export const QUERY = graphql`
   }
 `
 
-function Day(props: { name: string; children: React.ReactNode }) {
+function Day(props: { name: string; date: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2
-        css={css`
-          color: white;
-          margin: 0;
-          text-transform: lowercase;
-          font-variant: small-caps;
-          margin-top: ${DAY_MARGIN_TOP}px;
-          font-size: ${DAY_FONT_SIZE}px;
-          line-height: ${DAY_LINE_HEIGHT}px;
-        `}
-      >
+      <DayName>
         {props.name}
-      </h2>
+        {props.date && <span>({props.date})</span>}
+      </DayName>
       {props.children}
     </div>
   )
 }
+
+const DayName = styled.h2`
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  margin-top: ${DAY_MARGIN_TOP}px;
+  font-size: ${DAY_FONT_SIZE}px;
+  line-height: ${DAY_LINE_HEIGHT}px;
+
+  span {
+    font-size: 0.9em;
+    margin-left: 0.8ch;
+    opacity: 0.8;
+  }
+`
 
 function Event(props: { name: string; time: string }) {
   return (
@@ -140,12 +145,12 @@ function daysFor(start: Date, days: SanityDays) {
     section && section.label && section.events ? (
       <Day
         key={section.label}
-        name={
-          section.label +
-          (section.label && daysToAdd[section.label]
-            ? ` (${format(addDays(start, daysToAdd[section.label]), 'M/d')})`
-            : '')
+        date={
+          section.label && daysToAdd[section.label]
+            ? format(addDays(start, daysToAdd[section.label]), 'M/d')
+            : ''
         }
+        name={section.label}
       >
         {section.events.map((event, i) =>
           event && event.time && event.description ? (
