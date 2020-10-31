@@ -73,7 +73,7 @@
     "node-fetch": "^2.6.1",
     "node-notifier-cli": "^1.1.2",
     "patch-package": "^6.2.2",
-    "polished": "^3.3.0",
+    "polished": "^4.0.3",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.0",
     "query-string": "^6.10.1",
@@ -85,7 +85,7 @@
     "react-plyr": "^2.2.0",
     "rollup": "^2.32.1",
     "serve": "^11.0.0",
-    "styled-components": "^5.0.0",
+    "styled-components": "^5.2.1",
     "typescript": "~4.0.0"
   },
   "repository": {
