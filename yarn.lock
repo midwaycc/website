@@ -1835,44 +1835,44 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@fullcalendar/common@~5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.2.0.tgz#49dff00f5104daaa00a8a556be394cacec3fadb7"
-  integrity sha512-fh2Mp09lzIwlh3AJT5xw1r4jFKMOGRmdpmzJX+qvv3BJrg7P6ze4FLhoIpDRe13wmUpQuQEznk9pY99eFGxVXQ==
+"@fullcalendar/common@~5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.3.1.tgz#9193032cf88f12ebcd8337ef6e98b23fbbbf04ca"
+  integrity sha512-2PREEpiFQSDN5MNdoD/OkpJ+d7FPtN2TwTJMsuq3fTjmj3nM+utrxBmUr9a2F6WWW1X+xGU5nHQA52vhqIiQOQ==
   dependencies:
     tslib "^2.0.0"
 
 "@fullcalendar/core@^5.0.0":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-5.2.1.tgz#655eb371c74e41715d7fa273079c61cd4c028e17"
-  integrity sha512-5NHy5c9a2NokZkPiSk1+zRh4to/reE2ytu2NA/a/deJG7Ai/nM9oUaJj4TO25R5p9U9I+T9x7D3vM+X8Yu5izw==
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-5.3.1.tgz#183140648e4c07a452e10a13259768406065329f"
+  integrity sha512-CqcpMimyuTf4DI+s1Se9bjVQMa2PDGtTBj8CYaCf8nSu+Wc6/RoimhIiA5bDTyg4KQFqXFT8ojt1avC05ZBvgg==
   dependencies:
-    "@fullcalendar/common" "~5.2.0"
+    "@fullcalendar/common" "~5.3.1"
     preact "^10.0.5"
     tslib "^2.0.0"
 
 "@fullcalendar/google-calendar@^5.0.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-5.2.0.tgz#11e0290275b9dce6918e4f4bf9fcd6e4c3403549"
-  integrity sha512-aW51R64lUusNvaKYauqpzKceuY9hRTGMVtdHVWf7e3K5VNO2CN3tSVm8gQo6CdRFLXVn9I3igGqK1rAf+OrJXg==
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-5.3.1.tgz#c7c34dd5d80dd1fb650ae46d21a7eea4dd22afdc"
+  integrity sha512-miCLC39yP3IG8JfyqAKOi0xO/5zBHASs/lInnfhBlN6KDzREoZdww1JFaqFY7LaibC5Aqnf3yFI9J+3MTxCiNw==
   dependencies:
-    "@fullcalendar/common" "~5.2.0"
+    "@fullcalendar/common" "~5.3.1"
     tslib "^2.0.0"
 
 "@fullcalendar/list@^5.0.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/list/-/list-5.2.0.tgz#460000f4cddd9eb4867a48f422d2a112fdf0781f"
-  integrity sha512-H2olfwtBs9Yq2Gqt5U4xV2Jx9cB+h0PLCQAIad4qXuVnX2qZtT4C0+BmohTrAOdP5xAOQuzY2/Nz87ujiTSrKw==
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/list/-/list-5.3.1.tgz#bab30270138bc20d22ff79d185cf7ccfd588a570"
+  integrity sha512-0wZxRe9xhe61W8I00u7gW+FGxOxew5di+ujIVqoRjQ1JOiXsmClUwyObEtVPc8/5/Z1fFFcnh6tIAJKuVrOP1A==
   dependencies:
-    "@fullcalendar/common" "~5.2.0"
+    "@fullcalendar/common" "~5.3.1"
     tslib "^2.0.0"
 
 "@fullcalendar/react@^5.0.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-5.2.0.tgz#4c89954ee586210d63e1187d4d242ee538d38d2b"
-  integrity sha512-7reGbOriO87+zP6L9T50ry04RfQqXFMjjiRdtFX/iOCs11gVARNQGP6rG1qH5xcKxNze02lHhILZb0pa/DowaA==
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-5.3.1.tgz#b7b86f6b2dc8315b51d4c05663e4e4aef9ff680a"
+  integrity sha512-CuZSaOniy9XmISRMJcN241dGBUDIOMHU5RCCISjahIDZb7+qmQvSC572GYh3P4iYzoiMLMUtNU9flXvxASCUVw==
   dependencies:
-    "@fullcalendar/common" "~5.2.0"
+    "@fullcalendar/common" "~5.3.1"
     tslib "^2.0.0"
 
 "@graphql-codegen/cli@^1.5.0":
@@ -15846,9 +15846,9 @@ postinstall-postinstall@^2.1.0:
   integrity sha512-7hQX6ZlZXIoRiWNrbMQaLzUUfH+sSx39u8EJ9HYuDc1kLo9IXKWjM5RSquZN1ad5GnH8CGFM78fsAAQi3OKEEQ==
 
 preact@^10.0.5:
-  version "10.4.6"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.4.6.tgz#86cc43396e4bdd755726a2b4b1f0529e78067cd3"
-  integrity sha512-80WJfXH53yyINig5Wza/8MD9n4lMg9G6aN00ws0ptsAaY/Fu/M7xW4zICf7OLfocVltxS30wvNQ8oIbUyZS1tw==
+  version "10.5.5"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.5.tgz#c6c172ca751df27483350b8ab622abc12956e997"
+  integrity sha512-5ONLNH1SXMzzbQoExZX4TELemNt+TEDb622xXFNfZngjjM9qtrzseJt+EfiUu4TZ6EJ95X5sE1ES4yqHFSIdhg==
 
 precinct@^6.3.1:
   version "6.3.1"
