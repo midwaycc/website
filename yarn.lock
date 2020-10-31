@@ -2399,10 +2399,10 @@
     "@sanity/block-content-to-hyperscript" "^2.0.10"
     prop-types "^15.6.2"
 
-"@sanity/cli@^1.149.0":
-  version "1.150.7"
-  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-1.150.7.tgz#93d943b8ffa0bcf16bf255c926a25a2503143b33"
-  integrity sha512-wJhRLzyy2RfkuxiIcrUL8zYe4+xWCWib8bJJ5q8H9NkgaENX3GZLcUnQ/1sD9PYCNZDouRI5rw6fSeEsyRe6Hw==
+"@sanity/cli@^2.0.0":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.0.5.tgz#5924e7c5663d69084ae559102b56dd6fabc71fa0"
+  integrity sha512-DnTumr7ejdyc1Q8Ljo08TOcJVx5Puwy2TWFDFleMxIclgTwurnvR/XoVwJd96aVIiBsz9TwoVvELUOCsh/01Lw==
 
 "@sanity/client@^1.149.13", "@sanity/client@^1.149.16":
   version "1.150.7"
