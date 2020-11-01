@@ -7,6 +7,7 @@ import { niceDate } from '~/utils/niceDate'
 import { CardContainer } from '~/components/CardContainer'
 import { css } from 'styled-components'
 import Content from '~/layout/Content'
+import { PodcastIcons } from '~/components/PodcastIcons'
 
 type Props = {
   data: SermonUploadQuery
@@ -42,6 +43,8 @@ export default ({ data }: Props) => {
           <SquareButton point="left">Home</SquareButton>
         </Link>
         <h1>Sermons</h1>
+        <p>Listen here, or subscribe in your favorite podcast app!</p>
+        <PodcastIcons />
         <CardContainer big noHover>
           {sermons.map(sermon =>
             sermon._id ? <Sermon key={sermon._id} sermon={sermon} /> : null
