@@ -10,7 +10,7 @@ export default {
       active: 'active'
     },
     prepare: ({ active }: any) => ({
-      title: `Quick Links${active ? ' (active)' : ''}`
+      title: (active ? '(active) ' : '') + 'Quick Links'
     })
   },
   validation: (Rule: Rule) => Rule.custom(ensureOnlyOne('active')),

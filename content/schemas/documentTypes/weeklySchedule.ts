@@ -7,11 +7,12 @@ export default {
   type: 'document',
   preview: {
     select: {
-      label: 'label'
+      label: 'label',
+      active: 'active'
     },
-    prepare({ label }: any) {
+    prepare({ label, active }: any) {
       return {
-        title: label
+        title: (active ? '(active) ' : '') + label
       }
     }
   },

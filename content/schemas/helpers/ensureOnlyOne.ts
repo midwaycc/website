@@ -10,7 +10,6 @@ export function ensureOnlyOne(uniqueBool: string) {
       const { result }: { result: { _id: string }[] } = await response.json()
       const ids = result.map(r => r._id.replace('drafts.', ''))
       const conflicts = ids.filter(id => id !== doc._id.replace('drafts.', ''))
-      console.log({ doc, result, conflicts })
       return doc[uniqueBool] && conflicts.length
         ? `Only one "${uniqueBool}" is allowed for this collection!`
         : true
