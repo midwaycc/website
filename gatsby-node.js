@@ -65,7 +65,7 @@ async function createPages(graphql, createPage) {
 async function createMinistryPages(graphql, createPage) {
   const result = await graphql(`
     {
-      allSanityMinistryPage(filter: { name: { ne: "Get Involved" } }) {
+      allSanityMinistryPage {
         nodes {
           _id
           url {
@@ -122,11 +122,6 @@ async function createAllPostPages(graphql, createPage) {
       archivePosts: allSanityPost(filter: { featured: { eq: false } }) {
         totalCount
       }
-      getInvolvedPosts: allSanityPost(
-        filter: { ministries: { elemMatch: { name: { eq: "Get Involved" } } } }
-      ) {
-        totalCount
-      }
     }
   `)
 
@@ -136,7 +131,6 @@ async function createAllPostPages(graphql, createPage) {
 
   const allPosts = result.data.allPosts.nodes || []
   const numArchivePosts = result.data.archivePosts.totalCount
-  const numGetInvolvedPosts = result.data.getInvolvedPosts.totalCount
 
   allPosts.forEach(post => {
     if (post.slug) {
@@ -154,13 +148,6 @@ async function createAllPostPages(graphql, createPage) {
     perPage,
     'posts',
     require.resolve('./src/templates/PostsPage.tsx')
-  )
-  createPostPages(
-    createPage,
-    numGetInvolvedPosts,
-    perPage,
-    'get-involved',
-    require.resolve('./src/templates/GetInvolvedPostsPage.tsx')
   )
 }
 
