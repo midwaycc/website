@@ -23,7 +23,12 @@ export const EnhancedLink = ({ mark, children, className }: Props) => {
   }
 
   return (
-    <a href={mark.href} className={className} target="_blank">
+    <a
+      href={mark.href}
+      className={className}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
     </a>
   )
