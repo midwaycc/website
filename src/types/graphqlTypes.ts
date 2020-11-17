@@ -6705,6 +6705,7 @@ export type SanityPicture = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   image?: Maybe<SanityImage>;
+  constrainAspectRatio?: Maybe<Scalars['String']>;
   size?: Maybe<Scalars['String']>;
   align?: Maybe<Scalars['String']>;
   caption?: Maybe<Scalars['String']>;

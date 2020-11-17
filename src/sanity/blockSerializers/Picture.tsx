@@ -1,11 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Image from 'gatsby-image'
 import media from '~/utils/media'
 import { SanityPicture } from '~/types/graphqlTypes'
 import { Align } from '~/types/align'
 import { Size } from '~/types/size'
-import { getContainerStyles, PERCENTS } from '~/utils/boxSizeHelpers'
+import {
+  getContainerStyles,
+  getCropStyles,
+  PERCENTS
+} from '~/utils/boxSizeHelpers'
 
 type Props = {
   node?: SanityPicture & {
@@ -19,7 +23,7 @@ const MAX_WIDTH = media.xl.pixelWidth
 export function Picture({ node }: Props) {
   if (!node || !node.image) return null
 
-  const { image, size, align, caption } = node
+  const { image, constrainAspectRatio, size, align, caption } = node
 
   const { asset } = image
   if (!asset) return null
@@ -44,7 +48,11 @@ export function Picture({ node }: Props) {
 
   return (
     <div css={getContainerStyles(percentWidth, align)}>
-      <Image fluid={fluid} />
+      <div css={getCropStyles(constrainAspectRatio, aspectRatio)}>
+        <div>
+          <Image fluid={fluid} />
+        </div>
+      </div>
       {caption && <CaptionArea>{caption}</CaptionArea>}
     </div>
   )

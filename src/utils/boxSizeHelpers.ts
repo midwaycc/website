@@ -35,6 +35,42 @@ export function getContainerStyles(size: number | Size, align?: Align) {
   `
 }
 
+const CROP_ASPECT_RATIOS: Record<string, number> = {
+  '16:9': 9 / 16
+}
+
+export function getCropStyles(
+  constrainAspectRatio: string,
+  originalAspectRatio: number
+) {
+  if (
+    typeof constrainAspectRatio !== 'string' ||
+    !/^\d+:\d+$/.test(constrainAspectRatio)
+  ) {
+    return undefined
+  }
+
+  const [w, h] = constrainAspectRatio.split(':')
+  const ratio = parseInt(h) / parseInt(w)
+  const scale = Math.max(100, 100 * ratio * originalAspectRatio)
+
+  return css`
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    padding-top: calc(100% * ${ratio});
+
+    & > * {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: auto;
+      transform: translate(-50%, -50%) scale(${scale}%);
+    }
+  `
+}
+
 function getCss(percent: number, align?: Align) {
   const common = css`
     width: ${percent}%;
