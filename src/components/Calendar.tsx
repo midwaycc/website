@@ -74,6 +74,7 @@ export default () => {
   )
 }
 
+// TODO: move this to Sanity
 const calendars = [
   // Children's non-recurring
   'bmassey@midwaycommunitychurch.org',

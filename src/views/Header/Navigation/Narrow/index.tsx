@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { NavItem, hasSubItems } from '~/views/Header/Navigation/types'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
-import BaseToggle from '~/components/BaseToggle'
+import { BaseToggle } from './BaseToggle'
 
 type Props = {
   className?: string

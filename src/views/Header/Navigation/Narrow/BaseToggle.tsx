@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.input.attrs(props => ({
+export const BaseToggle = styled.input.attrs(props => ({
   type: props.type || 'checkbox',
   name: props.name
 }))`

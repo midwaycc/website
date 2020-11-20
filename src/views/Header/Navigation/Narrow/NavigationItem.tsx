@@ -5,7 +5,7 @@ import {
   NavItemWithLink
 } from '~/views/Header/Navigation/types'
 import { FullLink, FullText } from '~/views/Header/FullLink'
-import BaseToggle from '~/components/BaseToggle'
+import { BaseToggle } from './BaseToggle'
 import { darken, lighten } from 'polished'
 
 export const NavigationItem = ({ text, link, sameWindow }: NavItemWithLink) => (
@@ -16,6 +16,7 @@ export const NavigationItem = ({ text, link, sameWindow }: NavItemWithLink) => (
   </Container>
 )
 
+// Used globally across all items to detect when to close the open item
 let openItem: string | null = null
 
 export const NavigationItemWithSubmenu = ({
@@ -26,8 +27,11 @@ export const NavigationItemWithSubmenu = ({
     <Container>
       <Toggle
         onClick={e => {
+          // Close the selected item when clicking it. Otherwise, rely on the
+          // native radio behavior. If JS is not loaded yet, the only
+          // degradation is that clicking the open item doesn't close it.
           if (openItem === text) {
-            ;(e.target as any).checked = false
+            ;(e.target as HTMLInputElement).checked = false
             openItem = null
           } else {
             openItem = text
