@@ -91,7 +91,12 @@ const query = graphql`
 
 function SocialLink(props: { logo: string; url: string; className?: string }) {
   return (
-    <a className={props.className} href={props.url} target="_blank">
+    <a
+      className={props.className}
+      href={props.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <img css="height: 42px; margin-top: 1em" src={props.logo} />
     </a>
   )

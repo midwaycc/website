@@ -31,7 +31,8 @@ export const FullLink = styled(
         <a
           className={props.className}
           href={props.to}
-          target={sameWindow ? undefined : '_blank norel noreferrer'}
+          target={sameWindow ? undefined : '_blank'}
+          rel={sameWindow ? undefined : 'noopener noreferrer'}
         >
           {props.children}
         </a>

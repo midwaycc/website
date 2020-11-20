@@ -35,7 +35,11 @@ export default () => {
         <Column>
           <Title color="#9fb94b">Welcome</Title>
           <Subtitle>You're invited! Sunday mornings.</Subtitle>
-          <a href="http://midwaycc.sermon.net/" target="_blank">
+          <a
+            href="http://midwaycc.sermon.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button>Stream Live</Button>
           </a>
           <Link to="/sermons">
@@ -45,6 +49,7 @@ export default () => {
         <a
           href={googleMapsLink}
           target="_blank"
+          rel="noopener noreferrer"
           css={css`
             :not(:hover) {
               text-decoration: none;

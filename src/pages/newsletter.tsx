@@ -50,7 +50,7 @@ export default ({ data }: Props) => {
                 <a
                   href={newsletter.link}
                   target="_blank"
-                  rel="noreferrer noopener"
+                  rel="noopener noreferrer"
                 >
                   View in browser
                 </a>
