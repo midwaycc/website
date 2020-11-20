@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
-import Image, { FluidObject } from 'gatsby-image'
+import Image, { GatsbyImageProps, FluidObject } from 'gatsby-image'
 import RichContent from '~/sanity/RichContent'
 import Section from '~/layout/Section'
 import RecentPosts from '~/views/RecentPosts'
@@ -74,7 +74,7 @@ export default ({ data, path }: Props) => {
           >
             <SubLogo
               fluid={(subLogo.asset.fluid as FluidObject) || undefined}
-              width={subLogoWidth || 0}
+              $width={subLogoWidth || 0}
             />
           </Link>
         )}
@@ -234,8 +234,8 @@ const TopNav: React.FC<{ children: React.ReactNode; color?: string }> = ({
   </Section>
 )
 
-export const SubLogo = styled(Image)<{ width: number }>`
-  width: ${props => props.width || 0}px;
+export const SubLogo = styled(Image)<GatsbyImageProps & { $width: number }>`
+  width: ${props => props.$width || 0}px;
   max-width: calc(100%);
   margin-bottom: 2em;
 `

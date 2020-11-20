@@ -35,12 +35,8 @@ export function getContainerStyles(size: number | Size, align?: Align) {
   `
 }
 
-const CROP_ASPECT_RATIOS: Record<string, number> = {
-  '16:9': 9 / 16
-}
-
 export function getCropStyles(
-  constrainAspectRatio: string,
+  constrainAspectRatio: string | null | undefined,
   originalAspectRatio: number
 ) {
   if (

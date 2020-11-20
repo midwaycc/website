@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { FluidObject } from 'gatsby-image'
 import { SubLogo } from '~/templates/MinistryPage'
 import Section from '~/layout/Section'
 
@@ -12,8 +13,8 @@ export default ({ data }: { data: any }) => {
         ministry && ministry.subLogo && ministry.subLogo.asset ? (
           <SubLogo
             key={ministry.name}
-            width={ministry.subLogoWidth}
-            fluid={ministry.subLogo.asset.fluid}
+            fluid={ministry.subLogo.asset.fluid as FluidObject}
+            $width={ministry.subLogoWidth}
             css="margin-bottom: 2em"
           />
         ) : null
