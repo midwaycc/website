@@ -17,7 +17,11 @@ type Props = {
 export function ButtonLink({ node, inButtonRow }: Props) {
   if (!node || !node.text || !node.href) return null
 
-  const { text, href, align, dark, thick } = node
+  const { text, href: rawHref, align, dark, thick } = node
+  const href =
+    rawHref.indexOf('/') === 0 || rawHref.indexOf('http') === 0
+      ? rawHref
+      : `http://${rawHref}`
 
   return (
     <EnhancedLink
