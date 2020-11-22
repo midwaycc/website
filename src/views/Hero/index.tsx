@@ -1,19 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import styled, { css } from 'styled-components'
-import Modal from 'react-modal'
+import styled from 'styled-components'
 import media from '~/utils/media'
-import RichContent from '~/sanity/RichContent'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/hero-optimized.mp4'
-import { SquareButton } from '~/components/SquareButton'
-import X from '~/../static/images/x.svg'
+import { QuickLinksModal } from './QuickLinksModal'
+import { HeroButton } from './HeroButton'
 
-if (typeof document !== 'undefined') {
-  Modal.setAppElement(document.body)
-}
-
-const query = graphql`
+// TODO: ensure that all queries are at the top of files
+// TODO: rename shortcuts => quickLinks
+const QUERY = graphql`
   query HeroSection {
     sanityHeroSection {
       title
@@ -27,105 +23,42 @@ const query = graphql`
   }
 `
 
-export default () => {
-  const [shortcutsOpen, setShortcutsOpen] = useState(false)
-  const data: HeroSectionQuery = useStaticQuery(query)
-  if (!data.sanityHeroSection) {
-    return null
-  }
+export function Hero() {
+  const data: HeroSectionQuery = useStaticQuery(QUERY)
+  if (!data.sanityHeroSection) return null
 
-  const {
-    sanityHeroSection: { title, subtitle },
-    allSanityShortcuts
-  } = data
-  const activeShortcuts = allSanityShortcuts
-    ? allSanityShortcuts.nodes || []
-    : []
+  const { sanityHeroSection, allSanityShortcuts } = data
+  const { title, subtitle } = sanityHeroSection
+  const activeShortcuts = allSanityShortcuts?.nodes || []
   const shortcutToUse = activeShortcuts.length ? activeShortcuts[0] : null
 
-  const closeShortcuts = () => setShortcutsOpen(false)
-
   return (
-    <>
-      <Container>
-        <VideoContainer>
-          <video autoPlay loop preload="" muted playsInline>
-            <source src={heroVideo} type="video/mp4" />
-          </video>
-        </VideoContainer>
-        <OverlayContainer>
-          <HeroContent>
-            <Title>{title}</Title>
-            <Subtitle>{subtitle}</Subtitle>
-            {shortcutToUse && (
-              <div>
-                <HeroButton
-                  thick
-                  background="rgba(9, 151, 153, 0.5)"
-                  hover="rgba(9, 151, 153, 1)"
-                  border="rgb(35,74,77)"
-                  secondaryBorder="white"
-                  onClick={() => setShortcutsOpen(true)}
-                >
-                  Quick Links
-                </HeroButton>
-              </div>
-            )}
-            <div>
-              <Link to="/new">
-                <HeroButton
-                  dark
-                  thick
-                  background="rgba(255, 255, 255, 0.5)"
-                  hover="white"
-                >
-                  New Here?
-                </HeroButton>
-              </Link>
-            </div>
-          </HeroContent>
-        </OverlayContainer>
-      </Container>
-      {shortcutToUse && (
-        <Modal
-          isOpen={shortcutsOpen}
-          onRequestClose={closeShortcuts}
-          closeTimeoutMS={300}
-          style={{
-            overlay: {
-              zIndex: 4,
-              backgroundColor: 'rgba(0,0,0,0.45)',
-              pointerEvents: 'auto'
-            },
-            content: {
-              width: 800,
-              maxWidth: 'calc(100vw - 2rem)',
-              maxHeight: 'calc(70vh)',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              overflow: 'hidden',
-              border: '5px solid #9fb94b',
-              borderRadius: 0,
-              backgroundColor: '#2b6667',
-              color: 'white',
-              position: 'relative',
-              padding: 0
-            }
-          }}
-        >
-          <Scroller>
-            <RichContent
-              css="padding-bottom: 2rem"
-              blocks={shortcutToUse._rawContent || []}
-            />
-          </Scroller>
-          <CloseButton onClick={closeShortcuts}>
-            <img src={X} />
-          </CloseButton>
-        </Modal>
-      )}
-    </>
+    <Container>
+      <VideoContainer>
+        <video autoPlay loop preload="" muted playsInline>
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+      </VideoContainer>
+      <OverlayContainer>
+        <HeroContent>
+          <Title>{title}</Title>
+          <Subtitle>{subtitle}</Subtitle>
+          <QuickLinksModal quickLinks={shortcutToUse} />
+          <div>
+            <Link to="/new">
+              <HeroButton
+                dark
+                thick
+                background="rgba(255, 255, 255, 0.5)"
+                hover="white"
+              >
+                New Here?
+              </HeroButton>
+            </Link>
+          </div>
+        </HeroContent>
+      </OverlayContainer>
+    </Container>
   )
 }
 
@@ -205,63 +138,4 @@ const Subtitle = styled.p`
   ${media.md} {
     font-size: 1.5em;
   }
-`
-
-const HeroButton = styled<
-  React.FC<
-    React.ComponentProps<typeof SquareButton> & {
-      background: string
-      hover: string
-      border?: string
-      secondaryBorder?: string
-    }
-  >
->(({ background, border, secondaryBorder, ...rest }) => (
-  <SquareButton {...rest} />
-))`
-  margin-top: 2em;
-  background-color: ${props => props.background};
-
-  ${props => (props.border ? `border-color: ${props.border};` : '')}
-
-  ${props =>
-    props.border && props.secondaryBorder
-      ? css`
-          position: relative;
-
-          ::after {
-            content: ' ';
-            pointer-events: none;
-            position: absolute;
-            z-index: 1;
-            top: -5px;
-            left: -5px;
-            bottom: -5px;
-            right: -5px;
-            border: 2px solid ${props.secondaryBorder};
-          }
-        `
-      : ''}
-
-  :hover {
-    background-color: ${props => props.hover};
-  }
-`
-
-const Scroller = styled.div`
-  max-height: inherit;
-  overflow: auto;
-  padding: 1rem;
-  padding-bottom: 0;
-  text-align: center;
-`
-
-const CloseButton = styled.button`
-  position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
 `
