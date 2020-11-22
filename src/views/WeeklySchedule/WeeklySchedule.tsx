@@ -29,7 +29,9 @@ export default () => {
         <Title left color="white">
           This Week
         </Title>
-        <CalendarLink to="/calendar">See full calendar ›</CalendarLink>
+        <CalendarLink>
+          <Link to="/calendar">See full calendar ›</Link>
+        </CalendarLink>
         {scheduleAlert && scheduleAlert.active && scheduleAlert._rawMessage && (
           <Alert>
             <RichContent blocks={scheduleAlert._rawMessage} />
@@ -112,8 +114,7 @@ const Container = styled.div`
   }
 `
 
-const CalendarLink = styled(Link)`
-  display: block;
+const CalendarLink = styled.div`
   width: 100%;
   text-align: center;
   margin: 0.5em 0;
