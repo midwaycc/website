@@ -13,7 +13,7 @@ import RichContent from '~/sanity/RichContent'
 import { getMostRecentMonday } from '~/utils/dateUtils'
 import { getSplitIndex } from './splitIndex'
 
-export default () => {
+export function WeeklySchedule() {
   const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
   const schedule = data.sanityWeeklySchedule
   if (!schedule) return null
