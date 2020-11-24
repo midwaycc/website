@@ -90,14 +90,16 @@ async function createMinistryPages(graphql, createPage) {
     if (ministryPage.url) {
       createPage({
         path: ministryPage.url.current,
-        component: require.resolve('./src/templates/MinistryPage.tsx'),
+        component: require.resolve('./src/templates/MinistryPage/index.tsx'),
         context: { _id: ministryPage._id }
       })
       ministryPage.sections.forEach(section => {
         if (section.urlSuffix) {
           createPage({
             path: `${ministryPage.url.current}/${section.urlSuffix.current}`,
-            component: require.resolve('./src/templates/MinistryPage.tsx'),
+            component: require.resolve(
+              './src/templates/MinistryPage/index.tsx'
+            ),
             context: { _id: ministryPage._id }
           })
         }

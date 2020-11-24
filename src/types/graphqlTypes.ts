@@ -6865,30 +6865,6 @@ export type SermonUploadQuery = (
   ) }
 );
 
-export type AllSubLogosQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type AllSubLogosQuery = (
-  { __typename?: 'Query' }
-  & { allSanityMinistryPage: (
-    { __typename?: 'SanityMinistryPageConnection' }
-    & { nodes: Array<(
-      { __typename?: 'SanityMinistryPage' }
-      & Pick<SanityMinistryPage, 'name' | 'subLogoWidth'>
-      & { subLogo?: Maybe<(
-        { __typename?: 'SanityImage' }
-        & { asset?: Maybe<(
-          { __typename?: 'SanityImageAsset' }
-          & { fluid?: Maybe<(
-            { __typename?: 'SanityImageFluid' }
-            & GatsbySanityImageFluidFragment
-          )> }
-        )> }
-      )> }
-    )> }
-  ) }
-);
-
 export type MinistryPageQueryVariables = Exact<{
   _id: Scalars['String'];
 }>;

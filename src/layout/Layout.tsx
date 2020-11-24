@@ -7,27 +7,37 @@ import Footer from '~/views/Footer'
 // import MediaIndicator from '~/components/MediaIndicator'
 import theme from '~/theme'
 import { hiddenWhenMenuOpen } from '~/views/Header/Navigation/Narrow'
+import { TopNav as MinistryPageTopNav } from '~/templates/MinistryPage/TopNav'
 
 import './index.css'
 
 type Props = {
   children: React.ReactNode
+  path: string
+  data: any
 }
 
-export default ({ children }: Props) => (
-  <>
-    <GlobalStyles />
-    <Head />
-    <ThemeProvider theme={theme}>
-      <PageContainer>
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </PageContainer>
-    </ThemeProvider>
-    {/* <MediaIndicator /> */}
-  </>
-)
+export default ({ children, path, data }: Props) => {
+  return (
+    <>
+      <GlobalStyles />
+      <Head />
+      <ThemeProvider theme={theme}>
+        <PageContainer>
+          <Header />
+          <Main>
+            {path.indexOf('/ministries/') === 0 && (
+              <MinistryPageTopNav data={data} path={path} />
+            )}
+            {children}
+          </Main>
+          <Footer />
+        </PageContainer>
+      </ThemeProvider>
+      {/* <MediaIndicator /> */}
+    </>
+  )
+}
 
 const GlobalStyles = createGlobalStyle`
   .ReactModalPortal {
@@ -46,6 +56,7 @@ const PageContainer = styled.div`
     overflow: hidden;
   }
 `
+
 const Main = styled.main`
   position: relative;
   display: flex;
