@@ -4,9 +4,22 @@ import styled, { css } from 'styled-components'
 import Content from '~/layout/Content'
 import { hiddenWhenMenuOpen } from '~/views/Header/Navigation/Narrow'
 import { ChurchInfoQuery } from '~/types/graphqlTypes'
-import ContactForm from '~/views/ContactForm'
+import { ContactForm } from './ContactForm'
 import media from '~/utils/media'
 import footerLogo from '~/../static/logos/rgb/icon/mcc_icon_rgb.png'
+
+const query = graphql`
+  query ChurchInfo {
+    site {
+      siteMetadata {
+        church {
+          phone
+          address
+        }
+      }
+    }
+  }
+`
 
 export default () => {
   const data: ChurchInfoQuery = useStaticQuery(query)
@@ -69,25 +82,19 @@ export default () => {
             position: relative;
           `}
         >
-          <LogoIcon />
+          <LogoIcon>
+            <img
+              src={footerLogo}
+              css={css`
+                width: 100%;
+              `}
+            />
+          </LogoIcon>
         </FooterBlock>
       </FooterBlocks>
     </Container>
   )
 }
-
-const query = graphql`
-  query ChurchInfo {
-    site {
-      siteMetadata {
-        church {
-          phone
-          address
-        }
-      }
-    }
-  }
-`
 
 function SocialLink(props: { logo: string; url: string; className?: string }) {
   return (
@@ -102,35 +109,10 @@ function SocialLink(props: { logo: string; url: string; className?: string }) {
   )
 }
 
-function LogoIcon() {
-  return (
-    <div
-      css={css`
-        position: absolute;
-        bottom: -1em;
-        left: calc(50% - 100px);
-        overflow: hidden;
-        width: 200px;
-        height: 181px;
-      `}
-    >
-      <img
-        src={footerLogo}
-        css={css`
-          width: 100%;
-        `}
-      />
-    </div>
-  )
-}
-
 function copyrightYears() {
   const start = 2019
   const end = new Date().getFullYear()
-  if (start === end) {
-    return start
-  }
-  return `${start} - ${end}`
+  return start === end ? start : `${start} - ${end}`
 }
 
 const Container = styled.footer`
@@ -164,6 +146,15 @@ const FooterBlock = styled.div`
       padding-top: 0;
     }
   }
+`
+
+const LogoIcon = styled.div`
+  position: absolute;
+  bottom: -1em;
+  left: calc(50% - 100px);
+  overflow: hidden;
+  width: 200px;
+  height: 181px;
 `
 
 const ContactInfo = styled(FooterBlock)`

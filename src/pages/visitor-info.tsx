@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import Section from '~/layout/Section'
 import Content from '~/layout/Content'
-import { Greeting, TextInput } from '~/views/ContactForm'
+import { Greeting } from '~/components/form/Greeting'
+import { TextInput } from '~/components/form/TextInput'
 import { SquareButton } from '~/components/SquareButton'
 
 export default () => {
@@ -14,13 +16,12 @@ export default () => {
     <Section>
       <Content>
         <Greeting>Help us get to know you!</Greeting>
-        <form
+        <Form
           name="visitor-info"
           method="POST"
           action="/contact/success"
           data-netlify="true"
           data-netlify-honeypot="phone"
-          css="width: 100%; max-width: 40em"
         >
           <TextInput
             title="Name(s)"
@@ -53,8 +54,13 @@ export default () => {
           <SquareButton type="submit" css="margin-top: 1em">
             Submit
           </SquareButton>
-        </form>
+        </Form>
       </Content>
     </Section>
   )
 }
+
+const Form = styled.form`
+  width: 100%;
+  max-width: 40em;
+`
