@@ -3,19 +3,16 @@ import styled from 'styled-components'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Content from '~/layout/Content'
 import { hiddenAbove } from '~/utils/visibility'
-import Navigation, { BREAKPOINT } from './Navigation'
-import { NarrowMenuContents, NarrowMenuToggle } from './Navigation/Narrow'
-import Logo from './Logo'
-import { NavItem, hasSubItems, hasLink } from './Navigation/types'
+import { HeaderQuery } from '~/types/graphqlTypes'
+import { Navigation, BREAKPOINT } from './Navigation'
+import { NarrowMenuContents } from './Navigation/Narrow/MenuContents'
+import { NarrowMenuToggle } from './Navigation/Narrow/MenuToggle'
+import { HeaderLogo } from './Logo'
 import {
-  HeaderQuery,
-  SanityNavigation,
-  SanityPlainLink,
-  SanityPageLink,
-  SanityNestedMenu
-} from '~/types/graphqlTypes'
-
-type SanityItems = SanityNavigation['items']
+  navigationItemsFromSanityItems,
+  validateNavigationItems,
+  SanityItems
+} from './navigationItems'
 
 export default () => {
   const data: HeaderQuery = useStaticQuery(query)
@@ -36,11 +33,13 @@ export default () => {
       <Container>
         <HeaderContent>
           <Link to="/">
-            <Logo />
+            <HeaderLogo />
           </Link>
           <Navigation navigationItems={navigationItems} />
         </HeaderContent>
       </Container>
+      {/* Due to z-index and SSR (which rules out a Portal),
+          this must be rendered after the header. */}
       <NarrowMenuContents navigationItems={navigationItems} />
     </>
   )
@@ -86,50 +85,6 @@ const query = graphql`
     }
   }
 `
-
-function validateNavigationItems(navigationItems: NavItem[]) {
-  return navigationItems.every(navItem => {
-    if (!navItem.text) return false
-    if (hasSubItems(navItem) && (navItem as any).link) return false
-    if (hasLink(navItem) && (navItem as any).items) return false
-    return true
-  })
-}
-
-function navigationItemsFromSanityItems(items: SanityItems): NavItem[] {
-  if (!items) return []
-
-  return items
-    .map(item => {
-      if (!item) return undefined
-      if (!item.__typename) return undefined
-      switch (item.__typename) {
-        case 'SanityPlainLink':
-          return navigationItemFromSanityPlainLink(item)
-        case 'SanityPageLink':
-          return navigationItemFromSanityPageLink(item)
-        case 'SanityNestedMenu':
-          return navigationItemsFromSanityNestedMenu(item)
-      }
-    })
-    .filter(Boolean) as NavItem[]
-}
-
-function navigationItemFromSanityPlainLink(item: SanityPlainLink) {
-  return { text: item.text, link: item.link, sameWindow: item.sameWindow }
-}
-
-function navigationItemFromSanityPageLink(item: SanityPageLink) {
-  if (!item.page || !item.page.url || !item.page.url.current) return undefined
-  return { text: item.text, link: item.page.url.current }
-}
-
-function navigationItemsFromSanityNestedMenu(menu: SanityNestedMenu) {
-  return {
-    text: menu.text,
-    items: navigationItemsFromSanityItems(menu.items)
-  }
-}
 
 const Container = styled.header`
   background-color: ${props => props.theme.header.background};

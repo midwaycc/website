@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { darken } from 'polished'
-import { FullLink, FullText } from '~/views/Header/FullLink'
+import { FullLink, FullText } from '~/views/Header/Navigation/FullLink'
 import {
   NavItemWithLink,
   NavItemWithSubitems

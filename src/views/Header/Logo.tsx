@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import media from '~/utils/media'
 import theme from '~/theme'
 
-export const shiftOnEdge = css`
+const shiftOnEdge = css`
   margin-left: 0.75rem;
   transform: translateX(0.75rem);
   transition: transform 200ms ease;
@@ -17,7 +17,7 @@ const LOGO_HEIGHT = theme.header.height - 24
 const LOGO_WIDTH = Math.round((LOGO_HEIGHT * 1449) / 358)
 const SQUISH_WIDTH = 12 + LOGO_WIDTH + 8 + theme.header.height
 
-export default styled.img.attrs({
+export const HeaderLogo = styled.img.attrs({
   src: '/logos/rgb/png/mcc_logo_horizontal_rgb.png',
   className: 'navigation-link'
 })`

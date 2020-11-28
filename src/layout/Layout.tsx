@@ -6,7 +6,7 @@ import Header from '~/views/Header'
 import Footer from '~/views/Footer'
 // import MediaIndicator from '~/components/MediaIndicator'
 import theme from '~/theme'
-import { hiddenWhenMenuOpen } from '~/views/Header/Navigation/Narrow'
+import { hiddenWhenMenuOpen } from '~/utils/visibility'
 import { TopNav as MinistryPageTopNav } from '~/templates/MinistryPage/TopNav'
 
 import './index.css'

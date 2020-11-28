@@ -8,17 +8,19 @@ type Props = {
   className?: string
 }
 
-export default ({ navigationItems, className }: Props) => (
-  <Container className={className}>
-    {navigationItems.map((navItem: NavItem, i: number) =>
-      hasSubItems(navItem) ? (
-        <NavigationItemWithSubmenu key={i} {...navItem} />
-      ) : (
-        <NavigationItem key={i} {...navItem} />
-      )
-    )}
-  </Container>
-)
+export function WideNavigation({ navigationItems, className }: Props) {
+  return (
+    <Container className={className}>
+      {navigationItems.map((navItem: NavItem, i: number) =>
+        hasSubItems(navItem) ? (
+          <NavigationItemWithSubmenu key={i} {...navItem} />
+        ) : (
+          <NavigationItem key={i} {...navItem} />
+        )
+      )}
+    </Container>
+  )
+}
 
 const Container = styled.ul`
   font-family: ${props => props.theme.header.font};

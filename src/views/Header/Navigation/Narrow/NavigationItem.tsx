@@ -1,35 +1,39 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import {
   NavItemWithSubitems,
   NavItemWithLink
 } from '~/views/Header/Navigation/types'
-import { FullLink, FullText } from '~/views/Header/FullLink'
+import { FullLink, FullText } from '~/views/Header/Navigation/FullLink'
 import { BaseToggle } from './BaseToggle'
 import { darken, lighten } from 'polished'
-
-export const NavigationItem = ({ text, link, sameWindow }: NavItemWithLink) => (
-  <Container>
-    <FullLink css="color: white" to={link} sameWindow={sameWindow}>
-      {text}
-    </FullLink>
-  </Container>
-)
 
 // Used globally across all items to detect when to close the open item
 let openItem: string | null = null
 
-export const NavigationItemWithSubmenu = ({
+export function NavigationItem({ text, link, sameWindow }: NavItemWithLink) {
+  return (
+    <Container>
+      <FullLink css="color: white" to={link} sameWindow={sameWindow}>
+        {text}
+      </FullLink>
+    </Container>
+  )
+}
+
+export function NavigationItemWithSubmenu({
   text,
   items
-}: NavItemWithSubitems) => {
+}: NavItemWithSubitems) {
   return (
     <Container>
       <Toggle
         onClick={e => {
           // Close the selected item when clicking it. Otherwise, rely on the
           // native radio behavior. If JS is not loaded yet, the only
-          // degradation is that clicking the open item doesn't close it.
+          // degradation is that clicking the open item doesn't close it. Doing
+          // it this way rather than with a controlled input and React state
+          // allows the native functionality to work without JS.
           if (openItem === text) {
             ;(e.target as HTMLInputElement).checked = false
             openItem = null
@@ -39,7 +43,7 @@ export const NavigationItemWithSubmenu = ({
         }}
       />
       <FullText css="color: white">
-        <Plus /> {text}
+        <Plus>+</Plus> {text}
       </FullText>
       <SubMenu numItems={items.length}>
         {items.map((item, i) => (
@@ -49,45 +53,12 @@ export const NavigationItemWithSubmenu = ({
               to={item.link}
               sameWindow={item.sameWindow}
             >
-              <Minus /> {item.text}
+              <Minus>-</Minus> {item.text}
             </FullLink>
           </SubItem>
         ))}
       </SubMenu>
     </Container>
-  )
-}
-
-const Plus = () => {
-  return (
-    <span
-      css={css`
-        font-size: 1.1em;
-        margin-right: 0.5em;
-        transform: rotate(0deg);
-        transition: transform 0.4s ease-in-out;
-
-        input:checked ~ ${FullText} & {
-          transform: rotate(90deg);
-        }
-      `}
-    >
-      +
-    </span>
-  )
-}
-
-const Minus = () => {
-  return (
-    <span
-      css={css`
-        font-size: 1.7em;
-        margin-right: 0.5em;
-        transform: translateY(-0.05em);
-      `}
-    >
-      -
-    </span>
   )
 }
 
@@ -159,4 +130,21 @@ const SubItem = styled.li`
   :hover {
     background-color: ${darken(0.01, BASE_COLOR)};
   }
+`
+
+const Plus = styled.span`
+  font-size: 1.1em;
+  margin-right: 0.5em;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease-in-out;
+
+  input:checked ~ ${FullText} & {
+    transform: rotate(90deg);
+  }
+`
+
+const Minus = styled.span`
+  font-size: 1.7em;
+  margin-right: 0.5em;
+  transform: translateY(-0.05em);
 `

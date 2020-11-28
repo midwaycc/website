@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { hiddenWhenMenuOpen } from '~/views/Header/Navigation/Narrow'
+import { hiddenWhenMenuOpen } from '~/utils/visibility'
 import { FooterBlocks, FooterBlock } from './FooterBlocks'
 import { ContactForm } from './ContactForm'
 import { ContactInfo } from './ContactInfo'
