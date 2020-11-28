@@ -4,13 +4,19 @@ import BlockContent from '@sanity/block-content-to-react'
 import { Parallax } from 'react-parallax'
 import Content from '~/layout/Content'
 import { getSerializers } from '~/sanity/serializers'
+import { ColumnRow } from '~/sanity/blockSerializers/ColumnRow'
 import { SanityContentSection } from '~/types/graphqlTypes'
 
 type Props = {
   node?: SanityContentSection
 }
 
-const serializers = getSerializers({ BlockContent, nested: true })
+const serializers = getSerializers({
+  BlockContent,
+  ContentSection,
+  ColumnRow,
+  nested: true
+})
 
 export function ContentSection(props: Props) {
   const { node } = props

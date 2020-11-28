@@ -21,8 +21,9 @@
     "preview-server": "NODE_ENV=development ENABLE_GATSBY_REFRESH_ENDPOINT=true forever node_modules/.bin/gatsby develop -H 0.0.0.0 -p ${PORT}",
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
+    "deps:check": "madge --ts-config tsconfig.json -c src/**/*",
     "list-pages": "echo \"pages.forEach(p => console.log(p[0]))\" | gatsby repl",
-    "ci": "yarn test && yarn codegen && yarn types && yarn format:check",
+    "ci": "yarn test && yarn codegen && yarn types && yarn format:check && yarn deps:check",
     "types": "yarn tsc && yarn sanity:types && yarn functions:types",
     "start": "yarn develop",
     "serve": "gatsby serve",
@@ -101,6 +102,7 @@
     "babel-jest": "^26.0.1",
     "babel-preset-gatsby": "^0.5.4",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "madge": "^3.12.0"
   }
 }

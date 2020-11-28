@@ -10,17 +10,18 @@ import { ButtonLink } from '~/sanity/blockSerializers/ButtonLink'
 import { ButtonRow } from '~/sanity/blockSerializers/ButtonRow'
 import { Picture } from '~/sanity/blockSerializers/Picture'
 import { PosterInContent } from '~/sanity/blockSerializers/PosterInContent'
-import { ColumnRow } from '~/sanity/blockSerializers/ColumnRow'
 
 export function getSerializers({
   BlockContent,
   nested,
   // Need to pass this in to avoid circular dependency
-  ContentSection
+  ContentSection,
+  ColumnRow
 }: {
   BlockContent: typeof SanityBlockContent
   nested?: boolean
   ContentSection?: unknown
+  ColumnRow?: unknown
 }) {
   const {
     defaultSerializers: {
