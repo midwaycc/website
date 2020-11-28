@@ -1,67 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getContainerStyles } from '../utils/boxSizeHelpers'
-import { SanityPoster } from '~/types/graphqlTypes'
-import { DeepPartial } from '~/types/DeepPartial'
+import { getContainerStyles } from '../../utils/boxSizeHelpers' // for sanity
 import { Size } from '~/types/size'
 import { Align } from '~/types/align'
 
 type Props = {
-  poster: DeepPartial<SanityPoster>
-  aspectRatio?: number
-  className?: string
-}
-
-export function Poster({ poster, aspectRatio, className }: Props) {
-  const { lines, overlayColor, overlayOpacity, background } = poster
-  const { url, metadata } = background?.asset || {}
-  const { width, height } = metadata?.dimensions || {}
-
-  if (
-    typeof url !== 'string' ||
-    typeof width !== 'number' ||
-    typeof height !== 'number'
-  ) {
-    return null
-  }
-
-  const linesToUse = (lines || [])
-    .map(line => {
-      const { text, fontSize, position } = line || {}
-      if (
-        !text ||
-        typeof fontSize !== 'number' ||
-        typeof position !== 'number'
-      ) {
-        return null
-      }
-
-      return { text, fontSize, position }
-    })
-    .filter(Boolean)
-
-  return (
-    <PosterRendered
-      key={poster._id}
-      className={className}
-      lines={linesToUse}
-      imageUrl={url}
-      aspectRatio={aspectRatio ?? width / height}
-      size="full"
-      align="left"
-      fillColor={overlayColor ?? undefined}
-      fillOpacity={overlayOpacity ?? undefined}
-    />
-  )
-}
-
-type Line = {
-  fontSize: number
-  text: string
-  position: number
-}
-
-type RenderedProps = {
   lines?: Array<Line | null>
   size?: Size
   align?: Align
@@ -72,12 +15,18 @@ type RenderedProps = {
   className?: string
 }
 
+type Line = {
+  fontSize: number
+  text: string
+  position: number
+}
+
 const BASE_WIDTH = 200
 const SHADOW_BLUR = 1
 const SHADOW_OFFSET_X = 0.5
 const SHADOW_OFFSET_Y = 0.5
 
-function PosterRendered({
+export function PosterSvg({
   lines = [],
   size = 'full',
   align = 'center',
@@ -86,7 +35,7 @@ function PosterRendered({
   fillColor = 'transparent',
   fillOpacity = 0,
   className
-}: RenderedProps) {
+}: Props) {
   const aspectHeight = BASE_WIDTH / aspectRatio
 
   return (
@@ -133,7 +82,7 @@ function Line({ fontSize, text, position }: Line) {
 
   return (
     <>
-      <text {...common} filter="url(#shadow)" fill="black">
+      <text {...common} fill="black" filter="url(#shadow)">
         {text}
       </text>
       <text {...common} fill="white">

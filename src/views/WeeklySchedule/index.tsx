@@ -13,10 +13,31 @@ import RichContent from '~/sanity/RichContent'
 import { getMostRecentMonday } from '~/utils/dateUtils'
 import { getSplitIndex } from './splitIndex'
 
+const QUERY = graphql`
+  query WeeklySchedule {
+    sanityScheduleAlert {
+      id
+      _rawMessage
+      active
+    }
+    sanityWeeklySchedule(active: { eq: true }) {
+      days {
+        label
+        events {
+          time
+          description
+        }
+      }
+    }
+  }
+`
+
 export function WeeklySchedule() {
   const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
   const schedule = data.sanityWeeklySchedule
-  if (!schedule) return null
+  if (!schedule) {
+    return null
+  }
 
   const start = getMostRecentMonday()
   const scheduleAlert = data.sanityScheduleAlert
@@ -51,25 +72,6 @@ export function WeeklySchedule() {
     </Container>
   )
 }
-
-export const QUERY = graphql`
-  query WeeklySchedule {
-    sanityScheduleAlert {
-      id
-      _rawMessage
-      active
-    }
-    sanityWeeklySchedule(active: { eq: true }) {
-      days {
-        label
-        events {
-          time
-          description
-        }
-      }
-    }
-  }
-`
 
 const Container = styled.div`
   width: 100%;
