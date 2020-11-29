@@ -26,7 +26,7 @@ const VerseText = styled.blockquote`
   margin: 2em auto;
   position: relative;
   quotes: '\\201C''\\201D''\\2018''\\2019';
-  color: #eee;
+  color: ${props => props.theme.colors.grey0.hex};
 
   ::before {
     content: open-quote;
@@ -45,7 +45,7 @@ const VerseText = styled.blockquote`
   ::before,
   ::after {
     font-size: 4em;
-    color: #5aa7a9;
+    color: ${props => props.theme.colors.lightTurquoise.hex};
   }
 `
 const VerseReference = styled.blockquote`

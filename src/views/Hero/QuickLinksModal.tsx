@@ -3,6 +3,7 @@ import Modal from 'react-modal'
 import styled from 'styled-components'
 import { RichContent } from '~/sanity/RichContent'
 import { SquareButton } from '~/components/SquareButton'
+import { colors } from '~/theme/colors'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import X from '~/../static/images/x.svg'
 
@@ -24,9 +25,9 @@ export function QuickLinksModal({ quickLinks }: Props) {
       <div css="padding-top: 2em">
         <SquareButton
           thick
-          backgroundColor="rgba(9, 151, 153, 0.5)"
-          hoverBackgroundColor="rgba(9, 151, 153, 1)"
-          borderColor="rgb(35,74,77)"
+          backgroundColor={colors.turquoise.rgba(0.5)}
+          hoverBackgroundColor={colors.turquoise.hex}
+          borderColor={colors.darkTeal.hex}
           secondaryBorderColor="white"
           onClick={() => setOpen(true)}
         >
@@ -56,7 +57,7 @@ export function QuickLinksModal({ quickLinks }: Props) {
 const modalStyle = {
   overlay: {
     zIndex: 4,
-    backgroundColor: 'rgba(0,0,0,0.45)',
+    backgroundColor: colors.black.rgba(0.45),
     pointerEvents: 'auto'
   },
   content: {
@@ -67,9 +68,9 @@ const modalStyle = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     overflow: 'hidden',
-    border: '5px solid #9fb94b',
+    border: `5px solid ${colors.lime.hex}`,
     borderRadius: 0,
-    backgroundColor: '#2b6667',
+    backgroundColor: colors.mediumTeal.hex,
     color: 'white',
     position: 'relative',
     padding: 0

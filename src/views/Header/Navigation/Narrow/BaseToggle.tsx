@@ -11,6 +11,6 @@ export const BaseToggle = styled.input.attrs(props => ({
 
   opacity: 0;
 
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: ${props => props.theme.colors.black.rgba(0)};
   -webkit-touch-callout: none;
 `

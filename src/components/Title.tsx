@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { media } from '~/utils/media'
 
 export const Title = styled.h1<{ $color?: string; $left?: boolean }>`
-  color: ${props => props.$color || 'rgb(35, 74, 77)'};
+  color: ${props => props.$color || props.theme.colors.darkTeal.hex};
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 0;

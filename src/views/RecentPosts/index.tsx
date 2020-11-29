@@ -7,6 +7,7 @@ import { CardContainer } from '~/components/CardContainer'
 import { PostCard } from '~/components/PostCard'
 import { Title } from '~/components/Title'
 import { media } from '~/utils/media'
+import { colors } from '~/theme/colors'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import paper from '~/../static/images/paper.jpg'
 import stamp from '~/../static/images/stamp.png'
@@ -22,7 +23,7 @@ export function RecentPosts({ posts, withBanner }: Props) {
   const postsToUse = posts || data.allSanityPost.nodes
 
   return (
-    <Container color="#9FB94B">
+    <Container color={colors.lime.hex}>
       {withBanner && (
         <Banner>
           <Title>Midway News</Title>
@@ -83,7 +84,7 @@ const Container = styled.div`
 `
 
 const Banner = styled.div`
-  background-color: white;
+  background-color: ${props => props.theme.colors.white.hex};
   padding-top: 1em;
   padding-bottom: 2em;
   position: relative;
@@ -95,8 +96,8 @@ const Banner = styled.div`
     height: 2em;
     line-height: 2em;
     padding: 0 0.5em;
-    background-color: #2b6667;
-    color: white;
+    background-color: ${props => props.theme.colors.mediumTeal.hex};
+    color: ${props => props.theme.colors.white.hex};
     content: 'Get involved! Get connected!';
     width: 40vw;
     min-width: 14em;
@@ -108,7 +109,7 @@ const Banner = styled.div`
 `
 
 const Subtitle = styled.h2`
-  color: #5aa7a9;
+  color: ${props => props.theme.colors.lightTurquoise.hex};
   font-style: italic;
   text-align: center;
   font-size: 1.5em;

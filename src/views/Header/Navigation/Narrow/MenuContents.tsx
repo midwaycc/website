@@ -49,7 +49,7 @@ const MenuContainer = styled.div`
   transition: all ${MENU_TRANSITION};
   transition-duration: 0.4s;
   border-radius: 50%;
-  background-color: #099799;
+  background-color: ${props => props.theme.colors.turquoise.hex};
   color: white;
 
   ${NarrowMenuToggle}:checked ~ & {

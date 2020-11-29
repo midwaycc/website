@@ -1,38 +1,39 @@
 import { DefaultTheme } from 'styled-components'
+import { colors } from './colors'
 
 export const theme: DefaultTheme = {
+  colors,
   page: {
-    background: '#2B6667',
-    color: '#eaeaea',
+    background: colors.mediumTeal.hex,
+    color: colors.grey1.hex,
     headerFont:
       "'brandon-grotesque', 'Avenir', 'Lucida Grande', Arial, sans-serif",
     bodyFont: "'proxima-nova', 'Avenir', 'Lucida Grande', Arial, sans-serif"
   },
   header: {
-    background: 'white',
-    color: '#524637',
-    shadow: '0 0 15px rgba(0, 0, 0, 0.5)',
+    background: colors.white.hex,
+    color: colors.brown.hex,
+    shadow: `0 0 15px ${colors.black.rgba(0.5)}`,
     font: "'proxima-nova', 'Avenir', 'Lucida Grande', Arial, sans-serif",
     height: 90,
     logo: 'final'
   },
   hero: {
-    background: '#2B6667',
-    color: 'white'
+    background: colors.mediumTeal.hex,
+    color: colors.white.hex
   },
   criticalInfo: {
-    // background: '#738637',
-    background: '#2B6667',
-    color: 'white'
+    background: colors.mediumTeal.hex,
+    color: colors.white.hex
   },
   footer: {
-    background: 'rgb(35, 74, 77)',
-    contactFields: 'rgb(116, 147, 147)',
+    background: colors.darkTeal.hex,
+    contactFields: colors.lightTeal.hex,
     height: '16rem',
-    color: 'white'
+    color: colors.white.hex
   },
   buttons: {
-    background: '#9fb94b',
-    color: '#524637'
+    background: colors.lime.hex,
+    color: colors.brown.hex
   }
 }

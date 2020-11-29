@@ -5,6 +5,7 @@ import useWindowSize from '@rooks/use-window-size'
 import FullCalendar, { EventApi } from '@fullcalendar/react'
 import listPlugin from '@fullcalendar/list'
 import googleCalendarPlugin from '@fullcalendar/google-calendar'
+import { colors } from '~/theme/colors'
 
 Modal.setAppElement(document.body)
 
@@ -49,7 +50,7 @@ export default function Calendar() {
         style={{
           overlay: {
             zIndex: 5,
-            backgroundColor: 'rgba(255,255,255,0.2)'
+            backgroundColor: colors.white.rgba(0.2)
           },
           content: {
             zIndex: 6,

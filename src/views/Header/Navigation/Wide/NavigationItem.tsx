@@ -47,7 +47,7 @@ const SubMenu = styled.ul`
   white-space: nowrap;
   min-width: 100%;
   background-color: ${props => props.theme.header.background};
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px ${props => props.theme.colors.black.rgba(0.5)};
   z-index: -1;
 `
 

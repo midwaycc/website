@@ -5,11 +5,12 @@ import { Title } from '~/components/Title'
 import { SquareButton } from '~/components/SquareButton'
 import { Column } from './Columns'
 import { media } from '~/utils/media'
+import { colors } from '~/theme/colors'
 
 export function Welcome() {
   return (
     <Column>
-      <Title $color="#9fb94b">Welcome</Title>
+      <Title $color={colors.lime.hex}>Welcome</Title>
       <Subtitle>You're invited! Sunday mornings.</Subtitle>
       <a
         href="http://midwaycc.sermon.net/"

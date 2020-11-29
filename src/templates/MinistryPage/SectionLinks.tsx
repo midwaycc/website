@@ -48,7 +48,10 @@ export function SectionLinks({ data, path, ministryRootURL }: Props) {
 
 const PillLink = styled(Link)<{ $active?: boolean }>`
   color: white;
-  background-color: ${props => (props.$active ? '#9fb94b' : '#099799')};
+  background-color: ${props =>
+    props.$active
+      ? props.theme.colors.lime.hex
+      : props.theme.colors.turquoise.hex};
   text-decoration: none;
   text-align: center;
   display: inline-block;

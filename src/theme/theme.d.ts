@@ -1,4 +1,5 @@
 import 'styled-components'
+import { colors } from './colors'
 
 type Color = string
 type FontStack = string
@@ -10,6 +11,7 @@ export type Colors = {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    colors: typeof colors
     page: Colors & {
       headerFont: FontStack
       bodyFont: FontStack

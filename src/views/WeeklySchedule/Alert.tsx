@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const Alert = styled.div`
-  background-color: rgba(35, 74, 77, 0.75);
+  background-color: ${props => props.theme.colors.darkTeal.rgba(0.75)};
   margin: 1rem 0;
-  border: 3px solid #9fb94b;
+  border: 3px solid ${props => props.theme.colors.lime.hex};
 
   p {
     font-size: 1.2em;

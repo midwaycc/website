@@ -65,13 +65,13 @@ export const Container = styled.div<ContainerProps>`
     background-color: white;
     padding: 1em;
     color: black;
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 5px 10px ${props => props.theme.colors.black.rgba(0.3)};
 
     ${props =>
       !props.$noHover &&
       css`
         :hover {
-          background-color: #eee;
+          background-color: ${props.theme.colors.grey0.hex};
         }
       `}
 

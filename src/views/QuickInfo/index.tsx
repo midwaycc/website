@@ -20,7 +20,7 @@ export function QuickInfo() {
 
 const Container = styled.div`
   width: 100%;
-  background-color: rgb(43, 102, 103);
+  background-color: ${props => props.theme.colors.mediumTeal.hex};
   padding-top: 3em;
   padding-bottom: 5em;
   color: white;

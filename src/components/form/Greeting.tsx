@@ -2,6 +2,6 @@ import styled from 'styled-components'
 
 export const Greeting = styled.h4`
   text-transform: uppercase;
-  color: #9fb94b;
+  color: ${props => props.theme.colors.lime.hex};
   margin: 0.5em 0;
 `

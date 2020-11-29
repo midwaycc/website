@@ -1,10 +1,11 @@
 import { css } from 'styled-components'
 import { darken } from 'polished'
+import { colors } from '~/theme/colors'
 
 export const raggedEdgeGradient = (
   [r0, g0, b0]: number[],
   [r, g, b]: number[],
-  nextColor: string = 'rgb(255,255,255)'
+  nextColor: string = colors.white.hex
 ) => css`
   background-color: rgba(${r}, ${g}, ${b}, 1);
   background-image: linear-gradient(

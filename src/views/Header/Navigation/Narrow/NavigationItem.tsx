@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { darken, lighten } from 'polished'
 import { FullLink, FullText } from '~/views/Header/Navigation/FullLink'
 import { BaseToggle } from './BaseToggle'
+import { colors } from '~/theme/colors'
 import {
   NavItemWithSubitems,
   NavItemWithLink
@@ -64,7 +65,7 @@ export function NavigationItemWithSubmenu({
 
 const ROW_HEIGHT = '60px'
 const SUB_ROW_HEIGHT = '40px'
-const BASE_COLOR = '#099799'
+const BASE_COLOR = colors.turquoise.hex
 
 const Toggle = styled(BaseToggle).attrs({
   className: 'narrow-submenu-toggle',

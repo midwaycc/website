@@ -7,6 +7,7 @@ import { Section } from '~/layout/Section'
 import { SquareButton } from '~/components/SquareButton'
 import { SectionLinks } from './SectionLinks'
 import { raggedEdgeGradient } from '~/utils/raggedEdgeGradient'
+import { colors } from '~/theme/colors'
 import { MinistryPageQuery } from '~/types/graphqlTypes'
 
 type Props = {
@@ -54,7 +55,11 @@ export function getMinistryRootURL(path: string) {
 }
 
 const RaggedSection = styled(Section)`
-  ${raggedEdgeGradient([255, 255, 255], [239, 239, 239], 'rgb(43, 102, 103)')};
+  ${raggedEdgeGradient(
+    [255, 255, 255],
+    [239, 239, 239],
+    colors.mediumTeal.hex
+  )};
 `
 
 export const SubLogo = styled(Image)<GatsbyImageProps & { $width: number }>`

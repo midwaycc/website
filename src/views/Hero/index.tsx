@@ -4,6 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { SquareButton } from '~/components/SquareButton'
 import { QuickLinksModal } from './QuickLinksModal'
 import { media } from '~/utils/media'
+import { colors } from '~/theme/colors'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/hero-optimized.mp4'
 
@@ -49,7 +50,7 @@ export function Hero() {
               <SquareButton
                 dark
                 thick
-                backgroundColor="rgba(255, 255, 255, 0.5)"
+                backgroundColor={colors.white.rgba(0.5)}
                 hoverBackgroundColor="white"
               >
                 New Here?
@@ -88,7 +89,7 @@ const OverlayContainer = styled.div`
   height: 100%;
   position: absolute;
   color: ${props => props.theme.hero.color};
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: ${props => props.theme.colors.black.rgba(0.2)};
 
   & > * {
     max-width: ${media.xl.width};

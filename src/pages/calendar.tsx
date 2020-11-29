@@ -3,6 +3,7 @@ import loadable from '@loadable/component'
 import { createGlobalStyle } from 'styled-components'
 import { Section } from '~/layout/Section'
 import { Content } from '~/layout/Content'
+import { colors } from '~/theme/colors'
 
 const Calendar = loadable(() => import('~/components/Calendar'))
 
@@ -22,7 +23,7 @@ export default function CalendarPage() {
 const StyleOverrides = createGlobalStyle`
   #___gatsby {
     .fc-list-day-cushion {
-      background-color: #2b6667;
+      background-color: ${colors.mediumTeal.hex};
 
       a {
         color: white;
@@ -30,21 +31,21 @@ const StyleOverrides = createGlobalStyle`
     }
 
     .fc-list-event-dot {
-      border-color: #9fb94b;
+      border-color: ${colors.lime.hex};
     }
 
     .fc-list-event {
-      background-color: white;
-      color: #2b6667;
+      background-color: ${colors.white.hex};
+      color: ${colors.mediumTeal.hex};
       cursor: default;
 
       :hover {
-        background-color: #5aa7a9;
+        background-color: ${colors.lightTurquoise.hex};
       }
     }
 
-      .fc-today-button {
-        display: none;
-      }
+    .fc-today-button {
+      display: none;
+    }
   }
 `

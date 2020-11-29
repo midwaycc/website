@@ -1,6 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
-import { css } from 'styled-components'
 import { Section } from '~/layout/Section'
 import { Content } from '~/layout/Content'
 import { SquareButton } from '~/components/SquareButton'
@@ -64,15 +64,7 @@ const Sermon = ({ sermon }: { sermon: Sermon }) => {
 
   return (
     <div>
-      <h3
-        css={css`
-          margin: 0;
-          margin-bottom: 0.5em;
-          color: rgb(35, 74, 77);
-        `}
-      >
-        {title}
-      </h3>
+      <SermonTitle>{title}</SermonTitle>
       {src ? (
         <>
           <audio css="width: 100%; margin-bottom: 1rem" controls src={src} />
@@ -92,3 +84,9 @@ function sermonTitle(sermon: Sermon) {
     .filter(Boolean)
     .join(' - ')
 }
+
+const SermonTitle = styled.h3`
+  margin: 0;
+  margin-bottom: 0.5em;
+  color: ${props => props.theme.colors.darkTeal.hex};
+`

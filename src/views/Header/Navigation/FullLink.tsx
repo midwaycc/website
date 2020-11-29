@@ -11,7 +11,7 @@ const styles = css`
   cursor: default;
   text-decoration: none;
   color: ${props => props.theme.header.color};
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: ${props => props.theme.colors.black.rgba(0)};
 `
 
 export const FullText = styled.span`

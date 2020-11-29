@@ -51,8 +51,6 @@ const Arrow = styled.span`
   transform: scale(1.5) translateY(-0.05em);
 `
 
-const DARK_COLOR = 'rgb(35, 74, 77)'
-
 const Button = styled.button<{
   $dark?: boolean | null
   $thick?: boolean | null
@@ -63,10 +61,17 @@ const Button = styled.button<{
 }>`
   display: inline-block;
   background-color: ${props =>
-    props.$backgroundColor || 'rgba(255, 255, 255, 0)'};
-  color: ${props => (props.$dark ? DARK_COLOR : 'white')};
+    props.$backgroundColor || props.theme.colors.black.rgba(0)};
+  color: ${props =>
+    props.$dark
+      ? props.theme.colors.darkTeal.hex
+      : props.theme.colors.white.hex};
   border: ${props => (props.$thick ? 3 : 2)}px solid
-    ${props => props.$borderColor || (props.$dark ? DARK_COLOR : 'white')};
+    ${props =>
+      props.$borderColor ||
+      (props.$dark
+        ? props.theme.colors.darkTeal.hex
+        : props.theme.colors.white.hex)};
   font-size: 14px;
   padding: 8px 14px;
   padding-bottom: 0.4em;
@@ -83,8 +88,8 @@ const Button = styled.button<{
     background-color: ${props =>
       props.$hoverBackgroundColor ||
       (props.$dark
-        ? DARK_COLOR.replace('rgb', 'rgba').replace(')', ',0.25)')
-        : 'rgba(255,255,255,0.15)')};
+        ? props.theme.colors.darkTeal.rgba(0.25)
+        : props.theme.colors.black.rgba(0.15))};
   }
 
   ${props =>

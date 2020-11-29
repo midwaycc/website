@@ -1,6 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
-import { css } from 'styled-components'
 import { Section } from '~/layout/Section'
 import { Content } from '~/layout/Content'
 import { SquareButton } from '~/components/SquareButton'
@@ -42,15 +42,7 @@ export default function NewsletterPage({ data }: Props) {
           {newsletters.map(newsletter =>
             newsletter._id && newsletter.link && newsletter.date ? (
               <div key={newsletter._id}>
-                <h2
-                  css={css`
-                    margin: 0;
-                    margin-bottom: 0.5em;
-                    color: rgb(35, 74, 77);
-                  `}
-                >
-                  {niceDate(newsletter.date)}
-                </h2>
+                <NewsletterTitle>{niceDate(newsletter.date)}</NewsletterTitle>
                 <a
                   href={newsletter.link}
                   target="_blank"
@@ -66,3 +58,9 @@ export default function NewsletterPage({ data }: Props) {
     </Section>
   )
 }
+
+const NewsletterTitle = styled.h2`
+  margin: 0;
+  margin-bottom: 0.5em;
+  color: ${props => props.theme.colors.darkTeal.hex};
+`

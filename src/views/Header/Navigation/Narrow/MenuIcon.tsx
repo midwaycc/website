@@ -28,7 +28,7 @@ const Container = styled.div`
   justify-content: center;
   transition: transform ${X_TRANSITION};
   will-change: transform;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: ${props => props.theme.colors.black.rgba(0)};
   -webkit-touch-callout: none;
 
   ${NarrowMenuToggle}:checked ~ header & {
@@ -46,7 +46,7 @@ const HamburgerLines = styled.div`
     position: absolute;
     transition: transform ${X_TRANSITION};
     will-change: transform;
-    background-color: #2b6667;
+    background-color: ${props => props.theme.colors.mediumTeal.hex};
     border-radius: 1px;
   }
 
