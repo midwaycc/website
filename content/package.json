@@ -22,10 +22,10 @@
     "@sanity/default-login": "2.0.x",
     "@sanity/desk-tool": "2.0.x",
     "@sanity/production-preview": "2.0.x",
-    "date-fns": "^2.16.1",
-    "react": "^16.9",
-    "react-dom": "^16.9",
-    "react-markdown": "^5.0.0"
+    "date-fns": "2.16.x",
+    "react": "17.0.x",
+    "react-dom": "17.0.x",
+    "react-markdown": "5.0.x"
   },
   "devDependencies": {
     "@sanity/cli": "2.0.x"
