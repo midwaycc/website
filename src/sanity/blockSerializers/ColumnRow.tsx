@@ -18,7 +18,7 @@ export function ColumnRow({ node }: Props) {
   if (!columns) return null
 
   const renderedColumns = columns.map((column, i) => (
-    <Column key={i} ncols={columns.length}>
+    <Column key={i} $ncols={columns.length}>
       <BlockContent blocks={column?.content || []} serializers={serializers} />
     </Column>
   ))
@@ -40,11 +40,11 @@ const Columns = styled.div`
   margin: -0.5rem;
 `
 
-const Column = styled(({ ncols, ...rest }) => <div {...rest} />)`
+const Column = styled.div<{ $ncols: number }>`
   flex: 1 0
     calc(
-      (${media.lg.width} - 2rem - ${props => props.ncols - 1} * 1rem) /
-        ${props => props.ncols}
+      (${media.lg.width} - 2rem - ${props => props.$ncols - 1} * 1rem) /
+        ${props => props.$ncols}
     );
   margin: 0.5rem;
 `

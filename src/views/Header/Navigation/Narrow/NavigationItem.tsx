@@ -45,7 +45,7 @@ export function NavigationItemWithSubmenu({
       <FullText css="color: white">
         <Plus>+</Plus> {text}
       </FullText>
-      <SubMenu numItems={items.length}>
+      <SubMenu $numItems={items.length}>
         {items.map((item, i) => (
           <SubItem key={i}>
             <FullLink
@@ -101,7 +101,7 @@ const Container = styled.li`
   }
 `
 
-const SubMenu = styled.ul<{ numItems: number }>`
+const SubMenu = styled.ul<{ $numItems: number }>`
   margin: 0;
   padding: 0;
   width: 100%;
@@ -112,7 +112,7 @@ const SubMenu = styled.ul<{ numItems: number }>`
   transition: max-height 0.4s ease;
 
   ${Toggle}:checked ~ & {
-    max-height: calc(${SUB_ROW_HEIGHT} * ${props => props.numItems});
+    max-height: calc(${SUB_ROW_HEIGHT} * ${props => props.$numItems});
   }
 
   ${FullLink} {

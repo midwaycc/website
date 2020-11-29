@@ -3,15 +3,15 @@ import styled, { css } from 'styled-components'
 import { PostTitle } from '~/components/PostSummary'
 import media from '~/utils/media'
 
+type ContainerProps = {
+  $titleHeight?: number
+  $big?: boolean
+  $noHover?: boolean
+}
+
 type Props = ContainerProps & {
   className?: string
   children?: React.ReactNode
-}
-
-type ContainerProps = {
-  $titleHeight?: number
-  big?: boolean
-  noHover?: boolean
 }
 
 export function CardContainer({ children, ...containerProps }: Props) {
@@ -59,7 +59,7 @@ export const Container = styled.div<ContainerProps>`
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 
     ${props =>
-      !props.noHover &&
+      !props.$noHover &&
       css`
         :hover {
           background-color: #eee;
@@ -73,7 +73,7 @@ export const Container = styled.div<ContainerProps>`
       margin-top: 0;
     }
 
-    ${props => (props.big ? media.md : media.sm)} {
+    ${props => (props.$big ? media.md : media.sm)} {
       width: calc(50% - 0.5em);
       :nth-of-type(2) {
         margin-top: 0;
@@ -89,7 +89,7 @@ export const Container = styled.div<ContainerProps>`
     }
 
     ${props =>
-      !props.big &&
+      !props.$big &&
       css`
         ${media.lg} {
           width: calc(33.333% - 0.6666667em);

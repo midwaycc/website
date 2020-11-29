@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import { Parallax } from 'react-parallax'
 import Content from '~/layout/Content'
@@ -43,7 +43,11 @@ export function ContentSection(props: Props) {
 
   if (!backgroundImageUrl) {
     return (
-      <Container {...{ verticalPadding, backgroundColor, textColor }}>
+      <Container
+        $backgroundColor={backgroundColor}
+        $textColor={textColor}
+        $verticalPadding={verticalPadding}
+      >
         {renderedContent}
       </Container>
     )
@@ -57,22 +61,15 @@ export function ContentSection(props: Props) {
       renderLayer={
         backgroundColor
           ? () => (
-              <div
-                css={css`
-                  background-color: ${backgroundColor};
-                  opacity: ${typeof backgroundOpacity === 'number'
-                    ? backgroundOpacity / 100
-                    : 0};
-                  width: 100%;
-                  height: 100%;
-                  position: absolute;
-                `}
+              <Overlay
+                $backgroundColor={backgroundColor}
+                $backgroundOpacity={backgroundOpacity}
               />
             )
           : undefined
       }
     >
-      <Container {...{ verticalPadding, textColor }}>
+      <Container $textColor={textColor} $verticalPadding={verticalPadding}>
         {renderedContent}
       </Container>
     </Parallax>
@@ -80,11 +77,25 @@ export function ContentSection(props: Props) {
 }
 
 const Container = styled.div<{
-  backgroundColor?: string | null
-  textColor?: string | null
-  verticalPadding?: number | null
+  $backgroundColor?: string | null
+  $textColor?: string | null
+  $verticalPadding?: number | null
 }>`
-  color: ${props => props.textColor || 'unset'};
-  background-color: ${props => props.backgroundColor || 'transparent'};
-  padding: ${props => props.verticalPadding || 0}rem 0;
+  color: ${props => props.$textColor || 'unset'};
+  background-color: ${props => props.$backgroundColor || 'transparent'};
+  padding: ${props => props.$verticalPadding || 0}rem 0;
+`
+
+const Overlay = styled.div<{
+  $backgroundColor: string
+  $backgroundOpacity?: number | null
+}>`
+  background-color: ${props => props.$backgroundColor};
+  opacity: ${props =>
+    typeof props.$backgroundOpacity === 'number'
+      ? props.$backgroundOpacity / 100
+      : 0};
+  width: 100%;
+  height: 100%;
+  position: absolute;
 `

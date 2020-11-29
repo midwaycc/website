@@ -34,7 +34,7 @@ export default ({ data }: Props) => {
           <SquareButton point="left">Home</SquareButton>
         </Link>
         <h1>Newsletter</h1>
-        <CardContainer big noHover>
+        <CardContainer $big $noHover>
           {newsletters.map(newsletter =>
             newsletter._id && newsletter.link && newsletter.date ? (
               <div key={newsletter._id}>

@@ -45,7 +45,7 @@ export default ({ data }: Props) => {
         <h1>Sermons</h1>
         <p>Listen here, or subscribe in your favorite podcast app!</p>
         <PodcastIcons />
-        <CardContainer big noHover>
+        <CardContainer $big $noHover>
           {sermons.map(sermon =>
             sermon._id ? <Sermon key={sermon._id} sermon={sermon} /> : null
           )}

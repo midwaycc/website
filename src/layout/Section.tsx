@@ -13,13 +13,13 @@ export default ({
   children,
   color = theme.page.background
 }: Props) => (
-  <Container className={className} color={color}>
+  <Container className={className} $color={color}>
     {children}
   </Container>
 )
 
-const Container = styled.div<{ color: string }>`
+const Container = styled.div<{ $color: string }>`
   width: 100%;
-  background-color: ${props => props.color};
+  background-color: ${props => props.$color};
   padding: 2em 0;
 `

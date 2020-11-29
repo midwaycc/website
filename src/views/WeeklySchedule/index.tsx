@@ -47,7 +47,7 @@ export function WeeklySchedule() {
   return (
     <Container>
       <Content css="position: relative">
-        <Title left color="white">
+        <Title $left $color="white">
           This Week
         </Title>
         <CalendarLink>
