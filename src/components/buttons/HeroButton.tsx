@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SquareButton } from '~/components/SquareButton'
+import { SquareButton } from '~/components/buttons/SquareButton'
 
 export const HeroButton = styled<
   React.FC<

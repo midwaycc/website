@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'styled-components'
-import { SquareButton } from '~/components/SquareButton'
+import { SquareButton } from '~/components/buttons/SquareButton'
 import { EnhancedLink } from './EnhancedLink'
 import { SanityButtonLink } from '~/types/graphqlTypes'
 import { Align } from '~/types/align'

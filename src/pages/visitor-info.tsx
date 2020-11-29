@@ -4,7 +4,7 @@ import Section from '~/layout/Section'
 import Content from '~/layout/Content'
 import { Greeting } from '~/components/form/Greeting'
 import { TextInput } from '~/components/form/TextInput'
-import { SquareButton } from '~/components/SquareButton'
+import { SquareButton } from '~/components/buttons/SquareButton'
 
 export default () => {
   const [names, setNames] = useState('')

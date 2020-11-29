@@ -5,7 +5,7 @@ import media from '~/utils/media'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/hero-optimized.mp4'
 import { QuickLinksModal } from './QuickLinksModal'
-import { HeroButton } from './HeroButton'
+import { HeroButton } from '~/components/buttons/HeroButton'
 
 // TODO: ensure that all queries are at the top of files
 // TODO: rename shortcuts => quickLinks

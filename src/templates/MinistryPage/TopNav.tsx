@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Content from '~/layout/Content'
 import Section from '~/layout/Section'
 import { raggedEdgeGradient } from '~/utils/raggedEdgeGradient'
-import { SquareButton } from '~/components/SquareButton'
+import { SquareButton } from '~/components/buttons/SquareButton'
 import { SectionLinks } from './SectionLinks'
 import { MinistryPageQuery } from '~/types/graphqlTypes'
 

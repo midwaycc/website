@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import RichContent from '~/sanity/RichContent'
 import X from '~/../static/images/x.svg'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
-import { HeroButton } from './HeroButton'
+import { HeroButton } from '~/components/buttons/HeroButton'
 
 if (typeof document !== 'undefined') {
   Modal.setAppElement(document.body)
