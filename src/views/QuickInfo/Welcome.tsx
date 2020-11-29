@@ -9,7 +9,7 @@ import media from '~/utils/media'
 export function Welcome() {
   return (
     <Column>
-      <Title color="#9fb94b">Welcome</Title>
+      <Title $color="#9fb94b">Welcome</Title>
       <Subtitle>You're invited! Sunday mornings.</Subtitle>
       <a
         href="http://midwaycc.sermon.net/"
