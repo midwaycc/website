@@ -25,23 +25,23 @@ export function NavigationItemWithSubmenu({
   text,
   items
 }: NavItemWithSubitems) {
+  const handleClick = (e: React.MouseEvent) => {
+    // Close the selected item when clicking it. Otherwise, rely on the
+    // native radio behavior. If JS is not loaded yet, the only
+    // degradation is that clicking the open item doesn't close it. Doing
+    // it this way rather than with a controlled input and React state
+    // allows the native functionality to work without JS.
+    if (openItem === text) {
+      ;(e.target as HTMLInputElement).checked = false
+      openItem = null
+    } else {
+      openItem = text
+    }
+  }
+
   return (
     <Container>
-      <Toggle
-        onClick={e => {
-          // Close the selected item when clicking it. Otherwise, rely on the
-          // native radio behavior. If JS is not loaded yet, the only
-          // degradation is that clicking the open item doesn't close it. Doing
-          // it this way rather than with a controlled input and React state
-          // allows the native functionality to work without JS.
-          if (openItem === text) {
-            ;(e.target as HTMLInputElement).checked = false
-            openItem = null
-          } else {
-            openItem = text
-          }
-        }}
-      />
+      <Toggle onClick={handleClick} />
       <FullText css="color: white">
         <Plus>+</Plus> {text}
       </FullText>
