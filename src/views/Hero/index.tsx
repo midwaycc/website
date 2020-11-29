@@ -5,7 +5,7 @@ import media from '~/utils/media'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/hero-optimized.mp4'
 import { QuickLinksModal } from './QuickLinksModal'
-import { HeroButton } from '~/components/buttons/HeroButton'
+import { SquareButton } from '~/components/SquareButton'
 
 // TODO: ensure that all queries are at the top of files
 // TODO: rename shortcuts => quickLinks
@@ -44,16 +44,16 @@ export function Hero() {
           <Title>{title}</Title>
           <Subtitle>{subtitle}</Subtitle>
           <QuickLinksModal quickLinks={shortcutToUse} />
-          <div>
+          <div css="padding-top: 2em">
             <Link to="/new">
-              <HeroButton
+              <SquareButton
                 dark
                 thick
-                background="rgba(255, 255, 255, 0.5)"
-                hover="white"
+                backgroundColor="rgba(255, 255, 255, 0.5)"
+                hoverBackgroundColor="white"
               >
                 New Here?
-              </HeroButton>
+              </SquareButton>
             </Link>
           </div>
         </HeroContent>

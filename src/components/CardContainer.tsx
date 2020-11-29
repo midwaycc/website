@@ -14,7 +14,11 @@ type Props = ContainerProps & {
   children?: React.ReactNode
 }
 
-export function CardContainer({ children, ...containerProps }: Props) {
+export function CardContainer({
+  children,
+  className,
+  ...containerProps
+}: Props) {
   const [titleHeight, setTitleHeight] = useState(0)
   const outer = useRef<HTMLDivElement>(null)
 
@@ -33,7 +37,12 @@ export function CardContainer({ children, ...containerProps }: Props) {
   }, [])
 
   return (
-    <Container ref={outer} $titleHeight={titleHeight} {...containerProps}>
+    <Container
+      ref={outer}
+      className={className}
+      $titleHeight={titleHeight}
+      {...containerProps}
+    >
       {children}
     </Container>
   )

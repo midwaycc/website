@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { Title } from '~/components/Title'
-import { SquareButton } from '~/components/buttons/SquareButton'
+import { SquareButton } from '~/components/SquareButton'
 import { Column } from './Columns'
 import media from '~/utils/media'
 

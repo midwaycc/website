@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { AllPostsQuery } from '~/types/graphqlTypes'
 import Section from '~/layout/Section'
 import Content from '~/layout/Content'
-import { SquareButton } from '~/components/buttons/SquareButton'
+import { SquareButton } from '~/components/SquareButton'
 import { CardContainer } from '~/components/CardContainer'
 import { PostCard } from '~/components/PostCard'
 

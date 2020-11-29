@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import RichContent from '~/sanity/RichContent'
 import X from '~/../static/images/x.svg'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
-import { HeroButton } from '~/components/buttons/HeroButton'
+import { SquareButton } from '~/components/SquareButton'
 
 if (typeof document !== 'undefined') {
   Modal.setAppElement(document.body)
@@ -21,17 +21,17 @@ export function QuickLinksModal({ quickLinks }: Props) {
 
   return (
     <>
-      <div>
-        <HeroButton
+      <div css="padding-top: 2em">
+        <SquareButton
           thick
-          background="rgba(9, 151, 153, 0.5)"
-          hover="rgba(9, 151, 153, 1)"
-          border="rgb(35,74,77)"
-          secondaryBorder="white"
+          backgroundColor="rgba(9, 151, 153, 0.5)"
+          hoverBackgroundColor="rgba(9, 151, 153, 1)"
+          borderColor="rgb(35,74,77)"
+          secondaryBorderColor="white"
           onClick={() => setOpen(true)}
         >
           Quick Links
-        </HeroButton>
+        </SquareButton>
       </div>
       <Modal
         isOpen={open}

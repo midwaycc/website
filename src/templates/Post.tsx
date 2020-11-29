@@ -6,7 +6,7 @@ import RichContent from '~/sanity/RichContent'
 import Section from '~/layout/Section'
 import Content from '~/layout/Content'
 import { PostQuery } from '~/types/graphqlTypes'
-import { SquareButton } from '~/components/buttons/SquareButton'
+import { SquareButton } from '~/components/SquareButton'
 import queryString from 'query-string'
 
 type Props = {
