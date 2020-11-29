@@ -1,10 +1,10 @@
 import { alignment } from '../helpers/alignment'
 import { size } from '../helpers/size'
 import { blockIcon } from '../helpers/blockIcon'
+import { poster } from '../documentTypes/poster'
 import image from '../../icons/image.svg'
-import posterSchema from '../documentTypes/poster'
 
-export default {
+export const posterInContent = {
   type: 'object',
   name: 'posterInContent',
   title: 'Poster',
@@ -40,13 +40,10 @@ export default {
   icon: blockIcon(image),
   preview: {
     select: Object.fromEntries(
-      Object.entries(posterSchema.preview.select).map(([k, v]) => [
-        k,
-        'poster.' + v
-      ])
+      Object.entries(poster.preview.select).map(([k, v]) => [k, 'poster.' + v])
     ),
-    prepare: (poster: any) => {
-      return posterSchema.preview.prepare(poster)
+    prepare: (posterDoc: any) => {
+      return poster.preview.prepare(posterDoc)
     }
   }
 }

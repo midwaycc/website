@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { SquareButton } from '~/components/SquareButton'
 import { Greeting } from '~/components/form/Greeting'
 import { TextInput } from '~/components/form/TextInput'
-import { SquareButton } from '~/components/SquareButton'
 
 export function ContactForm() {
   const [name, setName] = useState('')

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { AllPostsQuery } from '~/types/graphqlTypes'
-import Section from '~/layout/Section'
-import Content from '~/layout/Content'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
 import { SquareButton } from '~/components/SquareButton'
 import { CardContainer } from '~/components/CardContainer'
 import { PostCard } from '~/components/PostCard'
+import { AllPostsQuery } from '~/types/graphqlTypes'
 
 export type Props = {
   data: AllPostsQuery
@@ -21,13 +21,15 @@ export type Props = {
   urlPrefix?: string
 }
 
-export default ({
+export default function PostsPage({
   data,
   pageContext,
   title = 'Archive',
   urlPrefix = 'posts'
-}: Props) => {
-  if (!data.allSanityPost || !data.allSanityPost.nodes) return null
+}: Props) {
+  if (!data.allSanityPost || !data.allSanityPost.nodes) {
+    return null
+  }
 
   const { nodes: posts } = data.allSanityPost
   const { page, isFirst, isLast, onlyOne } = pageContext

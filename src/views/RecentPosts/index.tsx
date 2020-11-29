@@ -1,22 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import { RecentPostsQuery } from '~/types/graphqlTypes'
+import { Content } from '~/layout/Content'
 import { SquareButton } from '~/components/SquareButton'
 import { CardContainer } from '~/components/CardContainer'
 import { PostCard } from '~/components/PostCard'
+import { Title } from '~/components/Title'
+import { media } from '~/utils/media'
+import { RecentPostsQuery } from '~/types/graphqlTypes'
 import paper from '~/../static/images/paper.jpg'
 import stamp from '~/../static/images/stamp.png'
-import { Title } from '~/components/Title'
-import Content from '~/layout/Content'
-import media from '~/utils/media'
 
 type Props = {
   posts?: RecentPostsQuery['allSanityPost']['nodes']
   withBanner?: boolean
 }
 
-export default ({ posts, withBanner }: Props) => {
+export function RecentPosts({ posts, withBanner }: Props) {
   const data: RecentPostsQuery = useStaticQuery(query)
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
   const postsToUse = posts || data.allSanityPost.nodes

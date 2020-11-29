@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 import styled from 'styled-components'
-import RichContent from '~/sanity/RichContent'
-import X from '~/../static/images/x.svg'
-import { HeroSectionQuery } from '~/types/graphqlTypes'
+import { RichContent } from '~/sanity/RichContent'
 import { SquareButton } from '~/components/SquareButton'
+import { HeroSectionQuery } from '~/types/graphqlTypes'
+import X from '~/../static/images/x.svg'
 
 if (typeof document !== 'undefined') {
   Modal.setAppElement(document.body)

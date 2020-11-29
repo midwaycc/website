@@ -1,4 +1,4 @@
-export default {
+export const pageLink = {
   name: 'pageLink',
   title: 'Page link',
   type: 'object',

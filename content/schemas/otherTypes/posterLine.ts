@@ -1,6 +1,6 @@
 import { Rule } from '@sanity/validation'
 
-export default {
+export const posterLine = {
   name: 'posterLine',
   title: 'Line',
   type: 'object',

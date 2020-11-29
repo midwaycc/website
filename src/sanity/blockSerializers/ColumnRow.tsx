@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import { getSerializers } from '~/sanity/serializers'
+import { media } from '~/utils/media'
 import { SanityColumnRow } from '~/types/graphqlTypes'
-import media from '~/utils/media'
 
 type Props = {
   node?: SanityColumnRow

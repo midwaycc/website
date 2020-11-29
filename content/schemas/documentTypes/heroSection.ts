@@ -1,6 +1,6 @@
 import { Rule } from '@sanity/validation'
 
-export default {
+export const heroSection = {
   name: 'heroSection',
   title: 'Hero Section',
   type: 'document',

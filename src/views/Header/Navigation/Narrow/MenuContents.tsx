@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NavItem, hasSubItems } from '~/views/Header/Navigation/types'
 import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import { NarrowMenuToggle } from './MenuToggle'
+import { NavItem, hasSubItems } from '~/views/Header/Navigation/types'
 
 export const NarrowMenuContents = (props: { navigationItems: NavItem[] }) => {
   return (

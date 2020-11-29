@@ -1,11 +1,11 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
-import media from '~/utils/media'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { SquareButton } from '~/components/SquareButton'
+import { QuickLinksModal } from './QuickLinksModal'
+import { media } from '~/utils/media'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/hero-optimized.mp4'
-import { QuickLinksModal } from './QuickLinksModal'
-import { SquareButton } from '~/components/SquareButton'
 
 // TODO: ensure that all queries are at the top of files
 // TODO: rename shortcuts => quickLinks

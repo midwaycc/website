@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { MinistryPageQuery } from '~/types/graphqlTypes'
 import { RelatedPosts } from './RelatedPosts'
 import { SectionContent } from './SectionContent'
 import { getMinistryRootURL } from './TopNav'
+import { MinistryPageQuery } from '~/types/graphqlTypes'
 
 type Props = {
   data: MinistryPageQuery

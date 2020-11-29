@@ -1,14 +1,12 @@
 import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-
-import Head from './Head'
-import Header from '~/views/Header'
-import Footer from '~/views/Footer'
-// import MediaIndicator from '~/components/MediaIndicator'
-import theme from '~/theme'
-import { hiddenWhenMenuOpen } from '~/utils/visibility'
+import { Header } from '~/views/Header'
+import { Footer } from '~/views/Footer'
 import { TopNav as MinistryPageTopNav } from '~/templates/MinistryPage/TopNav'
-
+// import { MediaIndicator } from '~/components/MediaIndicator'
+import { Head } from './Head'
+import { theme } from '~/theme'
+import { hiddenWhenMenuOpen } from '~/utils/visibility'
 import './index.css'
 
 type Props = {
@@ -17,7 +15,7 @@ type Props = {
   data: any
 }
 
-export default ({ children, path, data }: Props) => {
+export default function Layout({ children, path, data }: Props) {
   return (
     <>
       <GlobalStyles />

@@ -1,12 +1,12 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import { createGlobalStyle } from 'styled-components'
-import Section from '~/layout/Section'
-import Content from '~/layout/Content'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
 
 const Calendar = loadable(() => import('~/components/Calendar'))
 
-export default () => {
+export default function CalendarPage() {
   return (
     <>
       <StyleOverrides />

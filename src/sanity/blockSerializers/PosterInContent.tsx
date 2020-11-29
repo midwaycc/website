@@ -1,10 +1,10 @@
 import React from 'react'
+import { Poster } from '~/components/Poster'
+import { CaptionArea } from './Picture'
+import { getContainerStyles, PERCENTS } from '~/utils/boxSizeHelpers'
 import { SanityPosterInContent } from '~/types/graphqlTypes'
 import { Align } from '~/types/align'
 import { Size } from '~/types/size'
-import { getContainerStyles, PERCENTS } from '~/utils/boxSizeHelpers'
-import { Poster } from '~/components/Poster'
-import { CaptionArea } from './Picture'
 
 type Props = {
   node?: SanityPosterInContent & {

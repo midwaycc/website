@@ -1,15 +1,15 @@
 import React from 'react'
 import SanityBlockContent from '@sanity/block-content-to-react'
-import Content from '~/layout/Content'
-import { ScriptureReference } from '~/sanity/blockSerializers/ScriptureReference'
-import { VerticalSpace } from '~/sanity/blockSerializers/VerticalSpace'
-import { EnhancedLink } from '~/sanity/blockSerializers/EnhancedLink'
-import { CustomBlock } from '~/sanity/blockSerializers/CustomBlock'
-import { VideoEmbed } from '~/sanity/blockSerializers/VideoEmbed'
+import { Content } from '~/layout/Content'
 import { ButtonLink } from '~/sanity/blockSerializers/ButtonLink'
 import { ButtonRow } from '~/sanity/blockSerializers/ButtonRow'
+import { CustomBlock } from '~/sanity/blockSerializers/CustomBlock'
+import { EnhancedLink } from '~/sanity/blockSerializers/EnhancedLink'
 import { Picture } from '~/sanity/blockSerializers/Picture'
 import { PosterInContent } from '~/sanity/blockSerializers/PosterInContent'
+import { ScriptureReference } from '~/sanity/blockSerializers/ScriptureReference'
+import { VerticalSpace } from '~/sanity/blockSerializers/VerticalSpace'
+import { VideoEmbed } from '~/sanity/blockSerializers/VideoEmbed'
 
 export function getSerializers({
   BlockContent,

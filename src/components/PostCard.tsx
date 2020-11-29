@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
-import PostSummary from '~/components/PostSummary'
+import { PostSummary } from '~/components/PostSummary'
 
 type Props = {
   post: RecentPostsQuery['allSanityPost']['nodes'] extends Array<infer T>
@@ -11,7 +11,7 @@ type Props = {
   addToUrl?: string
 }
 
-export const PostCard = ({ post, addToUrl }: Props) => {
+export function PostCard({ post, addToUrl }: Props) {
   if (!post.slug) return null
 
   const postUrl = `/posts/${post.slug.current}${addToUrl || ''}`

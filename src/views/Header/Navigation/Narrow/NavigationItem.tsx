@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { darken, lighten } from 'polished'
+import { FullLink, FullText } from '~/views/Header/Navigation/FullLink'
+import { BaseToggle } from './BaseToggle'
 import {
   NavItemWithSubitems,
   NavItemWithLink
 } from '~/views/Header/Navigation/types'
-import { FullLink, FullText } from '~/views/Header/Navigation/FullLink'
-import { BaseToggle } from './BaseToggle'
-import { darken, lighten } from 'polished'
 
 // Used globally across all items to detect when to close the open item
 let openItem: string | null = null

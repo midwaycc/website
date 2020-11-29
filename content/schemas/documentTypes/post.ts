@@ -1,7 +1,7 @@
 import { posterPreviewForField } from '../helpers/PosterPreview'
 import { Rule } from '@sanity/validation'
 
-export default {
+export const post = {
   name: 'post',
   title: 'Post',
   type: 'document',

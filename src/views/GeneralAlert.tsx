@@ -1,8 +1,8 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import RichContent from '~/sanity/RichContent'
-import media from '~/utils/media'
+import { useStaticQuery, graphql } from 'gatsby'
+import { RichContent } from '~/sanity/RichContent'
+import { media } from '~/utils/media'
 import { GeneralAlertQuery } from '~/types/graphqlTypes'
 
 const query = graphql`
@@ -14,7 +14,7 @@ const query = graphql`
   }
 `
 
-export default () => {
+export function GeneralAlert() {
   const data: GeneralAlertQuery = useStaticQuery(query)
   if (!data.sanityGeneralAlert) return null
   const { active, _rawContent } = data.sanityGeneralAlert

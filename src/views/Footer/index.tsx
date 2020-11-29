@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { hiddenWhenMenuOpen } from '~/utils/visibility'
 import { FooterBlocks, FooterBlock } from './FooterBlocks'
 import { ContactForm } from './ContactForm'
 import { ContactInfo } from './ContactInfo'
 import { Copyright } from './Copyright'
 import { FloatingLogo } from './FloatingLogo'
+import { hiddenWhenMenuOpen } from '~/utils/visibility'
 
-export default () => {
+export function Footer() {
   return (
     <Container>
       <FooterBlocks>

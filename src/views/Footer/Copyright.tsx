@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import media from '~/utils/media'
 import { FooterBlock } from './FooterBlocks'
+import { media } from '~/utils/media'
 
 const years = `2019 - ${new Date().getFullYear()}`
 const churchName = <strong>Midway Community Church.</strong>

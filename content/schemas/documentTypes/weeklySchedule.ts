@@ -1,7 +1,7 @@
 import { Rule } from '@sanity/validation'
 import { ensureOnlyOne } from '../helpers/ensureOnlyOne'
 
-export default {
+export const weeklySchedule = {
   name: 'weeklySchedule',
   title: 'Weekly Schedule',
   type: 'document',

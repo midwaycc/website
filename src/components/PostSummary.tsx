@@ -1,9 +1,9 @@
 import React from 'react'
 import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
-import RichContent from '~/sanity/RichContent'
-import { SanityPost } from '~/types/graphqlTypes'
+import { RichContent } from '~/sanity/RichContent'
 import { Poster } from './Poster'
+import { SanityPost } from '~/types/graphqlTypes'
 
 type Props = {
   post: Pick<
@@ -17,7 +17,7 @@ type Props = {
   >
 }
 
-export default ({ post }: Props) => {
+export function PostSummary({ post }: Props) {
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     if (e.target && (e.target as HTMLElement).tagName.toLowerCase() === 'a') {
       e.stopPropagation()

@@ -1,6 +1,6 @@
 import { Rule } from '@sanity/validation'
 
-export default {
+export const pageSection = {
   name: 'pageSection',
   title: 'Page Section',
   type: 'object',

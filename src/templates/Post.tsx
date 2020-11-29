@@ -1,20 +1,22 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
-import { format } from 'date-fns'
-import RichContent from '~/sanity/RichContent'
-import Section from '~/layout/Section'
-import Content from '~/layout/Content'
-import { PostQuery } from '~/types/graphqlTypes'
-import { SquareButton } from '~/components/SquareButton'
 import queryString from 'query-string'
+import { graphql, Link } from 'gatsby'
+import { format } from 'date-fns'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
+import { RichContent } from '~/sanity/RichContent'
+import { SquareButton } from '~/components/SquareButton'
+import { PostQuery } from '~/types/graphqlTypes'
 
 type Props = {
   data: PostQuery
 }
 
-export default ({ data }: Props) => {
-  if (!data.sanityPost) return null
+export default function Post({ data }: Props) {
+  if (!data.sanityPost) {
+    return null
+  }
 
   const { title, date, _rawBody: body, _rawSummary: summary } = data.sanityPost
 

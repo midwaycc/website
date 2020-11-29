@@ -1,4 +1,4 @@
-export default {
+export const nestedMenu = {
   name: 'nestedMenu',
   title: 'Nested Menu',
   type: 'object',

@@ -1,4 +1,4 @@
-export default {
+export const scheduleAlert = {
   name: 'scheduleAlert',
   title: 'Schedule Alert',
   type: 'document',

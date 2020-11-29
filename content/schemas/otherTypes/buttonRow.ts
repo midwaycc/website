@@ -1,7 +1,7 @@
 import { blockIcon } from '../helpers/blockIcon'
 import buttons from '../../icons/buttons.svg'
 
-export default {
+export const buttonRow = {
   name: 'buttonRow',
   title: 'Button Row',
   type: 'object',

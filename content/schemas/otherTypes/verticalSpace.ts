@@ -1,7 +1,7 @@
 import { blockIcon } from '../helpers/blockIcon'
 import arrowsVertical from '../../icons/arrows-vertical.svg'
 
-export default {
+export const verticalSpace = {
   type: 'object',
   name: 'verticalSpace',
   title: 'Vertical Space',

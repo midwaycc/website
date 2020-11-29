@@ -1,4 +1,4 @@
-export default {
+export const plainLink = {
   name: 'plainLink',
   title: 'Plain link',
   type: 'object',

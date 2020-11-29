@@ -1,9 +1,9 @@
 import React from 'react'
 import format from 'date-fns/format'
 import addDays from 'date-fns/addDays'
-import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
 import { Day } from './Day'
 import { Event } from './Event'
+import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
 
 export type SanityDays = Exclude<
   WeeklyScheduleQuery['sanityWeeklySchedule'],

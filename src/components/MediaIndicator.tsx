@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import useWindowSize from '@rooks/use-window-size'
-import media from '~/utils/media'
+import { media } from '~/utils/media'
 
-export default () => {
+export function MediaIndicator() {
   const { innerWidth } = useWindowSize()
 
   return (

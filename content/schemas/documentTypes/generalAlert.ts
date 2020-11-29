@@ -1,4 +1,4 @@
-export default {
+export const generalAlert = {
   name: 'generalAlert',
   title: 'General Alert',
   type: 'document',

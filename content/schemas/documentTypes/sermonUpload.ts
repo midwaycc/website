@@ -1,7 +1,7 @@
 import { Rule } from '@sanity/validation'
 import format from 'date-fns/format'
 
-export default {
+export const sermonUpload = {
   name: 'sermonUpload',
   title: 'Sermon Upload',
   type: 'document',

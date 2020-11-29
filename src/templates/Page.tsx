@@ -1,17 +1,19 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import RichContent from '~/sanity/RichContent'
-import Section from '~/layout/Section'
-import { PageQuery } from '~/types/graphqlTypes'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
+import { RichContent } from '~/sanity/RichContent'
 import { SquareButton } from '~/components/SquareButton'
-import Content from '~/layout/Content'
+import { PageQuery } from '~/types/graphqlTypes'
 
 type Props = {
   data: PageQuery
 }
 
-export default ({ data }: Props) => {
-  if (!data.sanityPage) return null
+export default function Page({ data }: Props) {
+  if (!data.sanityPage) {
+    return null
+  }
 
   const { name, _rawContent: content } = data.sanityPage
 

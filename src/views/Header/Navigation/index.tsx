@@ -1,9 +1,9 @@
 import React from 'react'
 import { WideNavigation } from './Wide'
 import { NarrowMenuIcon } from './Narrow/MenuIcon'
-import { NavItem } from './types'
-import media from '~/utils/media'
+import { media } from '~/utils/media'
 import { shownAbove, hiddenAbove } from '~/utils/visibility'
+import { NavItem } from './types'
 
 export const BREAKPOINT = media.lg
 

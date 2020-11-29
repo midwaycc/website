@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getContainerStyles } from '../../utils/boxSizeHelpers' // for sanity
+import { getContainerStyles } from '../../utils/boxSizeHelpers' // Avoid ~ alias for Sanity
 import { Size } from '~/types/size'
 import { Align } from '~/types/align'
 

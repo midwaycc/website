@@ -1,7 +1,7 @@
 import format from 'date-fns/format'
 import { Rule } from '@sanity/validation'
 
-export default {
+export const newsletter = {
   name: 'newsletter',
   title: 'Newsletter',
   type: 'document',

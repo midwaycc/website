@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import media from '~/utils/media'
-import theme from '~/theme'
+import { media } from '~/utils/media'
+import { theme } from '~/theme'
 
 const shiftOnEdge = css`
   margin-left: 0.75rem;

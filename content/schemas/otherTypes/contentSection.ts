@@ -1,7 +1,7 @@
 import { blockIcon } from '../helpers/blockIcon'
 import box from '../../icons/box.svg'
 
-export default {
+export const contentSection = {
   type: 'object',
   name: 'contentSection',
   title: 'Content Section',

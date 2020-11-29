@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { Title } from '~/components/Title'
 import { SquareButton } from '~/components/SquareButton'
 import { Column } from './Columns'
-import media from '~/utils/media'
+import { media } from '~/utils/media'
 
 export function Welcome() {
   return (

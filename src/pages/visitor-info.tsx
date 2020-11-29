@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Section from '~/layout/Section'
-import Content from '~/layout/Content'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
 import { Greeting } from '~/components/form/Greeting'
 import { TextInput } from '~/components/form/TextInput'
 import { SquareButton } from '~/components/SquareButton'
 
-export default () => {
+export default function VisitorInfoPage() {
   const [names, setNames] = useState('')
   const [children, setChildren] = useState('')
   const [preferredContact, setPreferredContact] = useState('')

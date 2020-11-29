@@ -2,7 +2,7 @@ import { alignment } from '../helpers/alignment'
 import { blockIcon } from '../helpers/blockIcon'
 import image from '../../icons/image.svg'
 
-export default {
+export const picture = {
   type: 'object',
   name: 'picture',
   title: 'Picture',

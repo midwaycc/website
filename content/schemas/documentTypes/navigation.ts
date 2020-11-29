@@ -1,4 +1,4 @@
-export default {
+export const navigation = {
   name: 'navigation',
   title: 'Navigation',
   type: 'document',

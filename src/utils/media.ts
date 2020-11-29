@@ -34,7 +34,7 @@ export class MediaQueryWithWidth {
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-export default {
+export const media = {
   xs: new MediaQueryWithWidth(30),
   sm: new MediaQueryWithWidth(35.5),
   md: new MediaQueryWithWidth(48),

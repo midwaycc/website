@@ -2,7 +2,7 @@ import { alignment } from '../helpers/alignment'
 import { blockIcon } from '../helpers/blockIcon'
 import link from '../../icons/link.svg'
 
-export default {
+export const buttonLink = {
   type: 'object',
   name: 'buttonLink',
   title: 'Button Link',

@@ -1,4 +1,4 @@
-export default {
+export const contentColumn = {
   name: 'contentColumn',
   title: 'Content Column',
   type: 'object',

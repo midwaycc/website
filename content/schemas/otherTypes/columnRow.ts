@@ -1,7 +1,7 @@
 import { blockIcon } from '../helpers/blockIcon'
 import columns from '../../icons/columns.svg'
 
-export default {
+export const columnRow = {
   name: 'columnRow',
   title: 'Column Row',
   type: 'object',

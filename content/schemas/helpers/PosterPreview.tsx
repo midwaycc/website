@@ -26,9 +26,8 @@ class PosterPreview extends React.Component<Props> {
   }
 }
 
-const PreviewWithDocument = withDocument(PosterPreview)
+export const PreviewWithDocument = withDocument(PosterPreview)
 
-export default PreviewWithDocument
 export const posterPreviewForField = (field: string) =>
   class PosterPreviewForField extends React.Component {
     render() {

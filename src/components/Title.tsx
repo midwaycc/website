@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import media from '~/utils/media'
+import { media } from '~/utils/media'
 
 export const Title = styled.h1<{ $color?: string; $left?: boolean }>`
   color: ${props => props.$color || 'rgb(35, 74, 77)'};

@@ -2,7 +2,7 @@ import { blockIcon } from '../helpers/blockIcon'
 import book from '../../icons/book.svg'
 import { Rule } from '@sanity/validation'
 
-export default {
+export const scriptureReference = {
   name: 'scriptureReference',
   title: 'Scripture Reference',
   type: 'object',

@@ -1,4 +1,4 @@
-const richContent = {
+export const richContent = {
   name: 'richContent',
   title: 'Content',
   type: 'array',
@@ -15,8 +15,6 @@ const richContent = {
     { type: 'scriptureReference' }
   ]
 }
-
-export default richContent
 
 const disallowedTypes = ['contentSection', 'columnRow']
 

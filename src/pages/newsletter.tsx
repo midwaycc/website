@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { css } from 'styled-components'
-import { NewsletterQuery } from '~/types/graphqlTypes'
-import Section from '~/layout/Section'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
 import { SquareButton } from '~/components/SquareButton'
 import { CardContainer } from '~/components/CardContainer'
 import { niceDate } from '~/utils/niceDate'
-import Content from '~/layout/Content'
+import { NewsletterQuery } from '~/types/graphqlTypes'
 
 type Props = {
   data: NewsletterQuery
@@ -24,9 +24,13 @@ export const query = graphql`
   }
 `
 
-export default ({ data }: Props) => {
-  if (!data.allSanityNewsletter) return null
+export default function NewsletterPage({ data }: Props) {
+  if (!data.allSanityNewsletter) {
+    return null
+  }
+
   const newsletters = data.allSanityNewsletter.nodes
+
   return (
     <Section>
       <Content>

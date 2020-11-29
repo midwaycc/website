@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Content from '~/layout/Content'
-import media from '~/utils/media'
+import { Content } from '~/layout/Content'
+import { media } from '~/utils/media'
 
 export const Columns = styled(Content)`
   display: flex;

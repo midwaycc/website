@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { SermonUploadQuery } from '~/types/graphqlTypes'
-import Section from '~/layout/Section'
-import { SquareButton } from '~/components/SquareButton'
-import { niceDate } from '~/utils/niceDate'
-import { CardContainer } from '~/components/CardContainer'
 import { css } from 'styled-components'
-import Content from '~/layout/Content'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
+import { SquareButton } from '~/components/SquareButton'
+import { CardContainer } from '~/components/CardContainer'
 import { PodcastIcons } from '~/components/PodcastIcons'
+import { niceDate } from '~/utils/niceDate'
+import { SermonUploadQuery } from '~/types/graphqlTypes'
 
 type Props = {
   data: SermonUploadQuery
@@ -32,8 +32,11 @@ export const query = graphql`
   }
 `
 
-export default ({ data }: Props) => {
-  if (!data.allSanitySermonUpload) return null
+export default function SermonsPage({ data }: Props) {
+  if (!data.allSanitySermonUpload) {
+    return null
+  }
+
   const sermons = data.allSanitySermonUpload.nodes
 
   return (

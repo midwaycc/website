@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
+import { format, addMinutes } from 'date-fns'
+import useWindowSize from '@rooks/use-window-size'
 import FullCalendar, { EventApi } from '@fullcalendar/react'
 import listPlugin from '@fullcalendar/list'
 import googleCalendarPlugin from '@fullcalendar/google-calendar'
-import useWindowSize from '@rooks/use-window-size'
-import { format, addMinutes } from 'date-fns'
 
 Modal.setAppElement(document.body)
 
 const MODAL_HEIGHT = 300
 const MODAL_WIDTH = 500
 
-export default () => {
+// Default because it's used async and loadable-component works best this way
+export default function Calendar() {
   const [modalOpen, setModalOpen] = useState(false)
   const [event, setEvent] = useState<EventApi | null>(null)
   const width = useWindowSize().innerWidth
 
-  if (width === null) return null
+  if (width === null) {
+    return null
+  }
 
   const closeModal = () => {
     setModalOpen(false)

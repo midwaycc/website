@@ -1,6 +1,6 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import { useStaticQuery, graphql } from 'gatsby'
 import { FooterBlock } from './FooterBlocks'
 import { ChurchInfoQuery } from '~/types/graphqlTypes'
 

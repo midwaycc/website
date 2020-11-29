@@ -1,7 +1,7 @@
 import React from 'react'
-import { Poster } from '../../../src/components/Poster'
-import PosterPreview from '../helpers/PosterPreview'
 import { Rule } from '@sanity/validation'
+import { Poster } from '../../../src/components/Poster'
+import { PreviewWithDocument } from '../helpers/PosterPreview'
 
 declare global {
   interface Window {
@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-export default {
+export const poster = {
   name: 'poster',
   title: 'Poster',
   type: 'document',
@@ -18,7 +18,7 @@ export default {
       name: 'previewDisplay',
       title: 'Preview',
       type: 'number',
-      inputComponent: PosterPreview
+      inputComponent: PreviewWithDocument
     },
     {
       name: 'name',

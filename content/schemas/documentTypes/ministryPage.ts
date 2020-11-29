@@ -1,6 +1,6 @@
 import { Rule } from '@sanity/validation'
 
-export default {
+export const ministryPage = {
   name: 'ministryPage',
   title: 'Ministry Page',
   type: 'document',

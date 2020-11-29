@@ -1,7 +1,7 @@
 import { blockIcon } from '../helpers/blockIcon'
 import video from '../../icons/video.svg'
 
-export default {
+export const videoEmbed = {
   type: 'object',
   name: 'videoEmbed',
   title: 'Vimeo Embed',

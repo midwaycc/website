@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
-import media from '~/utils/media'
-import { SanityPicture } from '~/types/graphqlTypes'
-import { Align } from '~/types/align'
-import { Size } from '~/types/size'
+import { media } from '~/utils/media'
 import {
   getContainerStyles,
   getCropStyles,
   PERCENTS
 } from '~/utils/boxSizeHelpers'
+import { SanityPicture } from '~/types/graphqlTypes'
+import { Align } from '~/types/align'
+import { Size } from '~/types/size'
 
 type Props = {
   node?: SanityPicture & {

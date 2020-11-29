@@ -1,7 +1,7 @@
 import React from 'react'
+import { PosterSvg } from './PosterSvg'
 import { SanityPoster } from '~/types/graphqlTypes'
 import { DeepPartial } from '~/types/DeepPartial'
-import { PosterSvg } from './PosterSvg'
 
 type Props = {
   poster: DeepPartial<SanityPoster>

@@ -1,17 +1,16 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
-import Content from '~/layout/Content'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Content } from '~/layout/Content'
+import { RichContent } from '~/sanity/RichContent'
 import { Title } from '~/components/Title'
 import { Alert } from './Alert'
 import { Days } from './Days'
-import media from '~/utils/media'
-import scheduleBackground from '~/../static/images/Footer_Image.jpg'
-import { useStaticQuery, graphql } from 'gatsby'
-import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
-import RichContent from '~/sanity/RichContent'
+import { media } from '~/utils/media'
 import { getMostRecentMonday } from '~/utils/dateUtils'
 import { getSplitIndex } from './splitIndex'
+import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
+import scheduleBackground from '~/../static/images/Footer_Image.jpg'
 
 const QUERY = graphql`
   query WeeklySchedule {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 import { NavItem, hasSubItems } from '~/views/Header/Navigation/types'
+import { NavigationItem, NavigationItemWithSubmenu } from './NavigationItem'
 
 type Props = {
   navigationItems: NavItem[]

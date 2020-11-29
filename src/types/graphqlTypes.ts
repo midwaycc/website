@@ -6799,37 +6799,6 @@ export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = (
   & Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
-export type AllPostersQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type AllPostersQuery = (
-  { __typename?: 'Query' }
-  & { allSanityPoster: (
-    { __typename?: 'SanityPosterConnection' }
-    & { nodes: Array<(
-      { __typename?: 'SanityPoster' }
-      & Pick<SanityPoster, '_id' | 'name' | 'overlayColor' | 'overlayOpacity'>
-      & { lines?: Maybe<Array<Maybe<(
-        { __typename?: 'SanityPosterLine' }
-        & Pick<SanityPosterLine, 'text' | 'fontSize' | 'position'>
-      )>>>, background?: Maybe<(
-        { __typename?: 'SanityImage' }
-        & { asset?: Maybe<(
-          { __typename?: 'SanityImageAsset' }
-          & Pick<SanityImageAsset, 'url'>
-          & { metadata?: Maybe<(
-            { __typename?: 'SanityImageMetadata' }
-            & { dimensions?: Maybe<(
-              { __typename?: 'SanityImageDimensions' }
-              & Pick<SanityImageDimensions, 'width' | 'height'>
-            )> }
-          )> }
-        )> }
-      )> }
-    )> }
-  ) }
-);
-
 export type NewsletterQueryVariables = Exact<{ [key: string]: never; }>;
 
 

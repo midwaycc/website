@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { PostTitle } from '~/components/PostSummary'
-import media from '~/utils/media'
+import { media } from '~/utils/media'
 
 type ContainerProps = {
   $titleHeight?: number

@@ -1,6 +1,6 @@
 import React from 'react'
+import { RecentPosts } from '~/views/RecentPosts'
 import { MinistryPageQuery } from '~/types/graphqlTypes'
-import RecentPosts from '~/views/RecentPosts'
 
 type Props = {
   data: MinistryPageQuery

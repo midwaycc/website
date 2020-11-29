@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import Image, { GatsbyImageProps, FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
-import Content from '~/layout/Content'
-import Section from '~/layout/Section'
-import { raggedEdgeGradient } from '~/utils/raggedEdgeGradient'
+import Image, { GatsbyImageProps, FluidObject } from 'gatsby-image'
+import { Link } from 'gatsby'
+import { Content } from '~/layout/Content'
+import { Section } from '~/layout/Section'
 import { SquareButton } from '~/components/SquareButton'
 import { SectionLinks } from './SectionLinks'
+import { raggedEdgeGradient } from '~/utils/raggedEdgeGradient'
 import { MinistryPageQuery } from '~/types/graphqlTypes'
 
 type Props = {

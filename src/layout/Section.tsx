@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '~/theme'
+import { theme } from '~/theme'
 
 type Props = {
   className?: string
@@ -8,15 +8,17 @@ type Props = {
   color?: string // The background color for the section
 }
 
-export default ({
+export function Section({
   className,
   children,
   color = theme.page.background
-}: Props) => (
-  <Container className={className} $color={color}>
-    {children}
-  </Container>
-)
+}: Props) {
+  return (
+    <Container className={className} $color={color}>
+      {children}
+    </Container>
+  )
+}
 
 const Container = styled.div<{ $color: string }>`
   width: 100%;

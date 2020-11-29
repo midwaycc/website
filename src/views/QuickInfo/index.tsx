@@ -6,7 +6,7 @@ import { Welcome } from './Welcome'
 import { raggedEdgeGradient } from '~/utils/raggedEdgeGradient'
 import leaves from '~/../static/images/leaves.png'
 
-export default () => {
+export function QuickInfo() {
   return (
     <Container>
       <Columns>

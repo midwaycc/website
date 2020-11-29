@@ -1,20 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import Content from '~/layout/Content'
-import { hiddenAbove } from '~/utils/visibility'
-import { HeaderQuery } from '~/types/graphqlTypes'
+import { Content } from '~/layout/Content'
 import { Navigation, BREAKPOINT } from './Navigation'
 import { NarrowMenuContents } from './Navigation/Narrow/MenuContents'
 import { NarrowMenuToggle } from './Navigation/Narrow/MenuToggle'
 import { HeaderLogo } from './Logo'
+import { hiddenAbove } from '~/utils/visibility'
 import {
   navigationItemsFromSanityItems,
   validateNavigationItems,
   SanityItems
 } from './navigationItems'
+import { HeaderQuery } from '~/types/graphqlTypes'
 
-export default () => {
+export function Header() {
   const data: HeaderQuery = useStaticQuery(query)
   if (!data.sanityNavigation) return null
   const sanityItems = data.sanityNavigation.items

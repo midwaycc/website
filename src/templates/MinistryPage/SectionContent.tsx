@@ -1,7 +1,7 @@
 import React from 'react'
-import Content from '~/layout/Content'
-import Section from '~/layout/Section'
-import RichContent from '~/sanity/RichContent'
+import { Section } from '~/layout/Section'
+import { Content } from '~/layout/Content'
+import { RichContent } from '~/sanity/RichContent'
 import { MinistryPageQuery, SanityPageSection } from '~/types/graphqlTypes'
 
 type Props = {

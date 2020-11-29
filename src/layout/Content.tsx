@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import media from '~/utils/media'
+import { media } from '~/utils/media'
 
-export default styled.div`
+export const Content = styled.div`
   width: 100%;
   padding: 0 1em;
 
