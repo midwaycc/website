@@ -41,7 +41,7 @@
     "@graphql-codegen/typescript": "^1.5.0",
     "@graphql-codegen/typescript-operations": "^1.5.0",
     "@loadable/component": "^5.10.3",
-    "@rooks/use-window-size": "^3.0.0",
+    "@rooks/use-window-size": "^4.0.0",
     "@sanity/block-content-to-react": "^2.0.6",
     "@sanity/cli": "^2.0.0",
     "@types/jest": "^26.0.0",
