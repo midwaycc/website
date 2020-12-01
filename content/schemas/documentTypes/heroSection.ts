@@ -20,6 +20,7 @@ export const heroSection = {
       title: 'Subtitle',
       validation: (Rule: Rule) => Rule.required()
     },
+    // TODO: get rid of this
     {
       name: 'video',
       type: 'file',

@@ -6,7 +6,7 @@ import { QuickLinksModal } from './QuickLinksModal'
 import { media } from '~/utils/media'
 import { colors } from '~/theme/colors'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
-import heroVideo from '~/../static/hero-optimized.mp4'
+import heroVideo from '~/../static/backdrop-optimized.mp4'
 
 // TODO: ensure that all queries are at the top of files
 // TODO: rename shortcuts => quickLinks
