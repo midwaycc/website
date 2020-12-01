@@ -48,7 +48,7 @@ export function getCropStyles(
 
   const [w, h] = constrainAspectRatio.split(':')
   const ratio = parseInt(h) / parseInt(w)
-  const scale = Math.max(100, 100 * ratio * originalAspectRatio)
+  const scale = Math.max(1, ratio * originalAspectRatio)
 
   return css`
     height: 0;
@@ -62,7 +62,7 @@ export function getCropStyles(
       left: 50%;
       width: 100%;
       height: auto;
-      transform: translate(-50%, -50%) scale(${scale}%);
+      transform: translate(-50%, -50%) scale(${scale});
     }
   `
 }
