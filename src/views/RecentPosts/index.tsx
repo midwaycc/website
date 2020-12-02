@@ -14,17 +14,17 @@ import stamp from '~/../static/images/stamp.png'
 
 type Props = {
   posts?: RecentPostsQuery['allSanityPost']['nodes']
-  withBanner?: boolean
+  onHomePage?: boolean
 }
 
-export function RecentPosts({ posts, withBanner }: Props) {
+export function RecentPosts({ posts, onHomePage }: Props) {
   const data: RecentPostsQuery = useStaticQuery(query)
   if (!data.allSanityPost || !data.allSanityPost.nodes) return null
   const postsToUse = posts || data.allSanityPost.nodes
 
   return (
     <Container color={colors.lime.hex}>
-      {withBanner && (
+      {onHomePage && (
         <Banner>
           <Title>Midway News</Title>
           <Subtitle>Find out what's happening.</Subtitle>
@@ -36,14 +36,16 @@ export function RecentPosts({ posts, withBanner }: Props) {
             <PostCard key={post._id || `post-${i}`} post={post} />
           ))}
         </CardContainer>
-        <ViewAllRow>
-          <Stamp />
-          <Link to="/posts" css="z-index: 1; margin: 1rem 0">
-            <SquareButton thick dark point="right">
-              View Past Events
-            </SquareButton>
-          </Link>
-        </ViewAllRow>
+        {onHomePage && (
+          <ViewAllRow>
+            <Stamp />
+            <Link to="/posts" css="z-index: 1; margin: 1rem 0">
+              <SquareButton thick dark point="right">
+                View Past Events
+              </SquareButton>
+            </Link>
+          </ViewAllRow>
+        )}
       </Content>
     </Container>
   )

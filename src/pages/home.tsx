@@ -11,7 +11,7 @@ export default function HomePage() {
       <GeneralAlert />
       <Hero />
       <QuickInfo />
-      <RecentPosts withBanner />
+      <RecentPosts onHomePage />
       <WeeklySchedule />
     </>
   )
