@@ -149,10 +149,7 @@ async function createAllPostPages(graphql, createPage) {
   const maxPage = Math.ceil(numArchivePosts / perPage)
   const onlyOne = numArchivePosts <= perPage
 
-  console.log({ maxPage })
-
   for (let page = 0; page < maxPage; page++) {
-    console.log({ page })
     createPage({
       path: page === 0 ? 'posts' : `posts/page/${page}`,
       component: require.resolve('./src/templates/PostsPage.tsx'),
