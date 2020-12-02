@@ -67,7 +67,11 @@ const Sermon = ({ sermon }: { sermon: Sermon }) => {
       <SermonTitle>{title}</SermonTitle>
       {src ? (
         <>
-          <audio css="width: 100%; margin-bottom: 1rem" controls src={src} />
+          <audio
+            style={{ width: '100%', marginBottom: '1rem' }}
+            controls
+            src={src}
+          />
           <a download={`${sermon.date}.mp3`} href={src}>
             Download
           </a>

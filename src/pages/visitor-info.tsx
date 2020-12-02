@@ -36,7 +36,12 @@ export default function VisitorInfoPage() {
             set={setChildren}
           />
           <input type="hidden" name="form-name" value="visitor-info" />
-          <input css="display:none" type="hidden" name="phone" value="" />
+          <input
+            style={{ display: 'none' }}
+            type="hidden"
+            name="phone"
+            value=""
+          />
           <TextInput
             textarea
             title="Preferred method of contact"

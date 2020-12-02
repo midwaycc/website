@@ -22,7 +22,12 @@ export function ContactForm() {
         <TextInput title="Name" name="name" value={name} set={setName} />
         <TextInput title="Email" name="email" value={email} set={setEmail} />
         <input type="hidden" name="form-name" value="contact" />
-        <input css="display:none" type="hidden" name="phone" value="" />
+        <input
+          style={{ display: 'none' }}
+          type="hidden"
+          name="phone"
+          value=""
+        />
         <TextInput
           textarea
           title="Message"

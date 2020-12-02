@@ -66,8 +66,8 @@ export default function Calendar() {
       >
         {event && event._instance ? (
           <>
-            <h4 css="margin-top: 0">{event._def.title}</h4>
-            <p css="opacity: 0.8">
+            <h4 style={{ marginTop: 0 }}>{event._def.title}</h4>
+            <p style={{ opacity: 0.8 }}>
               {format(toEST(event._instance.range.start), 'h:mm a')}
             </p>
             <p>{event._def.extendedProps.description}</p>

@@ -1,12 +1,20 @@
-/// <reference types="styled-components/cssprop" />
-
+import type {} from 'react'
 import {
   FlattenInterpolation,
+  CSSObject,
   ThemeProps,
   DefaultTheme
 } from 'styled-components'
 
 declare type CssProp =
   | string
+  | CSSObject
   | FlattenInterpolation<ThemeProps<DefaultTheme>>
-  | undefined
+
+declare global {
+  namespace JSX {
+    interface IntrinsicAttributes {
+      css?: CssProp
+    }
+  }
+}

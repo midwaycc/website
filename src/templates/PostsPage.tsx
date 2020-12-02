@@ -35,7 +35,7 @@ export default function PostsPage({ data, path, pageContext }: Props) {
         <Link to="/">
           <SquareButton point="left">Home</SquareButton>
         </Link>
-        <h1 css="margin-bottom: -0.5em">Archive</h1>
+        <h1 style={{ marginBottom: '-0.5em' }}>Archive</h1>
         <CardContainer>
           {posts.map((post, i) => (
             <PostCard

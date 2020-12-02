@@ -22,7 +22,7 @@ export function QuickLinksModal({ quickLinks }: Props) {
 
   return (
     <>
-      <div css="padding-top: 2em">
+      <div style={{ paddingTop: '2em' }}>
         <SquareButton
           thick
           backgroundColor={colors.turquoise.rgba(0.5)}

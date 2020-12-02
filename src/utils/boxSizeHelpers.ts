@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { media } from '../utils/media' // Avoid ~ alias for Sanity
 import { Align } from '~/types/align'
 import { Size } from '~/types/size'
@@ -35,7 +35,14 @@ export function getContainerStyles(size: number | Size, align?: Align) {
   `
 }
 
-export function getCropStyles(
+export const BoxSizeContainer = styled.div<{
+  $percentWidth: number
+  $align?: Align
+}>`
+  ${props => getContainerStyles(props.$percentWidth, props.$align)}
+`
+
+function getCropStyles(
   constrainAspectRatio: string | null | undefined,
   originalAspectRatio: number
 ) {
@@ -66,6 +73,14 @@ export function getCropStyles(
     }
   `
 }
+
+export const CropContainer = styled.div<{
+  $constrainAspectRatio?: string | null
+  $originalAspectRatio: number
+}>`
+  ${props =>
+    getCropStyles(props.$constrainAspectRatio, props.$originalAspectRatio)}
+`
 
 function getCss(percent: number, align?: Align) {
   const common = css`

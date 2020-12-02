@@ -34,7 +34,7 @@ export default function Post({ data }: Props) {
           <SquareButton point="left">Back</SquareButton>
         </Link>
         <PostTitle>{title}</PostTitle>
-        <PostDate date={date} />
+        <PostDate>Posted on {formatDate(date)}</PostDate>
       </Content>
       <RichContent blocks={body || summary} />
     </Section>
@@ -52,11 +52,11 @@ export const query = graphql`
   }
 `
 
-export const PostDate = ({ date }: { date: string }) => (
-  <p css="margin-top: 0.25em; font-size: 0.8em; font-style: italic">
-    Posted on {formatDate(date)}
-  </p>
-)
+const PostDate = styled.p`
+  margin-top: 0.25em;
+  font-size: 0.8em;
+  font-style: italic;
+`
 
 function formatDate(date: string) {
   return format(new Date(Date.parse(date) + 1000 * 60 * 60 * 12), 'MMMM do, y')

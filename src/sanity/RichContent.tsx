@@ -1,7 +1,7 @@
 import React from 'react'
+import styled, { css } from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import md5 from 'md5-slim'
-import { css } from 'styled-components'
 import { Content } from '~/layout/Content'
 import { getSerializers } from '~/sanity/serializers'
 import { ContentSection } from '~/sanity/blockSerializers/ContentSection'
@@ -21,15 +21,24 @@ export function RichContent({ blocks, noPadding, className }: Props) {
     process.env.NODE_ENV === 'development' ? md5(JSON.stringify(blocks)) : 'key'
 
   return (
-    <div className={className} css={noPadding ? noPaddingStyles : ''}>
+    <Container className={className} $noPadding={noPadding}>
       <BlockContent key={key} blocks={blocks} serializers={serializers} />
-      <div css="clear: both" />
-    </div>
+      <Clear />
+    </Container>
   )
 }
 
-const noPaddingStyles = css`
-  ${Content} {
-    padding: 0;
-  }
+const Container = styled.div<{ $noPadding?: boolean }>`
+  ${props =>
+    props.$noPadding
+      ? css`
+          ${Content} {
+            padding: 0;
+          }
+        `
+      : ''}
+`
+
+const Clear = styled.div`
+  clear: both;
 `

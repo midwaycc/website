@@ -1,7 +1,7 @@
 import React from 'react'
 import { Poster } from '~/components/Poster'
 import { CaptionArea } from './Picture'
-import { getContainerStyles, PERCENTS } from '~/utils/boxSizeHelpers'
+import { BoxSizeContainer, PERCENTS } from '~/utils/boxSizeHelpers'
 import { SanityPosterInContent } from '~/types/graphqlTypes'
 import { Align } from '~/types/align'
 import { Size } from '~/types/size'
@@ -20,9 +20,9 @@ export function PosterInContent({ node }: Props) {
   const percentWidth = PERCENTS[size || 'full']
 
   return (
-    <div css={getContainerStyles(percentWidth, align)}>
+    <BoxSizeContainer $percentWidth={percentWidth} $align={align}>
       <Poster poster={poster} />
       {caption && <CaptionArea>{caption}</CaptionArea>}
-    </div>
+    </BoxSizeContainer>
   )
 }

@@ -14,7 +14,7 @@ export function ContactInfo() {
 
   return (
     <Container>
-      <p css="margin-top: 1em">
+      <p style={{ marginTop: '1em' }}>
         <SocialLink
           logo="/logos/social/facebook.svg"
           url="https://www.facebook.com/midwaycommunitychurch/"
@@ -53,7 +53,7 @@ function SocialLink(props: { logo: string; url: string; className?: string }) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img css="height: 42px; margin-top: 1em" src={props.logo} />
+      <img style={{ height: 42, marginTop: '1em' }} src={props.logo} />
     </a>
   )
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getContainerStyles } from '../../utils/boxSizeHelpers' // Avoid ~ alias for Sanity
-import { Size } from '~/types/size'
 import { Align } from '~/types/align'
+import { Size } from '~/types/size'
 
 type Props = {
   lines?: Array<Line | null>
@@ -41,7 +41,8 @@ export function PosterSvg({
   return (
     <StyledSvg
       viewBox={`0 0 ${BASE_WIDTH} ${aspectHeight}`}
-      // @ts-ignore
+      // @ts-ignore The css prop has issues with styled svg elements, but is
+      // still valid.
       css={getContainerStyles(size, align)}
       className={className}
     >

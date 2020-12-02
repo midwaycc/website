@@ -29,7 +29,7 @@ export function Hero() {
           <Title>{title}</Title>
           <Subtitle>{subtitle}</Subtitle>
           <QuickLinksModal quickLinks={shortcutToUse} />
-          <div css="padding-top: 2em">
+          <div style={{ paddingTop: '2em' }}>
             <Link to="/new">
               <SquareButton
                 dark

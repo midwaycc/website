@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 import { media } from '~/utils/media'
 import {
-  getContainerStyles,
-  getCropStyles,
+  BoxSizeContainer,
+  CropContainer,
   PERCENTS
 } from '~/utils/boxSizeHelpers'
 import { SanityPicture } from '~/types/graphqlTypes'
@@ -47,14 +47,17 @@ export function Picture({ node }: Props) {
   const fluid = { aspectRatio, base64, src, srcSet, srcWebp, srcSetWebp, sizes }
 
   return (
-    <div css={getContainerStyles(percentWidth, align)}>
-      <div css={getCropStyles(constrainAspectRatio, aspectRatio)}>
+    <BoxSizeContainer $percentWidth={percentWidth} $align={align}>
+      <CropContainer
+        $constrainAspectRatio={constrainAspectRatio}
+        $originalAspectRatio={aspectRatio}
+      >
         <div>
           <Image fluid={fluid} />
         </div>
-      </div>
+      </CropContainer>
       {caption && <CaptionArea>{caption}</CaptionArea>}
-    </div>
+    </BoxSizeContainer>
   )
 }
 
