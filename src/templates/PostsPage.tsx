@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import { Section } from '~/layout/Section'
 import { Content } from '~/layout/Content'
@@ -9,6 +10,7 @@ import { AllPostsQuery } from '~/types/graphqlTypes'
 
 export type Props = {
   data: AllPostsQuery
+  path: string
   pageContext: {
     perPage: number
     page: number
@@ -17,16 +19,9 @@ export type Props = {
     isLast: boolean
     onlyOne: boolean
   }
-  title?: string
-  urlPrefix?: string
 }
 
-export default function PostsPage({
-  data,
-  pageContext,
-  title = 'Archive',
-  urlPrefix = 'posts'
-}: Props) {
+export default function PostsPage({ data, path, pageContext }: Props) {
   if (!data.allSanityPost || !data.allSanityPost.nodes) {
     return null
   }
@@ -40,40 +35,30 @@ export default function PostsPage({
         <Link to="/">
           <SquareButton point="left">Home</SquareButton>
         </Link>
-        <h1 css="margin-bottom: -0.5em">{title}</h1>
+        <h1 css="margin-bottom: -0.5em">Archive</h1>
         <CardContainer>
           {posts.map((post, i) => (
             <PostCard
               key={post._id || `post-${i}`}
               post={post}
-              addToUrl={`?back=${urlPrefix}`}
+              addToUrl={`?back=${path}`}
             />
           ))}
         </CardContainer>
-        <div
-          style={{
-            width: '100%',
-            display: isFirst ? 'block' : 'flex',
-            justifyContent: 'space-between',
-            textAlign: isFirst ? 'right' : 'left',
-            marginTop: '2em'
-          }}
-        >
-          {!isFirst && !onlyOne && (
-            <Link
-              to={
-                page === 2 ? `/${urlPrefix}` : `/${urlPrefix}/page/${page - 1}`
-              }
-            >
-              <SquareButton point="left">Newer</SquareButton>
-            </Link>
-          )}
-          {!isLast && !onlyOne && (
-            <Link to={`/${urlPrefix}/page/${page + 1}`}>
-              <SquareButton point="right">Older</SquareButton>
-            </Link>
-          )}
-        </div>
+        {onlyOne ? null : (
+          <BackForwardContainer $isFirst={isFirst}>
+            {!isFirst && (
+              <Link to={page === 1 ? '/posts' : `/posts/page/${page - 1}`}>
+                <SquareButton point="left">Newer</SquareButton>
+              </Link>
+            )}
+            {!isLast && (
+              <Link to={`/posts/page/${page + 1}`}>
+                <SquareButton point="right">Older</SquareButton>
+              </Link>
+            )}
+          </BackForwardContainer>
+        )}
       </Content>
     </Section>
   )
@@ -106,4 +91,12 @@ export const query = graphql`
       }
     }
   }
+`
+
+const BackForwardContainer = styled.div<{ $isFirst: boolean }>`
+  width: 100%;
+  display: ${props => (props.$isFirst ? 'block' : 'flex')};
+  justify-content: space-between;
+  text-align: ${props => (props.$isFirst ? 'right' : 'left')};
+  margin-top: 2em;
 `

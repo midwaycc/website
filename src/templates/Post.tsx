@@ -24,13 +24,13 @@ export default function Post({ data }: Props) {
 
   const backLink =
     typeof window === 'undefined'
-      ? '/posts'
-      : '/' + (queryString.parse(location.search).back || '')
+      ? '/'
+      : '' + (queryString.parse(location.search).back || '/')
 
   return (
     <Section>
       <Content>
-        <Link to={backLink}>
+        <Link to={backLink} onClick={() => window.history.back()}>
           <SquareButton point="left">Back</SquareButton>
         </Link>
         <PostTitle>{title}</PostTitle>

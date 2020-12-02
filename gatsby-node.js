@@ -121,7 +121,9 @@ async function createAllPostPages(graphql, createPage) {
           }
         }
       }
-      archivePosts: allSanityPost(filter: { featured: { eq: false } }) {
+      archivePosts: allSanityPost(
+        filter: { featured: { eq: false }, hidden: { ne: true } }
+      ) {
         totalCount
       }
     }
@@ -144,35 +146,22 @@ async function createAllPostPages(graphql, createPage) {
     }
   })
 
-  createPostPages(
-    createPage,
-    numArchivePosts,
-    perPage,
-    'posts',
-    require.resolve('./src/templates/PostsPage.tsx')
-  )
-}
+  const maxPage = Math.ceil(numArchivePosts / perPage)
+  const onlyOne = numArchivePosts <= perPage
 
-function createPostPages(
-  createPage,
-  totalCount,
-  perPage,
-  urlPrefix,
-  component
-) {
-  const maxPage = Math.ceil(totalCount / perPage)
-  const onlyOne = totalCount <= perPage
+  console.log({ maxPage })
 
-  for (let page = 1; page <= maxPage; page++) {
+  for (let page = 0; page < maxPage; page++) {
+    console.log({ page })
     createPage({
-      path: page === 1 ? urlPrefix : `${urlPrefix}/page/${page}`,
-      component,
+      path: page === 0 ? 'posts' : `posts/page/${page}`,
+      component: require.resolve('./src/templates/PostsPage.tsx'),
       context: {
         page,
         perPage,
-        offset: (page - 1) * perPage,
-        isFirst: page === 1,
-        isLast: page === maxPage,
+        offset: page * perPage,
+        isFirst: page === 0,
+        isLast: page === maxPage - 1,
         onlyOne
       }
     })
