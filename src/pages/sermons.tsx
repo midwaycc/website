@@ -15,23 +15,6 @@ type Props = {
 
 type Sermon = SermonUploadQuery['allSanitySermonUpload']['nodes'][0]
 
-export const query = graphql`
-  query SermonUpload {
-    allSanitySermonUpload(sort: { fields: date, order: DESC }) {
-      nodes {
-        _id
-        date
-        extraInfo
-        audioFile {
-          asset {
-            url
-          }
-        }
-      }
-    }
-  }
-`
-
 export default function SermonsPage({ data }: Props) {
   if (!data.allSanitySermonUpload) {
     return null
@@ -57,6 +40,23 @@ export default function SermonsPage({ data }: Props) {
     </Section>
   )
 }
+
+export const query = graphql`
+  query SermonUpload {
+    allSanitySermonUpload(sort: { fields: date, order: DESC }) {
+      nodes {
+        _id
+        date
+        extraInfo
+        audioFile {
+          asset {
+            url
+          }
+        }
+      }
+    }
+  }
+`
 
 const Sermon = ({ sermon }: { sermon: Sermon }) => {
   const title = sermonTitle(sermon)

@@ -12,27 +12,8 @@ import { getSplitIndex } from './splitIndex'
 import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
 import scheduleBackground from '~/../static/images/Footer_Image.jpg'
 
-const QUERY = graphql`
-  query WeeklySchedule {
-    sanityScheduleAlert {
-      id
-      _rawMessage
-      active
-    }
-    sanityWeeklySchedule(active: { eq: true }) {
-      days {
-        label
-        events {
-          time
-          description
-        }
-      }
-    }
-  }
-`
-
 export function WeeklySchedule() {
-  const data: WeeklyScheduleQuery = useStaticQuery(QUERY)
+  const data: WeeklyScheduleQuery = useStaticQuery(query)
   const schedule = data.sanityWeeklySchedule
   if (!schedule) {
     return null
@@ -71,6 +52,25 @@ export function WeeklySchedule() {
     </Container>
   )
 }
+
+const query = graphql`
+  query WeeklySchedule {
+    sanityScheduleAlert {
+      id
+      _rawMessage
+      active
+    }
+    sanityWeeklySchedule(active: { eq: true }) {
+      days {
+        label
+        events {
+          time
+          description
+        }
+      }
+    }
+  }
+`
 
 const Container = styled.div`
   width: 100%;

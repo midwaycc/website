@@ -12,18 +12,6 @@ type Props = {
   data: NewsletterQuery
 }
 
-export const query = graphql`
-  query Newsletter {
-    allSanityNewsletter(sort: { fields: date, order: DESC }) {
-      nodes {
-        _id
-        date
-        link
-      }
-    }
-  }
-`
-
 export default function NewsletterPage({ data }: Props) {
   if (!data.allSanityNewsletter) {
     return null
@@ -58,6 +46,18 @@ export default function NewsletterPage({ data }: Props) {
     </Section>
   )
 }
+
+export const query = graphql`
+  query Newsletter {
+    allSanityNewsletter(sort: { fields: date, order: DESC }) {
+      nodes {
+        _id
+        date
+        link
+      }
+    }
+  }
+`
 
 const NewsletterTitle = styled.h2`
   margin: 0;

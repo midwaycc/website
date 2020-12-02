@@ -5,19 +5,6 @@ import { Column } from './Columns'
 import { ChurchLocationQuery } from '~/types/graphqlTypes'
 import mapPin from '~/../static/images/map_pin.png'
 
-const query = graphql`
-  query ChurchLocation {
-    site {
-      siteMetadata {
-        church {
-          address
-          googleMapsLink
-        }
-      }
-    }
-  }
-`
-
 export function LocationInfo() {
   const data: ChurchLocationQuery = useStaticQuery(query)
   const { address, googleMapsLink } = data.site?.siteMetadata?.church || {}
@@ -36,6 +23,19 @@ export function LocationInfo() {
     </Column>
   )
 }
+
+const query = graphql`
+  query ChurchLocation {
+    site {
+      siteMetadata {
+        church {
+          address
+          googleMapsLink
+        }
+      }
+    }
+  }
+`
 
 const MapLink = styled.a`
   display: inline-block;

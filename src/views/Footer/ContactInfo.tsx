@@ -4,19 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { FooterBlock } from './FooterBlocks'
 import { ChurchInfoQuery } from '~/types/graphqlTypes'
 
-const query = graphql`
-  query ChurchInfo {
-    site {
-      siteMetadata {
-        church {
-          phone
-          address
-        }
-      }
-    }
-  }
-`
-
 export function ContactInfo() {
   const data: ChurchInfoQuery = useStaticQuery(query)
   const { address, phone } = data.site?.siteMetadata?.church || {}
@@ -44,6 +31,19 @@ export function ContactInfo() {
     </Container>
   )
 }
+
+const query = graphql`
+  query ChurchInfo {
+    site {
+      siteMetadata {
+        church {
+          phone
+          address
+        }
+      }
+    }
+  }
+`
 
 function SocialLink(props: { logo: string; url: string; className?: string }) {
   return (

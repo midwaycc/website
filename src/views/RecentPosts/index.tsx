@@ -59,21 +59,7 @@ const query = graphql`
       filter: { featured: { eq: true }, hidden: { ne: true } }
     ) {
       nodes {
-        _id
-        date
-        title
-        _rawSummary(resolveReferences: { maxDepth: 10 })
-        thumbnail {
-          asset {
-            fluid(maxWidth: 400) {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-        _rawThumbnailPoster(resolveReferences: { maxDepth: 10 })
-        slug {
-          current
-        }
+        ...PostCardDetails
       }
     }
   }

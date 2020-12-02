@@ -8,24 +8,8 @@ import { colors } from '~/theme/colors'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
 import heroVideo from '~/../static/backdrop-optimized.mp4'
 
-// TODO: ensure that all queries are at the top of files
-// TODO: rename shortcuts => quickLinks
-const QUERY = graphql`
-  query HeroSection {
-    sanityHeroSection {
-      title
-      subtitle
-    }
-    allSanityShortcuts(filter: { active: { eq: true } }) {
-      nodes {
-        _rawContent
-      }
-    }
-  }
-`
-
 export function Hero() {
-  const data: HeroSectionQuery = useStaticQuery(QUERY)
+  const data: HeroSectionQuery = useStaticQuery(query)
   if (!data.sanityHeroSection) return null
 
   const { sanityHeroSection, allSanityShortcuts } = data
@@ -62,6 +46,20 @@ export function Hero() {
     </Container>
   )
 }
+
+const query = graphql`
+  query HeroSection {
+    sanityHeroSection {
+      title
+      subtitle
+    }
+    allSanityShortcuts(filter: { active: { eq: true } }) {
+      nodes {
+        _rawContent
+      }
+    }
+  }
+`
 
 const Container = styled.section`
   width: 100%;

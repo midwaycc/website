@@ -73,21 +73,7 @@ export const query = graphql`
       skip: $offset
     ) {
       nodes {
-        _id
-        title
-        date
-        thumbnail {
-          asset {
-            fluid(maxWidth: 400) {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-        _rawThumbnailPoster(resolveReferences: { maxDepth: 10 })
-        _rawSummary
-        slug {
-          current
-        }
+        ...PostCardDetails
       }
     }
   }

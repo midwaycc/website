@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
+import { navigate, graphql } from 'gatsby'
 import { RecentPostsQuery } from '~/types/graphqlTypes'
 import { PostSummary } from '~/components/PostSummary'
 
@@ -22,6 +22,26 @@ export function PostCard({ post, addToUrl }: Props) {
     </Container>
   )
 }
+
+export const query = graphql`
+  fragment PostCardDetails on SanityPost {
+    _id
+    date
+    title
+    _rawSummary(resolveReferences: { maxDepth: 10 })
+    _rawThumbnailPoster(resolveReferences: { maxDepth: 10 })
+    slug {
+      current
+    }
+    thumbnail {
+      asset {
+        fluid(maxWidth: 400) {
+          ...GatsbySanityImageFluid
+        }
+      }
+    }
+  }
+`
 
 const Container = styled.div`
   cursor: pointer;
