@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { PostTitle } from '~/components/PostSummary'
 import { media } from '~/utils/media'
@@ -22,7 +22,7 @@ export function CardContainer({
   const [titleHeight, setTitleHeight] = useState(0)
   const outer = useRef<HTMLDivElement>(null)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     ;(document as any).fonts.ready.then(() => {
       if (outer.current) {
         const titles = outer.current.querySelectorAll(PostTitle.toString())
