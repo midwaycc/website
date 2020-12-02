@@ -6861,6 +6861,24 @@ export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = (
   & Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
+export type PostCardDetailsFragment = (
+  { __typename?: 'SanityPost' }
+  & Pick<SanityPost, '_id' | 'date' | 'title' | '_rawSummary' | '_rawThumbnailPoster'>
+  & { slug?: Maybe<(
+    { __typename?: 'SanitySlug' }
+    & Pick<SanitySlug, 'current'>
+  )>, thumbnail?: Maybe<(
+    { __typename?: 'SanityImage' }
+    & { asset?: Maybe<(
+      { __typename?: 'SanityImageAsset' }
+      & { fluid?: Maybe<(
+        { __typename?: 'SanityImageFluid' }
+        & GatsbySanityImageFluidFragment
+      )> }
+    )> }
+  )> }
+);
+
 export type NewsletterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -6930,20 +6948,7 @@ export type MinistryPageQuery = (
     { __typename?: 'SanityPostConnection' }
     & { nodes: Array<(
       { __typename?: 'SanityPost' }
-      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawThumbnailPoster' | '_rawSummary'>
-      & { thumbnail?: Maybe<(
-        { __typename?: 'SanityImage' }
-        & { asset?: Maybe<(
-          { __typename?: 'SanityImageAsset' }
-          & { fluid?: Maybe<(
-            { __typename?: 'SanityImageFluid' }
-            & GatsbySanityImageFluidFragment
-          )> }
-        )> }
-      )>, slug?: Maybe<(
-        { __typename?: 'SanitySlug' }
-        & Pick<SanitySlug, 'current'>
-      )> }
+      & PostCardDetailsFragment
     )> }
   ) }
 );
@@ -6986,20 +6991,7 @@ export type AllPostsQuery = (
     { __typename?: 'SanityPostConnection' }
     & { nodes: Array<(
       { __typename?: 'SanityPost' }
-      & Pick<SanityPost, '_id' | 'title' | 'date' | '_rawThumbnailPoster' | '_rawSummary'>
-      & { thumbnail?: Maybe<(
-        { __typename?: 'SanityImage' }
-        & { asset?: Maybe<(
-          { __typename?: 'SanityImageAsset' }
-          & { fluid?: Maybe<(
-            { __typename?: 'SanityImageFluid' }
-            & GatsbySanityImageFluidFragment
-          )> }
-        )> }
-      )>, slug?: Maybe<(
-        { __typename?: 'SanitySlug' }
-        & Pick<SanitySlug, 'current'>
-      )> }
+      & PostCardDetailsFragment
     )> }
   ) }
 );
@@ -7127,20 +7119,7 @@ export type RecentPostsQuery = (
     { __typename?: 'SanityPostConnection' }
     & { nodes: Array<(
       { __typename?: 'SanityPost' }
-      & Pick<SanityPost, '_id' | 'date' | 'title' | '_rawSummary' | '_rawThumbnailPoster'>
-      & { thumbnail?: Maybe<(
-        { __typename?: 'SanityImage' }
-        & { asset?: Maybe<(
-          { __typename?: 'SanityImageAsset' }
-          & { fluid?: Maybe<(
-            { __typename?: 'SanityImageFluid' }
-            & GatsbySanityImageFluidFragment
-          )> }
-        )> }
-      )>, slug?: Maybe<(
-        { __typename?: 'SanitySlug' }
-        & Pick<SanitySlug, 'current'>
-      )> }
+      & PostCardDetailsFragment
     )> }
   ) }
 );
