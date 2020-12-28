@@ -29,8 +29,7 @@ export const weeklySchedule = {
       name: 'active',
       title: 'Active?',
       type: 'boolean',
-      description:
-        "If turned on, this schedule will be shown on the home page as long as it's either a default or dated to this week or a future week (past weeks will always be hidden)"
+      description: 'If turned on, this schedule will be shown on the home page'
     },
     {
       name: 'days',
