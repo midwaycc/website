@@ -51,7 +51,7 @@ export default function VisitorInfoPage() {
           />
           <TextInput
             textarea
-            title="Additional info (optional): Tell us about yourself! How did you find us? What did you like about the service?"
+            title="Additional info (optional): Tell us about yourself! How did you find us? What ministry areas are you interested in learning more about?"
             name="message"
             value={message}
             set={setMessage}
