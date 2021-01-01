@@ -1263,7 +1263,6 @@ export type QuerySanityShortcutsArgs = {
   _updatedAt?: Maybe<DateQueryOperatorInput>;
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
-  active?: Maybe<BooleanQueryOperatorInput>;
   content?: Maybe<SanityBlockFilterListInput>;
   _rawContent?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1288,8 +1287,6 @@ export type QuerySanityWeeklyScheduleArgs = {
   _updatedAt?: Maybe<DateQueryOperatorInput>;
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
-  label?: Maybe<StringQueryOperatorInput>;
-  active?: Maybe<BooleanQueryOperatorInput>;
   days?: Maybe<SanityWeeklyScheduleDayFilterListInput>;
   _rawDays?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -5252,7 +5249,6 @@ export type SanityShortcuts = SanityDocument & Node & {
   _updatedAt?: Maybe<Scalars['Date']>;
   _rev?: Maybe<Scalars['String']>;
   _key?: Maybe<Scalars['String']>;
-  active?: Maybe<Scalars['Boolean']>;
   content?: Maybe<Array<Maybe<SanityBlock>>>;
   _rawContent?: Maybe<Scalars['JSON']>;
   id: Scalars['ID'];
@@ -5318,7 +5314,6 @@ export enum SanityShortcutsFieldsEnum {
   _updatedAt = '_updatedAt',
   _rev = '_rev',
   _key = '_key',
-  active = 'active',
   content = 'content',
   content____key = 'content____key',
   content____type = 'content____type',
@@ -5426,7 +5421,6 @@ export type SanityShortcutsFilterInput = {
   _updatedAt?: Maybe<DateQueryOperatorInput>;
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
-  active?: Maybe<BooleanQueryOperatorInput>;
   content?: Maybe<SanityBlockFilterListInput>;
   _rawContent?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -5504,8 +5498,6 @@ export type SanityWeeklySchedule = SanityDocument & Node & {
   _updatedAt?: Maybe<Scalars['Date']>;
   _rev?: Maybe<Scalars['String']>;
   _key?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
-  active?: Maybe<Scalars['Boolean']>;
   days?: Maybe<Array<Maybe<SanityWeeklyScheduleDay>>>;
   _rawDays?: Maybe<Scalars['JSON']>;
   id: Scalars['ID'];
@@ -5616,8 +5608,6 @@ export enum SanityWeeklyScheduleFieldsEnum {
   _updatedAt = '_updatedAt',
   _rev = '_rev',
   _key = '_key',
-  label = 'label',
-  active = 'active',
   days = 'days',
   days____key = 'days____key',
   days____type = 'days____type',
@@ -5724,8 +5714,6 @@ export type SanityWeeklyScheduleFilterInput = {
   _updatedAt?: Maybe<DateQueryOperatorInput>;
   _rev?: Maybe<StringQueryOperatorInput>;
   _key?: Maybe<StringQueryOperatorInput>;
-  label?: Maybe<StringQueryOperatorInput>;
-  active?: Maybe<BooleanQueryOperatorInput>;
   days?: Maybe<SanityWeeklyScheduleDayFilterListInput>;
   _rawDays?: Maybe<JsonQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -7084,13 +7072,10 @@ export type HeroSectionQuery = (
   & { sanityHeroSection?: Maybe<(
     { __typename?: 'SanityHeroSection' }
     & Pick<SanityHeroSection, 'title' | 'subtitle'>
-  )>, allSanityShortcuts: (
-    { __typename?: 'SanityShortcutsConnection' }
-    & { nodes: Array<(
-      { __typename?: 'SanityShortcuts' }
-      & Pick<SanityShortcuts, '_rawContent'>
-    )> }
-  ) }
+  )>, sanityShortcuts?: Maybe<(
+    { __typename?: 'SanityShortcuts' }
+    & Pick<SanityShortcuts, '_rawContent'>
+  )> }
 );
 
 export type ChurchLocationQueryVariables = Exact<{ [key: string]: never; }>;
@@ -7131,7 +7116,7 @@ export type WeeklyScheduleQuery = (
   { __typename?: 'Query' }
   & { sanityScheduleAlert?: Maybe<(
     { __typename?: 'SanityScheduleAlert' }
-    & Pick<SanityScheduleAlert, 'id' | '_rawMessage' | 'active'>
+    & Pick<SanityScheduleAlert, 'id' | '_rawMessage'>
   )>, sanityWeeklySchedule?: Maybe<(
     { __typename?: 'SanityWeeklySchedule' }
     & { days?: Maybe<Array<Maybe<(

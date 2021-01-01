@@ -1,36 +1,17 @@
 import { Rule } from '@sanity/validation'
-import { ensureOnlyOne } from '../helpers/ensureOnlyOne'
 
 export const weeklySchedule = {
   name: 'weeklySchedule',
   title: 'Weekly Schedule',
   type: 'document',
   preview: {
-    select: {
-      label: 'label',
-      active: 'active'
-    },
-    prepare({ label, active }: any) {
+    prepare() {
       return {
-        title: (active ? '(active) ' : '') + label
+        title: 'Weekly Schedule'
       }
     }
   },
-  validation: (Rule: Rule) => Rule.custom(ensureOnlyOne('active')),
   fields: [
-    {
-      name: 'label',
-      title: 'Label',
-      type: 'string',
-      description:
-        "This is just for reference (only shows up here in Sanity) so it's easier to tell which schedule this is"
-    },
-    {
-      name: 'active',
-      title: 'Active?',
-      type: 'boolean',
-      description: 'If turned on, this schedule will be shown on the home page'
-    },
     {
       name: 'days',
       title: 'Days',

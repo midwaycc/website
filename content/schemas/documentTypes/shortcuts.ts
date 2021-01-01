@@ -1,26 +1,13 @@
-import { Rule } from '@sanity/validation'
-import { ensureOnlyOne } from '../helpers/ensureOnlyOne'
-
 export const shortcuts = {
   name: 'shortcuts',
   title: 'Quick Links',
   type: 'document',
   preview: {
-    select: {
-      active: 'active'
-    },
-    prepare: ({ active }: any) => ({
-      title: (active ? '(active) ' : '') + 'Quick Links'
+    prepare: () => ({
+      title: 'Quick Links'
     })
   },
-  validation: (Rule: Rule) => Rule.custom(ensureOnlyOne('active')),
   fields: [
-    {
-      name: 'active',
-      type: 'boolean',
-      title: 'Active',
-      description: 'Whether or not the shortcuts will show on the home page'
-    },
     {
       name: 'content',
       type: 'simpleRichContent',

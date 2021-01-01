@@ -33,7 +33,7 @@ export function WeeklySchedule() {
         <CalendarLink>
           <Link to="/calendar">See full calendar ›</Link>
         </CalendarLink>
-        {scheduleAlert && scheduleAlert.active && scheduleAlert._rawMessage && (
+        {scheduleAlert && scheduleAlert._rawMessage && (
           <Alert>
             <RichContent blocks={scheduleAlert._rawMessage} />
           </Alert>
@@ -58,9 +58,8 @@ const query = graphql`
     sanityScheduleAlert {
       id
       _rawMessage
-      active
     }
-    sanityWeeklySchedule(active: { eq: true }) {
+    sanityWeeklySchedule {
       days {
         label
         events {

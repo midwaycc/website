@@ -12,10 +12,8 @@ export function Hero() {
   const data: HeroSectionQuery = useStaticQuery(query)
   if (!data.sanityHeroSection) return null
 
-  const { sanityHeroSection, allSanityShortcuts } = data
+  const { sanityHeroSection, sanityShortcuts } = data
   const { title, subtitle } = sanityHeroSection
-  const activeShortcuts = allSanityShortcuts?.nodes || []
-  const shortcutToUse = activeShortcuts.length ? activeShortcuts[0] : null
 
   return (
     <Container>
@@ -28,7 +26,7 @@ export function Hero() {
         <HeroContent>
           <Title>{title}</Title>
           <Subtitle>{subtitle}</Subtitle>
-          <QuickLinksModal quickLinks={shortcutToUse} />
+          <QuickLinksModal quickLinks={sanityShortcuts} />
           <div style={{ paddingTop: '2em' }}>
             <Link to="/new">
               <SquareButton
@@ -53,10 +51,8 @@ const query = graphql`
       title
       subtitle
     }
-    allSanityShortcuts(filter: { active: { eq: true } }) {
-      nodes {
-        _rawContent
-      }
+    sanityShortcuts {
+      _rawContent
     }
   }
 `

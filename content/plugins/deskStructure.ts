@@ -18,6 +18,16 @@ const singletons = [
     id: 'ec25ee54-245b-40e3-9876-cffd186f42ff'
   },
   {
+    title: 'Quick Links',
+    schema: 'shortcuts',
+    id: 'bad826b3-ffb8-4725-a69b-f0ff0c6b642c'
+  },
+  {
+    title: 'Weekly Schedule',
+    schema: 'weeklySchedule',
+    id: 'f7eb06d4-696e-4cd0-b9d1-adc2c795c18f'
+  },
+  {
     title: 'Schedule Alert',
     schema: 'scheduleAlert',
     id: 'd9104f8d-bbd8-4f63-9947-7cfb65f19808'

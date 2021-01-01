@@ -12,7 +12,7 @@ if (typeof document !== 'undefined') {
 }
 
 type Props = {
-  quickLinks?: HeroSectionQuery['allSanityShortcuts']['nodes'][number] | null
+  quickLinks?: HeroSectionQuery['sanityShortcuts'] | null
 }
 
 export function QuickLinksModal({ quickLinks }: Props) {
