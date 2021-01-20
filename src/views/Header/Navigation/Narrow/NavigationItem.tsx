@@ -136,12 +136,6 @@ const SubItem = styled.li`
 const Plus = styled.span`
   font-size: 1.1em;
   margin-right: 0.5em;
-  transform: rotate(0deg);
-  transition: transform 0.4s ease-in-out;
-
-  input:checked ~ ${FullText} & {
-    transform: rotate(90deg);
-  }
 `
 
 const Minus = styled.span`
