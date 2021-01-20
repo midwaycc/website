@@ -42,10 +42,10 @@ export function NavigationItemWithSubmenu({
 
   return (
     <Container>
-      <Toggle onClick={handleClick} data-text={text} />
       <FullText css="color: white">
         <Plus>+</Plus> {text}
       </FullText>
+      <Toggle onClick={handleClick} data-text={text} />
       <SubMenu $numItems={items.length} $text={text}>
         {items.map((item, i) => (
           <SubItem key={i}>
