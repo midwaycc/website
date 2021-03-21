@@ -22,7 +22,7 @@
     "@sanity/default-login": "2.0.x",
     "@sanity/desk-tool": "2.0.x",
     "@sanity/production-preview": "2.0.x",
-    "date-fns": "2.16.x",
+    "date-fns": "^2.19.0",
     "react": "17.0.x",
     "react-dom": "17.0.x",
     "react-markdown": "5.0.x"
