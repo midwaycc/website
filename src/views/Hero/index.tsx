@@ -6,7 +6,7 @@ import { QuickLinksModal } from './QuickLinksModal'
 import { media } from '~/utils/media'
 import { colors } from '~/theme/colors'
 import { HeroSectionQuery } from '~/types/graphqlTypes'
-import heroVideo from '~/../static/backdrop-optimized.mp4'
+import landingVideo from '~/../static/landing-optimized.mp4'
 
 export function Hero() {
   const data: HeroSectionQuery = useStaticQuery(query)
@@ -19,7 +19,7 @@ export function Hero() {
     <Container>
       <VideoContainer>
         <video autoPlay loop preload="" muted playsInline>
-          <source src={heroVideo} type="video/mp4" />
+          <source src={landingVideo} type="video/mp4" />
         </video>
       </VideoContainer>
       <OverlayContainer>
