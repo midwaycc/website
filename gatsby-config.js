@@ -54,6 +54,12 @@ module.exports = {
         head: true
       }
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: '2307295726222106'
+      }
+    },
     podcastFeed
   ]
 }
