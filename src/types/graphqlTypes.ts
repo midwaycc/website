@@ -871,7 +871,6 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
-  flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1152,6 +1151,7 @@ export type QuerySanityFileAssetArgs = {
   label?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  altText?: Maybe<StringQueryOperatorInput>;
   sha1hash?: Maybe<StringQueryOperatorInput>;
   extension?: Maybe<StringQueryOperatorInput>;
   mimeType?: Maybe<StringQueryOperatorInput>;
@@ -1187,6 +1187,7 @@ export type QuerySanityImageAssetArgs = {
   label?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  altText?: Maybe<StringQueryOperatorInput>;
   sha1hash?: Maybe<StringQueryOperatorInput>;
   extension?: Maybe<StringQueryOperatorInput>;
   mimeType?: Maybe<StringQueryOperatorInput>;
@@ -1515,6 +1516,7 @@ export type SanityFileAsset = SanityDocument & Node & {
   label?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  altText?: Maybe<Scalars['String']>;
   sha1hash?: Maybe<Scalars['String']>;
   extension?: Maybe<Scalars['String']>;
   mimeType?: Maybe<Scalars['String']>;
@@ -1591,6 +1593,7 @@ export enum SanityFileAssetFieldsEnum {
   label = 'label',
   title = 'title',
   description = 'description',
+  altText = 'altText',
   sha1hash = 'sha1hash',
   extension = 'extension',
   mimeType = 'mimeType',
@@ -1703,6 +1706,7 @@ export type SanityFileAssetFilterInput = {
   label?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  altText?: Maybe<StringQueryOperatorInput>;
   sha1hash?: Maybe<StringQueryOperatorInput>;
   extension?: Maybe<StringQueryOperatorInput>;
   mimeType?: Maybe<StringQueryOperatorInput>;
@@ -2052,6 +2056,7 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset___label = 'video___asset___label',
   video___asset___title = 'video___asset___title',
   video___asset___description = 'video___asset___description',
+  video___asset___altText = 'video___asset___altText',
   video___asset___sha1hash = 'video___asset___sha1hash',
   video___asset___extension = 'video___asset___extension',
   video___asset___mimeType = 'video___asset___mimeType',
@@ -2240,6 +2245,7 @@ export type SanityImageAsset = SanityDocument & Node & {
   label?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  altText?: Maybe<Scalars['String']>;
   sha1hash?: Maybe<Scalars['String']>;
   extension?: Maybe<Scalars['String']>;
   mimeType?: Maybe<Scalars['String']>;
@@ -2340,6 +2346,7 @@ export enum SanityImageAssetFieldsEnum {
   label = 'label',
   title = 'title',
   description = 'description',
+  altText = 'altText',
   sha1hash = 'sha1hash',
   extension = 'extension',
   mimeType = 'mimeType',
@@ -2536,6 +2543,7 @@ export type SanityImageAssetFilterInput = {
   label?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  altText?: Maybe<StringQueryOperatorInput>;
   sha1hash?: Maybe<StringQueryOperatorInput>;
   extension?: Maybe<StringQueryOperatorInput>;
   mimeType?: Maybe<StringQueryOperatorInput>;
@@ -2934,6 +2942,7 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___label = 'subLogo___asset___label',
   subLogo___asset___title = 'subLogo___asset___title',
   subLogo___asset___description = 'subLogo___asset___description',
+  subLogo___asset___altText = 'subLogo___asset___altText',
   subLogo___asset___sha1hash = 'subLogo___asset___sha1hash',
   subLogo___asset___extension = 'subLogo___asset___extension',
   subLogo___asset___mimeType = 'subLogo___asset___mimeType',
@@ -4089,6 +4098,7 @@ export enum SanityPosterFieldsEnum {
   background___asset___label = 'background___asset___label',
   background___asset___title = 'background___asset___title',
   background___asset___description = 'background___asset___description',
+  background___asset___altText = 'background___asset___altText',
   background___asset___sha1hash = 'background___asset___sha1hash',
   background___asset___extension = 'background___asset___extension',
   background___asset___mimeType = 'background___asset___mimeType',
@@ -4345,6 +4355,7 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___label = 'thumbnail___asset___label',
   thumbnail___asset___title = 'thumbnail___asset___title',
   thumbnail___asset___description = 'thumbnail___asset___description',
+  thumbnail___asset___altText = 'thumbnail___asset___altText',
   thumbnail___asset___sha1hash = 'thumbnail___asset___sha1hash',
   thumbnail___asset___extension = 'thumbnail___asset___extension',
   thumbnail___asset___mimeType = 'thumbnail___asset___mimeType',
@@ -4436,6 +4447,7 @@ export enum SanityPostFieldsEnum {
   thumbnailPoster___background___asset___label = 'thumbnailPoster___background___asset___label',
   thumbnailPoster___background___asset___title = 'thumbnailPoster___background___asset___title',
   thumbnailPoster___background___asset___description = 'thumbnailPoster___background___asset___description',
+  thumbnailPoster___background___asset___altText = 'thumbnailPoster___background___asset___altText',
   thumbnailPoster___background___asset___sha1hash = 'thumbnailPoster___background___asset___sha1hash',
   thumbnailPoster___background___asset___extension = 'thumbnailPoster___background___asset___extension',
   thumbnailPoster___background___asset___mimeType = 'thumbnailPoster___background___asset___mimeType',
@@ -4528,6 +4540,7 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___asset___label = 'ministries___subLogo___asset___label',
   ministries___subLogo___asset___title = 'ministries___subLogo___asset___title',
   ministries___subLogo___asset___description = 'ministries___subLogo___asset___description',
+  ministries___subLogo___asset___altText = 'ministries___subLogo___asset___altText',
   ministries___subLogo___asset___sha1hash = 'ministries___subLogo___asset___sha1hash',
   ministries___subLogo___asset___extension = 'ministries___subLogo___asset___extension',
   ministries___subLogo___asset___mimeType = 'ministries___subLogo___asset___mimeType',
@@ -5102,6 +5115,7 @@ export enum SanitySermonUploadFieldsEnum {
   audioFile___asset___label = 'audioFile___asset___label',
   audioFile___asset___title = 'audioFile___asset___title',
   audioFile___asset___description = 'audioFile___asset___description',
+  audioFile___asset___altText = 'audioFile___asset___altText',
   audioFile___asset___sha1hash = 'audioFile___asset___sha1hash',
   audioFile___asset___extension = 'audioFile___asset___extension',
   audioFile___asset___mimeType = 'audioFile___asset___mimeType',
@@ -5753,7 +5767,6 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>;
   port?: Maybe<Scalars['Int']>;
   host?: Maybe<Scalars['String']>;
-  flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -5968,8 +5981,6 @@ export enum SiteFieldsEnum {
   siteMetadata___church___googleMapsEmbedSrc = 'siteMetadata___church___googleMapsEmbedSrc',
   port = 'port',
   host = 'host',
-  flags___FAST_REFRESH = 'flags___FAST_REFRESH',
-  flags___FAST_DEV = 'flags___FAST_DEV',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -6065,24 +6076,12 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
-  flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-};
-
-export type SiteFlags = {
-  __typename?: 'SiteFlags';
-  FAST_REFRESH?: Maybe<Scalars['Boolean']>;
-  FAST_DEV?: Maybe<Scalars['Boolean']>;
-};
-
-export type SiteFlagsFilterInput = {
-  FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>;
-  FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
@@ -6325,6 +6324,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___anonymize = 'pluginCreator___pluginOptions___anonymize',
   pluginCreator___pluginOptions___respectDNT = 'pluginCreator___pluginOptions___respectDNT',
   pluginCreator___pluginOptions___pageTransitionDelay = 'pluginCreator___pluginOptions___pageTransitionDelay',
+  pluginCreator___pluginOptions___pixelId = 'pluginCreator___pluginOptions___pixelId',
   pluginCreator___pluginOptions___query = 'pluginCreator___pluginOptions___query',
   pluginCreator___pluginOptions___feeds = 'pluginCreator___pluginOptions___feeds',
   pluginCreator___pluginOptions___feeds___output = 'pluginCreator___pluginOptions___feeds___output',
@@ -6548,6 +6548,7 @@ export enum SitePluginFieldsEnum {
   pluginOptions___anonymize = 'pluginOptions___anonymize',
   pluginOptions___respectDNT = 'pluginOptions___respectDNT',
   pluginOptions___pageTransitionDelay = 'pluginOptions___pageTransitionDelay',
+  pluginOptions___pixelId = 'pluginOptions___pixelId',
   pluginOptions___query = 'pluginOptions___query',
   pluginOptions___feeds = 'pluginOptions___feeds',
   pluginOptions___feeds___output = 'pluginOptions___feeds___output',
@@ -6701,6 +6702,7 @@ export type SitePluginPluginOptions = {
   anonymize?: Maybe<Scalars['Boolean']>;
   respectDNT?: Maybe<Scalars['Boolean']>;
   pageTransitionDelay?: Maybe<Scalars['Int']>;
+  pixelId?: Maybe<Scalars['String']>;
   query?: Maybe<Scalars['String']>;
   feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
   path?: Maybe<Scalars['String']>;
@@ -6761,6 +6763,7 @@ export type SitePluginPluginOptionsFilterInput = {
   anonymize?: Maybe<BooleanQueryOperatorInput>;
   respectDNT?: Maybe<BooleanQueryOperatorInput>;
   pageTransitionDelay?: Maybe<IntQueryOperatorInput>;
+  pixelId?: Maybe<StringQueryOperatorInput>;
   query?: Maybe<StringQueryOperatorInput>;
   feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>;
   path?: Maybe<StringQueryOperatorInput>;

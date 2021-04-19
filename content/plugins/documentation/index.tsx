@@ -26,7 +26,7 @@ function Documentation() {
         <h2 className={styles.title}>Documentation</h2>
       </header>
       <div className={styles.content}>
-        <Markdown source={docs} />
+        <Markdown children={docs} />
       </div>
     </div>
   )
