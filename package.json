@@ -18,7 +18,7 @@
     "prod": "yarn build && serve -s public -p 5001",
     "deploy": "./deploy.sh",
     "develop": "gatsby develop -H 0.0.0.0",
-    "preview-server": "NODE_ENV=development ENABLE_GATSBY_REFRESH_ENDPOINT=true forever node_modules/.bin/gatsby develop -H 0.0.0.0 -p ${PORT}",
+    "preview-server": "NODE_ENV=development ENABLE_GATSBY_REFRESH_ENDPOINT=true node --max_old_space_size=300 node_modules/.bin/forever node_modules/.bin/gatsby develop -H 0.0.0.0 -p ${PORT}",
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
     "deps:check": "madge --ts-config tsconfig.json -c src/**/*",
