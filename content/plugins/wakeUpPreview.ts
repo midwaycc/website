@@ -1,5 +1,5 @@
 if (typeof fetch === 'function') {
-  fetch('https://midway-preview.herokuapp.com/___graphql', {
+  fetch('https://preview-midwaycc.gtsb.io/___graphql', {
     headers: {
       'content-type': 'application/json',
       accept: 'application/json'

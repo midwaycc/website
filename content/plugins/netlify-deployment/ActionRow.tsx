@@ -41,7 +41,7 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
 
   const refreshPreview = () => {
     setMessage('Refreshing...')
-    fetch(`https://${HEROKU_APP}.herokuapp.com/__refresh`, {
+    fetch(`https://preview-midwaycc.gtsb.io/__refresh`, {
       method: 'POST'
     }).then(() => {
       setMessage('Preview data refreshed. Wait 10 seconds and refresh preview.')
@@ -81,6 +81,7 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
         Refresh Preview
       </Button>
       <Button
+        disabled
         className={styles.actionButton}
         style={{ background: '#dd5555', borderColor: '#662a2a' }}
         color="secondary"

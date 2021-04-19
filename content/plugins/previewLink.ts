@@ -14,7 +14,7 @@ export default function resolveProductionUrl(document: Doc) {
     | 'staging'
 
   if (dataset === 'production') {
-    return `https://midway-preview.herokuapp.com${path(document)}`
+    return `https://preview-midwaycc.gtsb.io${path(document)}`
   }
 
   return `https://midway-preview-staging.herokuapp.com${path(document)}`
