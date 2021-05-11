@@ -29,7 +29,6 @@
     "serve": "gatsby serve",
     "check-upgrades": "echo \"\\nRoot:\\n\" && yarn outdated; echo \"\\n\\nSanity:\\n\" && cd content && yarn outdated; echo",
     "test": "jest",
-    "heroku-postbuild": "echo 'No build step.'",
     "postinstall": "patch-package"
   },
   "dependencies": {

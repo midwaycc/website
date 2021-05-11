@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import formatDistance from 'date-fns/formatDistance'
 import Button from 'part:@sanity/components/buttons/default'
+import { hitPreviewWebhook } from '../wakeUpPreview'
 import styles from './styles.css'
 
 type Props = {
   lastDeployed: string | null
   buildHookId: string
 }
-
-const HEROKU_APP =
-  window.location.pathname.split('/')[1] === 'staging'
-    ? 'midway-preview-staging'
-    : 'midway-preview'
 
 export function ActionRow({ lastDeployed, buildHookId }: Props) {
   const [message, setMessage] = useState<React.ReactNode>('Loading...')
@@ -39,27 +35,11 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
     })
   }
 
-  const refreshPreview = () => {
-    setMessage('Refreshing...')
-    fetch(`https://preview-midwaycc.gtsb.io/__refresh`, {
-      method: 'POST'
-    }).then(() => {
-      setMessage('Preview data refreshed. Wait 10 seconds and refresh preview.')
-    })
-  }
-
   const restartPreview = () => {
     setMessage('Restarting...')
-    fetch(`https://api.heroku.com/apps/${HEROKU_APP}/dynos`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/vnd.heroku+json; version=3',
-        Authorization: `Bearer ${process.env.SANITY_STUDIO_HEROKU_TOKEN}`
-      }
-    }).then(() => {
+    hitPreviewWebhook().then(() => {
       setMessage(
-        'Preview site restarted. Wait 1-2 minutes and refresh preview.'
+        'Preview site restarted. Wait a minute and refresh the preview page.'
       )
     })
   }
@@ -76,15 +56,9 @@ export function ActionRow({ lastDeployed, buildHookId }: Props) {
       <Button
         className={styles.actionButton}
         color="secondary"
-        onClick={refreshPreview}
-      >
-        Refresh Preview
-      </Button>
-      <Button
-        disabled
-        className={styles.actionButton}
-        style={{ background: '#dd5555', borderColor: '#662a2a' }}
-        color="secondary"
+        style={{
+          marginLeft: '1rem'
+        }}
         onClick={restartPreview}
       >
         Restart Preview

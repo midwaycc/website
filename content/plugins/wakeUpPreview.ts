@@ -1,19 +1,13 @@
-if (typeof fetch === 'function') {
-  fetch('https://preview-midwaycc.gtsb.io/___graphql', {
-    headers: {
-      'content-type': 'application/json',
-      accept: 'application/json'
-    },
-    body: '{"query":"query{allSitePage{totalCount}}"}',
-    method: 'POST',
-    mode: 'cors'
-  })
-    .then(response => response.json())
-    .then(json =>
-      console.log(
-        'Preview responded! There are',
-        json.data.allSitePage.totalCount,
-        'pages.'
-      )
-    )
+export function hitPreviewWebhook() {
+  return fetch(
+    `https://webhook.gatsbyjs.com/hooks/data_source/08a62576-94db-4915-b627-37400eef818a`,
+    { method: 'POST' }
+  )
+}
+
+export function keepPreviewAlive() {
+  hitPreviewWebhook()
+  setInterval(() => {
+    hitPreviewWebhook()
+  }, 60000)
 }

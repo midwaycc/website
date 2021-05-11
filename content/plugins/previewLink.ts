@@ -17,7 +17,7 @@ export default function resolveProductionUrl(document: Doc) {
     return `https://preview-midwaycc.gtsb.io${path(document)}`
   }
 
-  return `https://midway-preview-staging.herokuapp.com${path(document)}`
+  return `https://preview-midwaycc.gtsb.io${path(document)}`
 }
 
 function path(document: Doc) {
