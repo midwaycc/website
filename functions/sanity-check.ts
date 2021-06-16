@@ -79,7 +79,7 @@ const triggerDeploy = async () => {
   await fetch(
     'https://webhook.gatsbyjs.com/hooks/data_source/publish/08a62576-94db-4915-b627-37400eef818a',
     { method: 'POST' }
-  );
+  )
 
   if (!response.ok) {
     console.error(response)
