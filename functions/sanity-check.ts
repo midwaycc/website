@@ -35,26 +35,28 @@ export async function handler() {
   }
 }
 
-const checkTimestamp = (
-  url: string,
-  token: string | undefined,
-  name: string | undefined,
-  getTimestamp: (data: any) => string
-) => async () => {
-  const response = await fetch(url, {
-    headers: { Authorization: `Bearer ${token}` }
-  })
+const checkTimestamp =
+  (
+    url: string,
+    token: string | undefined,
+    name: string | undefined,
+    getTimestamp: (data: any) => string
+  ) =>
+  async () => {
+    const response = await fetch(url, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
 
-  if (!response.ok) {
-    console.error(response)
-    throw new Error(`${name} request failed: ${response.statusText}`)
+    if (!response.ok) {
+      console.error(response)
+      throw new Error(`${name} request failed: ${response.statusText}`)
+    }
+
+    const data = await response.json()
+    const now = new Date()
+    const lastUpdate = new Date(getTimestamp(data))
+    return (Number(now) - Number(lastUpdate)) / 1000 / 60
   }
-
-  const data = await response.json()
-  const now = new Date()
-  const lastUpdate = new Date(getTimestamp(data))
-  return (Number(now) - Number(lastUpdate)) / 1000 / 60
-}
 
 const minutesSinceLastContentUpdate = checkTimestamp(
   `https://iq9kxmf9.api.sanity.io/v1/data/query/production?query=${LATEST_DOCUMENT_QUERY}`,

@@ -18,7 +18,6 @@
     "prod": "yarn build && serve -s public -p 5001",
     "deploy": "./deploy.sh",
     "develop": "gatsby develop -H 0.0.0.0",
-    "preview-server": "NODE_ENV=development ENABLE_GATSBY_REFRESH_ENDPOINT=true node --max_old_space_size=300 node_modules/.bin/forever node_modules/.bin/gatsby develop -H 0.0.0.0 -p ${PORT}",
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css}' 'functions/*.ts'",
     "deps:check": "madge --ts-config tsconfig.json -c src/**/*",
@@ -51,12 +50,11 @@
     "@types/react-plyr": "^2.1.0",
     "@types/styled-components": "^5.0.0",
     "@vimeo/player": "^2.10.0",
-    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-styled-components": "^1.10.0",
     "date-fns": "^2.19.0",
-    "dotenv": "^8.0.0",
+    "dotenv": "^10.0.0",
     "encoding": "^0.1.13",
-    "forever": "^3.0.2",
     "gatsby": "2.28.0",
     "gatsby-image": "^2.2.6",
     "gatsby-plugin-facebook-pixel": "^1.0.5",
@@ -73,7 +71,6 @@
     "md5-slim": "^1.0.0",
     "netlify-cli": "^3.13.5",
     "node-fetch": "^2.6.1",
-    "node-notifier-cli": "^1.1.2",
     "patch-package": "^6.2.2",
     "polished": "^4.0.3",
     "postinstall-postinstall": "^2.1.0",
@@ -87,7 +84,7 @@
     "react-modal": "^3.11.1",
     "react-parallax": "^3.0.3",
     "react-plyr": "^2.2.0",
-    "rollup": "^2.32.1",
+    "rollup": "^2.52.1",
     "serve": "^11.0.0",
     "styled-components": "^5.2.1",
     "typescript": "~4.3.3"
@@ -100,12 +97,12 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "@rollup/plugin-replace": "^2.3.4",
-    "babel-jest": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-replace": "^2.4.2",
+    "babel-jest": "^27.0.2",
     "babel-preset-gatsby": "^0.8.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.0.1",
+    "jest": "^27.0.4",
     "madge": "^4.0.2"
   }
 }
