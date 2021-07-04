@@ -1977,45 +1977,45 @@
     ts-node "^9"
     tslib "^2"
 
-"@fullcalendar/common@~5.4.0":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.4.0.tgz#65474163e43bea4443b2577cd39d7021678237df"
-  integrity sha512-w6C5VLxZmS8AmbAIiIHy+p+S/G9wtsvFEgyM/Ijd+5/ENKV4bs8ieOsetdl79WUheRKg0oXiiG5fy1X3EFk/Gg==
+"@fullcalendar/common@~5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.8.0.tgz#43e79e26e6347af83baaa603157aced67e23d549"
+  integrity sha512-cKmXNgo/9auw86MOwXxA+5FRrgvbE93C9YDwic+Alfm3bUruDTzJDnuvRndrFVurpSBLm6/ZitaR+yoWKLIsgA==
   dependencies:
-    tslib "^2.0.3"
+    tslib "^2.1.0"
 
-"@fullcalendar/core@^5.0.0":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-5.4.0.tgz#426eed400b0948b955e92275095d617e428be5a1"
-  integrity sha512-brg5TI/ZrCm+gBdKRkDLuenUxAEYa40Esw6yAtLbx0azRinhOZ+koqy4J3VA3dnv2W5HI9agVr9wuQLHWjqDtw==
+"@fullcalendar/core@^5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-5.8.0.tgz#86f034fc4a49c6a44886380aff01c6fcd7204966"
+  integrity sha512-55Zwy4fwcxBqHjfjhV5eae4qOh9fMlpjGcyy4Zt39zA1NlgUW0JxCGOyIu2K2jm2JZn+27/P8b06JXy57DmtKg==
   dependencies:
-    "@fullcalendar/common" "~5.4.0"
+    "@fullcalendar/common" "~5.8.0"
     preact "^10.0.5"
-    tslib "^2.0.3"
+    tslib "^2.1.0"
 
-"@fullcalendar/google-calendar@^5.0.0":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-5.4.0.tgz#65e68cf9090f9eacaa90e1ef6ef1847e3358300e"
-  integrity sha512-zOZmp1RnF+nqyCiA2FmcQoVGzUZNdGu3vk3Wi2dPLO8lWAq0LVL1bhjU3nn2DW8wYA4DcCaS2LmW8Qw6ZJx+lw==
+"@fullcalendar/google-calendar@^5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-5.8.0.tgz#65d33eff1fd8182e820bf4f0bc297c87b949050d"
+  integrity sha512-kJ6UfLQG9wznCMUkM2OxtEwQriq5PG4J77iJ2R85p52lRqC2dl9q5wVDaAdFSyPHWcbqtPm1flsOpCvri0XH0Q==
   dependencies:
-    "@fullcalendar/common" "~5.4.0"
-    tslib "^2.0.3"
+    "@fullcalendar/common" "~5.8.0"
+    tslib "^2.1.0"
 
-"@fullcalendar/list@^5.0.0":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/list/-/list-5.4.0.tgz#f6ade6d4a6dc9e61ef8eac155bc2fab94a897c76"
-  integrity sha512-6J/ZeZttjfPhpQ7elVHabvjvdnnvH/ttgRmqx5kYyV4Fpjm3TPD9DJVLsONAvp/wFM9PWoF4t+JkXapXJAYH3Q==
+"@fullcalendar/list@^5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/list/-/list-5.8.0.tgz#703290784d860133abaa9176bdf66383f7c7ef9f"
+  integrity sha512-JlqXbWq8Gl2BMx1mOAeEWakW43xDYypBBjwKztnax5tOB5Sfty8chVmeG7ffz2NFtvg2c1nj6MP/zGrVCYY0RA==
   dependencies:
-    "@fullcalendar/common" "~5.4.0"
-    tslib "^2.0.3"
+    "@fullcalendar/common" "~5.8.0"
+    tslib "^2.1.0"
 
-"@fullcalendar/react@^5.0.0":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-5.4.0.tgz#874fa7a72b92aec1d907e253f1d59b48ef1b9759"
-  integrity sha512-FtTuD40jdbSzttKmC6PHLnoJSNrw48oq/zbjZ2Qm/94YPEuGULJ0YMjftGTg6pGxBhJf7LiC1bU5eM92iwIYZA==
+"@fullcalendar/react@^5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-5.8.0.tgz#4e5dbcb48b82db61b359de9f0b6e6a49483ace91"
+  integrity sha512-lGvExh2It8eEfH/Pu9Al6NExwAsq4zXFspcKeXjCARqETUqI0hL7PXuxwvedFlAGUuj2cdbpEnasFc89rGeENA==
   dependencies:
-    "@fullcalendar/common" "~5.4.0"
-    tslib "^2.0.3"
+    "@fullcalendar/common" "~5.8.0"
+    tslib "^2.1.0"
 
 "@graphql-codegen/cli@^1.21.6":
   version "1.21.6"
@@ -3331,10 +3331,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@rooks/use-window-size@^4.10.0":
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/@rooks/use-window-size/-/use-window-size-4.10.0.tgz#3c5988da9d15064c21ea2e3f1fa06684adf71ddf"
-  integrity sha512-D3M04QYygn3dSj+MHdW+iPyAkbMzYuXSzR+hn0O7q+/KJjjwS0p5+puORGe2gZ4otOB2sLtRKCvNN7v0hQfv6A==
+"@rooks/use-window-size@^4.11.2":
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/@rooks/use-window-size/-/use-window-size-4.11.2.tgz#1b136c2c1fdbb4a2a560cd53c432ef1299c09718"
+  integrity sha512-TQvObjwn/oNUBO00dZeLaJC61BoonJmXV6Mye4hno25nnZASbBufvivTzuYJiYoAo0ciBrADaUNdrekGEs0ItA==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.1"
@@ -4065,10 +4065,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/from-entries/-/from-entries-0.2.1.tgz#7e86196b8b2e99d73106a8f25c2a068326346354"
   integrity sha512-CAqefTFAfnUPwYqsWHXpOxHaq1Zo5UQ3m9Zm2p09LggGe57rqHoBn3c++xcoomzXKynAUuiBMDUCQvKMnXjUpA==
 
-"@vimeo/player@^2.10.0":
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.14.1.tgz#f35fd141fbd096555d1090e53625364cb0874fff"
-  integrity sha512-PXIATVxUfblTbRoSXzNcplJFjsho6e32ltfEm4po/RFZcAOYefOO4mjxDMGUTAzo937DZvjd5n1u7+EfGHuLPw==
+"@vimeo/player@^2.15.3":
+  version "2.15.3"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.15.3.tgz#7ef73bccd8eaebaadceb9048f1103ed0cbcf1427"
+  integrity sha512-pLOFTKYL6N3wUKj5WpCF5pNGHov/3MausV9tKWXP6ko7+mq4pvlSJLSHCn1vokN71USSwHFnOaZjcMMjK6R79g==
   dependencies:
     native-promise-only "0.8.1"
     weakmap-polyfill "2.0.1"
