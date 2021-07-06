@@ -7,10 +7,6 @@ const podcastFeed = require('./podcast-feed')
 const siteMetadata = require('./siteMetadata')
 
 module.exports = {
-  flags: {
-    FAST_REFRESH: true,
-    FAST_DEV: true
-  },
   siteMetadata,
   plugins: [
     'gatsby-plugin-typescript',
