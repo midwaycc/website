@@ -11,7 +11,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-typescript',
-    // 'gatsby-plugin-preact',
+    'gatsby-plugin-preact',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-module-resolver',
