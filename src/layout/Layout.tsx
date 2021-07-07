@@ -24,9 +24,7 @@ export default function Layout({ children, path, data }: Props) {
         <PageContainer>
           <Header />
           <Main>
-            {path.indexOf('/ministries/') === 0 && (
-              <MinistryPageTopNav data={data} path={path} />
-            )}
+            <MinistryPageTopNav path={path} data={data} />
             {children}
           </Main>
           <Footer />

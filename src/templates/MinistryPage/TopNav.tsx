@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import Image, { GatsbyImageProps, FluidObject } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { Content } from '~/layout/Content'
 import { Section } from '~/layout/Section'
@@ -22,7 +22,20 @@ export function TopNav({ data, path }: Props) {
     return null
   }
 
-  const { subLogo, subLogoWidth } = data.sanityMinistryPage
+  const { subLogo, subLogoWidth, name } = data.sanityMinistryPage
+  const logoLink = useMemo(
+    () =>
+      subLogo && subLogo.asset && subLogo.asset.gatsbyImageData ? (
+        <Link to={ministryRootURL || '/'}>
+          <SubLogo
+            alt={name + ' logo'}
+            image={subLogo.asset.gatsbyImageData}
+            $width={subLogoWidth || 0}
+          />
+        </Link>
+      ) : null,
+    [name]
+  )
 
   return (
     <RaggedSection color="white">
@@ -32,14 +45,7 @@ export function TopNav({ data, path }: Props) {
             Home
           </SquareButton>
         </Link>
-        {subLogo && subLogo.asset && (
-          <Link to={ministryRootURL || '/'}>
-            <SubLogo
-              fluid={(subLogo.asset.fluid as FluidObject) || undefined}
-              $width={subLogoWidth || 0}
-            />
-          </Link>
-        )}
+        {logoLink}
         <SectionLinks
           data={data}
           path={path}
@@ -62,8 +68,9 @@ const RaggedSection = styled(Section)`
   )};
 `
 
-export const SubLogo = styled(Image)<GatsbyImageProps & { $width: number }>`
+export const SubLogo = styled(GatsbyImage)<{ $width: number }>`
   width: ${props => props.$width || 0}px;
   max-width: calc(100%);
   margin-bottom: 2em;
+  display: block;
 `

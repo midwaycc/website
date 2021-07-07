@@ -38,9 +38,7 @@ export const query = graphql`
       _rawContent(resolveReferences: { maxDepth: 10 })
       subLogo {
         asset {
-          fluid(maxWidth: 600) {
-            ...GatsbySanityImageFluid
-          }
+          gatsbyImageData(width: 600)
         }
       }
       subLogoWidth

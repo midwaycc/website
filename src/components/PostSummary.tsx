@@ -1,5 +1,5 @@
 import React from 'react'
-import Image, { FluidObject } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { RichContent } from '~/sanity/RichContent'
 import { Poster } from './Poster'
@@ -39,11 +39,10 @@ export function PostSummary({ post }: Props) {
       ) : (
         post.thumbnail &&
         post.thumbnail.asset && (
-          <Image
+          <GatsbyImage
+            alt="Post thumbnail"
+            image={post.thumbnail.asset.gatsbyImageData}
             css="margin-bottom: 1em"
-            fluid={
-              { ...post.thumbnail.asset.fluid, aspectRatio: 1 } as FluidObject
-            }
           />
         )
       )}

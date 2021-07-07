@@ -35,9 +35,7 @@ export const query = graphql`
     }
     thumbnail {
       asset {
-        fluid(maxWidth: 400) {
-          ...GatsbySanityImageFluid
-        }
+        gatsbyImageData(width: 400, aspectRatio: 1)
       }
     }
   }
