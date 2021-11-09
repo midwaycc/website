@@ -20,7 +20,8 @@ export function WeeklySchedule() {
   }
 
   const start = getMostRecentMonday()
-  const scheduleAlert = data.sanityScheduleAlert
+  const scheduleAlerts = data.allSanityScheduleAlert?.nodes || []
+  const scheduleAlert = scheduleAlerts[0] || null
   const { days } = schedule || {}
   const splitIndex = getSplitIndex(days)
 
@@ -33,7 +34,7 @@ export function WeeklySchedule() {
         <CalendarLink>
           <Link to="/calendar">See full calendar ›</Link>
         </CalendarLink>
-        {scheduleAlert && scheduleAlert._rawMessage && (
+        {scheduleAlert && scheduleAlert.active && scheduleAlert._rawMessage && (
           <Alert>
             <RichContent blocks={scheduleAlert._rawMessage} />
           </Alert>
@@ -55,9 +56,15 @@ export function WeeklySchedule() {
 
 const query = graphql`
   query WeeklySchedule {
-    sanityScheduleAlert {
-      id
-      _rawMessage
+    allSanityScheduleAlert(
+      sort: { fields: _updatedAt, order: DESC }
+      limit: 1
+    ) {
+      nodes {
+        active
+        id
+        _rawMessage
+      }
     }
     sanityWeeklySchedule {
       days {
