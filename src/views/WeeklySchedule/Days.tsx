@@ -6,7 +6,7 @@ import { Event } from './Event'
 import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
 
 export type SanityDays = Exclude<
-  WeeklyScheduleQuery['sanityWeeklySchedule'],
+  WeeklyScheduleQuery['allSanityWeeklySchedule']['nodes'][number],
   null | undefined
 >['days']
 

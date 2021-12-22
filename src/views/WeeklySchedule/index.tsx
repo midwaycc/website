@@ -14,7 +14,7 @@ import scheduleBackground from '~/../static/images/Footer_Image.jpg'
 
 export function WeeklySchedule() {
   const data: WeeklyScheduleQuery = useStaticQuery(query)
-  const schedule = data.sanityWeeklySchedule
+  const schedule = data.allSanityWeeklySchedule?.nodes[0]
   if (!schedule) {
     return null
   }
@@ -66,12 +66,18 @@ const query = graphql`
         _rawMessage
       }
     }
-    sanityWeeklySchedule {
-      days {
-        label
-        events {
-          time
-          description
+    allSanityWeeklySchedule(
+      sort: { order: DESC, fields: _updatedAt }
+      limit: 1
+    ) {
+      nodes {
+        _id
+        days {
+          label
+          events {
+            time
+            description
+          }
         }
       }
     }
