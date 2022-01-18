@@ -26,7 +26,10 @@ export const FullLink = styled(
     sameWindow?: boolean
   }) => {
     const { sameWindow, ...otherProps } = props
-    if (props.to.indexOf('http') === 0) {
+    if (!props.to) {
+      console.error('Invalid link!', props)
+    }
+    if (props.to && props.to.indexOf('http') === 0) {
       return (
         <a
           className={props.className}
