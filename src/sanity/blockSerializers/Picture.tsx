@@ -28,7 +28,7 @@ const SANITY_LOCATION = {
 const MAX_WIDTH = media.xl.pixelWidth
 
 export function Picture({ node }: Props) {
-  if (!node || !node.image) return null
+  if (!node || !node.image || !node.image.asset) return null
 
   const { image, constrainAspectRatio, size, align, caption } = node
   const percentWidth = PERCENTS[size || 'full']
