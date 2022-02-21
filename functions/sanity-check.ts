@@ -30,7 +30,7 @@ export async function handler() {
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ msg: err.message })
+      body: JSON.stringify({ msg: (err as Error).message })
     }
   }
 }
