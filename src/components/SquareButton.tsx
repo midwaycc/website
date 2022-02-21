@@ -11,6 +11,7 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   hoverBackgroundColor?: string
   borderColor?: string
   secondaryBorderColor?: string
+  style?: any
 }
 
 export const SquareButton = ({
@@ -23,6 +24,7 @@ export const SquareButton = ({
   hoverBackgroundColor,
   borderColor,
   secondaryBorderColor,
+  style,
   ...buttonProps
 }: Props) => {
   const left = point === 'left' ? <Arrow>&lsaquo;&nbsp;&nbsp;</Arrow> : null
@@ -37,6 +39,7 @@ export const SquareButton = ({
       $hoverBackgroundColor={hoverBackgroundColor}
       $borderColor={borderColor}
       $secondaryBorderColor={secondaryBorderColor}
+      style={style}
       {...buttonProps}
     >
       {left}
