@@ -51,7 +51,7 @@
     "@types/styled-components": "^5.1.11",
     "@vimeo/player": "^2.15.3",
     "babel-plugin-module-resolver": "^4.1.0",
-    "babel-plugin-styled-components": "^1.0.0",
+    "babel-plugin-styled-components": "^2.0.0",
     "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
     "encoding": "^0.1.13",
