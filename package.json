@@ -42,7 +42,7 @@
     "@rooks/use-window-size": "^4.11.2",
     "@sanity/block-content-to-react": "3.x.x",
     "@sanity/cli": "^2.12.2",
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^27.0.0",
     "@types/loadable__component": "^5.13.4",
     "@types/react-dom": "^17.0.0",
     "@types/react-helmet": "^6.0.0",
