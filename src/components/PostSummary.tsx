@@ -3,18 +3,12 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { RichContent } from '~/sanity/RichContent'
 import { Poster } from './Poster'
-import { SanityPost } from '~/types/graphqlTypes'
+import { RecentPostsQuery } from '~/types/graphqlTypes'
 
 type Props = {
-  post: Pick<
-    SanityPost,
-    | 'thumbnail'
-    | '_rawThumbnailPoster'
-    | 'title'
-    | 'slug'
-    | 'date'
-    | '_rawSummary'
-  >
+  post: RecentPostsQuery['allSanityPost']['nodes'] extends Array<infer T>
+    ? T
+    : never
 }
 
 export function PostSummary({ post }: Props) {
