@@ -10,7 +10,6 @@ module.exports = {
   siteMetadata,
   plugins: [
     'gatsby-plugin-image',
-    'gatsby-plugin-typescript',
     'gatsby-plugin-preact',
     'gatsby-plugin-styled-components',
     {
