@@ -1,9 +1,10 @@
 import fetch from 'node-fetch'
+import { Handler } from '@netlify/functions'
 
 const LATEST_DOCUMENT_QUERY =
   '*[!(_id in path("drafts.**") || _id in path("_.**"))]|order(_updatedAt desc)[0]._updatedAt'
 
-export async function handler() {
+const handler: Handler = async () => {
   try {
     const [lastContentUpdate, lastDeploy] = await Promise.all([
       minutesSinceLastContentUpdate(),
@@ -34,6 +35,8 @@ export async function handler() {
     }
   }
 }
+
+export { handler }
 
 const checkTimestamp =
   (
