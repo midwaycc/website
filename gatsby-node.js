@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   ])
 }
 
-exports.sourceNodes = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   createTypes(`
