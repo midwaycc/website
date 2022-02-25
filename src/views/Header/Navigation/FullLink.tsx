@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, CSSObject } from 'styled-components'
 import { Link } from 'gatsby'
 
 const styles = css`
@@ -21,6 +21,7 @@ export const FullText = styled.span`
 export const FullLink = styled(
   (props: {
     className?: string
+    style?: CSSObject
     to: string
     children: React.ReactNode
     sameWindow?: boolean
@@ -33,6 +34,7 @@ export const FullLink = styled(
       return (
         <a
           className={props.className}
+          style={props.style}
           href={props.to}
           target={sameWindow ? undefined : '_blank'}
           rel={sameWindow ? undefined : 'noopener noreferrer'}

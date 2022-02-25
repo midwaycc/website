@@ -15,7 +15,7 @@ let openItem: string | null = null
 export function NavigationItem({ text, link, sameWindow }: NavItemWithLink) {
   return (
     <Container>
-      <FullLink css="color: white" to={link} sameWindow={sameWindow}>
+      <FullLink style={{ color: 'white' }} to={link} sameWindow={sameWindow}>
         {text}
       </FullLink>
     </Container>
@@ -42,7 +42,7 @@ export function NavigationItemWithSubmenu({
 
   return (
     <Container>
-      <FullText css="color: white">
+      <FullText style={{ color: 'white' }}>
         <Plus>+</Plus> {text}
       </FullText>
       <Toggle onClick={handleClick} data-text={text} />
@@ -50,7 +50,7 @@ export function NavigationItemWithSubmenu({
         {items.map((item, i) => (
           <SubItem key={i}>
             <FullLink
-              css="color: white"
+              style={{ color: 'white' }}
               to={item.link}
               sameWindow={item.sameWindow}
             >

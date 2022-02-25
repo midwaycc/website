@@ -41,7 +41,7 @@ export function TopNav({ data, path }: Props) {
     <RaggedSection color="white">
       <Content>
         <Link to="/">
-          <SquareButton dark thick point="left" css="margin-bottom: 2em">
+          <SquareButton dark thick point="left" style={{ marginBottom: '2em' }}>
             Home
           </SquareButton>
         </Link>

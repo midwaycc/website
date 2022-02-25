@@ -42,7 +42,7 @@ export function QuickLinksModal({ quickLinks }: Props) {
       >
         <Scroller>
           <RichContent
-            css="padding-bottom: 2rem"
+            style={{ paddingBottom: '2rem' }}
             blocks={quickLinks._rawContent || []}
           />
         </Scroller>

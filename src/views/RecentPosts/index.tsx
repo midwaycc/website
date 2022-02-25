@@ -30,7 +30,7 @@ export function RecentPosts({ posts, onHomePage }: Props) {
           <Subtitle>Find out what's happening.</Subtitle>
         </Banner>
       )}
-      <Content css="padding: 1em">
+      <Content style={{ padding: '1em' }}>
         <CardContainer>
           {postsToUse.map((post, i) => (
             <PostCard key={post._id || `post-${i}`} post={post} />
@@ -39,7 +39,7 @@ export function RecentPosts({ posts, onHomePage }: Props) {
         {onHomePage && (
           <ViewAllRow>
             <Stamp />
-            <Link to="/posts" css="z-index: 1; margin: 1rem 0">
+            <Link to="/posts" style={{ zIndex: 1, margin: '1rem 0' }}>
               <SquareButton thick dark point="right">
                 View Past Events
               </SquareButton>

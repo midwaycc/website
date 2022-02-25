@@ -1,4 +1,5 @@
 import React from 'react'
+import { CSSObject } from 'styled-components'
 import { PosterSvg } from './PosterSvg'
 import { SanityPoster } from '~/types/graphqlTypes'
 import { DeepPartial } from '~/types/DeepPartial'
@@ -7,9 +8,10 @@ type Props = {
   poster: DeepPartial<SanityPoster>
   aspectRatio?: number
   className?: string
+  style?: CSSObject
 }
 
-export function Poster({ poster, aspectRatio, className }: Props) {
+export function Poster({ poster, aspectRatio, className, style }: Props) {
   const { lines, overlayColor, overlayOpacity, background } = poster
   const { url, metadata } = background?.asset || {}
   const { width, height } = metadata?.dimensions || {}
@@ -41,6 +43,7 @@ export function Poster({ poster, aspectRatio, className }: Props) {
     <PosterSvg
       key={poster._id}
       className={className}
+      style={style}
       lines={linesToUse}
       imageUrl={url}
       aspectRatio={aspectRatio ?? width / height}

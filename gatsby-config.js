@@ -6,15 +6,21 @@ const podcastFeed = require('./podcast-feed')
 
 const siteMetadata = require('./siteMetadata')
 
-const isProd = process.env.NODE_ENV === "production"
-const previewEnabled = (process.env.GATSBY_IS_PREVIEW || "false").toLowerCase() === "true"
+const isProd = process.env.NODE_ENV === 'production'
+const previewEnabled =
+  (process.env.GATSBY_IS_PREVIEW || 'false').toLowerCase() === 'true'
 
 module.exports = {
   siteMetadata,
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-preact',
-    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-styled-components',
+      options: {
+        cssProp: true
+      }
+    },
     {
       resolve: 'gatsby-plugin-module-resolver',
       options: {
@@ -38,7 +44,7 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         dataset: process.env.USE_STAGING === 'true' ? 'staging' : 'production',
         watchMode: !isProd,
-        overlayDrafts: !isProd || previewEnabled,
+        overlayDrafts: !isProd || previewEnabled
       }
     },
     'gatsby-plugin-netlify',

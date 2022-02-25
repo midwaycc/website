@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
 import { getContainerStyles } from '../../utils/boxSizeHelpers' // Avoid ~ alias for Sanity
 import { Align } from '~/types/align'
 import { Size } from '~/types/size'
@@ -13,6 +13,7 @@ type Props = {
   fillColor?: string
   fillOpacity?: number
   className?: string
+  style?: CSSObject
 }
 
 type Line = {
@@ -34,17 +35,17 @@ export function PosterSvg({
   aspectRatio = 4 / 3,
   fillColor = 'transparent',
   fillOpacity = 0,
-  className
+  className,
+  style
 }: Props) {
   const aspectHeight = BASE_WIDTH / aspectRatio
 
   return (
     <StyledSvg
-      viewBox={`0 0 ${BASE_WIDTH} ${aspectHeight}`}
-      // @ts-ignore The css prop has issues with styled svg elements, but is
-      // still valid.
-      css={getContainerStyles(size, align)}
       className={className}
+      style={style}
+      viewBox={`0 0 ${BASE_WIDTH} ${aspectHeight}`}
+      $extraStyles={getContainerStyles(size, align)}
     >
       <defs>
         <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -93,7 +94,7 @@ function Line({ fontSize, text, position }: Line) {
   )
 }
 
-const StyledSvg = styled.svg`
+const StyledSvg = styled.svg<{ $extraStyles: InterpolatedCSS }>`
   width: 100%;
 
   text {
@@ -101,4 +102,6 @@ const StyledSvg = styled.svg`
     cursor: default;
     user-select: none;
   }
+
+  ${props => props.$extraStyles}
 `

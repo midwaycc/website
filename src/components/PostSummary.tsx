@@ -26,7 +26,7 @@ export function PostSummary({ post }: Props) {
     <>
       {post._rawThumbnailPoster ? (
         <Poster
-          css="margin: 0"
+          style={{ margin: 0 }}
           aspectRatio={1}
           poster={post._rawThumbnailPoster}
         />
@@ -36,7 +36,7 @@ export function PostSummary({ post }: Props) {
           <GatsbyImage
             alt="Post thumbnail"
             image={post.thumbnail.asset.gatsbyImageData}
-            css="margin-bottom: 1em"
+            style={{ marginBottom: '1em' }}
           />
         )
       )}

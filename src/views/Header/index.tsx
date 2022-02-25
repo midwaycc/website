@@ -29,7 +29,7 @@ export function Header() {
 
   return (
     <>
-      <NarrowMenuToggle css={hiddenAbove(BREAKPOINT, 'block')} />
+      <StyledNarrowMenuToggle />
       <Container>
         <HeaderContent>
           <Link to="/">
@@ -84,6 +84,10 @@ const query = graphql`
       }
     }
   }
+`
+
+const StyledNarrowMenuToggle = styled(NarrowMenuToggle)`
+  ${hiddenAbove(BREAKPOINT, 'block')}
 `
 
 const Container = styled.header`

@@ -52,7 +52,7 @@ export function Picture({ node }: Props) {
           <GatsbyImage
             alt={caption || 'image'}
             image={gatsbyImageData}
-            css="display: block"
+            style={{ display: 'block' }}
           />
         </div>
       </CropContainer>

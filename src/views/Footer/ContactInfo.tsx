@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import { FooterBlock } from './FooterBlocks'
 import { ChurchInfoQuery } from '~/types/graphqlTypes'
@@ -22,7 +22,7 @@ export function ContactInfo() {
         <SocialLink
           logo="/logos/social/instagram.svg"
           url="https://www.instagram.com/midwaycommunitychurch/"
-          css="margin-left: 0.5em"
+          style={{ marginLeft: '0.5em' }}
         />
       </p>
       <p>{address[0]}</p>
@@ -45,10 +45,16 @@ const query = graphql`
   }
 `
 
-function SocialLink(props: { logo: string; url: string; className?: string }) {
+function SocialLink(props: {
+  logo: string
+  url: string
+  className?: string
+  style?: CSSObject
+}) {
   return (
     <a
       className={props.className}
+      style={props.style}
       href={props.url}
       target="_blank"
       rel="noopener noreferrer"

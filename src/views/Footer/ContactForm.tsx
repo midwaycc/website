@@ -37,7 +37,7 @@ export function ContactForm() {
         />
         <SquareButton
           type="submit"
-          css="margin-top: 1em"
+          style={{ marginTop: '1em' }}
           disabled={message.split(' ').length < 3}
         >
           Submit

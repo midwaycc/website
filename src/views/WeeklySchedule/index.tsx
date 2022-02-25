@@ -27,7 +27,7 @@ export function WeeklySchedule() {
 
   return (
     <Container>
-      <Content css="position: relative">
+      <Content style={{ position: 'relative' }}>
         <Title $left $color="white">
           This Week
         </Title>

@@ -26,11 +26,11 @@ export function ButtonLink({ node, inButtonRow }: Props) {
   return (
     <EnhancedLink
       mark={{ href }}
-      css={css`
-        display: inline-block;
-        text-align: ${align || 'left'};
-        margin: ${inButtonRow ? '0.5em' : '0'};
-      `}
+      style={{
+        display: 'inline-block',
+        textAlign: align || 'left',
+        margin: inButtonRow ? '0.5em' : '0'
+      }}
     >
       <SquareButton dark={dark} thick={thick}>
         {text}

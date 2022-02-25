@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, CSSObject } from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
 import md5 from 'md5-slim'
 import { Content } from '~/layout/Content'
@@ -11,17 +11,18 @@ type Props = {
   blocks: unknown[]
   noPadding?: boolean
   className?: string
+  style?: CSSObject
 }
 
 const serializers = getSerializers({ BlockContent, ContentSection, ColumnRow })
 
-export function RichContent({ blocks, noPadding, className }: Props) {
+export function RichContent({ blocks, noPadding, className, style }: Props) {
   // Ensure that in development/preview, changes to content force a re-render
   const key =
     process.env.NODE_ENV === 'development' ? md5(JSON.stringify(blocks)) : 'key'
 
   return (
-    <Container className={className} $noPadding={noPadding}>
+    <Container className={className} style={style} $noPadding={noPadding}>
       <BlockContent key={key} blocks={blocks} serializers={serializers} />
       <Clear />
     </Container>
