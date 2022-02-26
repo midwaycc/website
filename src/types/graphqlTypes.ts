@@ -338,12 +338,44 @@ export type DirectoryFilterInput = {
 
 export type DirectoryGroupConnection = {
   __typename?: 'DirectoryGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<DirectoryEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<DirectoryGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<Directory>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type DirectoryGroupConnectionDistinctArgs = {
+  field: DirectoryFieldsEnum;
+};
+
+
+export type DirectoryGroupConnectionGroupArgs = {
+  field: DirectoryFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type DirectoryGroupConnectionMaxArgs = {
+  field: DirectoryFieldsEnum;
+};
+
+
+export type DirectoryGroupConnectionMinArgs = {
+  field: DirectoryFieldsEnum;
+};
+
+
+export type DirectoryGroupConnectionSumArgs = {
+  field: DirectoryFieldsEnum;
 };
 
 export type DirectorySortInput = {
@@ -655,12 +687,44 @@ export type FileFilterInput = {
 
 export type FileGroupConnection = {
   __typename?: 'FileGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<FileEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<FileGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<File>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type FileGroupConnectionDistinctArgs = {
+  field: FileFieldsEnum;
+};
+
+
+export type FileGroupConnectionGroupArgs = {
+  field: FileFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type FileGroupConnectionMaxArgs = {
+  field: FileFieldsEnum;
+};
+
+
+export type FileGroupConnectionMinArgs = {
+  field: FileFieldsEnum;
+};
+
+
+export type FileGroupConnectionSumArgs = {
+  field: FileFieldsEnum;
 };
 
 export type FileSortInput = {
@@ -692,6 +756,13 @@ export enum GatsbyImageLayout {
   CONSTRAINED = 'CONSTRAINED',
   FIXED = 'FIXED',
   FULL_WIDTH = 'FULL_WIDTH'
+}
+
+export enum GatsbyImagePlaceholder {
+  BLURRED = 'BLURRED',
+  DOMINANT_COLOR = 'DOMINANT_COLOR',
+  NONE = 'NONE',
+  TRACED_SVG = 'TRACED_SVG'
 }
 
 export type IntQueryOperatorInput = {
@@ -1150,6 +1221,7 @@ export type QuerySanityImageAssetArgs = {
   size?: InputMaybe<FloatQueryOperatorInput>;
   source?: InputMaybe<SanityAssetSourceDataFilterInput>;
   title?: InputMaybe<StringQueryOperatorInput>;
+  uploadId?: InputMaybe<StringQueryOperatorInput>;
   url?: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -1354,11 +1426,13 @@ export type QuerySiteArgs = {
   host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
+  jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   port?: InputMaybe<IntQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -1390,16 +1464,14 @@ export type QuerySitePageArgs = {
   children?: InputMaybe<NodeFilterListInput>;
   component?: InputMaybe<StringQueryOperatorInput>;
   componentChunkName?: InputMaybe<StringQueryOperatorInput>;
-  context?: InputMaybe<SitePageContextFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   internalComponentName?: InputMaybe<StringQueryOperatorInput>;
-  isCreatedByStatefulCreatePages?: InputMaybe<BooleanQueryOperatorInput>;
   matchPath?: InputMaybe<StringQueryOperatorInput>;
+  pageContext?: InputMaybe<JsonQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   path?: InputMaybe<StringQueryOperatorInput>;
   pluginCreator?: InputMaybe<SitePluginFilterInput>;
-  pluginCreatorId?: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -1410,10 +1482,10 @@ export type QuerySitePluginArgs = {
   internal?: InputMaybe<InternalFilterInput>;
   name?: InputMaybe<StringQueryOperatorInput>;
   nodeAPIs?: InputMaybe<StringQueryOperatorInput>;
-  packageJson?: InputMaybe<SitePluginPackageJsonFilterInput>;
+  packageJson?: InputMaybe<JsonQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   pluginFilepath?: InputMaybe<StringQueryOperatorInput>;
-  pluginOptions?: InputMaybe<SitePluginPluginOptionsFilterInput>;
+  pluginOptions?: InputMaybe<JsonQueryOperatorInput>;
   resolve?: InputMaybe<StringQueryOperatorInput>;
   ssrAPIs?: InputMaybe<StringQueryOperatorInput>;
   version?: InputMaybe<StringQueryOperatorInput>;
@@ -1805,12 +1877,44 @@ export type SanityFileAssetFilterInput = {
 
 export type SanityFileAssetGroupConnection = {
   __typename?: 'SanityFileAssetGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityFileAssetEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityFileAssetGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityFileAsset>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityFileAssetGroupConnectionDistinctArgs = {
+  field: SanityFileAssetFieldsEnum;
+};
+
+
+export type SanityFileAssetGroupConnectionGroupArgs = {
+  field: SanityFileAssetFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityFileAssetGroupConnectionMaxArgs = {
+  field: SanityFileAssetFieldsEnum;
+};
+
+
+export type SanityFileAssetGroupConnectionMinArgs = {
+  field: SanityFileAssetFieldsEnum;
+};
+
+
+export type SanityFileAssetGroupConnectionSumArgs = {
+  field: SanityFileAssetFieldsEnum;
 };
 
 export type SanityFileAssetSortInput = {
@@ -2042,12 +2146,44 @@ export type SanityGeneralAlertFilterInput = {
 
 export type SanityGeneralAlertGroupConnection = {
   __typename?: 'SanityGeneralAlertGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityGeneralAlertEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityGeneralAlertGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityGeneralAlert>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityGeneralAlertGroupConnectionDistinctArgs = {
+  field: SanityGeneralAlertFieldsEnum;
+};
+
+
+export type SanityGeneralAlertGroupConnectionGroupArgs = {
+  field: SanityGeneralAlertFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityGeneralAlertGroupConnectionMaxArgs = {
+  field: SanityGeneralAlertFieldsEnum;
+};
+
+
+export type SanityGeneralAlertGroupConnectionMinArgs = {
+  field: SanityGeneralAlertFieldsEnum;
+};
+
+
+export type SanityGeneralAlertGroupConnectionSumArgs = {
+  field: SanityGeneralAlertFieldsEnum;
 };
 
 export type SanityGeneralAlertSortInput = {
@@ -2316,12 +2452,44 @@ export type SanityHeroSectionFilterInput = {
 
 export type SanityHeroSectionGroupConnection = {
   __typename?: 'SanityHeroSectionGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityHeroSectionEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityHeroSectionGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityHeroSection>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityHeroSectionGroupConnectionDistinctArgs = {
+  field: SanityHeroSectionFieldsEnum;
+};
+
+
+export type SanityHeroSectionGroupConnectionGroupArgs = {
+  field: SanityHeroSectionFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityHeroSectionGroupConnectionMaxArgs = {
+  field: SanityHeroSectionFieldsEnum;
+};
+
+
+export type SanityHeroSectionGroupConnectionMinArgs = {
+  field: SanityHeroSectionFieldsEnum;
+};
+
+
+export type SanityHeroSectionGroupConnectionSumArgs = {
+  field: SanityHeroSectionFieldsEnum;
 };
 
 export type SanityHeroSectionSortInput = {
@@ -2384,6 +2552,7 @@ export type SanityImageAsset = Node & SanityDocument & {
   size?: Maybe<Scalars['Float']>;
   source?: Maybe<SanityAssetSourceData>;
   title?: Maybe<Scalars['String']>;
+  uploadId?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
 };
 
@@ -2543,6 +2712,7 @@ export enum SanityImageAssetFieldsEnum {
   metadata____rawLocation = 'metadata____rawLocation',
   metadata____rawPalette = 'metadata____rawPalette',
   metadata____type = 'metadata____type',
+  metadata___blurHash = 'metadata___blurHash',
   metadata___dimensions____key = 'metadata___dimensions____key',
   metadata___dimensions____type = 'metadata___dimensions____type',
   metadata___dimensions___aspectRatio = 'metadata___dimensions___aspectRatio',
@@ -2656,6 +2826,7 @@ export enum SanityImageAssetFieldsEnum {
   source___name = 'source___name',
   source___url = 'source___url',
   title = 'title',
+  uploadId = 'uploadId',
   url = 'url'
 }
 
@@ -2686,17 +2857,50 @@ export type SanityImageAssetFilterInput = {
   size?: InputMaybe<FloatQueryOperatorInput>;
   source?: InputMaybe<SanityAssetSourceDataFilterInput>;
   title?: InputMaybe<StringQueryOperatorInput>;
+  uploadId?: InputMaybe<StringQueryOperatorInput>;
   url?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SanityImageAssetGroupConnection = {
   __typename?: 'SanityImageAssetGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityImageAssetEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityImageAssetGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityImageAsset>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityImageAssetGroupConnectionDistinctArgs = {
+  field: SanityImageAssetFieldsEnum;
+};
+
+
+export type SanityImageAssetGroupConnectionGroupArgs = {
+  field: SanityImageAssetFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityImageAssetGroupConnectionMaxArgs = {
+  field: SanityImageAssetFieldsEnum;
+};
+
+
+export type SanityImageAssetGroupConnectionMinArgs = {
+  field: SanityImageAssetFieldsEnum;
+};
+
+
+export type SanityImageAssetGroupConnectionSumArgs = {
+  field: SanityImageAssetFieldsEnum;
 };
 
 export type SanityImageAssetSortInput = {
@@ -2787,6 +2991,7 @@ export type SanityImageMetadata = {
   _rawLocation?: Maybe<Scalars['JSON']>;
   _rawPalette?: Maybe<Scalars['JSON']>;
   _type?: Maybe<Scalars['String']>;
+  blurHash?: Maybe<Scalars['String']>;
   dimensions?: Maybe<SanityImageDimensions>;
   hasAlpha?: Maybe<Scalars['Boolean']>;
   isOpaque?: Maybe<Scalars['Boolean']>;
@@ -2816,6 +3021,7 @@ export type SanityImageMetadataFilterInput = {
   _rawLocation?: InputMaybe<JsonQueryOperatorInput>;
   _rawPalette?: InputMaybe<JsonQueryOperatorInput>;
   _type?: InputMaybe<StringQueryOperatorInput>;
+  blurHash?: InputMaybe<StringQueryOperatorInput>;
   dimensions?: InputMaybe<SanityImageDimensionsFilterInput>;
   hasAlpha?: InputMaybe<BooleanQueryOperatorInput>;
   isOpaque?: InputMaybe<BooleanQueryOperatorInput>;
@@ -3191,6 +3397,7 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___metadata____rawLocation = 'subLogo___asset___metadata____rawLocation',
   subLogo___asset___metadata____rawPalette = 'subLogo___asset___metadata____rawPalette',
   subLogo___asset___metadata____type = 'subLogo___asset___metadata____type',
+  subLogo___asset___metadata___blurHash = 'subLogo___asset___metadata___blurHash',
   subLogo___asset___metadata___hasAlpha = 'subLogo___asset___metadata___hasAlpha',
   subLogo___asset___metadata___isOpaque = 'subLogo___asset___metadata___isOpaque',
   subLogo___asset___metadata___lqip = 'subLogo___asset___metadata___lqip',
@@ -3207,6 +3414,7 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___source___name = 'subLogo___asset___source___name',
   subLogo___asset___source___url = 'subLogo___asset___source___url',
   subLogo___asset___title = 'subLogo___asset___title',
+  subLogo___asset___uploadId = 'subLogo___asset___uploadId',
   subLogo___asset___url = 'subLogo___asset___url',
   subLogo___crop____key = 'subLogo___crop____key',
   subLogo___crop____type = 'subLogo___crop____type',
@@ -3254,12 +3462,44 @@ export type SanityMinistryPageFilterListInput = {
 
 export type SanityMinistryPageGroupConnection = {
   __typename?: 'SanityMinistryPageGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityMinistryPageEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityMinistryPageGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityMinistryPage>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityMinistryPageGroupConnectionDistinctArgs = {
+  field: SanityMinistryPageFieldsEnum;
+};
+
+
+export type SanityMinistryPageGroupConnectionGroupArgs = {
+  field: SanityMinistryPageFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityMinistryPageGroupConnectionMaxArgs = {
+  field: SanityMinistryPageFieldsEnum;
+};
+
+
+export type SanityMinistryPageGroupConnectionMinArgs = {
+  field: SanityMinistryPageFieldsEnum;
+};
+
+
+export type SanityMinistryPageGroupConnectionSumArgs = {
+  field: SanityMinistryPageFieldsEnum;
 };
 
 export type SanityMinistryPageOrPage = SanityMinistryPage | SanityPage;
@@ -3465,12 +3705,44 @@ export type SanityNavigationFilterInput = {
 
 export type SanityNavigationGroupConnection = {
   __typename?: 'SanityNavigationGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityNavigationEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityNavigationGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityNavigation>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityNavigationGroupConnectionDistinctArgs = {
+  field: SanityNavigationFieldsEnum;
+};
+
+
+export type SanityNavigationGroupConnectionGroupArgs = {
+  field: SanityNavigationFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityNavigationGroupConnectionMaxArgs = {
+  field: SanityNavigationFieldsEnum;
+};
+
+
+export type SanityNavigationGroupConnectionMinArgs = {
+  field: SanityNavigationFieldsEnum;
+};
+
+
+export type SanityNavigationGroupConnectionSumArgs = {
+  field: SanityNavigationFieldsEnum;
 };
 
 export type SanityNavigationSortInput = {
@@ -3695,12 +3967,44 @@ export type SanityNewsletterFilterInput = {
 
 export type SanityNewsletterGroupConnection = {
   __typename?: 'SanityNewsletterGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityNewsletterEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityNewsletterGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityNewsletter>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityNewsletterGroupConnectionDistinctArgs = {
+  field: SanityNewsletterFieldsEnum;
+};
+
+
+export type SanityNewsletterGroupConnectionGroupArgs = {
+  field: SanityNewsletterFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityNewsletterGroupConnectionMaxArgs = {
+  field: SanityNewsletterFieldsEnum;
+};
+
+
+export type SanityNewsletterGroupConnectionMinArgs = {
+  field: SanityNewsletterFieldsEnum;
+};
+
+
+export type SanityNewsletterGroupConnectionSumArgs = {
+  field: SanityNewsletterFieldsEnum;
 };
 
 export type SanityNewsletterSortInput = {
@@ -3932,12 +4236,44 @@ export type SanityPageFilterInput = {
 
 export type SanityPageGroupConnection = {
   __typename?: 'SanityPageGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityPageEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityPageGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityPage>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityPageGroupConnectionDistinctArgs = {
+  field: SanityPageFieldsEnum;
+};
+
+
+export type SanityPageGroupConnectionGroupArgs = {
+  field: SanityPageFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityPageGroupConnectionMaxArgs = {
+  field: SanityPageFieldsEnum;
+};
+
+
+export type SanityPageGroupConnectionMinArgs = {
+  field: SanityPageFieldsEnum;
+};
+
+
+export type SanityPageGroupConnectionSumArgs = {
+  field: SanityPageFieldsEnum;
 };
 
 export type SanityPageLink = {
@@ -4339,6 +4675,7 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___asset___sha1hash = 'ministries___subLogo___asset___sha1hash',
   ministries___subLogo___asset___size = 'ministries___subLogo___asset___size',
   ministries___subLogo___asset___title = 'ministries___subLogo___asset___title',
+  ministries___subLogo___asset___uploadId = 'ministries___subLogo___asset___uploadId',
   ministries___subLogo___asset___url = 'ministries___subLogo___asset___url',
   ministries___subLogo___crop____key = 'ministries___subLogo___crop____key',
   ministries___subLogo___crop____type = 'ministries___subLogo___crop____type',
@@ -4443,6 +4780,7 @@ export enum SanityPostFieldsEnum {
   thumbnailPoster___background___asset___sha1hash = 'thumbnailPoster___background___asset___sha1hash',
   thumbnailPoster___background___asset___size = 'thumbnailPoster___background___asset___size',
   thumbnailPoster___background___asset___title = 'thumbnailPoster___background___asset___title',
+  thumbnailPoster___background___asset___uploadId = 'thumbnailPoster___background___asset___uploadId',
   thumbnailPoster___background___asset___url = 'thumbnailPoster___background___asset___url',
   thumbnailPoster___background___crop____key = 'thumbnailPoster___background___crop____key',
   thumbnailPoster___background___crop____type = 'thumbnailPoster___background___crop____type',
@@ -4540,6 +4878,7 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___metadata____rawLocation = 'thumbnail___asset___metadata____rawLocation',
   thumbnail___asset___metadata____rawPalette = 'thumbnail___asset___metadata____rawPalette',
   thumbnail___asset___metadata____type = 'thumbnail___asset___metadata____type',
+  thumbnail___asset___metadata___blurHash = 'thumbnail___asset___metadata___blurHash',
   thumbnail___asset___metadata___hasAlpha = 'thumbnail___asset___metadata___hasAlpha',
   thumbnail___asset___metadata___isOpaque = 'thumbnail___asset___metadata___isOpaque',
   thumbnail___asset___metadata___lqip = 'thumbnail___asset___metadata___lqip',
@@ -4556,6 +4895,7 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___source___name = 'thumbnail___asset___source___name',
   thumbnail___asset___source___url = 'thumbnail___asset___source___url',
   thumbnail___asset___title = 'thumbnail___asset___title',
+  thumbnail___asset___uploadId = 'thumbnail___asset___uploadId',
   thumbnail___asset___url = 'thumbnail___asset___url',
   thumbnail___crop____key = 'thumbnail___crop____key',
   thumbnail___crop____type = 'thumbnail___crop____type',
@@ -4604,12 +4944,44 @@ export type SanityPostFilterInput = {
 
 export type SanityPostGroupConnection = {
   __typename?: 'SanityPostGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityPostEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityPostGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityPost>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityPostGroupConnectionDistinctArgs = {
+  field: SanityPostFieldsEnum;
+};
+
+
+export type SanityPostGroupConnectionGroupArgs = {
+  field: SanityPostFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityPostGroupConnectionMaxArgs = {
+  field: SanityPostFieldsEnum;
+};
+
+
+export type SanityPostGroupConnectionMinArgs = {
+  field: SanityPostFieldsEnum;
+};
+
+
+export type SanityPostGroupConnectionSumArgs = {
+  field: SanityPostFieldsEnum;
 };
 
 export type SanityPostSortInput = {
@@ -4757,6 +5129,7 @@ export enum SanityPosterFieldsEnum {
   background___asset___metadata____rawLocation = 'background___asset___metadata____rawLocation',
   background___asset___metadata____rawPalette = 'background___asset___metadata____rawPalette',
   background___asset___metadata____type = 'background___asset___metadata____type',
+  background___asset___metadata___blurHash = 'background___asset___metadata___blurHash',
   background___asset___metadata___hasAlpha = 'background___asset___metadata___hasAlpha',
   background___asset___metadata___isOpaque = 'background___asset___metadata___isOpaque',
   background___asset___metadata___lqip = 'background___asset___metadata___lqip',
@@ -4773,6 +5146,7 @@ export enum SanityPosterFieldsEnum {
   background___asset___source___name = 'background___asset___source___name',
   background___asset___source___url = 'background___asset___source___url',
   background___asset___title = 'background___asset___title',
+  background___asset___uploadId = 'background___asset___uploadId',
   background___asset___url = 'background___asset___url',
   background___crop____key = 'background___crop____key',
   background___crop____type = 'background___crop____type',
@@ -4907,12 +5281,44 @@ export type SanityPosterFilterInput = {
 
 export type SanityPosterGroupConnection = {
   __typename?: 'SanityPosterGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityPosterEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityPosterGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityPoster>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityPosterGroupConnectionDistinctArgs = {
+  field: SanityPosterFieldsEnum;
+};
+
+
+export type SanityPosterGroupConnectionGroupArgs = {
+  field: SanityPosterFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityPosterGroupConnectionMaxArgs = {
+  field: SanityPosterFieldsEnum;
+};
+
+
+export type SanityPosterGroupConnectionMinArgs = {
+  field: SanityPosterFieldsEnum;
+};
+
+
+export type SanityPosterGroupConnectionSumArgs = {
+  field: SanityPosterFieldsEnum;
 };
 
 export type SanityPosterInContent = {
@@ -5173,12 +5579,44 @@ export type SanityScheduleAlertFilterInput = {
 
 export type SanityScheduleAlertGroupConnection = {
   __typename?: 'SanityScheduleAlertGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityScheduleAlertEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityScheduleAlertGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityScheduleAlert>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityScheduleAlertGroupConnectionDistinctArgs = {
+  field: SanityScheduleAlertFieldsEnum;
+};
+
+
+export type SanityScheduleAlertGroupConnectionGroupArgs = {
+  field: SanityScheduleAlertFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityScheduleAlertGroupConnectionMaxArgs = {
+  field: SanityScheduleAlertFieldsEnum;
+};
+
+
+export type SanityScheduleAlertGroupConnectionMinArgs = {
+  field: SanityScheduleAlertFieldsEnum;
+};
+
+
+export type SanityScheduleAlertGroupConnectionSumArgs = {
+  field: SanityScheduleAlertFieldsEnum;
 };
 
 export type SanityScheduleAlertSortInput = {
@@ -5446,12 +5884,44 @@ export type SanitySermonUploadFilterInput = {
 
 export type SanitySermonUploadGroupConnection = {
   __typename?: 'SanitySermonUploadGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanitySermonUploadEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanitySermonUploadGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanitySermonUpload>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanitySermonUploadGroupConnectionDistinctArgs = {
+  field: SanitySermonUploadFieldsEnum;
+};
+
+
+export type SanitySermonUploadGroupConnectionGroupArgs = {
+  field: SanitySermonUploadFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanitySermonUploadGroupConnectionMaxArgs = {
+  field: SanitySermonUploadFieldsEnum;
+};
+
+
+export type SanitySermonUploadGroupConnectionMinArgs = {
+  field: SanitySermonUploadFieldsEnum;
+};
+
+
+export type SanitySermonUploadGroupConnectionSumArgs = {
+  field: SanitySermonUploadFieldsEnum;
 };
 
 export type SanitySermonUploadSortInput = {
@@ -5667,12 +6137,44 @@ export type SanityShortcutsFilterInput = {
 
 export type SanityShortcutsGroupConnection = {
   __typename?: 'SanityShortcutsGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityShortcutsEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityShortcutsGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityShortcuts>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityShortcutsGroupConnectionDistinctArgs = {
+  field: SanityShortcutsFieldsEnum;
+};
+
+
+export type SanityShortcutsGroupConnectionGroupArgs = {
+  field: SanityShortcutsFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityShortcutsGroupConnectionMaxArgs = {
+  field: SanityShortcutsFieldsEnum;
+};
+
+
+export type SanityShortcutsGroupConnectionMinArgs = {
+  field: SanityShortcutsFieldsEnum;
+};
+
+
+export type SanityShortcutsGroupConnectionSumArgs = {
+  field: SanityShortcutsFieldsEnum;
 };
 
 export type SanityShortcutsSortInput = {
@@ -5978,12 +6480,44 @@ export type SanityWeeklyScheduleFilterInput = {
 
 export type SanityWeeklyScheduleGroupConnection = {
   __typename?: 'SanityWeeklyScheduleGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SanityWeeklyScheduleEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SanityWeeklyScheduleGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SanityWeeklySchedule>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SanityWeeklyScheduleGroupConnectionDistinctArgs = {
+  field: SanityWeeklyScheduleFieldsEnum;
+};
+
+
+export type SanityWeeklyScheduleGroupConnectionGroupArgs = {
+  field: SanityWeeklyScheduleFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityWeeklyScheduleGroupConnectionMaxArgs = {
+  field: SanityWeeklyScheduleFieldsEnum;
+};
+
+
+export type SanityWeeklyScheduleGroupConnectionMinArgs = {
+  field: SanityWeeklyScheduleFieldsEnum;
+};
+
+
+export type SanityWeeklyScheduleGroupConnectionSumArgs = {
+  field: SanityWeeklyScheduleFieldsEnum;
 };
 
 export type SanityWeeklyScheduleSortInput = {
@@ -5998,11 +6532,13 @@ export type Site = Node & {
   host?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   internal: Internal;
+  jsxRuntime?: Maybe<Scalars['String']>;
   parent?: Maybe<Node>;
   pathPrefix?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   port?: Maybe<Scalars['Int']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  trailingSlash?: Maybe<Scalars['String']>;
 };
 
 
@@ -6177,12 +6713,44 @@ export type SiteBuildMetadataFilterInput = {
 
 export type SiteBuildMetadataGroupConnection = {
   __typename?: 'SiteBuildMetadataGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SiteBuildMetadataEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SiteBuildMetadataGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SiteBuildMetadata>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SiteBuildMetadataGroupConnectionDistinctArgs = {
+  field: SiteBuildMetadataFieldsEnum;
+};
+
+
+export type SiteBuildMetadataGroupConnectionGroupArgs = {
+  field: SiteBuildMetadataFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SiteBuildMetadataGroupConnectionMaxArgs = {
+  field: SiteBuildMetadataFieldsEnum;
+};
+
+
+export type SiteBuildMetadataGroupConnectionMinArgs = {
+  field: SiteBuildMetadataFieldsEnum;
+};
+
+
+export type SiteBuildMetadataGroupConnectionSumArgs = {
+  field: SiteBuildMetadataFieldsEnum;
 };
 
 export type SiteBuildMetadataSortInput = {
@@ -6288,6 +6856,7 @@ export enum SiteFieldsEnum {
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
   internal___type = 'internal___type',
+  jsxRuntime = 'jsxRuntime',
   parent___children = 'parent___children',
   parent___children___children = 'parent___children___children',
   parent___children___children___children = 'parent___children___children___children',
@@ -6334,7 +6903,8 @@ export enum SiteFieldsEnum {
   siteMetadata___church___googleMapsLink = 'siteMetadata___church___googleMapsLink',
   siteMetadata___church___phone = 'siteMetadata___church___phone',
   siteMetadata___description = 'siteMetadata___description',
-  siteMetadata___title = 'siteMetadata___title'
+  siteMetadata___title = 'siteMetadata___title',
+  trailingSlash = 'trailingSlash'
 }
 
 export type SiteFilterInput = {
@@ -6343,11 +6913,13 @@ export type SiteFilterInput = {
   host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
+  jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   port?: InputMaybe<IntQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteFunction = Node & {
@@ -6524,12 +7096,44 @@ export type SiteFunctionFilterInput = {
 
 export type SiteFunctionGroupConnection = {
   __typename?: 'SiteFunctionGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SiteFunctionEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SiteFunctionGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SiteFunction>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SiteFunctionGroupConnectionDistinctArgs = {
+  field: SiteFunctionFieldsEnum;
+};
+
+
+export type SiteFunctionGroupConnectionGroupArgs = {
+  field: SiteFunctionFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SiteFunctionGroupConnectionMaxArgs = {
+  field: SiteFunctionFieldsEnum;
+};
+
+
+export type SiteFunctionGroupConnectionMinArgs = {
+  field: SiteFunctionFieldsEnum;
+};
+
+
+export type SiteFunctionGroupConnectionSumArgs = {
+  field: SiteFunctionFieldsEnum;
 };
 
 export type SiteFunctionSortInput = {
@@ -6539,12 +7143,44 @@ export type SiteFunctionSortInput = {
 
 export type SiteGroupConnection = {
   __typename?: 'SiteGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SiteEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SiteGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<Site>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SiteGroupConnectionDistinctArgs = {
+  field: SiteFieldsEnum;
+};
+
+
+export type SiteGroupConnectionGroupArgs = {
+  field: SiteFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SiteGroupConnectionMaxArgs = {
+  field: SiteFieldsEnum;
+};
+
+
+export type SiteGroupConnectionMinArgs = {
+  field: SiteFieldsEnum;
+};
+
+
+export type SiteGroupConnectionSumArgs = {
+  field: SiteFieldsEnum;
 };
 
 export type SitePage = Node & {
@@ -6552,16 +7188,14 @@ export type SitePage = Node & {
   children: Array<Node>;
   component: Scalars['String'];
   componentChunkName: Scalars['String'];
-  context?: Maybe<SitePageContext>;
   id: Scalars['ID'];
   internal: Internal;
   internalComponentName: Scalars['String'];
-  isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   matchPath?: Maybe<Scalars['String']>;
+  pageContext?: Maybe<Scalars['JSON']>;
   parent?: Maybe<Node>;
   path: Scalars['String'];
   pluginCreator?: Maybe<SitePlugin>;
-  pluginCreatorId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageConnection = {
@@ -6602,27 +7236,6 @@ export type SitePageConnectionMinArgs = {
 
 export type SitePageConnectionSumArgs = {
   field: SitePageFieldsEnum;
-};
-
-export type SitePageContext = {
-  __typename?: 'SitePageContext';
-  _id?: Maybe<Scalars['String']>;
-  isFirst?: Maybe<Scalars['Boolean']>;
-  isLast?: Maybe<Scalars['Boolean']>;
-  offset?: Maybe<Scalars['Int']>;
-  onlyOne?: Maybe<Scalars['Boolean']>;
-  page?: Maybe<Scalars['Int']>;
-  perPage?: Maybe<Scalars['Int']>;
-};
-
-export type SitePageContextFilterInput = {
-  _id?: InputMaybe<StringQueryOperatorInput>;
-  isFirst?: InputMaybe<BooleanQueryOperatorInput>;
-  isLast?: InputMaybe<BooleanQueryOperatorInput>;
-  offset?: InputMaybe<IntQueryOperatorInput>;
-  onlyOne?: InputMaybe<BooleanQueryOperatorInput>;
-  page?: InputMaybe<IntQueryOperatorInput>;
-  perPage?: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -6674,13 +7287,6 @@ export enum SitePageFieldsEnum {
   children___parent___parent___id = 'children___parent___parent___id',
   component = 'component',
   componentChunkName = 'componentChunkName',
-  context____id = 'context____id',
-  context___isFirst = 'context___isFirst',
-  context___isLast = 'context___isLast',
-  context___offset = 'context___offset',
-  context___onlyOne = 'context___onlyOne',
-  context___page = 'context___page',
-  context___perPage = 'context___perPage',
   id = 'id',
   internalComponentName = 'internalComponentName',
   internal___content = 'internal___content',
@@ -6691,8 +7297,8 @@ export enum SitePageFieldsEnum {
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
   internal___type = 'internal___type',
-  isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
   matchPath = 'matchPath',
+  pageContext = 'pageContext',
   parent___children = 'parent___children',
   parent___children___children = 'parent___children___children',
   parent___children___children___children = 'parent___children___children___children',
@@ -6732,7 +7338,6 @@ export enum SitePageFieldsEnum {
   parent___parent___parent___children = 'parent___parent___parent___children',
   parent___parent___parent___id = 'parent___parent___parent___id',
   path = 'path',
-  pluginCreatorId = 'pluginCreatorId',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
   pluginCreator___children = 'pluginCreator___children',
   pluginCreator___children___children = 'pluginCreator___children___children',
@@ -6760,22 +7365,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___internal___type = 'pluginCreator___internal___type',
   pluginCreator___name = 'pluginCreator___name',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
-  pluginCreator___packageJson___author = 'pluginCreator___packageJson___author',
-  pluginCreator___packageJson___dependencies = 'pluginCreator___packageJson___dependencies',
-  pluginCreator___packageJson___dependencies___name = 'pluginCreator___packageJson___dependencies___name',
-  pluginCreator___packageJson___dependencies___version = 'pluginCreator___packageJson___dependencies___version',
-  pluginCreator___packageJson___description = 'pluginCreator___packageJson___description',
-  pluginCreator___packageJson___devDependencies = 'pluginCreator___packageJson___devDependencies',
-  pluginCreator___packageJson___devDependencies___name = 'pluginCreator___packageJson___devDependencies___name',
-  pluginCreator___packageJson___devDependencies___version = 'pluginCreator___packageJson___devDependencies___version',
-  pluginCreator___packageJson___keywords = 'pluginCreator___packageJson___keywords',
-  pluginCreator___packageJson___license = 'pluginCreator___packageJson___license',
-  pluginCreator___packageJson___main = 'pluginCreator___packageJson___main',
-  pluginCreator___packageJson___name = 'pluginCreator___packageJson___name',
-  pluginCreator___packageJson___peerDependencies = 'pluginCreator___packageJson___peerDependencies',
-  pluginCreator___packageJson___peerDependencies___name = 'pluginCreator___packageJson___peerDependencies___name',
-  pluginCreator___packageJson___peerDependencies___version = 'pluginCreator___packageJson___peerDependencies___version',
-  pluginCreator___packageJson___version = 'pluginCreator___packageJson___version',
+  pluginCreator___packageJson = 'pluginCreator___packageJson',
   pluginCreator___parent___children = 'pluginCreator___parent___children',
   pluginCreator___parent___children___children = 'pluginCreator___parent___children___children',
   pluginCreator___parent___children___id = 'pluginCreator___parent___children___id',
@@ -6791,40 +7381,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___parent___parent___children = 'pluginCreator___parent___parent___children',
   pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',
   pluginCreator___pluginFilepath = 'pluginCreator___pluginFilepath',
-  pluginCreator___pluginOptions___aliases____ = 'pluginCreator___pluginOptions___aliases____',
-  pluginCreator___pluginOptions___allExtensions = 'pluginCreator___pluginOptions___allExtensions',
-  pluginCreator___pluginOptions___anonymize = 'pluginCreator___pluginOptions___anonymize',
-  pluginCreator___pluginOptions___component = 'pluginCreator___pluginOptions___component',
-  pluginCreator___pluginOptions___dataset = 'pluginCreator___pluginOptions___dataset',
-  pluginCreator___pluginOptions___displayName = 'pluginCreator___pluginOptions___displayName',
-  pluginCreator___pluginOptions___enableWebVitalsTracking = 'pluginCreator___pluginOptions___enableWebVitalsTracking',
-  pluginCreator___pluginOptions___feeds = 'pluginCreator___pluginOptions___feeds',
-  pluginCreator___pluginOptions___feeds___description = 'pluginCreator___pluginOptions___feeds___description',
-  pluginCreator___pluginOptions___feeds___feed_url = 'pluginCreator___pluginOptions___feeds___feed_url',
-  pluginCreator___pluginOptions___feeds___output = 'pluginCreator___pluginOptions___feeds___output',
-  pluginCreator___pluginOptions___feeds___query = 'pluginCreator___pluginOptions___feeds___query',
-  pluginCreator___pluginOptions___feeds___site_url = 'pluginCreator___pluginOptions___feeds___site_url',
-  pluginCreator___pluginOptions___feeds___title = 'pluginCreator___pluginOptions___feeds___title',
-  pluginCreator___pluginOptions___fileName = 'pluginCreator___pluginOptions___fileName',
-  pluginCreator___pluginOptions___head = 'pluginCreator___pluginOptions___head',
-  pluginCreator___pluginOptions___isTSX = 'pluginCreator___pluginOptions___isTSX',
-  pluginCreator___pluginOptions___jsxPragma = 'pluginCreator___pluginOptions___jsxPragma',
-  pluginCreator___pluginOptions___minify = 'pluginCreator___pluginOptions___minify',
-  pluginCreator___pluginOptions___namespace = 'pluginCreator___pluginOptions___namespace',
-  pluginCreator___pluginOptions___overlayDrafts = 'pluginCreator___pluginOptions___overlayDrafts',
-  pluginCreator___pluginOptions___pageTransitionDelay = 'pluginCreator___pluginOptions___pageTransitionDelay',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
-  pluginCreator___pluginOptions___pixelId = 'pluginCreator___pluginOptions___pixelId',
-  pluginCreator___pluginOptions___projectId = 'pluginCreator___pluginOptions___projectId',
-  pluginCreator___pluginOptions___pure = 'pluginCreator___pluginOptions___pure',
-  pluginCreator___pluginOptions___query = 'pluginCreator___pluginOptions___query',
-  pluginCreator___pluginOptions___respectDNT = 'pluginCreator___pluginOptions___respectDNT',
-  pluginCreator___pluginOptions___root = 'pluginCreator___pluginOptions___root',
-  pluginCreator___pluginOptions___token = 'pluginCreator___pluginOptions___token',
-  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
-  pluginCreator___pluginOptions___transpileTemplateLiterals = 'pluginCreator___pluginOptions___transpileTemplateLiterals',
-  pluginCreator___pluginOptions___watchMode = 'pluginCreator___pluginOptions___watchMode',
+  pluginCreator___pluginOptions = 'pluginCreator___pluginOptions',
   pluginCreator___resolve = 'pluginCreator___resolve',
   pluginCreator___ssrAPIs = 'pluginCreator___ssrAPIs',
   pluginCreator___version = 'pluginCreator___version'
@@ -6834,26 +7391,56 @@ export type SitePageFilterInput = {
   children?: InputMaybe<NodeFilterListInput>;
   component?: InputMaybe<StringQueryOperatorInput>;
   componentChunkName?: InputMaybe<StringQueryOperatorInput>;
-  context?: InputMaybe<SitePageContextFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   internalComponentName?: InputMaybe<StringQueryOperatorInput>;
-  isCreatedByStatefulCreatePages?: InputMaybe<BooleanQueryOperatorInput>;
   matchPath?: InputMaybe<StringQueryOperatorInput>;
+  pageContext?: InputMaybe<JsonQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   path?: InputMaybe<StringQueryOperatorInput>;
   pluginCreator?: InputMaybe<SitePluginFilterInput>;
-  pluginCreatorId?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SitePageGroupConnection = {
   __typename?: 'SitePageGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SitePageEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SitePageGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SitePage>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
+};
+
+
+export type SitePageGroupConnectionDistinctArgs = {
+  field: SitePageFieldsEnum;
+};
+
+
+export type SitePageGroupConnectionGroupArgs = {
+  field: SitePageFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SitePageGroupConnectionMaxArgs = {
+  field: SitePageFieldsEnum;
+};
+
+
+export type SitePageGroupConnectionMinArgs = {
+  field: SitePageFieldsEnum;
+};
+
+
+export type SitePageGroupConnectionSumArgs = {
+  field: SitePageFieldsEnum;
 };
 
 export type SitePageSortInput = {
@@ -6869,10 +7456,10 @@ export type SitePlugin = Node & {
   internal: Internal;
   name?: Maybe<Scalars['String']>;
   nodeAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  packageJson?: Maybe<SitePluginPackageJson>;
+  packageJson?: Maybe<Scalars['JSON']>;
   parent?: Maybe<Node>;
   pluginFilepath?: Maybe<Scalars['String']>;
-  pluginOptions?: Maybe<SitePluginPluginOptions>;
+  pluginOptions?: Maybe<Scalars['JSON']>;
   resolve?: Maybe<Scalars['String']>;
   ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
   version?: Maybe<Scalars['String']>;
@@ -6977,22 +7564,7 @@ export enum SitePluginFieldsEnum {
   internal___type = 'internal___type',
   name = 'name',
   nodeAPIs = 'nodeAPIs',
-  packageJson___author = 'packageJson___author',
-  packageJson___dependencies = 'packageJson___dependencies',
-  packageJson___dependencies___name = 'packageJson___dependencies___name',
-  packageJson___dependencies___version = 'packageJson___dependencies___version',
-  packageJson___description = 'packageJson___description',
-  packageJson___devDependencies = 'packageJson___devDependencies',
-  packageJson___devDependencies___name = 'packageJson___devDependencies___name',
-  packageJson___devDependencies___version = 'packageJson___devDependencies___version',
-  packageJson___keywords = 'packageJson___keywords',
-  packageJson___license = 'packageJson___license',
-  packageJson___main = 'packageJson___main',
-  packageJson___name = 'packageJson___name',
-  packageJson___peerDependencies = 'packageJson___peerDependencies',
-  packageJson___peerDependencies___name = 'packageJson___peerDependencies___name',
-  packageJson___peerDependencies___version = 'packageJson___peerDependencies___version',
-  packageJson___version = 'packageJson___version',
+  packageJson = 'packageJson',
   parent___children = 'parent___children',
   parent___children___children = 'parent___children___children',
   parent___children___children___children = 'parent___children___children___children',
@@ -7032,40 +7604,7 @@ export enum SitePluginFieldsEnum {
   parent___parent___parent___children = 'parent___parent___parent___children',
   parent___parent___parent___id = 'parent___parent___parent___id',
   pluginFilepath = 'pluginFilepath',
-  pluginOptions___aliases____ = 'pluginOptions___aliases____',
-  pluginOptions___allExtensions = 'pluginOptions___allExtensions',
-  pluginOptions___anonymize = 'pluginOptions___anonymize',
-  pluginOptions___component = 'pluginOptions___component',
-  pluginOptions___dataset = 'pluginOptions___dataset',
-  pluginOptions___displayName = 'pluginOptions___displayName',
-  pluginOptions___enableWebVitalsTracking = 'pluginOptions___enableWebVitalsTracking',
-  pluginOptions___feeds = 'pluginOptions___feeds',
-  pluginOptions___feeds___description = 'pluginOptions___feeds___description',
-  pluginOptions___feeds___feed_url = 'pluginOptions___feeds___feed_url',
-  pluginOptions___feeds___output = 'pluginOptions___feeds___output',
-  pluginOptions___feeds___query = 'pluginOptions___feeds___query',
-  pluginOptions___feeds___site_url = 'pluginOptions___feeds___site_url',
-  pluginOptions___feeds___title = 'pluginOptions___feeds___title',
-  pluginOptions___fileName = 'pluginOptions___fileName',
-  pluginOptions___head = 'pluginOptions___head',
-  pluginOptions___isTSX = 'pluginOptions___isTSX',
-  pluginOptions___jsxPragma = 'pluginOptions___jsxPragma',
-  pluginOptions___minify = 'pluginOptions___minify',
-  pluginOptions___namespace = 'pluginOptions___namespace',
-  pluginOptions___overlayDrafts = 'pluginOptions___overlayDrafts',
-  pluginOptions___pageTransitionDelay = 'pluginOptions___pageTransitionDelay',
-  pluginOptions___path = 'pluginOptions___path',
-  pluginOptions___pathCheck = 'pluginOptions___pathCheck',
-  pluginOptions___pixelId = 'pluginOptions___pixelId',
-  pluginOptions___projectId = 'pluginOptions___projectId',
-  pluginOptions___pure = 'pluginOptions___pure',
-  pluginOptions___query = 'pluginOptions___query',
-  pluginOptions___respectDNT = 'pluginOptions___respectDNT',
-  pluginOptions___root = 'pluginOptions___root',
-  pluginOptions___token = 'pluginOptions___token',
-  pluginOptions___trackingId = 'pluginOptions___trackingId',
-  pluginOptions___transpileTemplateLiterals = 'pluginOptions___transpileTemplateLiterals',
-  pluginOptions___watchMode = 'pluginOptions___watchMode',
+  pluginOptions = 'pluginOptions',
   resolve = 'resolve',
   ssrAPIs = 'ssrAPIs',
   version = 'version'
@@ -7078,10 +7617,10 @@ export type SitePluginFilterInput = {
   internal?: InputMaybe<InternalFilterInput>;
   name?: InputMaybe<StringQueryOperatorInput>;
   nodeAPIs?: InputMaybe<StringQueryOperatorInput>;
-  packageJson?: InputMaybe<SitePluginPackageJsonFilterInput>;
+  packageJson?: InputMaybe<JsonQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   pluginFilepath?: InputMaybe<StringQueryOperatorInput>;
-  pluginOptions?: InputMaybe<SitePluginPluginOptionsFilterInput>;
+  pluginOptions?: InputMaybe<JsonQueryOperatorInput>;
   resolve?: InputMaybe<StringQueryOperatorInput>;
   ssrAPIs?: InputMaybe<StringQueryOperatorInput>;
   version?: InputMaybe<StringQueryOperatorInput>;
@@ -7089,179 +7628,44 @@ export type SitePluginFilterInput = {
 
 export type SitePluginGroupConnection = {
   __typename?: 'SitePluginGroupConnection';
+  distinct: Array<Scalars['String']>;
   edges: Array<SitePluginEdge>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+  group: Array<SitePluginGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
   nodes: Array<SitePlugin>;
   pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
   totalCount: Scalars['Int'];
 };
 
-export type SitePluginPackageJson = {
-  __typename?: 'SitePluginPackageJson';
-  author?: Maybe<Scalars['String']>;
-  dependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDependencies>>>;
-  description?: Maybe<Scalars['String']>;
-  devDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDevDependencies>>>;
-  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
-  license?: Maybe<Scalars['String']>;
-  main?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  peerDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonPeerDependencies>>>;
-  version?: Maybe<Scalars['String']>;
+
+export type SitePluginGroupConnectionDistinctArgs = {
+  field: SitePluginFieldsEnum;
 };
 
-export type SitePluginPackageJsonDependencies = {
-  __typename?: 'SitePluginPackageJsonDependencies';
-  name?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
+
+export type SitePluginGroupConnectionGroupArgs = {
+  field: SitePluginFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
 };
 
-export type SitePluginPackageJsonDependenciesFilterInput = {
-  name?: InputMaybe<StringQueryOperatorInput>;
-  version?: InputMaybe<StringQueryOperatorInput>;
+
+export type SitePluginGroupConnectionMaxArgs = {
+  field: SitePluginFieldsEnum;
 };
 
-export type SitePluginPackageJsonDependenciesFilterListInput = {
-  elemMatch?: InputMaybe<SitePluginPackageJsonDependenciesFilterInput>;
+
+export type SitePluginGroupConnectionMinArgs = {
+  field: SitePluginFieldsEnum;
 };
 
-export type SitePluginPackageJsonDevDependencies = {
-  __typename?: 'SitePluginPackageJsonDevDependencies';
-  name?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
-};
 
-export type SitePluginPackageJsonDevDependenciesFilterInput = {
-  name?: InputMaybe<StringQueryOperatorInput>;
-  version?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPackageJsonDevDependenciesFilterListInput = {
-  elemMatch?: InputMaybe<SitePluginPackageJsonDevDependenciesFilterInput>;
-};
-
-export type SitePluginPackageJsonFilterInput = {
-  author?: InputMaybe<StringQueryOperatorInput>;
-  dependencies?: InputMaybe<SitePluginPackageJsonDependenciesFilterListInput>;
-  description?: InputMaybe<StringQueryOperatorInput>;
-  devDependencies?: InputMaybe<SitePluginPackageJsonDevDependenciesFilterListInput>;
-  keywords?: InputMaybe<StringQueryOperatorInput>;
-  license?: InputMaybe<StringQueryOperatorInput>;
-  main?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  peerDependencies?: InputMaybe<SitePluginPackageJsonPeerDependenciesFilterListInput>;
-  version?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPackageJsonPeerDependencies = {
-  __typename?: 'SitePluginPackageJsonPeerDependencies';
-  name?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPackageJsonPeerDependenciesFilterInput = {
-  name?: InputMaybe<StringQueryOperatorInput>;
-  version?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
-  elemMatch?: InputMaybe<SitePluginPackageJsonPeerDependenciesFilterInput>;
-};
-
-export type SitePluginPluginOptions = {
-  __typename?: 'SitePluginPluginOptions';
-  aliases?: Maybe<SitePluginPluginOptionsAliases>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
-  anonymize?: Maybe<Scalars['Boolean']>;
-  component?: Maybe<Scalars['String']>;
-  dataset?: Maybe<Scalars['String']>;
-  displayName?: Maybe<Scalars['Boolean']>;
-  enableWebVitalsTracking?: Maybe<Scalars['Boolean']>;
-  feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
-  fileName?: Maybe<Scalars['Boolean']>;
-  head?: Maybe<Scalars['Boolean']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
-  minify?: Maybe<Scalars['Boolean']>;
-  namespace?: Maybe<Scalars['String']>;
-  overlayDrafts?: Maybe<Scalars['Boolean']>;
-  pageTransitionDelay?: Maybe<Scalars['Int']>;
-  path?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
-  pixelId?: Maybe<Scalars['String']>;
-  projectId?: Maybe<Scalars['String']>;
-  pure?: Maybe<Scalars['Boolean']>;
-  query?: Maybe<Scalars['String']>;
-  respectDNT?: Maybe<Scalars['Boolean']>;
-  root?: Maybe<Scalars['String']>;
-  token?: Maybe<Scalars['String']>;
-  trackingId?: Maybe<Scalars['String']>;
-  transpileTemplateLiterals?: Maybe<Scalars['Boolean']>;
-  watchMode?: Maybe<Scalars['Boolean']>;
-};
-
-export type SitePluginPluginOptionsAliases = {
-  __typename?: 'SitePluginPluginOptionsAliases';
-  _?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPluginOptionsAliasesFilterInput = {
-  _?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsFeeds = {
-  __typename?: 'SitePluginPluginOptionsFeeds';
-  description?: Maybe<Scalars['String']>;
-  feed_url?: Maybe<Scalars['String']>;
-  output?: Maybe<Scalars['String']>;
-  query?: Maybe<Scalars['String']>;
-  site_url?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPluginOptionsFeedsFilterInput = {
-  description?: InputMaybe<StringQueryOperatorInput>;
-  feed_url?: InputMaybe<StringQueryOperatorInput>;
-  output?: InputMaybe<StringQueryOperatorInput>;
-  query?: InputMaybe<StringQueryOperatorInput>;
-  site_url?: InputMaybe<StringQueryOperatorInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsFeedsFilterListInput = {
-  elemMatch?: InputMaybe<SitePluginPluginOptionsFeedsFilterInput>;
-};
-
-export type SitePluginPluginOptionsFilterInput = {
-  aliases?: InputMaybe<SitePluginPluginOptionsAliasesFilterInput>;
-  allExtensions?: InputMaybe<BooleanQueryOperatorInput>;
-  anonymize?: InputMaybe<BooleanQueryOperatorInput>;
-  component?: InputMaybe<StringQueryOperatorInput>;
-  dataset?: InputMaybe<StringQueryOperatorInput>;
-  displayName?: InputMaybe<BooleanQueryOperatorInput>;
-  enableWebVitalsTracking?: InputMaybe<BooleanQueryOperatorInput>;
-  feeds?: InputMaybe<SitePluginPluginOptionsFeedsFilterListInput>;
-  fileName?: InputMaybe<BooleanQueryOperatorInput>;
-  head?: InputMaybe<BooleanQueryOperatorInput>;
-  isTSX?: InputMaybe<BooleanQueryOperatorInput>;
-  jsxPragma?: InputMaybe<StringQueryOperatorInput>;
-  minify?: InputMaybe<BooleanQueryOperatorInput>;
-  namespace?: InputMaybe<StringQueryOperatorInput>;
-  overlayDrafts?: InputMaybe<BooleanQueryOperatorInput>;
-  pageTransitionDelay?: InputMaybe<IntQueryOperatorInput>;
-  path?: InputMaybe<StringQueryOperatorInput>;
-  pathCheck?: InputMaybe<BooleanQueryOperatorInput>;
-  pixelId?: InputMaybe<StringQueryOperatorInput>;
-  projectId?: InputMaybe<StringQueryOperatorInput>;
-  pure?: InputMaybe<BooleanQueryOperatorInput>;
-  query?: InputMaybe<StringQueryOperatorInput>;
-  respectDNT?: InputMaybe<BooleanQueryOperatorInput>;
-  root?: InputMaybe<StringQueryOperatorInput>;
-  token?: InputMaybe<StringQueryOperatorInput>;
-  trackingId?: InputMaybe<StringQueryOperatorInput>;
-  transpileTemplateLiterals?: InputMaybe<BooleanQueryOperatorInput>;
-  watchMode?: InputMaybe<BooleanQueryOperatorInput>;
+export type SitePluginGroupConnectionSumArgs = {
+  field: SitePluginFieldsEnum;
 };
 
 export type SitePluginSortInput = {
