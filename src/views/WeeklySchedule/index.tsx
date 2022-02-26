@@ -10,7 +10,9 @@ import { media } from '~/utils/media'
 import { getMostRecentMonday } from '~/utils/dateUtils'
 import { getSplitIndex } from './splitIndex'
 import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
-import scheduleBackground from '~/../static/images/Footer_Image.jpg'
+
+const scheduleBackground =
+  'https://cdn.sanity.io/images/iq9kxmf9/production/4ee2133f364ec1328868dd99ca15bbbbc86238a3-2400x1286.jpg?auto=format'
 
 export function WeeklySchedule() {
   const data: WeeklyScheduleQuery = useStaticQuery(query)
@@ -112,7 +114,7 @@ const Container = styled.div`
     right: 0;
     bottom: 0;
     opacity: 0.4;
-    background: url('${scheduleBackground}');
+    background: url('${scheduleBackground + '&w=1200'}');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center right -275px;
@@ -123,6 +125,10 @@ const Container = styled.div`
 
     ${media.md} {
       background-position: center right;
+    }
+
+    ${media.xl} {
+      background: url('${scheduleBackground}');
     }
   }
 `
