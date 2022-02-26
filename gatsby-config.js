@@ -14,7 +14,6 @@ module.exports = {
   siteMetadata,
   plugins: [
     'gatsby-plugin-image',
-    'gatsby-plugin-preact',
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
