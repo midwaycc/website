@@ -34,7 +34,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/dashboard",
-    "@sanity/production-preview"
+    "@sanity/production-preview",
+    "dashboard-widget-gatsby"
   ],
   "parts": [
     {

@@ -27,6 +27,7 @@
     "react": "17.0.x",
     "react-dom": "17.0.x",
     "react-markdown": "^6.0.0",
+    "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
