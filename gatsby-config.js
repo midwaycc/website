@@ -47,6 +47,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-netlify',
+    'gatsby-plugin-gatsby-cloud',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
