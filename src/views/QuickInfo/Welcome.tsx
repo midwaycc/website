@@ -12,13 +12,9 @@ export function Welcome() {
     <Column>
       <Title $color={colors.lime.hex}>Welcome</Title>
       <Subtitle>You're invited! Sunday mornings.</Subtitle>
-      <a
-        href="http://midwaycc.sermon.net/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link to="/stream">
         <Button>Stream Live</Button>
-      </a>
+      </Link>
       <Link to="/sermons">
         <Button>Past Sermons</Button>
       </Link>
