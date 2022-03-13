@@ -16,7 +16,7 @@ export default function StreamPage() {
           <iframe
             allow="autoplay; fullscreen"
             allowFullScreen
-            src="https://control.resi.io/webplayer/video.html?id=8da28110-49b5-4486-90a7-c4b71457e86f"
+            src="https://control.resi.io/webplayer/video.html?type=event&id=d7c6d7a1-28f9-4bb7-80fe-8a7b6b80d173"
             style={{
               position: 'absolute',
               top: 0,
@@ -28,7 +28,7 @@ export default function StreamPage() {
           ></iframe>
         </div>
         <a
-          href="https://control.resi.io/webplayer/video.html?id=8da28110-49b5-4486-90a7-c4b71457e86f"
+          href="https://control.resi.io/webplayer/video.html?type=event&id=d7c6d7a1-28f9-4bb7-80fe-8a7b6b80d173"
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: 'block', paddingTop: '1rem', textAlign: 'center' }}
