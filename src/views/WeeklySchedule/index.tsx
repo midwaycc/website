@@ -12,7 +12,7 @@ import { getSplitIndex } from './splitIndex'
 import { WeeklyScheduleQuery } from '~/types/graphqlTypes'
 
 const scheduleBackground =
-  'https://cdn.sanity.io/images/iq9kxmf9/production/4ee2133f364ec1328868dd99ca15bbbbc86238a3-2400x1286.jpg?auto=format'
+  'https://cdn.sanity.io/images/iq9kxmf9/production/46b7fd73141fc41bd71e5c2fc1cc0a3726c8e6f9-2100x914.jpg?auto=format'
 
 export function WeeklySchedule() {
   const data: WeeklyScheduleQuery = useStaticQuery(query)
@@ -114,21 +114,26 @@ const Container = styled.div`
     right: 0;
     bottom: 0;
     opacity: 0.4;
-    background: url('${scheduleBackground + '&w=1200'}');
+    background-image: url('${scheduleBackground + '&w=1200'}');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center right -275px;
+    background-position: center right -650px;
 
     ${media.sm} {
-      background-position: center right -250px;
+      background-position: center center;
     }
 
     ${media.md} {
-      background-position: center right;
+      background-position: bottom center;
     }
 
     ${media.xl} {
-      background: url('${scheduleBackground}');
+      background-position: bottom center;
+    }
+
+    ${media.xl} {
+      background-position: center center;
+      background-image: url('${scheduleBackground}');
     }
   }
 `
