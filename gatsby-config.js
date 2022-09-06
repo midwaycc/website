@@ -6,9 +6,7 @@ const podcastFeed = require('./podcast-feed')
 
 const siteMetadata = require('./siteMetadata')
 
-const isProd = process.env.NODE_ENV === 'production'
-const previewEnabled =
-  (process.env.GATSBY_IS_PREVIEW || 'false').toLowerCase() === 'true'
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   siteMetadata,
@@ -42,8 +40,8 @@ module.exports = {
         projectId: 'iq9kxmf9',
         token: process.env.SANITY_TOKEN,
         dataset: process.env.USE_STAGING === 'true' ? 'staging' : 'production',
-        watchMode: !isProd,
-        overlayDrafts: !isProd || previewEnabled
+        watchMode: isDev,
+        overlayDrafts: isDev
       }
     },
     'gatsby-plugin-netlify',
