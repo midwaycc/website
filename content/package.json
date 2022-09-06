@@ -14,14 +14,14 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "2.27.1",
+    "@sanity/base": "2.31.1",
     "@sanity/components": "2.14.0",
-    "@sanity/core": "2.27.0",
-    "@sanity/dashboard": "2.27.1",
-    "@sanity/default-layout": "2.27.1",
-    "@sanity/default-login": "2.27.0",
-    "@sanity/desk-tool": "2.27.1",
-    "@sanity/production-preview": "2.15.0",
+    "@sanity/core": "2.31.1",
+    "@sanity/dashboard": "2.31.1",
+    "@sanity/default-layout": "2.31.1",
+    "@sanity/default-login": "2.31.1",
+    "@sanity/desk-tool": "2.31.1",
+    "@sanity/production-preview": "2.29.3",
     "@types/styled-components": "^5.1.23",
     "date-fns": "2.x.x",
     "react": "^18.0.0",
@@ -31,7 +31,7 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@sanity/cli": "2.27.0"
+    "@sanity/cli": "2.31.1"
   },
   "repository": {
     "type": "git",

@@ -11,6 +11,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   Date: any;
+  GatsbyImageData: any;
   JSON: any;
 };
 
@@ -194,6 +195,7 @@ export enum DirectoryFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -205,6 +207,7 @@ export enum DirectoryFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -217,6 +220,7 @@ export enum DirectoryFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -236,6 +240,7 @@ export enum DirectoryFieldsEnum {
   ino = 'ino',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -255,6 +260,7 @@ export enum DirectoryFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -266,6 +272,7 @@ export enum DirectoryFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -278,6 +285,7 @@ export enum DirectoryFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -543,6 +551,7 @@ export enum FileFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -554,6 +563,7 @@ export enum FileFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -566,6 +576,7 @@ export enum FileFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -585,6 +596,7 @@ export enum FileFieldsEnum {
   ino = 'ino',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -604,6 +616,7 @@ export enum FileFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -615,6 +628,7 @@ export enum FileFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -627,6 +641,7 @@ export enum FileFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -741,6 +756,13 @@ export type FloatQueryOperatorInput = {
   nin?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
+export type GatsbyImageDataQueryOperatorInput = {
+  eq?: InputMaybe<Scalars['GatsbyImageData']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+  ne?: InputMaybe<Scalars['GatsbyImageData']>;
+  nin?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+};
+
 export enum GatsbyImageFormat {
   AUTO = 'AUTO',
   AVIF = 'AVIF',
@@ -778,6 +800,7 @@ export type Internal = {
   __typename?: 'Internal';
   content?: Maybe<Scalars['String']>;
   contentDigest: Scalars['String'];
+  contentFilePath?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   fieldOwners?: Maybe<Array<Maybe<Scalars['String']>>>;
   ignoreType?: Maybe<Scalars['Boolean']>;
@@ -789,6 +812,7 @@ export type Internal = {
 export type InternalFilterInput = {
   content?: InputMaybe<StringQueryOperatorInput>;
   contentDigest?: InputMaybe<StringQueryOperatorInput>;
+  contentFilePath?: InputMaybe<StringQueryOperatorInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   fieldOwners?: InputMaybe<StringQueryOperatorInput>;
   ignoreType?: InputMaybe<BooleanQueryOperatorInput>;
@@ -1206,7 +1230,11 @@ export type QuerySanityImageAssetArgs = {
   children?: InputMaybe<NodeFilterListInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   extension?: InputMaybe<StringQueryOperatorInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  filename?: InputMaybe<StringQueryOperatorInput>;
+  filesize?: InputMaybe<IntQueryOperatorInput>;
+  gatsbyImage?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  height?: InputMaybe<IntQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   label?: InputMaybe<StringQueryOperatorInput>;
@@ -1215,12 +1243,15 @@ export type QuerySanityImageAssetArgs = {
   originalFilename?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   path?: InputMaybe<StringQueryOperatorInput>;
+  publicUrl?: InputMaybe<StringQueryOperatorInput>;
+  resize?: InputMaybe<RemoteFileResizeFilterInput>;
   sha1hash?: InputMaybe<StringQueryOperatorInput>;
   size?: InputMaybe<FloatQueryOperatorInput>;
   source?: InputMaybe<SanityAssetSourceDataFilterInput>;
   title?: InputMaybe<StringQueryOperatorInput>;
   uploadId?: InputMaybe<StringQueryOperatorInput>;
   url?: InputMaybe<StringQueryOperatorInput>;
+  width?: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -1421,6 +1452,7 @@ export type QuerySanityWeeklyScheduleArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
@@ -1487,6 +1519,102 @@ export type QuerySitePluginArgs = {
   resolve?: InputMaybe<StringQueryOperatorInput>;
   ssrAPIs?: InputMaybe<StringQueryOperatorInput>;
   version?: InputMaybe<StringQueryOperatorInput>;
+};
+
+/** Remote Interface */
+export type RemoteFile = {
+  filename: Scalars['String'];
+  filesize?: Maybe<Scalars['Int']>;
+  /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
+  gatsbyImage?: Maybe<Scalars['GatsbyImageData']>;
+  height?: Maybe<Scalars['Int']>;
+  id: Scalars['ID'];
+  mimeType: Scalars['String'];
+  publicUrl: Scalars['String'];
+  resize?: Maybe<RemoteFileResize>;
+  width?: Maybe<Scalars['Int']>;
+};
+
+
+/** Remote Interface */
+export type RemoteFileGatsbyImageArgs = {
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  backgroundColor?: InputMaybe<Scalars['String']>;
+  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  height?: InputMaybe<Scalars['Int']>;
+  layout?: InputMaybe<RemoteFileLayout>;
+  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  placeholder?: InputMaybe<RemoteFilePlaceholder>;
+  quality?: InputMaybe<Scalars['Int']>;
+  sizes?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Int']>;
+};
+
+
+/** Remote Interface */
+export type RemoteFileResizeArgs = {
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  format?: InputMaybe<RemoteFileFormat>;
+  height?: InputMaybe<Scalars['Int']>;
+  quality?: InputMaybe<Scalars['Int']>;
+  width?: InputMaybe<Scalars['Int']>;
+};
+
+export enum RemoteFileCropFocus {
+  BOTTOM = 'BOTTOM',
+  CENTER = 'CENTER',
+  EDGES = 'EDGES',
+  ENTROPY = 'ENTROPY',
+  FACES = 'FACES',
+  LEFT = 'LEFT',
+  RIGHT = 'RIGHT',
+  TOP = 'TOP'
+}
+
+export enum RemoteFileFit {
+  CONTAIN = 'CONTAIN',
+  COVER = 'COVER',
+  FILL = 'FILL',
+  OUTSIDE = 'OUTSIDE'
+}
+
+export enum RemoteFileFormat {
+  AUTO = 'AUTO',
+  AVIF = 'AVIF',
+  JPG = 'JPG',
+  PNG = 'PNG',
+  WEBP = 'WEBP'
+}
+
+export enum RemoteFileLayout {
+  CONSTRAINED = 'CONSTRAINED',
+  FIXED = 'FIXED',
+  FULL_WIDTH = 'FULL_WIDTH'
+}
+
+export enum RemoteFilePlaceholder {
+  BLURRED = 'BLURRED',
+  DOMINANT_COLOR = 'DOMINANT_COLOR',
+  NONE = 'NONE',
+  TRACED_SVG = 'TRACED_SVG'
+}
+
+export type RemoteFileResize = {
+  __typename?: 'RemoteFileResize';
+  height?: Maybe<Scalars['Int']>;
+  src?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Int']>;
+};
+
+export type RemoteFileResizeFilterInput = {
+  height?: InputMaybe<IntQueryOperatorInput>;
+  src?: InputMaybe<StringQueryOperatorInput>;
+  width?: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type SanityAssetSourceData = {
@@ -1751,6 +1879,7 @@ export enum SanityFileAssetFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -1762,6 +1891,7 @@ export enum SanityFileAssetFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -1774,6 +1904,7 @@ export enum SanityFileAssetFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -1787,6 +1918,7 @@ export enum SanityFileAssetFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -1803,6 +1935,7 @@ export enum SanityFileAssetFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -1814,6 +1947,7 @@ export enum SanityFileAssetFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -1826,6 +1960,7 @@ export enum SanityFileAssetFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -2035,6 +2170,7 @@ export enum SanityGeneralAlertFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -2046,6 +2182,7 @@ export enum SanityGeneralAlertFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -2058,6 +2195,7 @@ export enum SanityGeneralAlertFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -2080,6 +2218,7 @@ export enum SanityGeneralAlertFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -2093,6 +2232,7 @@ export enum SanityGeneralAlertFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -2104,6 +2244,7 @@ export enum SanityGeneralAlertFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -2116,6 +2257,7 @@ export enum SanityGeneralAlertFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -2308,6 +2450,7 @@ export enum SanityHeroSectionFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -2319,6 +2462,7 @@ export enum SanityHeroSectionFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -2331,6 +2475,7 @@ export enum SanityHeroSectionFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -2342,6 +2487,7 @@ export enum SanityHeroSectionFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -2355,6 +2501,7 @@ export enum SanityHeroSectionFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -2366,6 +2513,7 @@ export enum SanityHeroSectionFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -2378,6 +2526,7 @@ export enum SanityHeroSectionFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -2408,6 +2557,7 @@ export enum SanityHeroSectionFieldsEnum {
   video___asset___id = 'video___asset___id',
   video___asset___internal___content = 'video___asset___internal___content',
   video___asset___internal___contentDigest = 'video___asset___internal___contentDigest',
+  video___asset___internal___contentFilePath = 'video___asset___internal___contentFilePath',
   video___asset___internal___description = 'video___asset___internal___description',
   video___asset___internal___fieldOwners = 'video___asset___internal___fieldOwners',
   video___asset___internal___ignoreType = 'video___asset___internal___ignoreType',
@@ -2522,7 +2672,7 @@ export type SanityImage_RawHotspotArgs = {
   resolveReferences?: InputMaybe<SanityResolveReferencesConfiguration>;
 };
 
-export type SanityImageAsset = Node & SanityDocument & {
+export type SanityImageAsset = Node & RemoteFile & SanityDocument & {
   __typename?: 'SanityImageAsset';
   _createdAt?: Maybe<Scalars['Date']>;
   _id?: Maybe<Scalars['String']>;
@@ -2537,21 +2687,29 @@ export type SanityImageAsset = Node & SanityDocument & {
   children: Array<Node>;
   description?: Maybe<Scalars['String']>;
   extension?: Maybe<Scalars['String']>;
-  gatsbyImageData: Scalars['JSON'];
+  filename: Scalars['String'];
+  filesize?: Maybe<Scalars['Int']>;
+  /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
+  gatsbyImage?: Maybe<Scalars['GatsbyImageData']>;
+  gatsbyImageData: Scalars['GatsbyImageData'];
+  height?: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
   internal: Internal;
   label?: Maybe<Scalars['String']>;
   metadata?: Maybe<SanityImageMetadata>;
-  mimeType?: Maybe<Scalars['String']>;
+  mimeType: Scalars['String'];
   originalFilename?: Maybe<Scalars['String']>;
   parent?: Maybe<Node>;
   path?: Maybe<Scalars['String']>;
+  publicUrl: Scalars['String'];
+  resize?: Maybe<RemoteFileResize>;
   sha1hash?: Maybe<Scalars['String']>;
   size?: Maybe<Scalars['Float']>;
   source?: Maybe<SanityAssetSourceData>;
   title?: Maybe<Scalars['String']>;
   uploadId?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Int']>;
 };
 
 
@@ -2581,6 +2739,23 @@ export type SanityImageAsset_UpdatedAtArgs = {
 };
 
 
+export type SanityImageAssetGatsbyImageArgs = {
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  backgroundColor?: InputMaybe<Scalars['String']>;
+  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  height?: InputMaybe<Scalars['Int']>;
+  layout?: InputMaybe<RemoteFileLayout>;
+  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  placeholder?: InputMaybe<RemoteFilePlaceholder>;
+  quality?: InputMaybe<Scalars['Int']>;
+  sizes?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Int']>;
+};
+
+
 export type SanityImageAssetGatsbyImageDataArgs = {
   aspectRatio?: InputMaybe<Scalars['Float']>;
   backgroundColor?: InputMaybe<Scalars['String']>;
@@ -2592,6 +2767,17 @@ export type SanityImageAssetGatsbyImageDataArgs = {
   outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
   placeholder?: InputMaybe<SanityGatsbyImagePlaceholder>;
   sizes?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityImageAssetResizeArgs = {
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  format?: InputMaybe<RemoteFileFormat>;
+  height?: InputMaybe<Scalars['Int']>;
+  quality?: InputMaybe<Scalars['Int']>;
   width?: InputMaybe<Scalars['Int']>;
 };
 
@@ -2661,6 +2847,7 @@ export enum SanityImageAssetFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -2672,6 +2859,7 @@ export enum SanityImageAssetFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -2684,6 +2872,7 @@ export enum SanityImageAssetFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -2694,11 +2883,17 @@ export enum SanityImageAssetFieldsEnum {
   children___parent___parent___id = 'children___parent___parent___id',
   description = 'description',
   extension = 'extension',
+  filename = 'filename',
+  filesize = 'filesize',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  gatsbyImage = 'gatsbyImage',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   gatsbyImageData = 'gatsbyImageData',
+  height = 'height',
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -2785,6 +2980,7 @@ export enum SanityImageAssetFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -2796,6 +2992,7 @@ export enum SanityImageAssetFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -2808,6 +3005,7 @@ export enum SanityImageAssetFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -2817,6 +3015,13 @@ export enum SanityImageAssetFieldsEnum {
   parent___parent___parent___children = 'parent___parent___parent___children',
   parent___parent___parent___id = 'parent___parent___parent___id',
   path = 'path',
+  publicUrl = 'publicUrl',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  resize___height = 'resize___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  resize___src = 'resize___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  resize___width = 'resize___width',
   sha1hash = 'sha1hash',
   size = 'size',
   source____key = 'source____key',
@@ -2826,7 +3031,8 @@ export enum SanityImageAssetFieldsEnum {
   source___url = 'source___url',
   title = 'title',
   uploadId = 'uploadId',
-  url = 'url'
+  url = 'url',
+  width = 'width'
 }
 
 export type SanityImageAssetFilterInput = {
@@ -2843,7 +3049,11 @@ export type SanityImageAssetFilterInput = {
   children?: InputMaybe<NodeFilterListInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   extension?: InputMaybe<StringQueryOperatorInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  filename?: InputMaybe<StringQueryOperatorInput>;
+  filesize?: InputMaybe<IntQueryOperatorInput>;
+  gatsbyImage?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  height?: InputMaybe<IntQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   label?: InputMaybe<StringQueryOperatorInput>;
@@ -2852,12 +3062,15 @@ export type SanityImageAssetFilterInput = {
   originalFilename?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   path?: InputMaybe<StringQueryOperatorInput>;
+  publicUrl?: InputMaybe<StringQueryOperatorInput>;
+  resize?: InputMaybe<RemoteFileResizeFilterInput>;
   sha1hash?: InputMaybe<StringQueryOperatorInput>;
   size?: InputMaybe<FloatQueryOperatorInput>;
   source?: InputMaybe<SanityAssetSourceDataFilterInput>;
   title?: InputMaybe<StringQueryOperatorInput>;
   uploadId?: InputMaybe<StringQueryOperatorInput>;
   url?: InputMaybe<StringQueryOperatorInput>;
+  width?: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type SanityImageAssetGroupConnection = {
@@ -3248,6 +3461,7 @@ export enum SanityMinistryPageFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -3259,6 +3473,7 @@ export enum SanityMinistryPageFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -3271,6 +3486,7 @@ export enum SanityMinistryPageFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -3293,6 +3509,7 @@ export enum SanityMinistryPageFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -3307,6 +3524,7 @@ export enum SanityMinistryPageFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -3318,6 +3536,7 @@ export enum SanityMinistryPageFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -3330,6 +3549,7 @@ export enum SanityMinistryPageFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -3380,11 +3600,17 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___children___id = 'subLogo___asset___children___id',
   subLogo___asset___description = 'subLogo___asset___description',
   subLogo___asset___extension = 'subLogo___asset___extension',
+  subLogo___asset___filename = 'subLogo___asset___filename',
+  subLogo___asset___filesize = 'subLogo___asset___filesize',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  subLogo___asset___gatsbyImage = 'subLogo___asset___gatsbyImage',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   subLogo___asset___gatsbyImageData = 'subLogo___asset___gatsbyImageData',
+  subLogo___asset___height = 'subLogo___asset___height',
   subLogo___asset___id = 'subLogo___asset___id',
   subLogo___asset___internal___content = 'subLogo___asset___internal___content',
   subLogo___asset___internal___contentDigest = 'subLogo___asset___internal___contentDigest',
+  subLogo___asset___internal___contentFilePath = 'subLogo___asset___internal___contentFilePath',
   subLogo___asset___internal___description = 'subLogo___asset___internal___description',
   subLogo___asset___internal___fieldOwners = 'subLogo___asset___internal___fieldOwners',
   subLogo___asset___internal___ignoreType = 'subLogo___asset___internal___ignoreType',
@@ -3406,6 +3632,13 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___parent___children = 'subLogo___asset___parent___children',
   subLogo___asset___parent___id = 'subLogo___asset___parent___id',
   subLogo___asset___path = 'subLogo___asset___path',
+  subLogo___asset___publicUrl = 'subLogo___asset___publicUrl',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  subLogo___asset___resize___height = 'subLogo___asset___resize___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  subLogo___asset___resize___src = 'subLogo___asset___resize___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  subLogo___asset___resize___width = 'subLogo___asset___resize___width',
   subLogo___asset___sha1hash = 'subLogo___asset___sha1hash',
   subLogo___asset___size = 'subLogo___asset___size',
   subLogo___asset___source____key = 'subLogo___asset___source____key',
@@ -3416,6 +3649,7 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___title = 'subLogo___asset___title',
   subLogo___asset___uploadId = 'subLogo___asset___uploadId',
   subLogo___asset___url = 'subLogo___asset___url',
+  subLogo___asset___width = 'subLogo___asset___width',
   subLogo___crop____key = 'subLogo___crop____key',
   subLogo___crop____type = 'subLogo___crop____type',
   subLogo___crop___bottom = 'subLogo___crop___bottom',
@@ -3609,6 +3843,7 @@ export enum SanityNavigationFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -3620,6 +3855,7 @@ export enum SanityNavigationFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -3632,6 +3868,7 @@ export enum SanityNavigationFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -3643,6 +3880,7 @@ export enum SanityNavigationFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -3656,6 +3894,7 @@ export enum SanityNavigationFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -3667,6 +3906,7 @@ export enum SanityNavigationFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -3679,6 +3919,7 @@ export enum SanityNavigationFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -3868,6 +4109,7 @@ export enum SanityNewsletterFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -3879,6 +4121,7 @@ export enum SanityNewsletterFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -3891,6 +4134,7 @@ export enum SanityNewsletterFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -3903,6 +4147,7 @@ export enum SanityNewsletterFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -3917,6 +4162,7 @@ export enum SanityNewsletterFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -3928,6 +4174,7 @@ export enum SanityNewsletterFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -3940,6 +4187,7 @@ export enum SanityNewsletterFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -4121,6 +4369,7 @@ export enum SanityPageFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -4132,6 +4381,7 @@ export enum SanityPageFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -4144,6 +4394,7 @@ export enum SanityPageFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -4166,6 +4417,7 @@ export enum SanityPageFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -4180,6 +4432,7 @@ export enum SanityPageFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -4191,6 +4444,7 @@ export enum SanityPageFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -4203,6 +4457,7 @@ export enum SanityPageFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -4526,6 +4781,7 @@ export enum SanityPostFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -4537,6 +4793,7 @@ export enum SanityPostFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -4549,6 +4806,7 @@ export enum SanityPostFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -4563,6 +4821,7 @@ export enum SanityPostFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -4587,6 +4846,7 @@ export enum SanityPostFieldsEnum {
   ministries___children___id = 'ministries___children___id',
   ministries___children___internal___content = 'ministries___children___internal___content',
   ministries___children___internal___contentDigest = 'ministries___children___internal___contentDigest',
+  ministries___children___internal___contentFilePath = 'ministries___children___internal___contentFilePath',
   ministries___children___internal___description = 'ministries___children___internal___description',
   ministries___children___internal___fieldOwners = 'ministries___children___internal___fieldOwners',
   ministries___children___internal___ignoreType = 'ministries___children___internal___ignoreType',
@@ -4609,6 +4869,7 @@ export enum SanityPostFieldsEnum {
   ministries___id = 'ministries___id',
   ministries___internal___content = 'ministries___internal___content',
   ministries___internal___contentDigest = 'ministries___internal___contentDigest',
+  ministries___internal___contentFilePath = 'ministries___internal___contentFilePath',
   ministries___internal___description = 'ministries___internal___description',
   ministries___internal___fieldOwners = 'ministries___internal___fieldOwners',
   ministries___internal___ignoreType = 'ministries___internal___ignoreType',
@@ -4622,6 +4883,7 @@ export enum SanityPostFieldsEnum {
   ministries___parent___id = 'ministries___parent___id',
   ministries___parent___internal___content = 'ministries___parent___internal___content',
   ministries___parent___internal___contentDigest = 'ministries___parent___internal___contentDigest',
+  ministries___parent___internal___contentFilePath = 'ministries___parent___internal___contentFilePath',
   ministries___parent___internal___description = 'ministries___parent___internal___description',
   ministries___parent___internal___fieldOwners = 'ministries___parent___internal___fieldOwners',
   ministries___parent___internal___ignoreType = 'ministries___parent___internal___ignoreType',
@@ -4666,18 +4928,25 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___asset___children = 'ministries___subLogo___asset___children',
   ministries___subLogo___asset___description = 'ministries___subLogo___asset___description',
   ministries___subLogo___asset___extension = 'ministries___subLogo___asset___extension',
+  ministries___subLogo___asset___filename = 'ministries___subLogo___asset___filename',
+  ministries___subLogo___asset___filesize = 'ministries___subLogo___asset___filesize',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  ministries___subLogo___asset___gatsbyImage = 'ministries___subLogo___asset___gatsbyImage',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ministries___subLogo___asset___gatsbyImageData = 'ministries___subLogo___asset___gatsbyImageData',
+  ministries___subLogo___asset___height = 'ministries___subLogo___asset___height',
   ministries___subLogo___asset___id = 'ministries___subLogo___asset___id',
   ministries___subLogo___asset___label = 'ministries___subLogo___asset___label',
   ministries___subLogo___asset___mimeType = 'ministries___subLogo___asset___mimeType',
   ministries___subLogo___asset___originalFilename = 'ministries___subLogo___asset___originalFilename',
   ministries___subLogo___asset___path = 'ministries___subLogo___asset___path',
+  ministries___subLogo___asset___publicUrl = 'ministries___subLogo___asset___publicUrl',
   ministries___subLogo___asset___sha1hash = 'ministries___subLogo___asset___sha1hash',
   ministries___subLogo___asset___size = 'ministries___subLogo___asset___size',
   ministries___subLogo___asset___title = 'ministries___subLogo___asset___title',
   ministries___subLogo___asset___uploadId = 'ministries___subLogo___asset___uploadId',
   ministries___subLogo___asset___url = 'ministries___subLogo___asset___url',
+  ministries___subLogo___asset___width = 'ministries___subLogo___asset___width',
   ministries___subLogo___crop____key = 'ministries___subLogo___crop____key',
   ministries___subLogo___crop____type = 'ministries___subLogo___crop____type',
   ministries___subLogo___crop___bottom = 'ministries___subLogo___crop___bottom',
@@ -4700,6 +4969,7 @@ export enum SanityPostFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -4711,6 +4981,7 @@ export enum SanityPostFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -4723,6 +4994,7 @@ export enum SanityPostFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -4772,18 +5044,25 @@ export enum SanityPostFieldsEnum {
   thumbnailPoster___background___asset___children = 'thumbnailPoster___background___asset___children',
   thumbnailPoster___background___asset___description = 'thumbnailPoster___background___asset___description',
   thumbnailPoster___background___asset___extension = 'thumbnailPoster___background___asset___extension',
+  thumbnailPoster___background___asset___filename = 'thumbnailPoster___background___asset___filename',
+  thumbnailPoster___background___asset___filesize = 'thumbnailPoster___background___asset___filesize',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  thumbnailPoster___background___asset___gatsbyImage = 'thumbnailPoster___background___asset___gatsbyImage',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   thumbnailPoster___background___asset___gatsbyImageData = 'thumbnailPoster___background___asset___gatsbyImageData',
+  thumbnailPoster___background___asset___height = 'thumbnailPoster___background___asset___height',
   thumbnailPoster___background___asset___id = 'thumbnailPoster___background___asset___id',
   thumbnailPoster___background___asset___label = 'thumbnailPoster___background___asset___label',
   thumbnailPoster___background___asset___mimeType = 'thumbnailPoster___background___asset___mimeType',
   thumbnailPoster___background___asset___originalFilename = 'thumbnailPoster___background___asset___originalFilename',
   thumbnailPoster___background___asset___path = 'thumbnailPoster___background___asset___path',
+  thumbnailPoster___background___asset___publicUrl = 'thumbnailPoster___background___asset___publicUrl',
   thumbnailPoster___background___asset___sha1hash = 'thumbnailPoster___background___asset___sha1hash',
   thumbnailPoster___background___asset___size = 'thumbnailPoster___background___asset___size',
   thumbnailPoster___background___asset___title = 'thumbnailPoster___background___asset___title',
   thumbnailPoster___background___asset___uploadId = 'thumbnailPoster___background___asset___uploadId',
   thumbnailPoster___background___asset___url = 'thumbnailPoster___background___asset___url',
+  thumbnailPoster___background___asset___width = 'thumbnailPoster___background___asset___width',
   thumbnailPoster___background___crop____key = 'thumbnailPoster___background___crop____key',
   thumbnailPoster___background___crop____type = 'thumbnailPoster___background___crop____type',
   thumbnailPoster___background___crop___bottom = 'thumbnailPoster___background___crop___bottom',
@@ -4803,6 +5082,7 @@ export enum SanityPostFieldsEnum {
   thumbnailPoster___children___id = 'thumbnailPoster___children___id',
   thumbnailPoster___children___internal___content = 'thumbnailPoster___children___internal___content',
   thumbnailPoster___children___internal___contentDigest = 'thumbnailPoster___children___internal___contentDigest',
+  thumbnailPoster___children___internal___contentFilePath = 'thumbnailPoster___children___internal___contentFilePath',
   thumbnailPoster___children___internal___description = 'thumbnailPoster___children___internal___description',
   thumbnailPoster___children___internal___fieldOwners = 'thumbnailPoster___children___internal___fieldOwners',
   thumbnailPoster___children___internal___ignoreType = 'thumbnailPoster___children___internal___ignoreType',
@@ -4814,6 +5094,7 @@ export enum SanityPostFieldsEnum {
   thumbnailPoster___id = 'thumbnailPoster___id',
   thumbnailPoster___internal___content = 'thumbnailPoster___internal___content',
   thumbnailPoster___internal___contentDigest = 'thumbnailPoster___internal___contentDigest',
+  thumbnailPoster___internal___contentFilePath = 'thumbnailPoster___internal___contentFilePath',
   thumbnailPoster___internal___description = 'thumbnailPoster___internal___description',
   thumbnailPoster___internal___fieldOwners = 'thumbnailPoster___internal___fieldOwners',
   thumbnailPoster___internal___ignoreType = 'thumbnailPoster___internal___ignoreType',
@@ -4835,6 +5116,7 @@ export enum SanityPostFieldsEnum {
   thumbnailPoster___parent___id = 'thumbnailPoster___parent___id',
   thumbnailPoster___parent___internal___content = 'thumbnailPoster___parent___internal___content',
   thumbnailPoster___parent___internal___contentDigest = 'thumbnailPoster___parent___internal___contentDigest',
+  thumbnailPoster___parent___internal___contentFilePath = 'thumbnailPoster___parent___internal___contentFilePath',
   thumbnailPoster___parent___internal___description = 'thumbnailPoster___parent___internal___description',
   thumbnailPoster___parent___internal___fieldOwners = 'thumbnailPoster___parent___internal___fieldOwners',
   thumbnailPoster___parent___internal___ignoreType = 'thumbnailPoster___parent___internal___ignoreType',
@@ -4864,11 +5146,17 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___children___id = 'thumbnail___asset___children___id',
   thumbnail___asset___description = 'thumbnail___asset___description',
   thumbnail___asset___extension = 'thumbnail___asset___extension',
+  thumbnail___asset___filename = 'thumbnail___asset___filename',
+  thumbnail___asset___filesize = 'thumbnail___asset___filesize',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  thumbnail___asset___gatsbyImage = 'thumbnail___asset___gatsbyImage',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   thumbnail___asset___gatsbyImageData = 'thumbnail___asset___gatsbyImageData',
+  thumbnail___asset___height = 'thumbnail___asset___height',
   thumbnail___asset___id = 'thumbnail___asset___id',
   thumbnail___asset___internal___content = 'thumbnail___asset___internal___content',
   thumbnail___asset___internal___contentDigest = 'thumbnail___asset___internal___contentDigest',
+  thumbnail___asset___internal___contentFilePath = 'thumbnail___asset___internal___contentFilePath',
   thumbnail___asset___internal___description = 'thumbnail___asset___internal___description',
   thumbnail___asset___internal___fieldOwners = 'thumbnail___asset___internal___fieldOwners',
   thumbnail___asset___internal___ignoreType = 'thumbnail___asset___internal___ignoreType',
@@ -4890,6 +5178,13 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___parent___children = 'thumbnail___asset___parent___children',
   thumbnail___asset___parent___id = 'thumbnail___asset___parent___id',
   thumbnail___asset___path = 'thumbnail___asset___path',
+  thumbnail___asset___publicUrl = 'thumbnail___asset___publicUrl',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  thumbnail___asset___resize___height = 'thumbnail___asset___resize___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  thumbnail___asset___resize___src = 'thumbnail___asset___resize___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  thumbnail___asset___resize___width = 'thumbnail___asset___resize___width',
   thumbnail___asset___sha1hash = 'thumbnail___asset___sha1hash',
   thumbnail___asset___size = 'thumbnail___asset___size',
   thumbnail___asset___source____key = 'thumbnail___asset___source____key',
@@ -4900,6 +5195,7 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___title = 'thumbnail___asset___title',
   thumbnail___asset___uploadId = 'thumbnail___asset___uploadId',
   thumbnail___asset___url = 'thumbnail___asset___url',
+  thumbnail___asset___width = 'thumbnail___asset___width',
   thumbnail___crop____key = 'thumbnail___crop____key',
   thumbnail___crop____type = 'thumbnail___crop____type',
   thumbnail___crop___bottom = 'thumbnail___crop___bottom',
@@ -5116,11 +5412,17 @@ export enum SanityPosterFieldsEnum {
   background___asset___children___id = 'background___asset___children___id',
   background___asset___description = 'background___asset___description',
   background___asset___extension = 'background___asset___extension',
+  background___asset___filename = 'background___asset___filename',
+  background___asset___filesize = 'background___asset___filesize',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  background___asset___gatsbyImage = 'background___asset___gatsbyImage',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   background___asset___gatsbyImageData = 'background___asset___gatsbyImageData',
+  background___asset___height = 'background___asset___height',
   background___asset___id = 'background___asset___id',
   background___asset___internal___content = 'background___asset___internal___content',
   background___asset___internal___contentDigest = 'background___asset___internal___contentDigest',
+  background___asset___internal___contentFilePath = 'background___asset___internal___contentFilePath',
   background___asset___internal___description = 'background___asset___internal___description',
   background___asset___internal___fieldOwners = 'background___asset___internal___fieldOwners',
   background___asset___internal___ignoreType = 'background___asset___internal___ignoreType',
@@ -5142,6 +5444,13 @@ export enum SanityPosterFieldsEnum {
   background___asset___parent___children = 'background___asset___parent___children',
   background___asset___parent___id = 'background___asset___parent___id',
   background___asset___path = 'background___asset___path',
+  background___asset___publicUrl = 'background___asset___publicUrl',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  background___asset___resize___height = 'background___asset___resize___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  background___asset___resize___src = 'background___asset___resize___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  background___asset___resize___width = 'background___asset___resize___width',
   background___asset___sha1hash = 'background___asset___sha1hash',
   background___asset___size = 'background___asset___size',
   background___asset___source____key = 'background___asset___source____key',
@@ -5152,6 +5461,7 @@ export enum SanityPosterFieldsEnum {
   background___asset___title = 'background___asset___title',
   background___asset___uploadId = 'background___asset___uploadId',
   background___asset___url = 'background___asset___url',
+  background___asset___width = 'background___asset___width',
   background___crop____key = 'background___crop____key',
   background___crop____type = 'background___crop____type',
   background___crop___bottom = 'background___crop___bottom',
@@ -5172,6 +5482,7 @@ export enum SanityPosterFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -5183,6 +5494,7 @@ export enum SanityPosterFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -5195,6 +5507,7 @@ export enum SanityPosterFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -5206,6 +5519,7 @@ export enum SanityPosterFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -5228,6 +5542,7 @@ export enum SanityPosterFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -5239,6 +5554,7 @@ export enum SanityPosterFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -5251,6 +5567,7 @@ export enum SanityPosterFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -5474,6 +5791,7 @@ export enum SanityScheduleAlertFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -5485,6 +5803,7 @@ export enum SanityScheduleAlertFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -5497,6 +5816,7 @@ export enum SanityScheduleAlertFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -5508,6 +5828,7 @@ export enum SanityScheduleAlertFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -5532,6 +5853,7 @@ export enum SanityScheduleAlertFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -5543,6 +5865,7 @@ export enum SanityScheduleAlertFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -5555,6 +5878,7 @@ export enum SanityScheduleAlertFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -5758,6 +6082,7 @@ export enum SanitySermonUploadFieldsEnum {
   audioFile___asset___id = 'audioFile___asset___id',
   audioFile___asset___internal___content = 'audioFile___asset___internal___content',
   audioFile___asset___internal___contentDigest = 'audioFile___asset___internal___contentDigest',
+  audioFile___asset___internal___contentFilePath = 'audioFile___asset___internal___contentFilePath',
   audioFile___asset___internal___description = 'audioFile___asset___internal___description',
   audioFile___asset___internal___fieldOwners = 'audioFile___asset___internal___fieldOwners',
   audioFile___asset___internal___ignoreType = 'audioFile___asset___internal___ignoreType',
@@ -5787,6 +6112,7 @@ export enum SanitySermonUploadFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -5798,6 +6124,7 @@ export enum SanitySermonUploadFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -5810,6 +6137,7 @@ export enum SanitySermonUploadFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -5823,6 +6151,7 @@ export enum SanitySermonUploadFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -5836,6 +6165,7 @@ export enum SanitySermonUploadFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -5847,6 +6177,7 @@ export enum SanitySermonUploadFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -5859,6 +6190,7 @@ export enum SanitySermonUploadFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -6033,6 +6365,7 @@ export enum SanityShortcutsFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -6044,6 +6377,7 @@ export enum SanityShortcutsFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -6056,6 +6390,7 @@ export enum SanityShortcutsFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -6078,6 +6413,7 @@ export enum SanityShortcutsFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -6091,6 +6427,7 @@ export enum SanityShortcutsFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -6102,6 +6439,7 @@ export enum SanityShortcutsFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -6114,6 +6452,7 @@ export enum SanityShortcutsFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -6377,6 +6716,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -6388,6 +6728,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -6400,6 +6741,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -6421,6 +6763,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -6434,6 +6777,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -6445,6 +6789,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -6457,6 +6802,7 @@ export enum SanityWeeklyScheduleFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -6533,6 +6879,7 @@ export type Site = Node & {
   __typename?: 'Site';
   buildTime?: Maybe<Scalars['Date']>;
   children: Array<Node>;
+  graphqlTypegen?: Maybe<Scalars['Boolean']>;
   host?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   internal: Internal;
@@ -6627,6 +6974,7 @@ export enum SiteBuildMetadataFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -6638,6 +6986,7 @@ export enum SiteBuildMetadataFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -6650,6 +6999,7 @@ export enum SiteBuildMetadataFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -6661,6 +7011,7 @@ export enum SiteBuildMetadataFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -6674,6 +7025,7 @@ export enum SiteBuildMetadataFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -6685,6 +7037,7 @@ export enum SiteBuildMetadataFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -6697,6 +7050,7 @@ export enum SiteBuildMetadataFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -6819,6 +7173,7 @@ export enum SiteFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -6830,6 +7185,7 @@ export enum SiteFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -6842,6 +7198,7 @@ export enum SiteFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -6850,10 +7207,12 @@ export enum SiteFieldsEnum {
   children___parent___internal___type = 'children___parent___internal___type',
   children___parent___parent___children = 'children___parent___parent___children',
   children___parent___parent___id = 'children___parent___parent___id',
+  graphqlTypegen = 'graphqlTypegen',
   host = 'host',
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -6868,6 +7227,7 @@ export enum SiteFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -6879,6 +7239,7 @@ export enum SiteFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -6891,6 +7252,7 @@ export enum SiteFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -6914,6 +7276,7 @@ export enum SiteFieldsEnum {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
@@ -6998,6 +7361,7 @@ export enum SiteFunctionFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -7009,6 +7373,7 @@ export enum SiteFunctionFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -7021,6 +7386,7 @@ export enum SiteFunctionFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -7033,6 +7399,7 @@ export enum SiteFunctionFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -7049,6 +7416,7 @@ export enum SiteFunctionFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -7060,6 +7428,7 @@ export enum SiteFunctionFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -7072,6 +7441,7 @@ export enum SiteFunctionFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -7258,6 +7628,7 @@ export enum SitePageFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -7269,6 +7640,7 @@ export enum SitePageFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -7281,6 +7653,7 @@ export enum SitePageFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -7295,6 +7668,7 @@ export enum SitePageFieldsEnum {
   internalComponentName = 'internalComponentName',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -7310,6 +7684,7 @@ export enum SitePageFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -7321,6 +7696,7 @@ export enum SitePageFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -7333,6 +7709,7 @@ export enum SitePageFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
@@ -7350,6 +7727,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___children___id = 'pluginCreator___children___id',
   pluginCreator___children___internal___content = 'pluginCreator___children___internal___content',
   pluginCreator___children___internal___contentDigest = 'pluginCreator___children___internal___contentDigest',
+  pluginCreator___children___internal___contentFilePath = 'pluginCreator___children___internal___contentFilePath',
   pluginCreator___children___internal___description = 'pluginCreator___children___internal___description',
   pluginCreator___children___internal___fieldOwners = 'pluginCreator___children___internal___fieldOwners',
   pluginCreator___children___internal___ignoreType = 'pluginCreator___children___internal___ignoreType',
@@ -7361,6 +7739,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___id = 'pluginCreator___id',
   pluginCreator___internal___content = 'pluginCreator___internal___content',
   pluginCreator___internal___contentDigest = 'pluginCreator___internal___contentDigest',
+  pluginCreator___internal___contentFilePath = 'pluginCreator___internal___contentFilePath',
   pluginCreator___internal___description = 'pluginCreator___internal___description',
   pluginCreator___internal___fieldOwners = 'pluginCreator___internal___fieldOwners',
   pluginCreator___internal___ignoreType = 'pluginCreator___internal___ignoreType',
@@ -7376,6 +7755,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___parent___id = 'pluginCreator___parent___id',
   pluginCreator___parent___internal___content = 'pluginCreator___parent___internal___content',
   pluginCreator___parent___internal___contentDigest = 'pluginCreator___parent___internal___contentDigest',
+  pluginCreator___parent___internal___contentFilePath = 'pluginCreator___parent___internal___contentFilePath',
   pluginCreator___parent___internal___description = 'pluginCreator___parent___internal___description',
   pluginCreator___parent___internal___fieldOwners = 'pluginCreator___parent___internal___fieldOwners',
   pluginCreator___parent___internal___ignoreType = 'pluginCreator___parent___internal___ignoreType',
@@ -7526,6 +7906,7 @@ export enum SitePluginFieldsEnum {
   children___children___id = 'children___children___id',
   children___children___internal___content = 'children___children___internal___content',
   children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___contentFilePath = 'children___children___internal___contentFilePath',
   children___children___internal___description = 'children___children___internal___description',
   children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
   children___children___internal___ignoreType = 'children___children___internal___ignoreType',
@@ -7537,6 +7918,7 @@ export enum SitePluginFieldsEnum {
   children___id = 'children___id',
   children___internal___content = 'children___internal___content',
   children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___contentFilePath = 'children___internal___contentFilePath',
   children___internal___description = 'children___internal___description',
   children___internal___fieldOwners = 'children___internal___fieldOwners',
   children___internal___ignoreType = 'children___internal___ignoreType',
@@ -7549,6 +7931,7 @@ export enum SitePluginFieldsEnum {
   children___parent___id = 'children___parent___id',
   children___parent___internal___content = 'children___parent___internal___content',
   children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___contentFilePath = 'children___parent___internal___contentFilePath',
   children___parent___internal___description = 'children___parent___internal___description',
   children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
   children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
@@ -7560,6 +7943,7 @@ export enum SitePluginFieldsEnum {
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
+  internal___contentFilePath = 'internal___contentFilePath',
   internal___description = 'internal___description',
   internal___fieldOwners = 'internal___fieldOwners',
   internal___ignoreType = 'internal___ignoreType',
@@ -7576,6 +7960,7 @@ export enum SitePluginFieldsEnum {
   parent___children___id = 'parent___children___id',
   parent___children___internal___content = 'parent___children___internal___content',
   parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___contentFilePath = 'parent___children___internal___contentFilePath',
   parent___children___internal___description = 'parent___children___internal___description',
   parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
   parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
@@ -7587,6 +7972,7 @@ export enum SitePluginFieldsEnum {
   parent___id = 'parent___id',
   parent___internal___content = 'parent___internal___content',
   parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___contentFilePath = 'parent___internal___contentFilePath',
   parent___internal___description = 'parent___internal___description',
   parent___internal___fieldOwners = 'parent___internal___fieldOwners',
   parent___internal___ignoreType = 'parent___internal___ignoreType',
@@ -7599,6 +7985,7 @@ export enum SitePluginFieldsEnum {
   parent___parent___id = 'parent___parent___id',
   parent___parent___internal___content = 'parent___parent___internal___content',
   parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___contentFilePath = 'parent___parent___internal___contentFilePath',
   parent___parent___internal___description = 'parent___parent___internal___description',
   parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
   parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
