@@ -4,10 +4,3 @@ export function hitPreviewWebhook() {
     { method: 'POST' }
   )
 }
-
-export function keepPreviewAlive() {
-  hitPreviewWebhook()
-  setInterval(() => {
-    hitPreviewWebhook()
-  }, 60000)
-}
