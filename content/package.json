@@ -24,8 +24,8 @@
     "@sanity/production-preview": "2.15.0",
     "@types/styled-components": "^5.1.23",
     "date-fns": "2.x.x",
-    "react": "17.0.x",
-    "react-dom": "17.0.x",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-markdown": "^6.0.0",
     "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
     "styled-components": "^5.3.3"

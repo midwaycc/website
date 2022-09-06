@@ -10,9 +10,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
-  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
 };
 
@@ -2696,6 +2694,7 @@ export enum SanityImageAssetFieldsEnum {
   children___parent___parent___id = 'children___parent___parent___id',
   description = 'description',
   extension = 'extension',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   gatsbyImageData = 'gatsbyImageData',
   id = 'id',
   internal___content = 'internal___content',
@@ -3381,6 +3380,7 @@ export enum SanityMinistryPageFieldsEnum {
   subLogo___asset___children___id = 'subLogo___asset___children___id',
   subLogo___asset___description = 'subLogo___asset___description',
   subLogo___asset___extension = 'subLogo___asset___extension',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   subLogo___asset___gatsbyImageData = 'subLogo___asset___gatsbyImageData',
   subLogo___asset___id = 'subLogo___asset___id',
   subLogo___asset___internal___content = 'subLogo___asset___internal___content',
@@ -4666,6 +4666,7 @@ export enum SanityPostFieldsEnum {
   ministries___subLogo___asset___children = 'ministries___subLogo___asset___children',
   ministries___subLogo___asset___description = 'ministries___subLogo___asset___description',
   ministries___subLogo___asset___extension = 'ministries___subLogo___asset___extension',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ministries___subLogo___asset___gatsbyImageData = 'ministries___subLogo___asset___gatsbyImageData',
   ministries___subLogo___asset___id = 'ministries___subLogo___asset___id',
   ministries___subLogo___asset___label = 'ministries___subLogo___asset___label',
@@ -4771,6 +4772,7 @@ export enum SanityPostFieldsEnum {
   thumbnailPoster___background___asset___children = 'thumbnailPoster___background___asset___children',
   thumbnailPoster___background___asset___description = 'thumbnailPoster___background___asset___description',
   thumbnailPoster___background___asset___extension = 'thumbnailPoster___background___asset___extension',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   thumbnailPoster___background___asset___gatsbyImageData = 'thumbnailPoster___background___asset___gatsbyImageData',
   thumbnailPoster___background___asset___id = 'thumbnailPoster___background___asset___id',
   thumbnailPoster___background___asset___label = 'thumbnailPoster___background___asset___label',
@@ -4862,6 +4864,7 @@ export enum SanityPostFieldsEnum {
   thumbnail___asset___children___id = 'thumbnail___asset___children___id',
   thumbnail___asset___description = 'thumbnail___asset___description',
   thumbnail___asset___extension = 'thumbnail___asset___extension',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   thumbnail___asset___gatsbyImageData = 'thumbnail___asset___gatsbyImageData',
   thumbnail___asset___id = 'thumbnail___asset___id',
   thumbnail___asset___internal___content = 'thumbnail___asset___internal___content',
@@ -5113,6 +5116,7 @@ export enum SanityPosterFieldsEnum {
   background___asset___children___id = 'background___asset___children___id',
   background___asset___description = 'background___asset___description',
   background___asset___extension = 'background___asset___extension',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   background___asset___gatsbyImageData = 'background___asset___gatsbyImageData',
   background___asset___id = 'background___asset___id',
   background___asset___internal___content = 'background___asset___internal___content',

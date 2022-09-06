@@ -3,7 +3,7 @@ import { getMostRecentMonday } from './dateUtils'
 describe('Weekly Schedule', () => {
   describe('getMostRecentMonday', () => {
     beforeAll(() => {
-      jest.useFakeTimers('modern')
+      jest.useFakeTimers()
     })
 
     afterAll(() => {
