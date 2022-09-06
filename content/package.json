@@ -21,13 +21,13 @@
     "@sanity/default-layout": "2.31.1",
     "@sanity/default-login": "2.31.1",
     "@sanity/desk-tool": "2.31.1",
-    "@sanity/production-preview": "2.29.3",
     "@types/styled-components": "^5.1.23",
     "date-fns": "2.x.x",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-markdown": "^6.0.0",
     "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
+    "sanity-plugin-gatsby-cloud-preview": "^1.0.3",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

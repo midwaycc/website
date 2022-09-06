@@ -34,7 +34,6 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/dashboard",
-    "@sanity/production-preview",
     "dashboard-widget-gatsby"
   ],
   "parts": [
@@ -43,7 +42,7 @@
       "path": "./schemas/schema"
     },
     {
-      "implements": "part:@sanity/production-preview/resolve-production-url",
+      "implements": "part:@sanity/base/document-actions/resolver",
       "path": "./plugins/previewLink"
     },
     {
