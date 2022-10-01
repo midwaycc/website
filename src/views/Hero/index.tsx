@@ -19,7 +19,7 @@ export function Hero() {
       <VideoContainer>
         <video autoPlay loop preload="" muted playsInline>
           <source
-            src="https://res.cloudinary.com/ksmithbaylor/video/upload/v1664414292/landing-optimized.mp4"
+            src="https://cdn.sanity.io/files/iq9kxmf9/production/3ae84bb63857e23dd483decc61619583fd4c8061.mp4"
             type="video/mp4"
           />
         </video>
