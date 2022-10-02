@@ -19,7 +19,7 @@ export function Hero() {
       <VideoContainer>
         <video autoPlay loop preload="" muted playsInline>
           <source
-            src="https://cdn.sanity.io/files/iq9kxmf9/production/3ae84bb63857e23dd483decc61619583fd4c8061.mp4"
+            src="https://cdn.sanity.io/files/iq9kxmf9/production/2f515d22e7dc37b67ed83a79532e278e2f27df75.mp4"
             type="video/mp4"
           />
         </video>
@@ -61,22 +61,22 @@ const query = graphql`
 
 const Container = styled.section`
   width: 100%;
-  height: calc((100vw / 16) * 9);
-  min-height: 720px;
+  height: calc(100vh - 90px);
   overflow: hidden;
   position: relative;
 `
 
 const VideoContainer = styled.div`
-  width: 100%;
-  height: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   video {
-    min-height: 100%;
-    min-width: 100%;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 `
 
