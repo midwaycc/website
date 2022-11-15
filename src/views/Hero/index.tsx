@@ -19,7 +19,7 @@ export function Hero() {
       <VideoContainer>
         <video autoPlay loop preload="" muted playsInline>
           <source
-            src="https://cdn.sanity.io/files/iq9kxmf9/production/2f515d22e7dc37b67ed83a79532e278e2f27df75.mp4"
+            src="https://cdn.sanity.io/files/iq9kxmf9/production/75739849d8d6604a60cf62b7d6858db7d109b10f.mp4"
             type="video/mp4"
           />
         </video>
