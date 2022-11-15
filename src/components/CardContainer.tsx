@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import { PostTitle } from '~/components/PostSummary'
 import { media } from '~/utils/media'
 
 type ContainerProps = {
@@ -25,16 +24,18 @@ export function CardContainer({
   useEffect(() => {
     ;(document as any).fonts.ready.then(() => {
       if (outer.current) {
-        const titles = outer.current.querySelectorAll(PostTitle.toString())
-        const heights = Array.prototype.map.call(
-          titles,
-          (title: Element) => title.clientHeight
-        ) as number[]
+        const titles = [
+          ...(outer.current.querySelectorAll(
+            '.aligned-title'
+          ) as unknown as Element[])
+        ]
+        const heights = titles.map((title: Element) => title.clientHeight)
         const maxHeight = Math.max(...heights)
+        console.log({ titles, heights, maxHeight })
         setTitleHeight(maxHeight)
       }
     })
-  }, [])
+  }, [outer.current])
 
   return (
     <Container
@@ -55,7 +56,7 @@ export const Container = styled.div<ContainerProps>`
   justify-content: flex-start;
   margin-top: 2em;
 
-  ${PostTitle} {
+  .aligned-title {
     min-height: ${props => props.$titleHeight}px;
   }
 

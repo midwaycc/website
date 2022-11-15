@@ -3,6 +3,8 @@ declare module 'part:@sanity/base/schema-creator'
 declare module 'part:@sanity/form-builder'
 declare module 'all:part:@sanity/base/schema-type'
 declare module 'part:@sanity/components/buttons/default'
+declare module 'part:@sanity/base/document-actions'
+declare module 'sanity-plugin-gatsby-cloud-preview'
 declare module '*.css'
 declare module '*.svg'
 

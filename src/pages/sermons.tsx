@@ -63,7 +63,7 @@ const Sermon = ({ sermon }: { sermon: Sermon }) => {
   const src = sermon.audioFile?.asset?.url
 
   return (
-    <div>
+    <SermonContainer>
       <SermonTitle>{title}</SermonTitle>
       {src ? (
         <>
@@ -79,18 +79,23 @@ const Sermon = ({ sermon }: { sermon: Sermon }) => {
       ) : (
         <p>(no file)</p>
       )}
-    </div>
+    </SermonContainer>
   )
 }
 
 function sermonTitle(sermon: Sermon) {
-  return [`Message: ${niceDate(sermon.date)}`, sermon.extraInfo]
-    .filter(Boolean)
-    .join(' - ')
+  return [niceDate(sermon.date), sermon.extraInfo].filter(Boolean).join(' - ')
 }
+
+const SermonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+`
 
 const SermonTitle = styled.h3`
   margin: 0;
   margin-bottom: 0.5em;
   color: ${props => props.theme.colors.darkTeal.hex};
+  flex-grow: 1;
 `

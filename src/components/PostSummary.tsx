@@ -40,7 +40,7 @@ export function PostSummary({ post }: Props) {
           />
         )
       )}
-      <PostTitle>{post.title}</PostTitle>
+      <PostTitle className="aligned-title">{post.title}</PostTitle>
       <div onClick={handleClick}>
         {post._rawSummary && (
           <RichContent noPadding blocks={post._rawSummary} />
