@@ -5,6 +5,7 @@ processes = []
 
 [env]
   NODE_ENV = "development"
+  NODE_OPTIONS = "--max-old-space-size=1024"
 
 [experimental]
   allowed_public_ports = []
