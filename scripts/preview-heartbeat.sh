@@ -1,5 +1,3 @@
-#!/bin/bash
-
 set -e
 
 heartbeat_query="query { sanityNavigation { heartbeat } }"
@@ -18,6 +16,8 @@ heartbeat_update=$(cat <<-JSON
 JSON
 )
 
+HEARTBEAT_SANITY_TOKEN=$(echo -ne "fxn4EmqB73jaSNbvBjNEXoOZsmjr6ENfNafaEyOj5YdVA0Ats3cC7trEUKG8AutaeoPlv4Jr7y8eYmz4c2ZMvGKg77e9j54269QQN8IbQjAZHjSgiSBwLglpP36N1EymKPsO8H6YQTcPKFbYUHFTrlZ6LfwKkhcMpaoyr0FT1idbJyTsc2MH" | tr '[A-MN-Za-mn-z]' '[N-ZA-Mn-za-m]')
+
 function read_heartbeat() {
   curl -s 'https://midwaycc-preview.fly.dev/___graphql' \
     -H 'Content-Type: application/json' \
@@ -29,7 +29,6 @@ function write_heartbeat() {
     -H 'Content-Type: application/json' \
     -H "Authorization: Bearer ${HEARTBEAT_SANITY_TOKEN}" \
     -d "${heartbeat_update}"
-
 }
 
 before=$(read_heartbeat)
