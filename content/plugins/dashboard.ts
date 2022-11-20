@@ -2,7 +2,7 @@ export default {
   widgets: [
     {
       name: 'gatsby',
-      options: { sites: [{ siteUrl: 'https://preview-midwaycc.gtsb.io' }] },
+      options: { sites: [{ siteUrl: 'https://midwaycc-preview.fly.dev' }] },
       layout: {
         width: 'medium',
         height: 'small'

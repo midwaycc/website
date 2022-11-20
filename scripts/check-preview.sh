@@ -2,7 +2,7 @@
 
 clear
 
-if curl -s 'https://preview-midwaycc.gtsb.io/' | grep -q 'A Place to Call Home'; then
+if curl -s 'https://midwaycc-preview.fly.dev/' | grep -q 'A Place to Call Home'; then
   echo -n 'All good! '
   gdate
 else
