@@ -1288,6 +1288,7 @@ export type QuerySanityNavigationArgs = {
   _type?: InputMaybe<StringQueryOperatorInput>;
   _updatedAt?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  heartbeat?: InputMaybe<DateQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
@@ -3753,6 +3754,7 @@ export type SanityNavigation = Node & SanityDocument & {
   _type?: Maybe<Scalars['String']>;
   _updatedAt?: Maybe<Scalars['Date']>;
   children: Array<Node>;
+  heartbeat?: Maybe<Scalars['Date']>;
   id: Scalars['ID'];
   internal: Internal;
   items?: Maybe<Array<Maybe<SanityNestedMenuOrPageLinkOrPlainLink>>>;
@@ -3774,6 +3776,14 @@ export type SanityNavigation_RawItemsArgs = {
 
 
 export type SanityNavigation_UpdatedAtArgs = {
+  difference?: InputMaybe<Scalars['String']>;
+  formatString?: InputMaybe<Scalars['String']>;
+  fromNow?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+export type SanityNavigationHeartbeatArgs = {
   difference?: InputMaybe<Scalars['String']>;
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
@@ -3877,6 +3887,7 @@ export enum SanityNavigationFieldsEnum {
   children___parent___internal___type = 'children___parent___internal___type',
   children___parent___parent___children = 'children___parent___parent___children',
   children___parent___parent___id = 'children___parent___parent___id',
+  heartbeat = 'heartbeat',
   id = 'id',
   internal___content = 'internal___content',
   internal___contentDigest = 'internal___contentDigest',
@@ -3939,6 +3950,7 @@ export type SanityNavigationFilterInput = {
   _type?: InputMaybe<StringQueryOperatorInput>;
   _updatedAt?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  heartbeat?: InputMaybe<DateQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
@@ -8172,6 +8184,11 @@ type AnyNavLink_SanityPageLink_Fragment = { __typename: 'SanityPageLink', text?:
 type AnyNavLink_SanityPlainLink_Fragment = { __typename: 'SanityPlainLink', link?: string | null, text?: string | null, sameWindow?: boolean | null };
 
 export type AnyNavLinkFragment = AnyNavLink_SanityPageLink_Fragment | AnyNavLink_SanityPlainLink_Fragment;
+
+export type HeartbeatQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HeartbeatQuery = { __typename?: 'Query', sanityNavigation?: { __typename?: 'SanityNavigation', heartbeat?: any | null } | null };
 
 export type HeroSectionQueryVariables = Exact<{ [key: string]: never; }>;
 
