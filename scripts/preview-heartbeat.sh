@@ -19,7 +19,7 @@ JSON
 )
 
 function read_heartbeat() {
-  curl -s 'http://localhost:8000/___graphql' \
+  curl -s 'https://midwaycc-preview.fly.dev/___graphql' \
     -H 'Content-Type: application/json' \
     -d "{\"query\": \"${heartbeat_query}\"}"
 }
