@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 heartbeat_query="query { sanityNavigation { heartbeat } }"
