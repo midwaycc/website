@@ -1,6 +1,6 @@
 app = "midwaycc-preview"
 kill_signal = "SIGINT"
-kill_timeout = 5
+kill_timeout = 10
 processes = []
 
 [env]
@@ -16,12 +16,12 @@ processes = []
   processes = ["app"]
   protocol = "tcp"
 
-  # [services.script_checks]
-  #   command       = "scripts/preview-heartbeat.sh"
-  #   grace_period  = "3m"
-  #   interval      = "30s"
-  #   restart_limit = 10
-  #   timeout       = "30s"
+  [services.script_checks]
+    command       = "/app/scripts/preview-heartbeat.sh"
+    grace_period  = "2m"
+    interval      = "30s"
+    restart_limit = 10
+    timeout       = "30s"
 
   [services.concurrency]
     hard_limit = 25
