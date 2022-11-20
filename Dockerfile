@@ -5,8 +5,8 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn
 
-ENV NODE_ENV
-ENV SANITY_TOKEN
+ENV NODE_ENV development
+ENV SANITY_TOKEN asdf
 
 COPY static ./static
 copy siteMetadata.js .
