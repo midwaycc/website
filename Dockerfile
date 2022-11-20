@@ -8,6 +8,7 @@ RUN yarn
 ENV NODE_ENV development
 ENV SANITY_TOKEN asdf
 
+COPY scripts ./scripts
 COPY static ./static
 copy siteMetadata.js .
 COPY podcast-feed.js .
