@@ -17,7 +17,7 @@ processes = []
 
   [services.script_checks]
     command       = "scripts/preview-heartbeat.sh"
-    grace_period  = "30s"
+    grace_period  = "2m"
     interval      = "10s"
     restart_limit = 6
     timeout       = "10s"
