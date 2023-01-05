@@ -18,6 +18,7 @@ export function ContactForm() {
         action="/contact/success"
         data-netlify="true"
         data-netlify-honeypot="phone"
+        data-netlify-recaptcha="true"
       >
         <TextInput title="Name" name="name" value={name} set={setName} />
         <TextInput title="Email" name="email" value={email} set={setEmail} />
@@ -35,6 +36,7 @@ export function ContactForm() {
           value={message}
           set={setMessage}
         />
+        <div data-netlify-recaptcha="true" />
         <SquareButton
           type="submit"
           style={{ marginTop: '1em' }}
