@@ -36,7 +36,11 @@ export function ContactForm() {
           value={message}
           set={setMessage}
         />
-        <div data-netlify-recaptcha="true" />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: '<div data-netlify-recaptcha="true"></div>'
+          }}
+        />
         <SquareButton
           type="submit"
           style={{ marginTop: '1em' }}
