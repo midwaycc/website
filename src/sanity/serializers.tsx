@@ -10,6 +10,7 @@ import { PosterInContent } from '~/sanity/blockSerializers/PosterInContent'
 import { ScriptureReference } from '~/sanity/blockSerializers/ScriptureReference'
 import { VerticalSpace } from '~/sanity/blockSerializers/VerticalSpace'
 import { VideoEmbed } from '~/sanity/blockSerializers/VideoEmbed'
+import { AudioFile } from '~/sanity/blockSerializers/AudioFile'
 
 export function getSerializers({
   BlockContent,
@@ -52,6 +53,7 @@ export function getSerializers({
       buttonRow: ButtonRow,
       picture: Picture,
       posterInContent: PosterInContent,
+      audioFile: AudioFile,
       scriptureReference: ScriptureReference,
       // These types can't nest, so no need to define a serializer for them
       // if we are in a nested context.

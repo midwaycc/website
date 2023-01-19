@@ -1635,6 +1635,24 @@ export type SanityAssetSourceDataFilterInput = {
   url?: InputMaybe<StringQueryOperatorInput>;
 };
 
+export type SanityAudioFile = {
+  __typename?: 'SanityAudioFile';
+  _key?: Maybe<Scalars['String']>;
+  _rawAudioFile?: Maybe<Scalars['JSON']>;
+  _type?: Maybe<Scalars['String']>;
+  audioFile?: Maybe<SanityFile>;
+  title?: Maybe<Scalars['String']>;
+};
+
+
+export type SanityAudioFile_RawAudioFileArgs = {
+  resolveReferences?: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+export type SanityAudioFileOrBlockOrButtonLinkOrButtonRowOrColumnRowOrContentSectionOrPictureOrPosterInContentOrScriptureReferenceOrVerticalSpaceOrVideoEmbed = SanityAudioFile | SanityBlock | SanityButtonLink | SanityButtonRow | SanityColumnRow | SanityContentSection | SanityPicture | SanityPosterInContent | SanityScriptureReference | SanityVerticalSpace | SanityVideoEmbed;
+
+export type SanityAudioFileOrBlockOrButtonLinkOrButtonRowOrPictureOrPosterInContentOrScriptureReferenceOrVerticalSpaceOrVideoEmbed = SanityAudioFile | SanityBlock | SanityButtonLink | SanityButtonRow | SanityPicture | SanityPosterInContent | SanityScriptureReference | SanityVerticalSpace | SanityVideoEmbed;
+
 export type SanityBlock = {
   __typename?: 'SanityBlock';
   _key?: Maybe<Scalars['String']>;
@@ -1662,10 +1680,6 @@ export type SanityBlockFilterInput = {
 export type SanityBlockFilterListInput = {
   elemMatch?: InputMaybe<SanityBlockFilterInput>;
 };
-
-export type SanityBlockOrButtonLinkOrButtonRowOrColumnRowOrContentSectionOrPictureOrPosterInContentOrScriptureReferenceOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityButtonRow | SanityColumnRow | SanityContentSection | SanityPicture | SanityPosterInContent | SanityScriptureReference | SanityVerticalSpace | SanityVideoEmbed;
-
-export type SanityBlockOrButtonLinkOrButtonRowOrPictureOrPosterInContentOrScriptureReferenceOrVerticalSpaceOrVideoEmbed = SanityBlock | SanityButtonLink | SanityButtonRow | SanityPicture | SanityPosterInContent | SanityScriptureReference | SanityVerticalSpace | SanityVideoEmbed;
 
 export type SanityButtonLink = {
   __typename?: 'SanityButtonLink';

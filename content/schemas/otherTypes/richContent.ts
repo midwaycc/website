@@ -10,6 +10,7 @@ export const richContent = {
     { type: 'picture' },
     { type: 'posterInContent' },
     { type: 'videoEmbed' },
+    { type: 'audioFile' },
     { type: 'contentSection' },
     { type: 'columnRow' },
     { type: 'scriptureReference' }

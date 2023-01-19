@@ -25,6 +25,7 @@ import { pageLink } from './otherTypes/pageLink'
 import { nestedMenu } from './otherTypes/nestedMenu'
 import { pageSection } from './otherTypes/pageSection'
 import { picture } from './otherTypes/picture'
+import { audioFile } from './otherTypes/audioFile'
 import { verticalSpace } from './otherTypes/verticalSpace'
 import { videoEmbed } from './otherTypes/videoEmbed'
 import { buttonLink } from './otherTypes/buttonLink'
@@ -60,6 +61,7 @@ export default createSchema({
     richContent,
     simpleRichContent,
     picture,
+    audioFile,
     verticalSpace,
     videoEmbed,
     buttonLink,
