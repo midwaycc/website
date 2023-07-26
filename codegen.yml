@@ -1,4 +1,4 @@
-schema: http://localhost:8000/___graphql
+schema: http://127.0.0.1:8000/___graphql
 documents:
   - ./src/**/*.{ts,tsx}
   - ./node_modules/gatsby-source-sanity/**/*.js

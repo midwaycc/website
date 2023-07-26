@@ -58,6 +58,7 @@ export const post = {
     },
     {
       name: 'thumbnailPoster',
+      hidden: true,
       title: 'Thumbnail Poster',
       description:
         'If present, this takes precedence over the image field above.',
@@ -66,9 +67,16 @@ export const post = {
     },
     {
       name: 'thumbnailPosterPreview',
+      hidden: true,
       title: 'Thumbnail Poster Preview',
       type: 'number',
       inputComponent: posterPreviewForField('thumbnailPoster')
+    },
+    {
+      name: 'oneClickLink',
+      type: 'url',
+      title: 'One-Click Link',
+      description: 'If present, clicking the post on the home page will open this URL in a new tab instead of going to the full post page.'
     },
     {
       name: 'summary',

@@ -1351,6 +1351,7 @@ export type QuerySanityPostArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   ministries?: InputMaybe<SanityMinistryPageFilterListInput>;
+  oneClickLink?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   slug?: InputMaybe<SanitySlugFilterInput>;
   summary?: InputMaybe<SanityBlockFilterListInput>;
@@ -4665,6 +4666,7 @@ export type SanityPost = Node & SanityDocument & {
   id: Scalars['ID'];
   internal: Internal;
   ministries?: Maybe<Array<Maybe<SanityMinistryPage>>>;
+  oneClickLink?: Maybe<Scalars['String']>;
   parent?: Maybe<Node>;
   slug?: Maybe<SanitySlug>;
   summary?: Maybe<Array<Maybe<SanityBlock>>>;
@@ -4988,6 +4990,7 @@ export enum SanityPostFieldsEnum {
   ministries___url____key = 'ministries___url____key',
   ministries___url____type = 'ministries___url____type',
   ministries___url___current = 'ministries___url___current',
+  oneClickLink = 'oneClickLink',
   parent___children = 'parent___children',
   parent___children___children = 'parent___children___children',
   parent___children___children___children = 'parent___children___children___children',
@@ -5258,6 +5261,7 @@ export type SanityPostFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   ministries?: InputMaybe<SanityMinistryPageFilterListInput>;
+  oneClickLink?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   slug?: InputMaybe<SanitySlugFilterInput>;
   summary?: InputMaybe<SanityBlockFilterListInput>;
