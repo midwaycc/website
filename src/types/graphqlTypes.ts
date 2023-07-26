@@ -8141,7 +8141,7 @@ export type StringQueryOperatorInput = {
   regex?: InputMaybe<Scalars['String']>;
 };
 
-export type PostCardDetailsFragment = { __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null };
+export type PostCardDetailsFragment = { __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, oneClickLink?: string | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null };
 
 export type NewsletterQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8158,7 +8158,7 @@ export type MinistryPageQueryVariables = Exact<{
 }>;
 
 
-export type MinistryPageQuery = { __typename?: 'Query', sanityMinistryPage?: { __typename?: 'SanityMinistryPage', name?: string | null, _rawContent?: any | null, subLogoWidth?: number | null, _rawSections?: any | null, subLogo?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null, url?: { __typename?: 'SanitySlug', current?: string | null } | null, sections?: Array<{ __typename?: 'SanityPageSection', _key?: string | null, name?: string | null, urlSuffix?: { __typename?: 'SanitySlug', current?: string | null } | null } | null> | null } | null, allSanityPost: { __typename?: 'SanityPostConnection', nodes: Array<{ __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null }> } };
+export type MinistryPageQuery = { __typename?: 'Query', sanityMinistryPage?: { __typename?: 'SanityMinistryPage', name?: string | null, _rawContent?: any | null, subLogoWidth?: number | null, _rawSections?: any | null, subLogo?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null, url?: { __typename?: 'SanitySlug', current?: string | null } | null, sections?: Array<{ __typename?: 'SanityPageSection', _key?: string | null, name?: string | null, urlSuffix?: { __typename?: 'SanitySlug', current?: string | null } | null } | null> | null } | null, allSanityPost: { __typename?: 'SanityPostConnection', nodes: Array<{ __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, oneClickLink?: string | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null }> } };
 
 export type PageQueryVariables = Exact<{
   _id: Scalars['String'];
@@ -8180,7 +8180,7 @@ export type AllPostsQueryVariables = Exact<{
 }>;
 
 
-export type AllPostsQuery = { __typename?: 'Query', allSanityPost: { __typename?: 'SanityPostConnection', nodes: Array<{ __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null }> } };
+export type AllPostsQuery = { __typename?: 'Query', allSanityPost: { __typename?: 'SanityPostConnection', nodes: Array<{ __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, oneClickLink?: string | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null }> } };
 
 export type ChurchInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8221,7 +8221,7 @@ export type ChurchLocationQuery = { __typename?: 'Query', site?: { __typename?: 
 export type RecentPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type RecentPostsQuery = { __typename?: 'Query', allSanityPost: { __typename?: 'SanityPostConnection', nodes: Array<{ __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null }> } };
+export type RecentPostsQuery = { __typename?: 'Query', allSanityPost: { __typename?: 'SanityPostConnection', nodes: Array<{ __typename?: 'SanityPost', _id?: string | null, date?: any | null, title?: string | null, _rawSummary?: any | null, _rawThumbnailPoster?: any | null, oneClickLink?: string | null, slug?: { __typename?: 'SanitySlug', current?: string | null } | null, thumbnail?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null } | null }> } };
 
 export type WeeklyScheduleQueryVariables = Exact<{ [key: string]: never; }>;
 

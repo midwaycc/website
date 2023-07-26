@@ -14,6 +14,20 @@ type Props = {
 export function PostCard({ post, addToUrl }: Props) {
   if (!post.slug) return null
 
+  if (!!post.oneClickLink) {
+    return (
+      <Container>
+        <a
+          style={{ display: 'block', color: 'inherit', textDecoration: 'none' }}
+          href={post.oneClickLink}
+          target="_blank"
+        >
+          <PostSummary post={post} />
+        </a>
+      </Container>
+    )
+  }
+
   const postUrl = `/posts/${post.slug.current}${addToUrl || ''}`
 
   return (
@@ -38,6 +52,7 @@ export const query = graphql`
         gatsbyImageData(width: 400, aspectRatio: 1)
       }
     }
+    oneClickLink
   }
 `
 
